@@ -11,13 +11,13 @@ router.get('/', (req, res) => {
 
 // FACEBOOK VERIFICATION
 // -----------------------------------------------------------------------------
-router.get('/w', (req, res) => {
+router.get('/facebook-webhook', (req, res) => {
     res.status(200).json({good: 'Nice'})
 })
 
 // INCOME POST DATA FROM FACEBOOK
 // -----------------------------------------------------------------------------
-router.post('/w', (req, res) => {
+router.post('/facebook-webhook', (req, res) => {
     res.status(200).json({good: 'Nice'})
 })
 
