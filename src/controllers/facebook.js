@@ -1,4 +1,4 @@
-
+import {sendTextMessage} from '../bot/messages'
 export async function  facebookVerificationHook(req, res) {
    // Your verify token. Should be a random string.
    let VERIFY_TOKEN = "TriPrsaNaHrudi89"
@@ -29,8 +29,10 @@ export async function facebookEventHook(req, res){
                 //let webhook_event = entry.messaging[0]
                 let webhook_event = event
 
+                console.log(webhook_event.sender.id)
                 console.log(webhook_event.message)
                 console.log(webhook_event.postback)
+                sendTextMessage(webhook_event.sender.id, 'ahoj karel')
             })  
         })
         res.status(200).send('EVENT_RECEIVED')
