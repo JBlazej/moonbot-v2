@@ -1,4 +1,4 @@
-import {sendTextMessage} from 'messages'
+import {sendTextMessage} from './messages'
 
 export function transformTextMessage(sender, text){
     const incomeMessage = text.toLowerCase().trim()

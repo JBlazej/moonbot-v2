@@ -36,7 +36,7 @@ export async function facebookEventHook(req, res){
                 console.log(webhook_event.postback)
                 transformTextMessage(webhook_event.sender.id, webhook_event.message.text)
             
-            })  
+            })
             res.status(200).send('EVENT_RECEIVED')
         })
     } else {
