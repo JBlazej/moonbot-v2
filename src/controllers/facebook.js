@@ -28,7 +28,7 @@ export async function facebookEventHook(req, res){
             let webhook_event = entry.messaging[0]
             
             console.log(webhook_event)
-            console.log(entry)
+            console.log(webhook_event.postback)
         })
         res.status(200).send('EVENT_RECEIVED')
     } else {
