@@ -1,1 +1,1 @@
-{ "presets": ["es2015", "es2017", "stage-0"] }
+{ "presets": ["env","es2015", "es2017", "stage-2"] }

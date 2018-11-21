@@ -40,6 +40,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Start Express server.
  */
 var app = (0, _express2.default)();
+
 /**
  * Setup Express server.
  */
@@ -59,6 +60,9 @@ app.use(_router2.default);
 // PORT
 app.set('port', process.env.PORT || 3000);
 
+/**
+ * Run Express server.
+ */
 app.listen(app.get("port"), function () {
   console.log("  App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
   console.log("  Press CMD-C to stop\n");
