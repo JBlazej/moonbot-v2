@@ -1,3 +1,4 @@
+import {transformTextMessage} from '../bot/transformator'
 
 export async function  facebookVerificationHook(req, res) {
    // Your verify token. Should be a random string.
@@ -31,11 +32,13 @@ export async function facebookEventHook(req, res){
 
                 console.log(webhook_event.sender.id)
                 console.log(webhook_event.message)
+                console.log(webhook_event.message.text)
                 console.log(webhook_event.postback)
+                transformTextMessage(webhook_event.sender.id, webhook_event.message.text)
             
             })  
+            res.status(200).send('EVENT_RECEIVED')
         })
-        res.status(200).send('EVENT_RECEIVED')
     } else {
         res.sendStatus(404)
     }
