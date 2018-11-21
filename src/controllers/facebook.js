@@ -1,5 +1,5 @@
 
-export function  facebookVerificationHook(req, res) {
+export async function  facebookVerificationHook(req, res) {
    // Your verify token. Should be a random string.
    let VERIFY_TOKEN = "TriPrsaNaHrudi89"
      

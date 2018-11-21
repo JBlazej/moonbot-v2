@@ -16,10 +16,10 @@ router.get('/', (req, res) => {
 
 // FACEBOOK VERIFICATION
 // -----------------------------------------------------------------------------
-router.get('/facebook-webhook', controller.facebookVerificationHook)
+router.get('/facebook-webhook', wrap(controller.facebook.facebookVerificationHook))
 
 // INCOME POST DATA FROM FACEBOOK
 // -----------------------------------------------------------------------------
-router.post('/facebook-webhook', wrap(controller.facebookEventHook))
+router.post('/facebook-webhook', wrap(controller.facebook.facebookEventHook))
 
 export default router
