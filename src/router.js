@@ -1,5 +1,4 @@
 import {Router} from 'express'
-import requireDir from 'require-dir'
 import path from 'path'
 import requireDir from 'require-dir'
 
