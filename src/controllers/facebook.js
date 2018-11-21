@@ -25,10 +25,13 @@ export async function facebookEventHook(req, res){
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {
-            let webhook_event = entry.messaging[0]
-            
-            console.log(webhook_event)
-            console.log(webhook_event.postback)
+            entry.messaging.forEach(function (event) {
+                //let webhook_event = entry.messaging[0]
+                let webhook_event = event
+
+                console.log(webhook_event.message)
+                console.log(webhook_event.postback)
+            })  
         })
         res.status(200).send('EVENT_RECEIVED')
     } else {
