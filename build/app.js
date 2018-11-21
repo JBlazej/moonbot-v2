@@ -95,4 +95,4 @@ app.use(function (err, req, res, next) {
 });
 
 exports.default = app;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=app.js.map
