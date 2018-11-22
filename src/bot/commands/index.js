@@ -11,18 +11,24 @@ export async function commands(event){
     //console.log(webhookEvent)
     //console.log(formattedMessage[0])
 
+    function sendMessages (id) {
+        const text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.'
+        const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
+        const text3 = 'Jo a takhle vypadam. :D'
+        await sendTextMessage(id, text1)
+        await sendTextMessage(id, text2)
+        await sendTextMessage(id, text3)
+    }
+
     switch(formattedMessage[0]) {
         case 'ahoj':
         sendTextMessage(webhookEvent.sender.id, 'Kravina')
         break
   
         case 'moon':
-        const text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.'
-        const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
-        const text3 = 'Jo a takhle vypadam. :D'
-        //sendGenMessage(webhookEvent.sender.id, obsah)
 
-        await sendTextMessage(webhookEvent.sender.id, text1).then(()=>{sendTextMessage(webhookEvent.sender.id, text2)}).then(()=>{sendTextMessage(webhookEvent.sender.id, text3)})
+        //sendGenMessage(webhookEvent.sender.id, obsah)
+        sendMessages(webhookEvent.sender.id)
         break
   
         case 'napoveda':
