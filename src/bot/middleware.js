@@ -1,4 +1,4 @@
-import {comands} from './commands/commands'
+import {commands} from './commands/commands'
 
 export async function botMessageMiddleware(event) {
   let webhookEvent = event
@@ -12,7 +12,7 @@ export async function botMessageMiddleware(event) {
 
     //let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
     //let formattedMessage = incomeMessage.toString().split(" ")
-    comands(webhookEvent)
+    commands(webhookEvent)
     //console.log(formattedMessage)
     
   }else {
