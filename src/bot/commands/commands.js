@@ -26,26 +26,32 @@ export async function commands(event){
         break
   
         case 'napoveda':
+        case 'nápověda':
         console.log('hovno')
         break
   
         case 'spojeni':
+        case 'spojení':
         console.log('hovno')
         break
   
         case 'vse':
+        case 'vše':
         console.log('hovno')
         break
   
         case 'prvak':
+        case 'prvák':
         console.log('hovno')
         break
   
         case 'fakulty':
+        case 'fakulta':
         console.log('hovno')
         break
   
         case 'koleje':
+        case 'kolej':
         console.log('hovno')
         break
   
@@ -55,6 +61,7 @@ export async function commands(event){
         break
   
         case 'hackernews':
+        console.log('hovno')
         break
   
         case 'jb':
