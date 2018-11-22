@@ -1,4 +1,5 @@
-import {sendTextMessage} from '../lib/messages'
+import {sendTextMessage, sendGenMessage} from '../lib/messages'
+import {templates} from '../../views/templates'
 
 export async function commands(event){
     let webhookEvent = event
@@ -18,7 +19,9 @@ export async function commands(event){
         const text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.'
         const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
         const text3 = 'Jo a takhle vypadam. :D'
-        console.log('hovno')
+        const obsah = templates['get_school']
+        console.log(obsah)
+        sendGenMessage(webhookEvent.sender.id, obsah)
         break
   
         case 'napoveda':
