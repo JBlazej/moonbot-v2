@@ -17,7 +17,7 @@ export async function sendTextMessage(sender, text){
       }
     }
  
-    return await makeRequest(options)
+    return makeRequest(options)
   }
 
 
@@ -32,5 +32,5 @@ export async function sendTextMessage(sender, text){
       }
     }
  
-    return await makeRequest(options)
+    return makeRequest(options)
   }
