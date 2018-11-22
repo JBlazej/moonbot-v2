@@ -1,6 +1,6 @@
 import {sendTextMessage, sendGenMessage} from '../lib/messages'
-import {templates} from '../../views/templates'
-
+//import {templates} from '../../views/templates'
+import {sendIdosAnswer} from '../idos/idos'
 export async function commands(event){
     let webhookEvent = event
 
@@ -26,45 +26,49 @@ export async function commands(event){
   
         case 'napoveda':
         case 'nápověda':
-        sendGenMessage(webhookEvent.sender.id, templates['send_quick'])
+        //sendGenMessage(webhookEvent.sender.id, templates['send_quick'])
         break
   
         case 'spojeni':
         case 'spojení':
-        sendGenMessage(webhookEvent.sender.id, templates['get_idos'])
+        //sendGenMessage(webhookEvent.sender.id, templates['get_idos'])
+        break
+
+        case 'spoj':
+        sendIdosAnswer('1986144768118336','olsanska', 'volha', '20:30', '22.11.2018')
         break
   
         case 'vse':
         case 'vše':
-        sendGenMessage(webhookEvent.sender.id, templates['get_school'])
+        //sendGenMessage(webhookEvent.sender.id, templates['get_school'])
         break
   
         case 'prvak':
         case 'prvák':
-        sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
+        //sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
         break
   
         case 'fakulty':
         case 'fakulta':
-        sendGenMessage(webhookEvent.sender.id, templates['get_faculties'])
+        //sendGenMessage(webhookEvent.sender.id, templates['get_faculties'])
         break
   
         case 'koleje':
         case 'kolej':
-        sendGenMessage(webhookEvent.sender.id, templates['get_dormitories'])
+        //sendGenMessage(webhookEvent.sender.id, templates['get_dormitories'])
         break
   
         case 'insis':
         case 'isis':
-        sendGenMessage(webhookEvent.sender.id, templates['get_isis'])
+        //sendGenMessage(webhookEvent.sender.id, templates['get_isis'])
         break
   
         case 'hackernews':
-        sendGenMessage(webhookEvent.sender.id, templates['get_hackernews'])
+        //sendGenMessage(webhookEvent.sender.id, templates['get_hackernews'])
         break
   
         case 'jb':
-        sendGenMessage(webhookEvent.sender.id, templates['get_jb'])
+        //sendGenMessage(webhookEvent.sender.id, templates['get_jb'])
         break
     }
 }

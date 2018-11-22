@@ -3,7 +3,7 @@ import {payloads} from './payloads/payloads'
 
 export async function botMessageMiddleware(event) {
   let webhookEvent = event
-  console.log(event)
+  
   if(webhookEvent.message) {
     // Text message interaface
     return commands(webhookEvent)

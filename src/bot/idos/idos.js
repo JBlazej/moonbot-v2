@@ -109,7 +109,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
   
             callback()
           }, 800)
-        });
+        })
       }, (err) => {
         sendTextMessage(sender, "Něco se pokazilo zkus to znovu :-(")
     })

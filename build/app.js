@@ -55,7 +55,7 @@ var app = (0, _express2.default)();
 // HEROKU SIGTERM
 (0, _sigterm.sigterm)();
 // SSL
-app.use((0, _herokuSslRedirect2.default)());
+//app.use(sslRedirect())
 // PUBLIC
 app.use('/public', _express2.default.static(__dirname + '../public/'));
 // BODY
@@ -68,7 +68,7 @@ app.use((0, _serveFavicon2.default)(_path2.default.join(__dirname, '../public', 
 // ROUTER
 app.use(_router2.default);
 // PORT
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3030);
 
 /**
  * Run Express server.
@@ -105,6 +105,6 @@ app.use(function (err, req, res, next) {
   }
 });
 
-(0, _idos.sendIdosAnswer)('husinecka', 'volha', '10:30', '22.11.2018');
+(0, _idos.sendIdosAnswer)('1986144768118336', 'olsanska', 'volha', '20:30', '22.11.2018');
 exports.default = app;
 //# sourceMappingURL=app.js.map

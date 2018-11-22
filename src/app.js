@@ -8,7 +8,7 @@ import path from 'path'
 import router from './router'
 import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
-import {sendIdosAnswer} from './bot/idos/idos'
+//import {sendIdosAnswer} from './bot/idos/idos'
 
 /**
  * Start Express server.
@@ -23,7 +23,7 @@ connectDB()
 // HEROKU SIGTERM
 sigterm()
 // SSL
-app.use(sslRedirect())
+//app.use(sslRedirect())
 // PUBLIC
 app.use('/public', express.static(__dirname + '../public/'))
 // BODY
@@ -36,7 +36,7 @@ app.use(serveFavicon(path.join(__dirname, '../public', 'favicon.ico')))
 // ROUTER
 app.use(router)
 // PORT
-app.set('port', (process.env.PORT || 3000))
+app.set('port', (process.env.PORT || 3030))
 
 /**
  * Run Express server.
@@ -77,5 +77,5 @@ app.use((err, req, res, next) => {
     }
 })
 
-//sendIdosAnswer('husinecka', 'volha', '10:30', '22.11.2018')
+//sendIdosAnswer('1986144768118336','olsanska', 'volha', '20:30', '22.11.2018')
 export default app

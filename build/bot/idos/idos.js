@@ -22,6 +22,8 @@ var _cheerioTableparser = require('cheerio-tableparser');
 
 var _cheerioTableparser2 = _interopRequireDefault(_cheerioTableparser);
 
+var _messages = require('../lib/messages');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function initializeIdosTable(from, to, timeTravel, dateTravel) {
@@ -55,7 +57,7 @@ function initializeIdosTable(from, to, timeTravel, dateTravel) {
 
 //initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
 
-function sendIdosAnswer(a, b, c, d) {
+function sendIdosAnswer(sender, a, b, c, d) {
   var initializePromise = initializeIdosTable(a, b, c, d);
   initializePromise.then(function (result) {
     // Initialized table data
@@ -115,11 +117,11 @@ function sendIdosAnswer(a, b, c, d) {
 
         if (val === false) {
           var message = zastavka + ' ' + odjezd + ' ' + prijezd + spoj;
-          //sendTextMessage(sender, message);
+          (0, _messages.sendTextMessage)(sender, message);
           console.log(message);
         } else {
           var message2 = zastavka + ' ' + prijezd + ' ' + odjezd + spoj;
-          //sendTextMessage(sender, message2);
+          (0, _messages.sendTextMessage)(sender, message2);
           console.log(message2);
         }
 
@@ -129,7 +131,7 @@ function sendIdosAnswer(a, b, c, d) {
       }, 800);
     });
   }, function (err) {
-    sendTextMessage(sender, "Něco se pokazilo zkus to znovu :-(");
+    (0, _messages.sendTextMessage)(sender, "Něco se pokazilo zkus to znovu :-(");
   });
 }
 
