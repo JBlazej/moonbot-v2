@@ -1,8 +1,10 @@
-export async function payloads(sender, message){
+import {sendTextMessage} from '../lib/messages'
 
-    switch(message) {
+export async function payloads(id, payload){
+
+    switch(payload) {
         case 'started-payload':
-        console.log('hovno')
+        sendTextMessage(id, 'Tady je starting payload')
         break
     }
 }
