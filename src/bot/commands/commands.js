@@ -22,13 +22,9 @@ export async function commands(event){
         const obsah = templates['get_school']
         //sendGenMessage(webhookEvent.sender.id, obsah)
 
-        sendTextMessage(webhookEvent.sender.id, text1)
-        .then( () => {
-            sendTextMessage(webhookEvent.sender.id, text2)
-        })
-        .then( () => {
-            sendTextMessage(webhookEvent.sender.id, text3)
-        })
+        await sendTextMessage(webhookEvent.sender.id, text1)
+        await sendTextMessage(webhookEvent.sender.id, text2)
+        await sendTextMessage(webhookEvent.sender.id, text3)
         break
   
         case 'napoveda':
