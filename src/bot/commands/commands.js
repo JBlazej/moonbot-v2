@@ -7,8 +7,8 @@ export async function commands(event){
     let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
     let formattedMessage = incomeMessage.toString().split(" ")
     
-    console.log(webhookEvent)
-    console.log(formattedMessage[0])
+    //console.log(webhookEvent)
+    //console.log(formattedMessage[0])
 
     switch(formattedMessage[0]) {
         case 'ahoj':
