@@ -96,12 +96,12 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
             if (val === false){
               let message = zastavka + ' ' + odjezd + ' ' + prijezd + spoj 
               sendTextMessage(sender, message)
-              console.log(message)
+              //console.log(message)
   
             } else {
               let message2 = zastavka + ' ' + prijezd + ' ' + odjezd + spoj 
               sendTextMessage(sender, message2)
-              console.log(message2)
+              //console.log(message2)
             }
   
   

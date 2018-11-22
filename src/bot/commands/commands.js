@@ -35,7 +35,14 @@ export async function commands(event){
         break
 
         case 'spoj':
-        sendIdosAnswer('1986144768118336','olsanska', 'volha', '20:30', '22.11.2018')
+        const onlyConnections =  webhookEvent.message.text.replace("spoj ", "")
+        const stops = onlyConnections.split(" do ")
+        console.log(onlyConnections)
+        console.log(stops)
+        let from = encodeUrlParameter(stops[0])
+        let to = encodeUrlParameter(stops[1])
+        
+        sendIdosAnswer('1986144768118336',from, to, '20:30', '22.11.2018')
         break
   
         case 'vse':
