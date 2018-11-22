@@ -10,8 +10,7 @@ export async function commands(event){
     
     //console.log(webhookEvent)
     //console.log(formattedMessage[0])
-
-    function sendMessages (id) {
+    async function sendMessages (id) {
         const text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.'
         const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
         const text3 = 'Jo a takhle vypadam. :D'
