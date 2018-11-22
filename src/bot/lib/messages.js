@@ -1,5 +1,5 @@
 import request from 'request'
-import {GRAPH_URL_MESSAGES, PAGE_ACCESS_TOKEN} from '../conf/graph'
+import {GRAPH_URL_MESSAGES, PAGE_ACCESS_TOKEN} from '../../conf/graph'
 
 export function sendTextMessage(sender, text){
     let options = {
