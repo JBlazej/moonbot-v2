@@ -22,11 +22,11 @@ export async function  facebookVerificationHook(req, res) {
 
 export async function facebookEventHook(req, res){
     let body = req.body
-    console.log(body)
-    if (!req.body || !req.body.entry[0] || !req.body.entry[0].messaging) {
-        return console.log('No request received');
+
+    if (!req.body || !req.body.entry[0] || !req.body.entry[0].messaging[0].message) {
+        return console.log('No request received')
     }
-    
+
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {
