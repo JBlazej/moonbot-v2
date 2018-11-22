@@ -6,6 +6,8 @@ import sslRedirect from 'heroku-ssl-redirect'
 import cookieParser from 'cookie-parser'
 import path from 'path'
 import router from './router'
+import {connectDB} from './models'
+import {sigterm} from './services/sigterm'
 
 /**
  * Start Express server.
@@ -15,6 +17,10 @@ const app = express()
 /**
  * Setup Express server.
  */
+// DB
+connectDB()
+// HEROKU SIGTERM
+sigterm()
 // SSL
 app.use(sslRedirect())
 // PUBLIC

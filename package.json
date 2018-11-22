@@ -22,6 +22,7 @@
     "express": "^4.16.4",
     "heroku-ssl-redirect": "0.0.4",
     "mongoose": "^5.3.13",
+    "node-cron": "^2.0.3",
     "path": "^0.12.7",
     "request": "^2.88.0",
     "require-dir": "^1.1.0",

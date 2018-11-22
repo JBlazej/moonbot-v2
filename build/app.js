@@ -34,6 +34,10 @@ var _router = require('./router');
 
 var _router2 = _interopRequireDefault(_router);
 
+var _models = require('./models');
+
+var _sigterm = require('./services/sigterm');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -44,6 +48,10 @@ var app = (0, _express2.default)();
 /**
  * Setup Express server.
  */
+// DB
+(0, _models.connectDB)();
+// HEROKU SIGTERM
+(0, _sigterm.sigterm)();
 // SSL
 app.use((0, _herokuSslRedirect2.default)());
 // PUBLIC
@@ -88,6 +96,7 @@ app.use(function (req, res, next) {
 
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);
+  console.log(err);
   res.send({ 'error': err.message });
   if (app.get('env') === 'development') {
     logger.error(err);

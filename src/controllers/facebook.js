@@ -1,4 +1,4 @@
-import {transformTextMessage} from '../bot/transformator'
+import {botMessageMiddleware} from '../bot/middleware'
 
 export async function  facebookVerificationHook(req, res) {
    // Your verify token. Should be a random string.
@@ -23,24 +23,14 @@ export async function  facebookVerificationHook(req, res) {
 export async function facebookEventHook(req, res){
     let body = req.body
 
-    if (!req.body || !req.body.entry[0] || !req.body.entry[0].messaging[0].message) {
+    /*if (!req.body || !req.body.entry[0] || !req.body.entry[0].messaging[0].message) {
         return console.log('No request received')
-    }
-
+    }*/
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {
             entry.messaging.forEach(function (event) {
-                //let webhook_event = entry.messaging[0]
-                let webhook_event = event
-
-                console.log(webhook_event)
-                console.log(webhook_event.sender.id)
-                console.log(webhook_event.message)
-                console.log(webhook_event.message.text)
-                console.log(webhook_event.postback)
-                transformTextMessage(webhook_event.sender.id, webhook_event.message.text)
-            
+                botMessageMiddleware(event)   
             })
             res.status(200).send('EVENT_RECEIVED')
         })
