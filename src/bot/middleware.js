@@ -12,7 +12,7 @@ export async function botMessageMiddleware(event) {
 
     //let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
     //let formattedMessage = incomeMessage.toString().split(" ")
-    await comands(webhookEvent)
+    comands(webhookEvent)
     //console.log(formattedMessage)
     
   }else {
