@@ -1,4 +1,4 @@
-import {sendTextMessage, sendGenMessage} from '../lib/messages'
+import {sendTextMessage, sendIntroduction} from '../lib/messages'
 //import {templates} from '../../views/templates'
 import {sendIdosAnswer} from '../idos'
 
@@ -7,17 +7,13 @@ export async function commands(event){
 
     let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
     let formattedMessage = incomeMessage.toString().split(" ")
+
+    const text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.'
+    const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
+    const text3 = 'Jo a takhle vypadam. :D'
     
     //console.log(webhookEvent)
     //console.log(formattedMessage[0])
-    async function sendMessages (id) {
-        const text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.'
-        const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
-        const text3 = 'Jo a takhle vypadam. :D'
-        await sendTextMessage(id, text1)
-        await sendTextMessage(id, text2)
-        await sendTextMessage(id, text3)
-    }
 
     switch(formattedMessage[0]) {
         case 'ahoj':
@@ -27,7 +23,7 @@ export async function commands(event){
         case 'moon':
 
         //sendGenMessage(webhookEvent.sender.id, obsah)
-        sendMessages(webhookEvent.sender.id)
+        sendIntroduction(webhookEvent.sender.id, text1, text2, text3)
         break
   
         case 'napoveda':
