@@ -15,8 +15,8 @@ export function botMessageMiddleware(event) {
   console.log(formattedMessage)
 
   if(formattedMessage[0] === 'ahoj') {
-    sendTextMessage(sender, 'Kravina')
+    sendTextMessage(webhookEvent.sender.id, 'Kravina')
   }else {
-    sendTextMessage(sender, 'Druha kravina') 
+    sendTextMessage(webhookEvent.sender.id, 'Druha kravina') 
   }
 }
