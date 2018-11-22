@@ -22,6 +22,7 @@ export async function  facebookVerificationHook(req, res) {
 
 export async function facebookEventHook(req, res){
     let body = req.body
+    console.log(body)
 
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
@@ -30,6 +31,7 @@ export async function facebookEventHook(req, res){
                 //let webhook_event = entry.messaging[0]
                 let webhook_event = event
 
+                console.log(webhook_event)
                 console.log(webhook_event.sender.id)
                 console.log(webhook_event.message)
                 console.log(webhook_event.message.text)
