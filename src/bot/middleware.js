@@ -4,19 +4,18 @@ export function botMessageMiddleware(event) {
   let webhookEvent = event
 
   console.log(webhookEvent)
-  console.log(webhookEvent.sender.id)
-  console.log(webhookEvent.message)
-  console.log(webhookEvent.message.text)
-  console.log(webhookEvent.postback)
+  
+  if(webhookEvent.message) {
+    console.log(webhookEvent.sender.id)
+    console.log(webhookEvent.message)
+    console.log(webhookEvent.message.text)
 
-  let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
-  let formattedMessage = incomeMessage.toString().split(" ")
+    let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
+    let formattedMessage = incomeMessage.toString().split(" ")
 
-  console.log(formattedMessage)
-
-  if(formattedMessage[0] === 'ahoj') {
+    console.log(formattedMessage)
     sendTextMessage(webhookEvent.sender.id, 'Kravina')
   }else {
-    sendTextMessage(webhookEvent.sender.id, 'Druha kravina') 
+    console.log(webhookEvent.postback)
   }
 }
