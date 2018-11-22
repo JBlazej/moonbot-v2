@@ -23,8 +23,12 @@ export async function commands(event){
         //sendGenMessage(webhookEvent.sender.id, obsah)
 
         sendTextMessage(webhookEvent.sender.id, text1)
-        sendTextMessage(webhookEvent.sender.id, text2)
-        sendTextMessage(webhookEvent.sender.id, text3)
+        .then( () => {
+            sendTextMessage(webhookEvent.sender.id, text2)
+        })
+        .then( () => {
+            sendTextMessage(webhookEvent.sender.id, text3)
+        })
         break
   
         case 'napoveda':
