@@ -25,6 +25,7 @@ export async function commands(event){
         await sendTextMessage(webhookEvent.sender.id, text1)
         await sendTextMessage(webhookEvent.sender.id, text2)
         await sendTextMessage(webhookEvent.sender.id, text3)
+        
         break
   
         case 'napoveda':

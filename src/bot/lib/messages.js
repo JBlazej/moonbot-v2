@@ -1,6 +1,11 @@
 import request from 'request'
 import {GRAPH_URL_MESSAGES, PAGE_ACCESS_TOKEN} from '../../conf/graph'
 
+async function makeRequest(options){
+  return request(options)
+
+}
+
 export async function sendTextMessage(sender, text){
     let options = {
       url: GRAPH_URL_MESSAGES,
@@ -12,7 +17,7 @@ export async function sendTextMessage(sender, text){
       }
     }
  
-    return request(options)
+    return await makeRequest(options)
   }
 
 
@@ -27,5 +32,5 @@ export async function sendTextMessage(sender, text){
       }
     }
  
-    return request(options)
+    return await makeRequest(options)
   }
