@@ -1,7 +1,7 @@
 import request from 'request'
 import {GRAPH_URL_MESSAGES, PAGE_ACCESS_TOKEN} from '../../conf/graph'
 
-export function sendTextMessage(sender, text){
+export async function sendTextMessage(sender, text){
     let options = {
       url: GRAPH_URL_MESSAGES,
       qs: { access_token: PAGE_ACCESS_TOKEN },
@@ -16,7 +16,7 @@ export function sendTextMessage(sender, text){
   }
 
 
-  export function sendGenMessage(sender, message){
+  export async function sendGenMessage(sender, message){
     var options = {
       url: GRAPH_URL_MESSAGES,
       qs: { access_token: PAGE_ACCESS_TOKEN },
