@@ -1,4 +1,4 @@
-import request from 'request'
+import request from 'request-promise'
 import {GRAPH_URL_MESSAGES, PAGE_ACCESS_TOKEN} from '../../conf/graph'
 
 async function makeRequest(options){

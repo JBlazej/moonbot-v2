@@ -38,6 +38,8 @@ var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
 
+var _idos = require('./bot/idos/idos');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -103,5 +105,6 @@ app.use(function (err, req, res, next) {
   }
 });
 
+(0, _idos.sendIdosAnswer)('husinecka', 'volha', '10:30', '22.11.2018');
 exports.default = app;
 //# sourceMappingURL=app.js.map

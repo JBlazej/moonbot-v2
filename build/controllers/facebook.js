@@ -54,28 +54,15 @@ var facebookEventHook = exports.facebookEventHook = function () {
                     case 0:
                         body = req.body;
 
-                        if (!(!req.body || !req.body.entry[0] || !req.body.entry[0].messaging[0].message)) {
-                            _context2.next = 3;
-                            break;
-                        }
-
-                        return _context2.abrupt('return', console.log('No request received'));
-
-                    case 3:
+                        /*if (!req.body || !req.body.entry[0] || !req.body.entry[0].messaging[0].message) {
+                            return console.log('No request received')
+                        }*/
 
                         if (body.object === 'page') {
                             // Iterates over each entry - there may be multiple if batched
                             body.entry.forEach(function (entry) {
                                 entry.messaging.forEach(function (event) {
-                                    //let webhook_event = entry.messaging[0]
-                                    var webhook_event = event;
-
-                                    console.log(webhook_event);
-                                    console.log(webhook_event.sender.id);
-                                    console.log(webhook_event.message);
-                                    console.log(webhook_event.message.text);
-                                    console.log(webhook_event.postback);
-                                    (0, _transformator.transformTextMessage)(webhook_event.sender.id, webhook_event.message.text);
+                                    (0, _middleware.botMessageMiddleware)(event);
                                 });
                                 res.status(200).send('EVENT_RECEIVED');
                             });
@@ -83,7 +70,7 @@ var facebookEventHook = exports.facebookEventHook = function () {
                             res.sendStatus(404);
                         }
 
-                    case 4:
+                    case 2:
                     case 'end':
                         return _context2.stop();
                 }
@@ -96,7 +83,7 @@ var facebookEventHook = exports.facebookEventHook = function () {
     };
 }();
 
-var _transformator = require('../bot/transformator');
+var _middleware = require('../bot/middleware');
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 //# sourceMappingURL=facebook.js.map

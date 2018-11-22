@@ -8,6 +8,7 @@ import path from 'path'
 import router from './router'
 import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
+import {sendIdosAnswer} from './bot/idos/idos'
 
 /**
  * Start Express server.
@@ -76,4 +77,5 @@ app.use((err, req, res, next) => {
     }
 })
 
+//sendIdosAnswer('husinecka', 'volha', '10:30', '22.11.2018')
 export default app
