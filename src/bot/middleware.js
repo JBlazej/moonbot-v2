@@ -1,5 +1,5 @@
-import {commands} from './commands/commands'
-import {payloads} from './payloads/payloads'
+import {commands} from './commands'
+import {payloads} from './payloads'
 
 export async function botMessageMiddleware(event) {
   let webhookEvent = event

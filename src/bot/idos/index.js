@@ -33,8 +33,9 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
 
   //initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
 
- export function sendIdosAnswer(sender, a, b, c, d) {
-    const initializePromise = initializeIdosTable(a, b, c, d)
+ export function sendIdosAnswer(sender, text, timeTravel, dateTravel) {
+   const pole = transformTextForIdos(text)
+    const initializePromise = initializeIdosTable(pole[0], pole[1], timeTravel, dateTravel)
     initializePromise.then( (result) => {
         // Initialized table data
         const data = result
@@ -120,4 +121,13 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           return true;
       else
           return false;
+  }
+
+  function transformTextForIdos(text){
+    const onlyConnections = text.replace("spoj ", "")
+    const stops = onlyConnections.split(" do ")
+
+    return stops
+    // let from = encodeUrlParameter(stops[0])
+    // let to = encodeUrlParameter(stops[1])
   }
