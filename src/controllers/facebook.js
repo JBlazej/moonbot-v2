@@ -30,7 +30,7 @@ export async function facebookEventHook(req, res){
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {
             entry.messaging.forEach(function (event) {
-                botMessageMiddleware(event)   
+                const middle = await botMessageMiddleware(event)   
             })
             res.status(200).send('EVENT_RECEIVED')
         })
