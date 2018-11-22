@@ -20,8 +20,11 @@ export async function commands(event){
         const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
         const text3 = 'Jo a takhle vypadam. :D'
         const obsah = templates['get_school']
-        console.log(obsah)
-        sendGenMessage(webhookEvent.sender.id, obsah)
+        //sendGenMessage(webhookEvent.sender.id, obsah)
+
+        sendTextMessage(webhookEvent.sender.id, text1)
+        sendTextMessage(webhookEvent.sender.id, text2)
+        sendTextMessage(webhookEvent.sender.id, text3)
         break
   
         case 'napoveda':
