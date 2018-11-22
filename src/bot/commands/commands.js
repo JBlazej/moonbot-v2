@@ -19,7 +19,6 @@ export async function commands(event){
         const text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.'
         const text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.'
         const text3 = 'Jo a takhle vypadam. :D'
-        const obsah = templates['get_school']
         //sendGenMessage(webhookEvent.sender.id, obsah)
 
         await sendTextMessage(webhookEvent.sender.id, text1).then(()=>{sendTextMessage(webhookEvent.sender.id, text2)}).then(()=>{sendTextMessage(webhookEvent.sender.id, text3)})
@@ -27,45 +26,45 @@ export async function commands(event){
   
         case 'napoveda':
         case 'nápověda':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['send_quick'])
         break
   
         case 'spojeni':
         case 'spojení':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['get_idos'])
         break
   
         case 'vse':
         case 'vše':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['get_school'])
         break
   
         case 'prvak':
         case 'prvák':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
         break
   
         case 'fakulty':
         case 'fakulta':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['get_faculties'])
         break
   
         case 'koleje':
         case 'kolej':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['get_dormitories'])
         break
   
         case 'insis':
         case 'isis':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['get_isis'])
         break
   
         case 'hackernews':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['get_hackernews'])
         break
   
         case 'jb':
-        console.log('hovno')
+        sendGenMessage(webhookEvent.sender.id, templates['get_jb'])
         break
     }
 }
