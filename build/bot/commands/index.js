@@ -7,7 +7,7 @@ exports.commands = undefined;
 
 var commands = exports.commands = function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-            var webhookEvent, incomeMessage, formattedMessage;
+            var webhookEvent, incomeMessage, formattedMessage, text;
             return regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) {
                         switch (_context.prev = _context.next) {
@@ -16,49 +16,51 @@ var commands = exports.commands = function () {
                                     incomeMessage = webhookEvent.message.text.toLowerCase().trim();
                                     formattedMessage = incomeMessage.toString().split(" ");
                                     _context.t0 = formattedMessage[0];
-                                    _context.next = _context.t0 === 'ahoj' ? 6 : _context.t0 === 'moon' ? 8 : _context.t0 === 'napoveda' ? 10 : _context.t0 === 'nápověda' ? 10 : _context.t0 === 'spojeni' ? 11 : _context.t0 === 'spojení' ? 11 : _context.t0 === 'spoj' ? 12 : _context.t0 === 'vse' ? 14 : _context.t0 === 'vše' ? 14 : _context.t0 === 'prvak' ? 15 : _context.t0 === 'prvák' ? 15 : _context.t0 === 'fakulty' ? 16 : _context.t0 === 'fakulta' ? 16 : _context.t0 === 'koleje' ? 17 : _context.t0 === 'kolej' ? 17 : _context.t0 === 'insis' ? 18 : _context.t0 === 'isis' ? 18 : _context.t0 === 'hackernews' ? 19 : _context.t0 === 'jb' ? 20 : 21;
+                                    _context.next = _context.t0 === 'ahoj' ? 6 : _context.t0 === 'moon' ? 8 : _context.t0 === 'napoveda' ? 11 : _context.t0 === 'nápověda' ? 11 : _context.t0 === 'spojeni' ? 12 : _context.t0 === 'spojení' ? 12 : _context.t0 === 'spoj' ? 13 : _context.t0 === 'vse' ? 15 : _context.t0 === 'vše' ? 15 : _context.t0 === 'prvak' ? 16 : _context.t0 === 'prvák' ? 16 : _context.t0 === 'fakulty' ? 17 : _context.t0 === 'fakulta' ? 17 : _context.t0 === 'koleje' ? 18 : _context.t0 === 'kolej' ? 18 : _context.t0 === 'insis' ? 19 : _context.t0 === 'isis' ? 19 : _context.t0 === 'hackernews' ? 20 : _context.t0 === 'jb' ? 21 : 22;
                                     break;
 
                               case 6:
                                     (0, _messages.sendTextMessage)(webhookEvent.sender.id, 'Kravina');
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 8:
-                                    (0, _messages.sendIntroduction)(webhookEvent.sender.id, _messages2.intro[0], _messages2.intro[1], _messages2.intro[3]);
-                                    return _context.abrupt('break', 21);
+                                    text = _messages2.intro;
 
-                              case 10:
-                                    return _context.abrupt('break', 21);
+                                    (0, _messages.sendIntroduction)(webhookEvent.sender.id, text[0], text[1], text[3]);
+                                    return _context.abrupt('break', 22);
 
                               case 11:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 12:
-                                    (0, _idos.sendIdosAnswer)('1986144768118336', webhookEvent.message.text, '20:30', '22.11.2018');
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
-                              case 14:
-                                    return _context.abrupt('break', 21);
+                              case 13:
+                                    (0, _idos.sendIdosAnswer)('1986144768118336', webhookEvent.message.text, '20:30', '22.11.2018');
+                                    return _context.abrupt('break', 22);
 
                               case 15:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 16:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 17:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 18:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 19:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 20:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 22);
 
                               case 21:
+                                    return _context.abrupt('break', 22);
+
+                              case 22:
                               case 'end':
                                     return _context.stop();
                         }
@@ -81,5 +83,5 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //import {templates} from '../../views/templates'
 
 
-console.log(_messages2.intro[0]);
+console.log(_messages2.intro[3]);
 //# sourceMappingURL=index.js.map
