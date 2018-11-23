@@ -62,6 +62,7 @@ var facebookEventHook = exports.facebookEventHook = function () {
                             // Iterates over each entry - there may be multiple if batched
                             body.entry.forEach(function (entry) {
                                 entry.messaging.forEach(function (event) {
+                                    console.log(event);
                                     (0, _middleware.botMessageMiddleware)(event);
                                 });
                                 res.status(200).send('EVENT_RECEIVED');

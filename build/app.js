@@ -38,9 +38,9 @@ var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
 
-var _idos = require('./bot/idos/idos');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//import {sendIdosAnswer} from './bot/idos/idos'
 
 /**
  * Start Express server.
@@ -105,6 +105,6 @@ app.use(function (err, req, res, next) {
   }
 });
 
-(0, _idos.sendIdosAnswer)('1986144768118336', 'olsanska', 'volha', '20:30', '22.11.2018');
+//sendIdosAnswer('1986144768118336','olsanska', 'volha', '20:30', '22.11.2018')
 exports.default = app;
 //# sourceMappingURL=app.js.map

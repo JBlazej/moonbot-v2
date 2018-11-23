@@ -57,8 +57,13 @@ function initializeIdosTable(from, to, timeTravel, dateTravel) {
 
 //initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
 
-function sendIdosAnswer(sender, a, b, c, d) {
-  var initializePromise = initializeIdosTable(a, b, c, d);
+function sendIdosAnswer(sender, text, timeTravel, dateTravel) {
+  var stops = transformTextForIdos(text);
+
+  var from = encodeUrlParameter(stops[0]);
+  var to = encodeUrlParameter(stops[1]);
+
+  var initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel);
   initializePromise.then(function (result) {
     // Initialized table data
     var data = result;
@@ -118,11 +123,11 @@ function sendIdosAnswer(sender, a, b, c, d) {
         if (val === false) {
           var message = zastavka + ' ' + odjezd + ' ' + prijezd + spoj;
           (0, _messages.sendTextMessage)(sender, message);
-          console.log(message);
+          //console.log(message)
         } else {
           var message2 = zastavka + ' ' + prijezd + ' ' + odjezd + spoj;
           (0, _messages.sendTextMessage)(sender, message2);
-          console.log(message2);
+          //console.log(message2)
         }
 
         i++;
@@ -138,4 +143,15 @@ function sendIdosAnswer(sender, a, b, c, d) {
 function isEven(value) {
   if (value % 2 == 0) return true;else return false;
 }
-//# sourceMappingURL=idos.js.map
+
+function transformTextForIdos(text) {
+  var onlyConnections = text.replace("spoj ", "");
+  var stops = onlyConnections.split(" do ");
+
+  return stops;
+}
+
+function encodeUrlParameter(value) {
+  return encodeURIComponent(value).replace(/\%20/g, '+');
+}
+//# sourceMappingURL=index.js.map
