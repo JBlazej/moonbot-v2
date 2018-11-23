@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.loopTextMessage = exports.sendIntroduction = exports.sendGenMessage = exports.sendTextMessage = undefined;
+exports.sendIntroduction = exports.sendGenMessage = exports.sendTextMessage = undefined;
 
 var makeRequest = function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(options) {
@@ -118,86 +118,6 @@ var sendIntroduction = exports.sendIntroduction = function () {
   };
 }();
 
-var loopTextMessage = exports.loopTextMessage = function () {
-  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(id, object) {
-    var files, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, file;
-
-    return regeneratorRuntime.wrap(function _callee5$(_context5) {
-      while (1) {
-        switch (_context5.prev = _context5.next) {
-          case 0:
-            files = object;
-            _iteratorNormalCompletion = true;
-            _didIteratorError = false;
-            _iteratorError = undefined;
-            _context5.prev = 4;
-            _iterator = files[Symbol.iterator]();
-
-          case 6:
-            if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-              _context5.next = 14;
-              break;
-            }
-
-            file = _step.value;
-            _context5.next = 10;
-            return sendTextMessage(id, file);
-
-          case 10:
-            console.log(file);
-
-          case 11:
-            _iteratorNormalCompletion = true;
-            _context5.next = 6;
-            break;
-
-          case 14:
-            _context5.next = 20;
-            break;
-
-          case 16:
-            _context5.prev = 16;
-            _context5.t0 = _context5['catch'](4);
-            _didIteratorError = true;
-            _iteratorError = _context5.t0;
-
-          case 20:
-            _context5.prev = 20;
-            _context5.prev = 21;
-
-            if (!_iteratorNormalCompletion && _iterator.return) {
-              _iterator.return();
-            }
-
-          case 23:
-            _context5.prev = 23;
-
-            if (!_didIteratorError) {
-              _context5.next = 26;
-              break;
-            }
-
-            throw _iteratorError;
-
-          case 26:
-            return _context5.finish(23);
-
-          case 27:
-            return _context5.finish(20);
-
-          case 28:
-          case 'end':
-            return _context5.stop();
-        }
-      }
-    }, _callee5, this, [[4, 16, 20, 28], [21,, 23, 27]]);
-  }));
-
-  return function loopTextMessage(_x10, _x11) {
-    return _ref5.apply(this, arguments);
-  };
-}();
-
 var _requestPromise = require('request-promise');
 
 var _requestPromise2 = _interopRequireDefault(_requestPromise);
@@ -207,18 +127,4 @@ var _graph = require('../../conf/graph');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-var object = ['Ahoj', 'Zdar', 'chipni'];
-
-loopTextMessage('1986144768118336', object);
-
-var text1 = 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.';
-var text2 = 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.';
-var text3 = 'Jo a takhle vypadam. :D';
-
-var obj = {
-  ukol: 'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.',
-  otazka: 'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.',
-  vzhled: 'Jo a takhle vypadam. :D'
-};
 //# sourceMappingURL=messages.js.map

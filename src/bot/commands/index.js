@@ -16,7 +16,8 @@ export async function commands(event){
         break
   
         case 'moon':
-        sendIntroduction(webhookEvent.sender.id, intro[0], intro[1], intro[3])
+        const text = intro
+        sendIntroduction(webhookEvent.sender.id, text[0], text[1], text[3])
         break
   
         case 'napoveda':
