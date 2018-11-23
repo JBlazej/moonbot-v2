@@ -35,10 +35,12 @@ export async function sendTextMessage(sender, text){
     return makeRequest(options)
   }
 
-  export async function loopTextMessage(id, object){
-    const texts = object
+export async function sendIntroduction(id, text1, text2, text3) {
+  
+  await sendTextMessage(id, text1)
+  await sendTextMessage(id, text2)
+  await sendTextMessage(id, text3)
 
-    for (const text of texts) {
-      await sendTextMessage(id, text)
-    }
-  }
+}
+
+ 

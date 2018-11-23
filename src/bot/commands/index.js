@@ -1,4 +1,4 @@
-import {sendTextMessage, loopTextMessage} from '../lib/messages'
+import {sendTextMessage, sendIntroduction} from '../lib/messages'
 //import {templates} from '../../views/templates'
 import {sendIdosAnswer} from '../idos'
 import {intro} from '../../views/messages'
@@ -16,7 +16,7 @@ export async function commands(event){
         break
   
         case 'moon':
-        loopTextMessage(webhookEvent.sender.id, intro)
+        sendIntroduction(webhookEvent.sender.id, intro[0], intro[1], intro[3])
         break
   
         case 'napoveda':
