@@ -158,12 +158,13 @@ function encodeUrlParameter(value) {
 export async function sendNextIDos(id){
   console.log(id)
   const pole = await getUserById(id)
-  if(pole){
+  const jsonpole = JSON.stringify(pole)
+  if(jsonpole){
     let text = 'spoj volha do chodov'
 
-    console.log(pole)
-    console.log(typeof pole)
-    console.log(pole[station].time)
+    console.log(jsonpole)
+    console.log(typeof jsonpole)
+    console.log(jsonpole.station.time)
   
     
 
