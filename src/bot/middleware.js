@@ -1,7 +1,7 @@
 import {commands} from './commands'
 import {payloads} from './payloads'
 
-export async function botMessageMiddleware(event) {
+export async function botMessengerMiddleware(event) {
   let webhookEvent = event
   
   if(webhookEvent.message) {

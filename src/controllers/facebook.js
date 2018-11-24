@@ -1,4 +1,4 @@
-import {botMessageMiddleware} from '../bot/middleware'
+import {botMessengerMiddleware} from '../bot/middleware'
 import {VERIFY_TOKEN} from '../conf/graph'
 
 export async function  facebookVerificationHook(req, res) {
@@ -23,13 +23,13 @@ export async function  facebookVerificationHook(req, res) {
 
 export async function facebookEventHook(req, res){
     let body = req.body
-    
+
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {
             entry.messaging.forEach(function (event) {
                 console.log(event)
-                botMessageMiddleware(event)   
+                botMessengerMiddleware(event)
             })
             res.status(200).send('EVENT_RECEIVED')
         })
