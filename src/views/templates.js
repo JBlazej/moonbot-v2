@@ -1,8 +1,4 @@
-// This is my Generic templates
-// Use them in calling functions like a parametr
-'use strict';
-
-let templates = {
+export const templates = {
 	get_faculties: {
 		attachment: {
 			type: "template",
@@ -613,8 +609,4 @@ let templates = {
 			}
 		}
 	}
-};
-
-module.exports = {
-	templates: templates
-};
+}
