@@ -159,11 +159,12 @@ export async function sendNextIDos(id){
   const pole = await getUserById(id)
 
   if(pole){
-    let text = 'spoj volha do chodov'
-
+    let text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to
+    
     let utcTimeAndDate = pole[0].station.time
     let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
-    console.log(shiftedTimeAndDateUTC)
+  
+    console.log(text)
     return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
   }else {
     console.log('Nic v poli')

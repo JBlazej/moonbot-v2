@@ -16,7 +16,7 @@ export function getDate(utcDate){
 
 export function shiftTimeAndDateUTC(utcTimeAndDate){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
-    const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(5, 'minutes')
+    const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(10, 'minutes')
 
     return shiftedTimeAndDateUTC
 }
