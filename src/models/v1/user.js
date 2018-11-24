@@ -75,10 +75,9 @@ export async function createNewUser (id) {
     const user = new User({id: id})
 
     const help = await getUserById(id)
-    console.log(help)
-    console.log(typeof help)
+    console.log(help.length)
 
-    if(!help) {
+    if(help.length === 0) {
         user.save()
         return user
     } else {
