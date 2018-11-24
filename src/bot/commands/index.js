@@ -37,7 +37,7 @@ export async function commands(event){
         case 'spoj':
         let utcNow = new Date()
         
-        sendIdosAnswer(webhookEvent.sender.id, webhookEvent.message.text, utcNow)
+        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcNow)
         break
   
         case 'vse':
