@@ -3,27 +3,26 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.createNewUser = undefined;
+exports.createNewUser = exports.getUserAll = undefined;
 
-var createNewUser = exports.createNewUser = function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
-        var User, user;
+var getUserAll = exports.getUserAll = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var user;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return (0, _.getDB)().model('User', UserSchema);
+                        return (0, _.getDB)().model('User', UserSchema).find({});
 
                     case 2:
-                        User = _context.sent;
-                        user = new User({ id: id });
+                        user = _context.sent;
 
-                        user.save();
                         console.log(user);
+
                         return _context.abrupt('return', user);
 
-                    case 7:
+                    case 5:
                     case 'end':
                         return _context.stop();
                 }
@@ -31,8 +30,41 @@ var createNewUser = exports.createNewUser = function () {
         }, _callee, this);
     }));
 
-    return function createNewUser(_x) {
+    return function getUserAll() {
         return _ref.apply(this, arguments);
+    };
+}();
+
+var createNewUser = exports.createNewUser = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(id) {
+        var User, user;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return (0, _.getDB)().model('User', UserSchema);
+
+                    case 2:
+                        User = _context2.sent;
+
+                        console.log(User);
+                        user = new User({ id: id });
+
+                        user.save();
+                        console.log(user);
+                        return _context2.abrupt('return', user);
+
+                    case 8:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function createNewUser(_x) {
+        return _ref2.apply(this, arguments);
     };
 }();
 
@@ -78,6 +110,4 @@ var UserSchema = new _mongoose2.default.Schema({
         default: false
     }
 });
-
-createNewUser('123124');
 //# sourceMappingURL=user.js.map

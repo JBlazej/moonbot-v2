@@ -38,6 +38,8 @@ var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
 
+var _user = require('./models/v1/user');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -76,6 +78,7 @@ app.listen(app.get("port"), function () {
     console.log("  Press CMD-C to stop\n");
 });
 
+(0, _user.getUserAll)();
 // HANDLINGS ERRORS
 var shuttingDown = false;
 

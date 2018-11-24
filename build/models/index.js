@@ -20,7 +20,7 @@ var connectDB = exports.connectDB = function () {
           case 4:
             db = _context.sent;
 
-            console.log('  DB connection OK');
+            console.log('DB connection OK');
             _context.next = 11;
             break;
 
@@ -94,7 +94,9 @@ function getMongoUrl() {
 }
 
 function getDB() {
+  console.log(db);
   if (!db) throw new Error(500, 'Database connection error');
+
   return db;
 }
 //# sourceMappingURL=index.js.map

@@ -41,7 +41,8 @@ export async function commands(event){
   
         case 'vse':
         case 'vše':
-        createNewUser(webhookEvent.sender.id)
+        const help = await getUserAll()
+        console.log(help)
         //sendGenMessage(webhookEvent.sender.id, templates['get_school'])
         break
   
