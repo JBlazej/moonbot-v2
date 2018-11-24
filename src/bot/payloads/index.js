@@ -1,4 +1,7 @@
 import {sendTextMessage} from '../lib/messages'
+import {sendIdosAnswer} from '../idos'
+import {getTime, getDate} from '../lib/dateAndTime'
+import {getUserById} from '../../models/v1/user'
 
 export async function payloads(id, payload){
 
@@ -26,6 +29,10 @@ export async function payloads(id, payload){
         break
 
         case 'next':
+        const pole = getUserById(id)
+        console.log(pole)
+        //shiftTimeAndDateUTC(utc)
+        //sendIdosAnswer(id, 'volha', 'chodov', utc)
         break
 
         case 'howToIdos':

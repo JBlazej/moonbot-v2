@@ -94,9 +94,7 @@ function getMongoUrl() {
 }
 
 function getDB() {
-  console.log(db);
   if (!db) throw new Error(500, 'Database connection error');
-
   return db;
 }
 //# sourceMappingURL=index.js.map

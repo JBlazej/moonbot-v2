@@ -40,6 +40,12 @@ export async function getUserAll () {
     return user
 }
 
+export async function getUserById (id) {
+    const user = await getDB().model('User', UserSchema).find({"id": id})
+    
+    return user
+  }
+
 export async function modifyUserById (id, from, to, utcTimeAndDate) {
     
     let data = {

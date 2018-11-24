@@ -13,3 +13,12 @@ export function getDate(utcDate){
     
     return actualDate
 }
+
+export function shiftTimeAndDateUTC(utcTimeAndDate){
+    const actualTimeAndDateUTC = moment(utcTimeAndDate)
+    const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(5, 'minutes')
+
+    return shiftedTimeAndDateUTC
+}
+
+//2018-11-24T15:52:36.230Z

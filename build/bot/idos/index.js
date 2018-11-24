@@ -24,7 +24,11 @@ var _cheerioTableparser2 = _interopRequireDefault(_cheerioTableparser);
 
 var _messages = require('../lib/messages');
 
+var _dateAndTime = require('../lib/dateAndTime');
+
 var _templates = require('../../views/templates');
+
+var _user = require('../../models/v1/user');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -59,12 +63,14 @@ function initializeIdosTable(from, to, timeTravel, dateTravel) {
 }
 
 //initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
-
-function sendIdosAnswer(sender, text, timeTravel, dateTravel) {
+function sendIdosAnswer(sender, text, utcTimeAndDate) {
   var stops = transformTextForIdos(text);
 
   var from = encodeUrlParameter(stops[0]);
   var to = encodeUrlParameter(stops[1]);
+
+  var timeTravel = (0, _dateAndTime.getTime)(utcTimeAndDate);
+  var dateTravel = (0, _dateAndTime.getDate)(utcTimeAndDate);
 
   var initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel);
   initializePromise.then(function (result) {
@@ -93,6 +99,10 @@ function sendIdosAnswer(sender, text, timeTravel, dateTravel) {
         setTimeout(function () {
           (0, _messages.sendGenMessage)(sender, _templates.templates['get_test']);
         }, 700);
+        setTimeout(function () {
+          (0, _user.modifyUserById)(sender, from, to, utcTimeAndDate);
+        }, 900);
+
         return callback(err);
       }
 
