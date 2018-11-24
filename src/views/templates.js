@@ -164,7 +164,7 @@ export const templates = {
       }
     }
 	},
-	send_img:{
+	send_gif:{
 		attachment:{
       type: "image",
       payload:{
