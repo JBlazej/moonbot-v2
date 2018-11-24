@@ -4,7 +4,7 @@ import {getTime, getDate} from '../lib/dateAndTime'
 import {sendIdosAnswer} from '../idos'
 import {intro} from '../../views/messages'
 
-import {createNewUser} from '../../models/v1/user'
+import {getUserAll} from '../../models/v1/user'
 
 export async function commands(event){
     let webhookEvent = event
