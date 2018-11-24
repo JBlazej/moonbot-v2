@@ -164,7 +164,7 @@ export async function sendNextIDos(id){
     
     console.log(pole)
     console.log(pole[0].id)
-    console.log(pole[0].station)
+    console.log(pole[0].station.time)
 
 
     return sendIdosAnswer(sender, text, 'sadsad')
