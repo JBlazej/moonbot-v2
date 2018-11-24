@@ -37,15 +37,18 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
   }
 
   //initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
-
  export function sendIdosAnswer(sender, text, utcTime) {
    const stops = transformTextForIdos(text)
-   
-   let timeTravel = getTime(utcTime)
-   let dateTravel = getDate(utcTime)
 
    let from = encodeUrlParameter(stops[0])
    let to = encodeUrlParameter(stops[1])
+   
+   let timeTravel = getTime(utcTime)
+   let dateTravel = getDate(utcTime)
+   console.log(timeTravel)
+   console.log(dateTravel)
+   
+
    
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
     initializePromise.then( (result) => {
@@ -71,8 +74,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           
           setTimeout(()=>{sendTextMessage(sender, extraInformation)}, 500)
           setTimeout(()=>{sendGenMessage(sender, templates['get_test'])}, 700)
-          setTimeout(()=>{modifyUserById(sender, from, to, utcTime)}, 900)
-          
+
           return callback(err)
           }
   
