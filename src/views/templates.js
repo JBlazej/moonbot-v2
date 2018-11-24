@@ -162,6 +162,14 @@ export const templates = {
         url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/moonbot.jpg",
         is_reusable: "TRUE"
       }
+	},
+	send_gif:{
+		attachment:{
+      type: "image",
+      payload:{
+        url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
+        is_reusable: "TRUE"
+      }
     }
 	},
 	dormitories:{
