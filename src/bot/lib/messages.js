@@ -43,4 +43,12 @@ export async function sendIntroduction(id, text1, text2, text3) {
 
 }
 
- 
+export async function sendMultipleMessages(id, object){
+  let obj = object
+  
+  for (const item of obj){
+    console.log(item)
+    await sendTextMessage(id, item)
+  }
+
+}

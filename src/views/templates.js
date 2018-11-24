@@ -185,7 +185,22 @@ export const templates = {
 		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/svecova.jpg",
 		 text: "Poslední bla."
 	 }
- 	},
+	 },
+	 send_intro:{
+		 text: "Vyber si jednu možnost nebo když nevíš napiš nápověda",
+		 quick_replies:[
+			{
+				content_type: "text",
+				title: "Spojení",
+				payload: "idos-intro"
+			},
+			{
+		 		content_type: "text",
+		  		title: "Novinky",
+		  		payload: "vse-intro"
+			},
+		  ]
+	},
 	send_quick:{
   	text: "Moje oblíbené příkazy",
     quick_replies:[

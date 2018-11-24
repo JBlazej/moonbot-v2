@@ -1,4 +1,4 @@
-import {sendTextMessage, sendIntroduction} from '../lib/messages'
+import {sendTextMessage, sendIntroduction, sendMultipleMessages} from '../lib/messages'
 
 import {sendIdosAnswer} from '../idos'
 
@@ -21,7 +21,7 @@ export async function commands(event){
         break
   
         case 'moon':
-        sendIntroduction(webhookEvent.sender.id, intro[0], intro[1], intro[2])
+        sendMultipleMessages(webhookEvent.sender.id, intro)
         break
   
         case 'napoveda':

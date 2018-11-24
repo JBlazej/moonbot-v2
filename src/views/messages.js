@@ -5,7 +5,9 @@ export const intro = [
 ]
 
 export const starter = [
-  'Ahoj já jsem Moonbot. Je --10:30-- hodin a Ty si mě zrovna oživil.',
-  'Jak se máš? Já se mám dneska fakt skvěle. Konečně je tu někdo komu můžu pomoct.',
-  'Napiš příkaz moon a já ti o sobě řeknu více.'
+  'Ahoj já jsem Moonbot.',
+  '🌚',
+  'Jsem zde od toho, abych tě mohl informovat o novinkách ze školy.',
+  'Navíc ti dokážu rychle najít cestu kam zrovna potřebuješ.'
+  
 ]
