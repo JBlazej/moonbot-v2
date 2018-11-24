@@ -2,10 +2,13 @@ import request from 'request-promise'
 import async from 'async'
 import cheerio from 'cheerio'
 import cheerioTableparser from 'cheerio-tableparser'
+
 import {sendTextMessage, sendGenMessage} from '../lib/messages'
 import {getTime, getDate} from '../lib/dateAndTime'
+
 import {templates} from '../../views/templates'
-import {modifyUserById} from '../../models/v1/user'
+
+import {modifyUserById, getUserById} from '../../models/v1/user'
 
 
 export function initializeIdosTable(from, to, timeTravel, dateTravel){
@@ -45,8 +48,6 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
    
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
-
-   
 
    
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
@@ -151,4 +152,12 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
 function encodeUrlParameter(value) {
 	return encodeURIComponent(value)
   	.replace(/\%20/g, '+')
+}
+
+
+export async function sendNextIDos(id){
+  console.log(id)
+  const pole = getUserById(id)
+  console.log(pole)
+
 }
