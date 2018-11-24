@@ -12,7 +12,7 @@ const router = Router()
 
 // HOME
 router.get('/', (req, res) => {
-    res.send('Nice job I am alive !!!')
+    res.send('Server is working !!!')
 })
 
 // FACEBOOK VERIFICATION

@@ -3,7 +3,7 @@ import {sendTextMessage, sendIntroduction} from '../lib/messages'
 import {sendIdosAnswer} from '../idos'
 
 import {intro} from '../../views/messages'
-//import {templates} from '../../views/templates'
+import {templates} from '../../views/templates'
 
 import {createNewUser} from '../../models/v1/user'
 

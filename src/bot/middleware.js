@@ -10,7 +10,7 @@ export async function botMessengerMiddleware(event) {
       // Text
       commands(webhookEvent)
     }else {
-      // Attachments
+      // Attachments or likes
       sendTextMessage(webhookEvent.sender.id, 'O tomhle nic moc nevím...')
     }
   }else {
