@@ -170,8 +170,18 @@ export const templates = {
         url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
         is_reusable: "TRUE"
       }
-    },
+    }
 	},
+	send_idos_intro:{
+		text: "Dostaneš následně ode mě textovou odpověd.",
+		quick_replies:[
+		   {
+			   content_type: "text",
+			   title: "Vyzkoušet",
+			   payload: "idos-intro-try"
+		   }
+		 ]
+   	},
 	dormitories:{
 	 blanice:{
 		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/blanice.png",
@@ -206,19 +216,9 @@ export const templates = {
 		 		content_type: "text",
 		  		title: "Novinky",
 		  		payload: "vse-intro"
-			}
+			},
 		  ]
 	},
-	send_idos_intro:{
-		text: "Dostaneš následně ode mě textovou odpověd.",
-		quick_replies:[
-		   {
-			   content_type: "text",
-			   title: "Vyzkoušet",
-			   payload: "idos-intro-try"
-		   }
-		 ]
-   },
 	send_quick:{
   	text: "Moje oblíbené příkazy",
     quick_replies:[
