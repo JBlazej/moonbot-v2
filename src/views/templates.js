@@ -162,26 +162,8 @@ export const templates = {
         url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/moonbot.jpg",
         is_reusable: "TRUE"
       }
-	},
-	send_idos_intro_gif:{
-		attachment:{
-      type: "image",
-      payload:{
-        url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
-        is_reusable: "TRUE"
-      }
     }
 	},
-	send_idos_intro:{
-		text: "Dostaneš následně ode mě textovou odpověd.",
-		quick_replies:[
-		   {
-			   content_type: "text",
-			   title: "Vyzkoušet",
-			   payload: "idos-intro-try"
-		   }
-		 ]
-   	},
 	dormitories:{
 	 blanice:{
 		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/blanice.png",
