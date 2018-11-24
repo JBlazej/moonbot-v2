@@ -26,12 +26,12 @@ export async function commands(event){
   
         case 'napoveda':
         case 'nápověda':
-        //sendGenMessage(webhookEvent.sender.id, templates['send_quick'])
+        sendGenMessage(webhookEvent.sender.id, templates['send_quick'])
         break
   
         case 'spojeni':
         case 'spojení':
-        //sendGenMessage(webhookEvent.sender.id, templates['get_idos'])
+        sendGenMessage(webhookEvent.sender.id, templates['get_idos'])
         break
 
         case 'spoj':
@@ -43,7 +43,7 @@ export async function commands(event){
         case 'vse':
         case 'vše':
         createNewUser(webhookEvent.sender.id)
-        //sendGenMessage(webhookEvent.sender.id, templates['get_school'])
+        sendGenMessage(webhookEvent.sender.id, templates['get_school'])
         break
   
         case 'prvak':
