@@ -73,5 +73,9 @@ export async function commands(event){
         case 'jb':
         //sendGenMessage(webhookEvent.sender.id, templates['get_jb'])
         break
+
+        default:
+        sendTextMessage(webhookEvent.sender.id, 'Tenhle příkaz neznám... promiň :-(')
+        break
     }
 }

@@ -10,6 +10,7 @@ export async function botMessengerMiddleware(event) {
       // Text
       commands(webhookEvent)
     }else {
+      // Attachments
       sendTextMessage(webhookEvent.sender.id, 'O tomhle nic moc nevím...')
     }
   }else {
@@ -18,4 +19,5 @@ export async function botMessengerMiddleware(event) {
   }
 }
 
-//webhookEvent.message.attachments
+// Likes
+// 369239383222810 369239263222822 369239343222814
