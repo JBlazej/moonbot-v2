@@ -40,13 +40,13 @@ export async function getUserAll () {
     return user
 }
 
-export async function modifyUserById (id, from, to, utcTime) {
+export async function modifyUserById (id, from, to, utcTimeAndDate) {
     
     let data = {
         station: {
             from: from,
             to: to,
-            time: utcTime
+            time: utcTimeAndDate
         }
     }
     console.log(data)
