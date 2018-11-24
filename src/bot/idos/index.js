@@ -2,7 +2,7 @@ import request from 'request-promise'
 import async from 'async'
 import cheerio from 'cheerio'
 import cheerioTableparser from 'cheerio-tableparser'
-import {sendTextMessage} from '../lib/messages'
+import {sendTextMessage, sendGenMessage} from '../lib/messages'
 import {templates} from '../../views/templates'
 
 export function initializeIdosTable(from, to, timeTravel, dateTravel){
