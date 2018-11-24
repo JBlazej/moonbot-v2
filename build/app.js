@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 require('babel-polyfill');
@@ -40,8 +40,6 @@ var _sigterm = require('./services/sigterm');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import {sendIdosAnswer} from './bot/idos/idos'
-
 /**
  * Start Express server.
  */
@@ -55,9 +53,9 @@ var app = (0, _express2.default)();
 // HEROKU SIGTERM
 (0, _sigterm.sigterm)();
 // SSL
-//app.use(sslRedirect())
+app.use((0, _herokuSslRedirect2.default)());
 // PUBLIC
-app.use('/public', _express2.default.static(__dirname + '../public/'));
+app.use('/public', _express2.default.static(__dirname + '../public'));
 // BODY
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
@@ -74,37 +72,36 @@ app.set('port', process.env.PORT || 3030);
  * Run Express server.
  */
 app.listen(app.get("port"), function () {
-  console.log("  App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
-  console.log("  Press CMD-C to stop\n");
+    console.log("  App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
+    console.log("  Press CMD-C to stop\n");
 });
 
 // HANDLINGS ERRORS
 var shuttingDown = false;
 
 app.use(function (req, res, next) {
-  if (!shuttingDown) return next();
+    if (!shuttingDown) return next();
 
-  res.setHeader('Connection', 'close');
-  var err = new Error('Server is in the process of restarting');
-  err.status = 503;
-  next(err);
+    res.setHeader('Connection', 'close');
+    var err = new Error('Server is in the process of restarting');
+    err.status = 503;
+    next(err);
 });
 
 app.use(function (req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 app.use(function (err, req, res, next) {
-  res.status(err.status || 500);
-  console.log(err);
-  res.send({ 'error': err.message });
-  if (app.get('env') === 'development') {
-    logger.error(err);
-  }
+    res.status(err.status || 500);
+    console.log(err);
+    res.send({ 'error': err.message });
+    if (app.get('env') === 'development') {
+        console.log(err);
+    }
 });
 
-//sendIdosAnswer('1986144768118336','olsanska', 'volha', '20:30', '22.11.2018')
 exports.default = app;
 //# sourceMappingURL=app.js.map

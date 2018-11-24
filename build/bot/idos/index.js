@@ -3,99 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var parseTable = function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(html) {
-    var parseHtml, data;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            parseHtml = _cheerio2.default.load(html, { decodeEntities: false, normalizeWhitespace: true });
-
-            (0, _cheerioTableparser2.default)(parseHtml);
-
-            data = parseHtml('table tbody').attr('class', 'results').first().parsetable(true, true, true);
-            return _context.abrupt('return', data);
-
-          case 4:
-          case 'end':
-            return _context.stop();
-        }
-      }
-    }, _callee, this);
-  }));
-
-  return function parseTable(_x) {
-    return _ref.apply(this, arguments);
-  };
-}();
-
-var modifyParseHtml = function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(html) {
-    var data, result, j, _parseTable, i;
-
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            data = html;
-            result = [];
-
-
-            for (j = 0; j < data[2].length; j++) {
-              _parseTable = [];
-
-
-              for (i = 2; i < data.length; i++) {
-                _parseTable.push(data[i][j]);
-              }
-
-              result.push(_parseTable);
-            }
-
-            return _context2.abrupt('return', result);
-
-          case 4:
-          case 'end':
-            return _context2.stop();
-        }
-      }
-    }, _callee2, this);
-  }));
-
-  return function modifyParseHtml(_x2) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-
-var makeIdosRequest = function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(from, to, timeTravel, dateTravel) {
-    var url;
-    return regeneratorRuntime.wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            url = 'https://jizdnirady.idnes.cz/praha/spojeni/?f=' + from + '&t=' + to + '&time=' + timeTravel + '&date=' + dateTravel + '&submit=true';
-
-            (0, _requestPromise2.default)(url).then(function (html) {
-              console.log(html);
-              return html;
-            });
-
-          case 2:
-          case 'end':
-            return _context3.stop();
-        }
-      }
-    }, _callee3, this);
-  }));
-
-  return function makeIdosRequest(_x3, _x4, _x5, _x6) {
-    return _ref3.apply(this, arguments);
-  };
-}();
-
 exports.initializeIdosTable = initializeIdosTable;
 exports.sendIdosAnswer = sendIdosAnswer;
 
@@ -119,10 +26,6 @@ var _messages = require('../lib/messages');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-makeIdosRequest('husinecka', 'volha', '21:30', '23.11.2018');
-
 function initializeIdosTable(from, to, timeTravel, dateTravel) {
   var url = 'https://jizdnirady.idnes.cz/praha/spojeni/?f=' + from + '&t=' + to + '&time=' + timeTravel + '&date=' + dateTravel + '&submit=true';
   var result = [];
@@ -137,13 +40,13 @@ function initializeIdosTable(from, to, timeTravel, dateTravel) {
       // 6 columns in 1 row
 
       for (var j = 0; j < data[2].length; j++) {
-        var _parseTable2 = [];
+        var parseTable = [];
 
         for (var i = 2; i < data.length; i++) {
-          _parseTable2.push(data[i][j]);
+          parseTable.push(data[i][j]);
         }
 
-        result.push(_parseTable2);
+        result.push(parseTable);
       }
       resolve(result);
       console.log(result);

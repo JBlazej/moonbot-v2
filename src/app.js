@@ -8,7 +8,6 @@ import path from 'path'
 import router from './router'
 import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
-//import {sendIdosAnswer} from './bot/idos/idos'
 
 /**
  * Start Express server.
@@ -23,9 +22,9 @@ connectDB()
 // HEROKU SIGTERM
 sigterm()
 // SSL
-//app.use(sslRedirect())
+app.use(sslRedirect())
 // PUBLIC
-app.use('/public', express.static(__dirname + '../public/'))
+app.use('/public', express.static(__dirname + '../public'))
 // BODY
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -73,9 +72,8 @@ app.use((err, req, res, next) => {
     console.log(err)
     res.send({'error': err.message})
     if (app.get('env') === 'development') {
-      logger.error(err)
+        console.log(err)
     }
 })
 
-//sendIdosAnswer('1986144768118336','olsanska', 'volha', '20:30', '22.11.2018')
 export default app

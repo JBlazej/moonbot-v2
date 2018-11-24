@@ -6,10 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _express = require('express');
 
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
 var _requireDir = require('require-dir');
 
 var _requireDir2 = _interopRequireDefault(_requireDir);
@@ -29,7 +25,7 @@ var router = (0, _express.Router)();
 
 // HOME
 router.get('/', function (req, res) {
-    res.status(200).json({ good: 'Nice' });
+    res.send('Nice job I am alive !!!');
 });
 
 // FACEBOOK VERIFICATION
