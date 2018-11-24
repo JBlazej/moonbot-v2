@@ -62,7 +62,7 @@ export async function modifyUserById (id, from, to, utcTimeAndDate) {
 
 export async function updateUserById (id) {
     let data = {
-        id = id
+        id: id
     }
 
     const user = await getDB().model('User', UserSchema).findOneAndUpdate({id: id}, data, {new: true})
