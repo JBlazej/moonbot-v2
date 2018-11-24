@@ -39,8 +39,6 @@ export async function sendMultipleMessages(id, object){
   let obj = object
   
   for (const item of obj){
-    console.log(item)
     await sendTextMessage(id, item)
   }
-
 }

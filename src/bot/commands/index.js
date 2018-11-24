@@ -7,6 +7,7 @@ import {templates} from '../../views/templates'
 
 import {createNewUser} from '../../models/v1/user'
 
+let utcNow = new Date()
 
 export async function commands(event){
     let webhookEvent = event
@@ -35,9 +36,13 @@ export async function commands(event){
         await sendGenMessage(webhookEvent.sender.id, templates['send_idos_intro'])
         break
 
+        case 'vyzkoušet':
+        case 'vyzkouset':
+        const introTravel = 'spoj volha do hlavni nadrazi'
+        sendIdosAnswer(webhookEvent.sender.id, introTravel, utcNow)
+        break
+
         case 'spoj':
-        let utcNow = new Date()
-        
         sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcNow)
         break
   
