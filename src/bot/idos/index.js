@@ -48,7 +48,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
 
-   sendTextMessage(sender, 'Váš spoj se vyhledává...')
+   //sendTextMessage(sender, 'Váš spoj se vyhledává...')
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
     initializePromise.then( (result) => {
         // Initialized table data
