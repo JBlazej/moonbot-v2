@@ -42,7 +42,6 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
 
  export function sendIdosAnswer(sender, text, utcTimeAndDate) {
    const stops = transformTextForIdos(text)
-   console.log(stops)
 
    let from = encodeUrlParameter(stops[0])
    let to = encodeUrlParameter(stops[1])
@@ -50,11 +49,8 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
 
-   console.log(from)
-   console.log(to)
-   console.log(timeTravel)
-   console.log(dateTravel)
-
+   sendTextMessage(sender, "Váš spoj se vyhledává...")
+   
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
     initializePromise.then( (result) => {
         // Initialized table data
