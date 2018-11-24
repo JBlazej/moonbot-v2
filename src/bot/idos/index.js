@@ -161,13 +161,9 @@ export async function sendNextIDos(id){
   const jsonpole = JSON.stringify(pole)
   if(pole){
     let text = 'spoj volha do chodov'
+    let utcTimeAndDate = pole[0].station.time
     
-    console.log(pole)
-    console.log(pole[0].id)
-    console.log(pole[0].station.time)
-
-
-    return sendIdosAnswer(sender, text, 'sadsad')
+    return sendIdosAnswer(id, text, utcTimeAndDate)
   }else {
     console.log('Nic v poli')
   }
