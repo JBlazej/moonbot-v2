@@ -45,6 +45,9 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
 
    let from = encodeUrlParameter(stops[0])
    let to = encodeUrlParameter(stops[1])
+
+   console.log(from)
+   console.log(to)
    
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
@@ -163,10 +166,9 @@ export async function sendNextIDos(id){
     
     let utcTimeAndDate = pole[0].station.time
     let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
-  
-    console.log(text)
+    
     return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
   }else {
-    console.log('Nic v poli')
+    sendTextMessage(id, "Něco se pokazilo zkus to znovu :-(")
   }
 }
