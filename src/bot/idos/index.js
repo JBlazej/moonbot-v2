@@ -73,7 +73,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           
           setTimeout(()=>{sendTextMessage(sender, extraInformation)}, 500)
           setTimeout(()=>{sendGenMessage(sender, templates['get_test'])}, 700)
-          setTimeout(()=>{modifyUserById(sender, utcTimeAndDate)}, 900)
+          setTimeout(()=>{modifyUserById(sender, from, to, utcTimeAndDate)}, 900)
 
           return callback(err)
           }
