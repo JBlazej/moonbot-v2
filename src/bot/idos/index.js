@@ -4,7 +4,7 @@ import cheerio from 'cheerio'
 import cheerioTableparser from 'cheerio-tableparser'
 
 import {sendTextMessage, sendGenMessage} from '../lib/messages'
-import {getTime, getDate} from '../lib/dateAndTime'
+import {getTime, getDate, shiftTimeAndDateUTC} from '../lib/dateAndTime'
 
 import {templates} from '../../views/templates'
 
@@ -156,14 +156,15 @@ function encodeUrlParameter(value) {
 
 
 export async function sendNextIDos(id){
-  console.log(id)
   const pole = await getUserById(id)
-  const jsonpole = JSON.stringify(pole)
+
   if(pole){
     let text = 'spoj volha do chodov'
+
     let utcTimeAndDate = pole[0].station.time
+    let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
     
-    return sendIdosAnswer(id, text, utcTimeAndDate)
+    return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
   }else {
     console.log('Nic v poli')
   }
