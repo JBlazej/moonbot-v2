@@ -31,8 +31,8 @@ export async function commands(event){
   
         case 'spojeni':
         case 'spojení':
-        await sendMultipleMessages(id, introIDOS)
-        await sendGenMessage(id, templates['send_idos_intro'])
+        await sendMultipleMessages(webhookEvent.sender.id, introIDOS)
+        await sendGenMessage(webhookEvent.sender.id, templates['send_idos_intro'])
         break
 
         case 'spoj':
