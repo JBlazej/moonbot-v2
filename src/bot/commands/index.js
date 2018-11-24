@@ -2,7 +2,7 @@ import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/mess
 
 import {sendIdosAnswer} from '../idos'
 
-import {intro} from '../../views/messages'
+import {intro, introIDOS} from '../../views/messages'
 import {templates} from '../../views/templates'
 
 import {createNewUser} from '../../models/v1/user'
@@ -31,7 +31,8 @@ export async function commands(event){
   
         case 'spojeni':
         case 'spojení':
-        sendGenMessage(webhookEvent.sender.id, templates['get_idos'])
+        await sendMultipleMessages(id, introIDOS)
+        await sendGenMessage(id, templates['send_idos_intro'])
         break
 
         case 'spoj':
