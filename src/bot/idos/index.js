@@ -3,7 +3,10 @@ import async from 'async'
 import cheerio from 'cheerio'
 import cheerioTableparser from 'cheerio-tableparser'
 import {sendTextMessage, sendGenMessage} from '../lib/messages'
+import {getTime, getDate} from '../lib/dateAndTime'
 import {templates} from '../../views/templates'
+import {modifyUserById} from '../../models/v1/user'
+
 
 export function initializeIdosTable(from, to, timeTravel, dateTravel){
     let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
@@ -35,9 +38,12 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
 
   //initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
 
- export function sendIdosAnswer(sender, text, timeTravel, dateTravel) {
+ export function sendIdosAnswer(sender, text, utcTime) {
    const stops = transformTextForIdos(text)
    
+   let timeTravel = getTime(utcTime)
+   let dateTravel = getDate(utcTime)
+
    let from = encodeUrlParameter(stops[0])
    let to = encodeUrlParameter(stops[1])
    
@@ -62,8 +68,11 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
   
           err.break = true
   
+          
           setTimeout(()=>{sendTextMessage(sender, extraInformation)}, 500)
           setTimeout(()=>{sendGenMessage(sender, templates['get_test'])}, 700)
+          setTimeout(()=>{modifyUserById(sender, from, to, utcTime)}, 900)
+          
           return callback(err)
           }
   

@@ -40,8 +40,18 @@ export async function getUserAll () {
     return user
 }
 
-export async function modifyUserById (id, payload) {
-    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id: id}, payload, {new: true})
+export async function modifyUserById (id, from, to, utcTime) {
+    
+    let data = {
+        station: {
+            from: from,
+            to: to,
+            time: utcTime
+        }
+    }
+    console.log(data)
+
+    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id: id}, data, {new: true})
     
     return user
 }
