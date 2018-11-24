@@ -162,7 +162,10 @@ export async function sendNextIDos(id){
   if(pole){
     let text = 'spoj volha do chodov'
     
-    console.log(pole.hasOwnProperty("station"))
+    console.log(pole)
+    console.log(pole.id)
+    console.log(pole.station)
+
 
     return sendIdosAnswer(sender, text, 'sadsad')
   }else {
