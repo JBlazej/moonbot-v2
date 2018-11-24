@@ -168,7 +168,7 @@ export const templates = {
 		attachment:{
       type: "image",
       payload:{
-        url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
+        url: "https://giphy.com/gifs/l3UcrqNnA3zZTavMA/html5",
         is_reusable: "TRUE"
       }
     }
