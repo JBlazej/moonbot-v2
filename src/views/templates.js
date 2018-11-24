@@ -206,7 +206,7 @@ export const templates = {
 		 		content_type: "text",
 		  		title: "Novinky",
 		  		payload: "vse-intro"
-			},
+			}
 		  ]
 	},
 	send_idos_intro:{
