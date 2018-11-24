@@ -33,13 +33,12 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
   
           result.push(parseTable)
         }
+
         resolve(result)
-        console.log(result)
       }).catch((err) => reject(err))
     })
   }
 
-  //initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
  export function sendIdosAnswer(sender, text, utcTimeAndDate) {
    const stops = transformTextForIdos(text)
 
@@ -77,7 +76,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           
           setTimeout(()=>{sendTextMessage(sender, extraInformation)}, 500)
           setTimeout(()=>{sendGenMessage(sender, templates['get_test'])}, 700)
-          setTimeout(()=>{modifyUserById(sender, from, to, utcTimeAndDate)}, 900)
+          setTimeout(()=>{modifyUserById(sender, stops[0], stops[1], utcTimeAndDate)}, 900)
 
           return callback(err)
           }
@@ -118,17 +117,15 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
             if (val === false){
               let message = zastavka + ' ' + odjezd + ' ' + prijezd + spoj 
               sendTextMessage(sender, message)
-              //console.log(message)
   
             } else {
               let message2 = zastavka + ' ' + prijezd + ' ' + odjezd + spoj 
               sendTextMessage(sender, message2)
-              //console.log(message2)
+  
             }
-  
-  
+
             i++
-  
+
             callback()
           }, 800)
         })
@@ -166,7 +163,7 @@ export async function sendNextIDos(id){
     
     let utcTimeAndDate = pole[0].station.time
     let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
-    
+
     return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
   }else {
     sendTextMessage(id, "Něco se pokazilo zkus to znovu :-(")
