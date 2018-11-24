@@ -18,3 +18,15 @@ export const introIDOS = [
   'Přesně v tomto tvaru.',
   'Spoj Volha do Hlavní nádraží'
 ]
+
+export const help = [
+	'Platné příkazy: ',
+	'Koleje',
+	'Prvák',
+	'Hackernews',
+	'Napoveda',
+	'VSE',
+	'InSIS',
+  'Fakulty',
+  'Spojení'
+]

@@ -2,7 +2,7 @@ import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/mess
 
 import {sendIdosAnswer} from '../idos'
 
-import {intro, introIDOS} from '../../views/messages'
+import {intro, introIDOS, help} from '../../views/messages'
 import {templates} from '../../views/templates'
 
 import {createNewUser} from '../../models/v1/user'
@@ -49,8 +49,7 @@ export async function commands(event){
   
         case 'vse':
         case 'vše':
-        createNewUser(webhookEvent.sender.id)
-        sendGenMessage(webhookEvent.sender.id, templates['get_school'])
+        await sendGenMessage(webhookEvent.sender.id, templates['get_school'])
         break
   
         case 'prvak':
@@ -81,8 +80,14 @@ export async function commands(event){
         //sendGenMessage(webhookEvent.sender.id, templates['get_jb'])
         break
 
+        case 'napoveda':
+        case 'nápověda':
+        await sendMultipleMessages(webhookEvent.sender.id, help)
+        break
+
         default:
-        sendTextMessage(webhookEvent.sender.id, 'Tenhle příkaz neznám... promiň :-(')
+        await sendTextMessage(webhookEvent.sender.id, 'Tenhle příkaz neznám... promiň :-(')
+        await sendGenMessage(webhookEvent.sender.id, templates['send_quick_help'])
         break
     }
 }

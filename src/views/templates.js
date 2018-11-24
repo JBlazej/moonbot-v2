@@ -210,6 +210,30 @@ export const templates = {
 			},
 		  ]
 	},
+	send_quick_help:{
+		text: "Nechtěl si napsat?",
+		quick_replies:[
+		   {
+			   content_type: "text",
+			   title: "Spojení",
+			   payload: "spoj-intro"
+		   },
+		   {
+				content_type: "text",
+				 title: "Novinky",
+				 payload: "vse-intro"
+		   },
+		   {
+			content_type: "text",
+			 title: "VŠE",
+			 payload: "vse"
+	   		},{
+				content_type: "text",
+				 title: "Hackernews",
+				 payload: "hacker"
+				},
+		 ]
+   },
 	send_idos_intro:{
 		text: "Dostaneš následně ode mě textovou odpověd.",
 		quick_replies:[
