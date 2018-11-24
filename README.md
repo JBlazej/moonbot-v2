@@ -1,3 +1,5 @@
-1986144768118336
+# URL
+https://moonbot-v2.herokuapp.com
 
-sendIdosAnswer('1986144768118336','olsanska', 'volha', '20:30', '22.11.2018')
+# FB ID
+1986144768118336
