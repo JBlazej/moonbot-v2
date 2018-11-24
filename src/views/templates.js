@@ -162,8 +162,9 @@ export const templates = {
         url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/moonbot.jpg",
         is_reusable: "TRUE"
       }
+    }
 	},
-	send_gif:{
+	send_img:{
 		attachment:{
       type: "image",
       payload:{
