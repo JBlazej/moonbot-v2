@@ -7,7 +7,7 @@ exports.commands = undefined;
 
 var commands = exports.commands = function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-            var webhookEvent, incomeMessage, formattedMessage;
+            var webhookEvent, incomeMessage, formattedMessage, utcNow, time, date;
             return regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) {
                         switch (_context.prev = _context.next) {
@@ -16,49 +16,61 @@ var commands = exports.commands = function () {
                                     incomeMessage = webhookEvent.message.text.toLowerCase().trim();
                                     formattedMessage = incomeMessage.toString().split(" ");
                                     _context.t0 = formattedMessage[0];
-                                    _context.next = _context.t0 === 'ahoj' ? 6 : _context.t0 === 'moon' ? 8 : _context.t0 === 'napoveda' ? 10 : _context.t0 === 'nápověda' ? 10 : _context.t0 === 'spojeni' ? 11 : _context.t0 === 'spojení' ? 11 : _context.t0 === 'spoj' ? 12 : _context.t0 === 'vse' ? 14 : _context.t0 === 'vše' ? 14 : _context.t0 === 'prvak' ? 15 : _context.t0 === 'prvák' ? 15 : _context.t0 === 'fakulty' ? 16 : _context.t0 === 'fakulta' ? 16 : _context.t0 === 'koleje' ? 17 : _context.t0 === 'kolej' ? 17 : _context.t0 === 'insis' ? 18 : _context.t0 === 'isis' ? 18 : _context.t0 === 'hackernews' ? 19 : _context.t0 === 'jb' ? 20 : 21;
+                                    _context.next = _context.t0 === 'ahoj' ? 6 : _context.t0 === 'moon' ? 8 : _context.t0 === 'napoveda' ? 10 : _context.t0 === 'nápověda' ? 10 : _context.t0 === 'spojeni' ? 11 : _context.t0 === 'spojení' ? 11 : _context.t0 === 'spoj' ? 12 : _context.t0 === 'vse' ? 21 : _context.t0 === 'vše' ? 21 : _context.t0 === 'prvak' ? 22 : _context.t0 === 'prvák' ? 22 : _context.t0 === 'fakulty' ? 23 : _context.t0 === 'fakulta' ? 23 : _context.t0 === 'koleje' ? 24 : _context.t0 === 'kolej' ? 24 : _context.t0 === 'insis' ? 25 : _context.t0 === 'isis' ? 25 : _context.t0 === 'hackernews' ? 26 : _context.t0 === 'jb' ? 27 : 28;
                                     break;
 
                               case 6:
                                     (0, _messages.sendTextMessage)(webhookEvent.sender.id, 'Kravina');
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 28);
 
                               case 8:
                                     (0, _messages.sendIntroduction)(webhookEvent.sender.id, _messages2.intro[0], _messages2.intro[1], _messages2.intro[2]);
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 28);
 
                               case 10:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 28);
 
                               case 11:
-                                    return _context.abrupt('break', 21);
+                                    return _context.abrupt('break', 28);
 
                               case 12:
-                                    (0, _idos.sendIdosAnswer)('1986144768118336', webhookEvent.message.text, '20:30', '22.11.2018');
-                                    return _context.abrupt('break', 21);
-
-                              case 14:
-                                    return _context.abrupt('break', 21);
+                                    utcNow = new Date();
+                                    _context.next = 15;
+                                    return (0, _dateAndTime.getTime)(utcNow);
 
                               case 15:
-                                    return _context.abrupt('break', 21);
-
-                              case 16:
-                                    return _context.abrupt('break', 21);
-
-                              case 17:
-                                    return _context.abrupt('break', 21);
+                                    time = _context.sent;
+                                    _context.next = 18;
+                                    return (0, _dateAndTime.getDate)(utcNow);
 
                               case 18:
-                                    return _context.abrupt('break', 21);
+                                    date = _context.sent;
 
-                              case 19:
-                                    return _context.abrupt('break', 21);
-
-                              case 20:
-                                    return _context.abrupt('break', 21);
+                                    (0, _idos.sendIdosAnswer)(webhookEvent.sender.id, webhookEvent.message.text, time, date);
+                                    return _context.abrupt('break', 28);
 
                               case 21:
+                                    return _context.abrupt('break', 28);
+
+                              case 22:
+                                    return _context.abrupt('break', 28);
+
+                              case 23:
+                                    return _context.abrupt('break', 28);
+
+                              case 24:
+                                    return _context.abrupt('break', 28);
+
+                              case 25:
+                                    return _context.abrupt('break', 28);
+
+                              case 26:
+                                    return _context.abrupt('break', 28);
+
+                              case 27:
+                                    return _context.abrupt('break', 28);
+
+                              case 28:
                               case 'end':
                                     return _context.stop();
                         }
@@ -72,6 +84,8 @@ var commands = exports.commands = function () {
 }();
 
 var _messages = require('../lib/messages');
+
+var _dateAndTime = require('../lib/dateAndTime');
 
 var _idos = require('../idos');
 
