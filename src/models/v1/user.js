@@ -36,19 +36,20 @@ const UserSchema = new mongoose.Schema({
 
 export async function getUserAll () {
     const user = await getDB().model('User', UserSchema).find({})
-    console.log(user)
+
+    return user
+}
+
+export async function modifyUserById (id, payload) {
+    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id: id}, payload, {new: true})
     
     return user
 }
 
-
-
 export async function createNewUser (id) {
     const User = await getDB().model('User', UserSchema)
-    console.log(User)
     const user = new User({id: id})
     user.save()
-    console.log(user)
+
     return user
-  
 }

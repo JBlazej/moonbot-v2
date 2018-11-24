@@ -4,7 +4,7 @@ import {getTime, getDate} from '../lib/dateAndTime'
 import {sendIdosAnswer} from '../idos'
 import {intro} from '../../views/messages'
 
-import {getUserAll} from '../../models/v1/user'
+import {getUserAll, modifyUserById} from '../../models/v1/user'
 
 export async function commands(event){
     let webhookEvent = event
@@ -41,9 +41,16 @@ export async function commands(event){
   
         case 'vse':
         case 'vše':
-        const help = await getUserAll()
-        console.log(help)
+        const hovno = {
+            station: {
+                from: "hovno",
+                to: "kokos",
+                time: "2018-11-25T14:58:59.730Z"
+            }
+        }
+        const help = await modifyUserById(webhookEvent.sender.id, hovno)
         //sendGenMessage(webhookEvent.sender.id, templates['get_school'])
+        console.log(help)
         break
   
         case 'prvak':

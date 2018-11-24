@@ -22,7 +22,6 @@ export async function connectDB () {
 
 export function getDB () {
   if (!db) throw new Error(500, 'Database connection error')
-  
   return db
 }
 
