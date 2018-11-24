@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sendIntroduction = exports.sendGenMessage = exports.sendTextMessage = undefined;
+exports.sendMultipleMessages = exports.sendGenMessage = exports.sendTextMessage = undefined;
 
 var makeRequest = function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(options) {
@@ -88,32 +88,79 @@ var sendGenMessage = exports.sendGenMessage = function () {
   };
 }();
 
-var sendIntroduction = exports.sendIntroduction = function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(id, text1, text2, text3) {
+var sendMultipleMessages = exports.sendMultipleMessages = function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(id, object) {
+    var obj, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item;
+
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            _context4.next = 2;
-            return sendTextMessage(id, text1);
-
-          case 2:
-            _context4.next = 4;
-            return sendTextMessage(id, text2);
-
-          case 4:
-            _context4.next = 6;
-            return sendTextMessage(id, text3);
+            obj = object;
+            _iteratorNormalCompletion = true;
+            _didIteratorError = false;
+            _iteratorError = undefined;
+            _context4.prev = 4;
+            _iterator = obj[Symbol.iterator]();
 
           case 6:
+            if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+              _context4.next = 13;
+              break;
+            }
+
+            item = _step.value;
+            _context4.next = 10;
+            return sendTextMessage(id, item);
+
+          case 10:
+            _iteratorNormalCompletion = true;
+            _context4.next = 6;
+            break;
+
+          case 13:
+            _context4.next = 19;
+            break;
+
+          case 15:
+            _context4.prev = 15;
+            _context4.t0 = _context4['catch'](4);
+            _didIteratorError = true;
+            _iteratorError = _context4.t0;
+
+          case 19:
+            _context4.prev = 19;
+            _context4.prev = 20;
+
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+
+          case 22:
+            _context4.prev = 22;
+
+            if (!_didIteratorError) {
+              _context4.next = 25;
+              break;
+            }
+
+            throw _iteratorError;
+
+          case 25:
+            return _context4.finish(22);
+
+          case 26:
+            return _context4.finish(19);
+
+          case 27:
           case 'end':
             return _context4.stop();
         }
       }
-    }, _callee4, this);
+    }, _callee4, this, [[4, 15, 19, 27], [20,, 22, 26]]);
   }));
 
-  return function sendIntroduction(_x6, _x7, _x8, _x9) {
+  return function sendMultipleMessages(_x6, _x7) {
     return _ref4.apply(this, arguments);
   };
 }();

@@ -144,6 +144,15 @@ var templates = exports.templates = {
 			}
 		}
 	},
+	send_gif: {
+		attachment: {
+			type: "image",
+			payload: {
+				url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
+				is_reusable: "TRUE"
+			}
+		}
+	},
 	dormitories: {
 		blanice: {
 			url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/blanice.png",
@@ -165,6 +174,48 @@ var templates = exports.templates = {
 			url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/svecova.jpg",
 			text: "Poslední bla."
 		}
+	},
+	send_intro: {
+		text: "Vyber si jednu možnost nebo když nevíš napiš nápověda",
+		quick_replies: [{
+			content_type: "text",
+			title: "Spojení",
+			payload: "idos-intro",
+			image_url: "http://moonbot-v2-front.herokuapp.com/rocket"
+		}, {
+			content_type: "text",
+			title: "Novinky",
+			payload: "vse-intro",
+			image_url: "http://moonbot-v2-front.herokuapp.com/moon"
+		}]
+	},
+	send_quick_help: {
+		text: "Nechtěl si napsat?",
+		quick_replies: [{
+			content_type: "text",
+			title: "Spojení",
+			payload: "spoj-intro"
+		}, {
+			content_type: "text",
+			title: "Novinky",
+			payload: "vse-intro"
+		}, {
+			content_type: "text",
+			title: "VŠE",
+			payload: "vse"
+		}, {
+			content_type: "text",
+			title: "Hackernews",
+			payload: "hacker"
+		}]
+	},
+	send_idos_intro: {
+		text: "Dostaneš následně ode mě textovou odpověd.",
+		quick_replies: [{
+			content_type: "text",
+			title: "Vyzkoušet",
+			payload: "idos-intro-try"
+		}]
 	},
 	send_quick: {
 		text: "Moje oblíbené příkazy",

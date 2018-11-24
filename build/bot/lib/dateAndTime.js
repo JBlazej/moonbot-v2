@@ -30,7 +30,9 @@ function getDate(utcTimeAndDate) {
 
 function shiftTimeAndDateUTC(utcTimeAndDate) {
     var actualTimeAndDateUTC = (0, _moment2.default)(utcTimeAndDate);
-    var shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(10, 'minutes');
+    var increaseForMinutes = increaseTime(utcTimeAndDate);
+
+    var shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(increaseForMinutes, 'minutes');
 
     return shiftedTimeAndDateUTC;
 }
@@ -38,14 +40,9 @@ function shiftTimeAndDateUTC(utcTimeAndDate) {
 function increaseTime(utcTimeAndDate) {
     var day = (0, _moment2.default)(utcTimeAndDate).format('dddd');
     if (day === 'Saturday' || day === 'Sunday') {
-
-        return 10;
+        return 12;
     } else {
-
-        return 5;
+        return 6;
     }
 }
-
-var help = increaseTime('2018-11-24T19:32:40.639Z');
-console.log(help);
 //# sourceMappingURL=dateAndTime.js.map
