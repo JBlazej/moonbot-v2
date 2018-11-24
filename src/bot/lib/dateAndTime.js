@@ -16,7 +16,20 @@ export function getDate(utcTimeAndDate){
 
 export function shiftTimeAndDateUTC(utcTimeAndDate){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
-    const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(10, 'minutes')
+    const increaseForMinutes = increaseTime(utcTimeAndDate)
+    console.log(increaseForMinutes)
+    const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(increaseForMinutes, 'minutes')
 
     return shiftedTimeAndDateUTC
+}
+
+export function increaseTime(utcTimeAndDate){
+    const day = moment(utcTimeAndDate).format('dddd')
+    if(day === 'Saturday' || day === 'Sunday'){
+        
+        return 12
+    }else {
+
+        return 6
+    }
 }

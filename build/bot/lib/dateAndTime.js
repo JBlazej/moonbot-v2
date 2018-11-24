@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.getTime = getTime;
 exports.getDate = getDate;
 exports.shiftTimeAndDateUTC = shiftTimeAndDateUTC;
+exports.increaseTime = increaseTime;
 
 var _moment = require('moment');
 
@@ -33,4 +34,18 @@ function shiftTimeAndDateUTC(utcTimeAndDate) {
 
     return shiftedTimeAndDateUTC;
 }
+
+function increaseTime(utcTimeAndDate) {
+    var day = (0, _moment2.default)(utcTimeAndDate).format('dddd');
+    if (day === 'Saturday' || day === 'Sunday') {
+
+        return 10;
+    } else {
+
+        return 5;
+    }
+}
+
+var help = increaseTime('2018-11-24T19:32:40.639Z');
+console.log(help);
 //# sourceMappingURL=dateAndTime.js.map

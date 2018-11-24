@@ -21,49 +21,53 @@ var commands = exports.commands = function () {
 
                               case 6:
                                     (0, _messages.sendTextMessage)(webhookEvent.sender.id, 'Kravina');
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 8:
                                     (0, _messages.sendIntroduction)(webhookEvent.sender.id, _messages2.intro[0], _messages2.intro[1], _messages2.intro[2]);
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 10:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 11:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 12:
                                     utcNow = new Date();
 
 
                                     (0, _idos.sendIdosAnswer)(webhookEvent.sender.id, incomeMessage, utcNow);
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 15:
                                     (0, _user.createNewUser)(webhookEvent.sender.id);
                                     //sendGenMessage(webhookEvent.sender.id, templates['get_school'])
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 17:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 18:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 19:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 20:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 21:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 22:
-                                    return _context.abrupt('break', 23);
+                                    return _context.abrupt('break', 25);
 
                               case 23:
+                                    (0, _messages.sendTextMessage)(webhookEvent.sender.id, 'Tenhle příkaz neznám... promiň :-(');
+                                    return _context.abrupt('break', 25);
+
+                              case 25:
                               case 'end':
                                     return _context.stop();
                         }
@@ -82,8 +86,9 @@ var _idos = require('../idos');
 
 var _messages2 = require('../../views/messages');
 
+var _templates = require('../../views/templates');
+
 var _user = require('../../models/v1/user');
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-//import {templates} from '../../views/templates'
 //# sourceMappingURL=index.js.map

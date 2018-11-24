@@ -60,7 +60,7 @@ var facebookEventHook = exports.facebookEventHook = function () {
                             body.entry.forEach(function (entry) {
                                 entry.messaging.forEach(function (event) {
                                     console.log(event);
-                                    (0, _middleware.botMessageMiddleware)(event);
+                                    (0, _middleware.botMessengerMiddleware)(event);
                                 });
                                 res.status(200).send('EVENT_RECEIVED');
                             });

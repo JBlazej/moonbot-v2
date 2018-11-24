@@ -25,7 +25,7 @@ var router = (0, _express.Router)();
 
 // HOME
 router.get('/', function (req, res) {
-    res.send('Nice job I am alive !!!');
+    res.send('Server is working !!!');
 });
 
 // FACEBOOK VERIFICATION
