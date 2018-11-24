@@ -41,10 +41,12 @@ export async function commands(event){
   
         case 'vse':
         case 'vše':
+        let hoo = new Date()
         const hovno = {
             station: {
                 from: "hovno",
-                to: "kokos"
+                to: "kokos",
+                time: hoo
             }
         }
         const help = await modifyUserById(webhookEvent.sender.id, hovno)
