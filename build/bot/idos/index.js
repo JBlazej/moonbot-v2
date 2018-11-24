@@ -3,6 +3,50 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.sendNextIDos = undefined;
+
+var sendNextIDos = exports.sendNextIDos = function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
+    var pole, text;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            console.log(id);
+            _context.next = 3;
+            return (0, _user.getUserById)(id);
+
+          case 3:
+            pole = _context.sent;
+
+            if (!pole) {
+              _context.next = 10;
+              break;
+            }
+
+            text = 'spoj volha do chodov';
+
+
+            console.log(pole);
+
+            return _context.abrupt('return', sendIdosAnswer(sender, text, pole.station.time));
+
+          case 10:
+            console.log('Nic v poli');
+
+          case 11:
+          case 'end':
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+
+  return function sendNextIDos(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
 exports.initializeIdosTable = initializeIdosTable;
 exports.sendIdosAnswer = sendIdosAnswer;
 
@@ -31,6 +75,8 @@ var _templates = require('../../views/templates');
 var _user = require('../../models/v1/user');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function initializeIdosTable(from, to, timeTravel, dateTravel) {
   var url = 'https://jizdnirady.idnes.cz/praha/spojeni/?f=' + from + '&t=' + to + '&time=' + timeTravel + '&date=' + dateTravel + '&submit=true';
@@ -171,4 +217,6 @@ function transformTextForIdos(text) {
 function encodeUrlParameter(value) {
   return encodeURIComponent(value).replace(/\%20/g, '+');
 }
+
+sendNextIDos('1959622390785359');
 //# sourceMappingURL=index.js.map

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.createNewUser = exports.modifyUserById = exports.getUserAll = undefined;
+exports.createNewUser = exports.modifyUserById = exports.getUserById = exports.getUserAll = undefined;
 
 var getUserAll = exports.getUserAll = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -32,12 +32,39 @@ var getUserAll = exports.getUserAll = function () {
     };
 }();
 
-var modifyUserById = exports.modifyUserById = function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(id, from, to, utcTimeAndDate) {
-        var data, user;
+var getUserById = exports.getUserById = function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(id) {
+        var user;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
                 switch (_context2.prev = _context2.next) {
+                    case 0:
+                        _context2.next = 2;
+                        return (0, _.getDB)().model('User', UserSchema).find({ "id": id });
+
+                    case 2:
+                        user = _context2.sent;
+                        return _context2.abrupt('return', user);
+
+                    case 4:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function getUserById(_x) {
+        return _ref2.apply(this, arguments);
+    };
+}();
+
+var modifyUserById = exports.modifyUserById = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(id, from, to, utcTimeAndDate) {
+        var data, user;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
                     case 0:
                         data = {
                             station: {
@@ -49,42 +76,11 @@ var modifyUserById = exports.modifyUserById = function () {
 
                         console.log(data);
 
-                        _context2.next = 4;
+                        _context3.next = 4;
                         return (0, _.getDB)().model('User', UserSchema).findOneAndUpdate({ id: id }, data, { new: true });
 
                     case 4:
-                        user = _context2.sent;
-                        return _context2.abrupt('return', user);
-
-                    case 6:
-                    case 'end':
-                        return _context2.stop();
-                }
-            }
-        }, _callee2, this);
-    }));
-
-    return function modifyUserById(_x, _x2, _x3, _x4) {
-        return _ref2.apply(this, arguments);
-    };
-}();
-
-var createNewUser = exports.createNewUser = function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(id) {
-        var User, user;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-            while (1) {
-                switch (_context3.prev = _context3.next) {
-                    case 0:
-                        _context3.next = 2;
-                        return (0, _.getDB)().model('User', UserSchema);
-
-                    case 2:
-                        User = _context3.sent;
-                        user = new User({ id: id });
-
-                        user.save();
-
+                        user = _context3.sent;
                         return _context3.abrupt('return', user);
 
                     case 6:
@@ -95,8 +91,39 @@ var createNewUser = exports.createNewUser = function () {
         }, _callee3, this);
     }));
 
-    return function createNewUser(_x5) {
+    return function modifyUserById(_x2, _x3, _x4, _x5) {
         return _ref3.apply(this, arguments);
+    };
+}();
+
+var createNewUser = exports.createNewUser = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(id) {
+        var User, user;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        _context4.next = 2;
+                        return (0, _.getDB)().model('User', UserSchema);
+
+                    case 2:
+                        User = _context4.sent;
+                        user = new User({ id: id });
+
+                        user.save();
+
+                        return _context4.abrupt('return', user);
+
+                    case 6:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, this);
+    }));
+
+    return function createNewUser(_x6) {
+        return _ref4.apply(this, arguments);
     };
 }();
 

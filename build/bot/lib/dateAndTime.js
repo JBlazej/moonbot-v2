@@ -29,16 +29,10 @@ function getDate(utcDate) {
 
 function shiftTimeAndDateUTC(utcTimeAndDate) {
     var actualTimeAndDateUTC = (0, _moment2.default)(utcTimeAndDate);
-    var shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(10, 'minutes');
+    var shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(5, 'minutes');
 
     return shiftedTimeAndDateUTC;
 }
 
 //2018-11-24T15:52:36.230Z
-var xx = new Date();
-var help = shiftTimeAndDateUTC(xx);
-
-var dobros = getTime(help);
-
-console.log(dobros);
 //# sourceMappingURL=dateAndTime.js.map

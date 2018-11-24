@@ -161,10 +161,12 @@ export async function sendNextIDos(id){
   if(pole){
     let text = 'spoj volha do chodov'
 
-    console.log(pole.station.time)
+    console.log(pole.station.time[0])
 
-    sendIdosAnswer(sender, text, pole.station.time)
+    return sendIdosAnswer(sender, text, pole.station.time[0])
   }else {
     console.log('Nic v poli')
   }
 }
+
+sendNextIDos('1959622390785359')
