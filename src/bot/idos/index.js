@@ -14,8 +14,9 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
         cheerioTableparser(parseHtml)
   
         // Parse data from Idos
-        const data = parseHtml('table tbody').attr('class', 'results').first().parsetable(true, true, true);
+        const data = parseHtml('table tbody').attr('class', 'results').first().parsetable(true, true, true)
         // 6 columns in 1 row
+
         for ( var j = 0; j < data[2].length; j++ ){
           const parseTable = []
   
