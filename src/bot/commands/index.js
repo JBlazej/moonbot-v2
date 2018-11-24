@@ -44,8 +44,7 @@ export async function commands(event){
         const hovno = {
             station: {
                 from: "hovno",
-                to: "kokos",
-                time: "2018-11-25T14:58:59.730Z"
+                to: "kokos"
             }
         }
         const help = await modifyUserById(webhookEvent.sender.id, hovno)
