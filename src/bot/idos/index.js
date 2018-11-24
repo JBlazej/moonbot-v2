@@ -32,6 +32,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           }
   
           result.push(parseTable)
+          console.log(result)
         }
 
         resolve(result)
@@ -48,7 +49,11 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
 
-   //sendTextMessage(sender, 'Váš spoj se vyhledává...')
+   console.log(from)
+   console.log(to)
+   console.log(timeTravel)
+   console.log(dateTravel)
+   
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
     initializePromise.then( (result) => {
         // Initialized table data
