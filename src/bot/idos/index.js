@@ -163,6 +163,8 @@ export async function sendNextIDos(id){
 
     console.log(pole)
     console.log(typeof pole)
+    console.log(Object.values(pole))
+    
 
     return sendIdosAnswer(sender, text, 'sadsad')
   }else {
