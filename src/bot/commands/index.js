@@ -1,4 +1,5 @@
 import {sendTextMessage, sendIntroduction} from '../lib/messages'
+import {getTime, getDate} from '../lib/dateAndTime'
 //import {templates} from '../../views/templates'
 import {sendIdosAnswer} from '../idos'
 import {intro} from '../../views/messages'
@@ -30,7 +31,10 @@ export async function commands(event){
         break
 
         case 'spoj':
-        sendIdosAnswer('1986144768118336',webhookEvent.message.text, '20:30', '22.11.2018')
+        let utcNow = new Date()
+        let time = await getTime(utcNow)
+        let date = await getDate(utcNow)
+        sendIdosAnswer(webhookEvent.sender.id, webhookEvent.message.text, time, date)
         break
   
         case 'vse':

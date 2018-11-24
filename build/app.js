@@ -34,6 +34,10 @@ var _router = require('./router');
 
 var _router2 = _interopRequireDefault(_router);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
@@ -102,6 +106,22 @@ app.use(function (err, req, res, next) {
         console.log(err);
     }
 });
+
+function getTime(utcDate) {
+    var actualTime = (0, _moment2.default)(utcDate).format('HH:mm');
+    console.log(actualTime);
+    return actualTime;
+}
+
+function getDate(utcDate) {
+    var actualDate = (0, _moment2.default)(utcDate).format('D.M.YYYY');
+    console.log(actualDate);
+    return actualDate;
+}
+
+var date = new Date();
+getTime(date);
+getDate(date);
 
 exports.default = app;
 //# sourceMappingURL=app.js.map
