@@ -10,8 +10,8 @@ export async function payloads(id, payload){
 
     switch(payload) {
         case 'started-payload':
-        await sendIntroduction(id, starter[0], starter[1], starter[2])
-        await createNewUser(id)
+        sendIntroduction(id, starter[0], starter[1], starter[2])
+        createNewUser(id)
         break
 
         case 'newStories':
