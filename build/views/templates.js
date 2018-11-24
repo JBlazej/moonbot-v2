@@ -1,8 +1,9 @@
-// This is my Generic templates
-// Use them in calling functions like a parametr
-'use strict';
+"use strict";
 
-var templates = {
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var templates = exports.templates = {
 	get_faculties: {
 		attachment: {
 			type: "template",
@@ -518,9 +519,5 @@ var templates = {
 			}
 		}
 	}
-};
-
-module.exports = {
-	templates: templates
 };
 //# sourceMappingURL=templates.js.map

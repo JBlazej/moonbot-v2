@@ -33,3 +33,12 @@ const UserSchema = new mongoose.Schema({
       default: false
   }
 })
+
+export async function createNewUser (id) {
+    const User = await getDB().model('User', UserSchema)
+    const user = new User({id: id})
+    user.save()
+    console.log(user)
+    return user
+  
+}

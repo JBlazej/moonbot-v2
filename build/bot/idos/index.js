@@ -24,6 +24,8 @@ var _cheerioTableparser2 = _interopRequireDefault(_cheerioTableparser);
 
 var _messages = require('../lib/messages');
 
+var _templates = require('../../views/templates');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function initializeIdosTable(from, to, timeTravel, dateTravel) {
@@ -85,8 +87,12 @@ function sendIdosAnswer(sender, text, timeTravel, dateTravel) {
 
         err.break = true;
 
-        //setTimeout(()=>{sendTextMessage(sender, extraInformation)}, 500)
-        //setTimeout(()=>{sendGenMessage(sender, mTemplate.templates['get_test'])}, 700)
+        setTimeout(function () {
+          (0, _messages.sendTextMessage)(sender, extraInformation);
+        }, 500);
+        setTimeout(function () {
+          (0, _messages.sendGenMessage)(sender, _templates.templates['get_test']);
+        }, 700);
         return callback(err);
       }
 
