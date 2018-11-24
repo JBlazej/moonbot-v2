@@ -1,5 +1,6 @@
 import {commands} from './commands'
 import {payloads} from './payloads'
+import {sendTextMessage} from './lib/messages'
 
 export async function botMessengerMiddleware(event) {
   let webhookEvent = event
@@ -9,7 +10,7 @@ export async function botMessengerMiddleware(event) {
       // Text
       commands(webhookEvent)
     }else {
-      console.log('Nejke hovno')
+      sendTextMessage(webhookEvent.sender.id, 'O tomhle nic moc nevím...')
     }
   }else {
     // Payload
