@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-export async function getTime(utcDate){
+export function getTime(utcDate){
     const actualTime = moment(utcDate)
     const shiftedTime = actualTime.add(1, 'hours')
     const formatedTime = shiftedTime.format('HH:mm')
@@ -8,7 +8,7 @@ export async function getTime(utcDate){
     return formatedTime
 }
 
-export async function getDate(utcDate){
+export function getDate(utcDate){
     const actualDate = moment(utcDate).format('D.M.YYYY')
     
     return actualDate
