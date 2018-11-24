@@ -1,7 +1,7 @@
 import moment from 'moment'
 
 export async function getTime(utcDate){
-    const actualTime = moment(utcDate).format('HH:mm')
+    const actualTime = moment(utcDate).format('HH:mm').add(1, 'hours')
     console.log(actualTime)
     return actualTime
 }
