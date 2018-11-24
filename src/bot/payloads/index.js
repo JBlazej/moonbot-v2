@@ -12,9 +12,9 @@ export async function payloads(id, payload){
 
     switch(payload) {
         case 'started-payload':
-        sendMultipleMessages(id, starter)
-        sendGenMessage(id, templates['send_intro'])
-        createNewUser(id)
+        await sendMultipleMessages(id, starter)
+        await sendGenMessage(id, templates['send_intro'])
+        await createNewUser(id)
         break
 
         case 'newStories':
