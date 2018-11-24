@@ -1,17 +1,17 @@
-import {sendTextMessage} from '../lib/messages'
-import {sendIdosAnswer, sendNextIdos} from '../idos'
+import {sendIntroduction} from '../lib/messages'
+
+import {sendNextIdos} from '../idos'
+
+import {starter} from '../../views/messages'
+
+import {createNewUser} from '../../models/v1/user'
 
 export async function payloads(id, payload){
 
     switch(payload) {
         case 'started-payload':
-        //let date = getTime(new Date())
-
-        const msg1 = 'Ahoj já jsem Moonbot. Je --10:30-- hodin a Ty si mě zrovna oživil'
-        const msg2 = 'Jak se máš? Já se mám dneska fakt skvěle. Konečně je tu někdo komu můžu pomoct'
-        const msg3 = 'Napiš příkaz moon a já ti o sobě řeknu více'
-
-        await sendTextMessage(id, msg1).then(()=>{sendTextMessage(id, msg2)}).then(()=>{sendTextMessage(id, msg3)})
+        await sendIntroduction(id, starter[0], starter[1], starter[2])
+        await createNewUser(id)
         break
 
         case 'newStories':

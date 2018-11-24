@@ -81,7 +81,6 @@ export async function createNewUser (id) {
         user.save()
         return user
     } else {
-        console.log('Existuje a updatne se')
         updateUserById(id)
     }
 }
