@@ -157,7 +157,7 @@ function encodeUrlParameter(value) {
 
 export async function sendNextIDos(id){
   console.log(id)
-  const pole = getUserById(id)
+  const pole = await getUserById(id)
   console.log(pole)
 
 }
