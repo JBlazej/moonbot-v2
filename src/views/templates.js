@@ -201,12 +201,14 @@ export const templates = {
 			{
 				content_type: "text",
 				title: "Spojení",
-				payload: "idos-intro"
+				payload: "idos-intro",
+				image_url: "http://moonbot-v2-front.herokuapp.com/rocket"
 			},
 			{
 		 		content_type: "text",
 		  		title: "Novinky",
-		  		payload: "vse-intro"
+		  		payload: "vse-intro",
+				image_url: "http://moonbot-v2-front.herokuapp.com/moon"
 			},
 		  ]
 	},

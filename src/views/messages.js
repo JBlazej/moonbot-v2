@@ -15,7 +15,7 @@ export const starter = [
 export const introIDOS = [
   'Využívám služby IDOS, která poskytuje informace o spojení MHD v Praze.',
   'Pro vyhledávání zadej příkaz Spoj a zadej názvy zastávek odkud kam.',
-  'Přesně v tomto tvaru.',
+  'Přesně v tomto tvaru: ',
   'Spoj Volha do Hlavní nádraží'
 ]
 
