@@ -1,4 +1,4 @@
-import {sendTextMessage, sendIntroduction, sendMultipleMessages} from '../lib/messages'
+import {sendTextMessage, sendMultipleMessages} from '../lib/messages'
 
 import {sendIdosAnswer} from '../idos'
 

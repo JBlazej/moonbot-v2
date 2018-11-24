@@ -35,14 +35,6 @@ export async function sendTextMessage(sender, text){
     return makeRequest(options)
   }
 
-export async function sendIntroduction(id, text1, text2, text3) {
-  
-  await sendTextMessage(id, text1)
-  await sendTextMessage(id, text2)
-  await sendTextMessage(id, text3)
-
-}
-
 export async function sendMultipleMessages(id, object){
   let obj = object
   

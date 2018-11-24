@@ -1,4 +1,4 @@
-import {sendIntroduction} from '../lib/messages'
+import {sendIntroduction, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 
 import {sendNextIdos} from '../idos'
 
@@ -6,11 +6,14 @@ import {starter} from '../../views/messages'
 
 import {createNewUser} from '../../models/v1/user'
 
+import {templates} from '../../views/templates'
+
 export async function payloads(id, payload){
 
     switch(payload) {
         case 'started-payload':
-        sendIntroduction(id, starter[0], starter[1], starter[2])
+        sendMultipleMessages(id, starter)
+        sendGenMessage(id, templates['send_intro'])
         createNewUser(id)
         break
 
