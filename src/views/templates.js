@@ -201,6 +201,16 @@ export const templates = {
 			},
 		  ]
 	},
+	send_idos_intro:{
+		text: "Dostaneš následně ode mě textovou odpověd.",
+		quick_replies:[
+		   {
+			   content_type: "text",
+			   title: "Vyzkoušet",
+			   payload: "idos-intro-try"
+		   }
+		 ]
+   	},
 	send_quick:{
   	text: "Moje oblíbené příkazy",
     quick_replies:[
