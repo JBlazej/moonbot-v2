@@ -25,11 +25,6 @@ export async function commands(event){
         sendMultipleMessages(webhookEvent.sender.id, intro)
         break
   
-        case 'napoveda':
-        case 'nápověda':
-        sendGenMessage(webhookEvent.sender.id, templates['send_quick'])
-        break
-  
         case 'spojeni':
         case 'spojení':
         await sendMultipleMessages(webhookEvent.sender.id, introIDOS)
