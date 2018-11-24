@@ -2,7 +2,7 @@ import {sendIntroduction, sendMultipleMessages, sendGenMessage} from '../lib/mes
 
 import {sendNextIdos} from '../idos'
 
-import {starter} from '../../views/messages'
+import {starter, introIDOS} from '../../views/messages'
 
 import {createNewUser} from '../../models/v1/user'
 
@@ -15,6 +15,11 @@ export async function payloads(id, payload){
         await sendMultipleMessages(id, starter)
         await sendGenMessage(id, templates['send_intro'])
         await createNewUser(id)
+        break
+
+        case 'idos-intro':
+        await sendMultipleMessages(id, introIDOS)
+        await sendGenMessage(id, templates['send_idos_intro'])
         break
 
         case 'newStories':

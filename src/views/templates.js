@@ -162,7 +162,15 @@ export const templates = {
         url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/moonbot.jpg",
         is_reusable: "TRUE"
       }
-    }
+	},
+	send_idos_intro_gif:{
+		attachment:{
+      type: "image",
+      payload:{
+        url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
+        is_reusable: "TRUE"
+      }
+    },
 	},
 	dormitories:{
 	 blanice:{
@@ -201,6 +209,16 @@ export const templates = {
 			},
 		  ]
 	},
+	send_idos_intro:{
+		text: "Dostaneš následně ode mě textovou odpověd.",
+		quick_replies:[
+		   {
+			   content_type: "text",
+			   title: "Vyzkoušet",
+			   payload: "idos-intro-try"
+		   }
+		 ]
+   },
 	send_quick:{
   	text: "Moje oblíbené příkazy",
     quick_replies:[
