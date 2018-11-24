@@ -3,20 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sendNextIDos = undefined;
+exports.sendNextIdos = undefined;
 
-var sendNextIDos = exports.sendNextIDos = function () {
+var sendNextIdos = exports.sendNextIdos = function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
-    var pole, text;
+    var pole, text, utcTimeAndDate, shiftedTimeAndDateUTC;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log(id);
-            _context.next = 3;
+            _context.next = 2;
             return (0, _user.getUserById)(id);
 
-          case 3:
+          case 2:
             pole = _context.sent;
 
             if (!pole) {
@@ -24,15 +23,13 @@ var sendNextIDos = exports.sendNextIDos = function () {
               break;
             }
 
-            text = 'spoj volha do chodov';
-
-
-            console.log(pole);
-
-            return _context.abrupt('return', sendIdosAnswer(sender, text, pole.station.time));
+            text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to;
+            utcTimeAndDate = pole[0].station.time;
+            shiftedTimeAndDateUTC = (0, _dateAndTime.shiftTimeAndDateUTC)(utcTimeAndDate);
+            return _context.abrupt('return', sendIdosAnswer(id, text, shiftedTimeAndDateUTC));
 
           case 10:
-            console.log('Nic v poli');
+            (0, _messages.sendTextMessage)(id, "Něco se pokazilo zkus to znovu :-(");
 
           case 11:
           case 'end':
@@ -42,7 +39,7 @@ var sendNextIDos = exports.sendNextIDos = function () {
     }, _callee, this);
   }));
 
-  return function sendNextIDos(_x) {
+  return function sendNextIdos(_x) {
     return _ref.apply(this, arguments);
   };
 }();
@@ -100,15 +97,14 @@ function initializeIdosTable(from, to, timeTravel, dateTravel) {
 
         result.push(parseTable);
       }
+
       resolve(result);
-      console.log(result);
     }).catch(function (err) {
       return reject(err);
     });
   });
 }
 
-//initializeIdosTable('husinecka', 'volha', '10:30', '22.11.2018')
 function sendIdosAnswer(sender, text, utcTimeAndDate) {
   var stops = transformTextForIdos(text);
 
@@ -117,6 +113,8 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
 
   var timeTravel = (0, _dateAndTime.getTime)(utcTimeAndDate);
   var dateTravel = (0, _dateAndTime.getDate)(utcTimeAndDate);
+
+  (0, _messages.sendTextMessage)(sender, "Váš spoj se vyhledává...");
 
   var initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel);
   initializePromise.then(function (result) {
@@ -146,7 +144,7 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
           (0, _messages.sendGenMessage)(sender, _templates.templates['get_test']);
         }, 700);
         setTimeout(function () {
-          (0, _user.modifyUserById)(sender, from, to, utcTimeAndDate);
+          (0, _user.modifyUserById)(sender, stops[0], stops[1], utcTimeAndDate);
         }, 900);
 
         return callback(err);
@@ -186,11 +184,9 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
         if (val === false) {
           var message = zastavka + ' ' + odjezd + ' ' + prijezd + spoj;
           (0, _messages.sendTextMessage)(sender, message);
-          //console.log(message)
         } else {
           var message2 = zastavka + ' ' + prijezd + ' ' + odjezd + spoj;
           (0, _messages.sendTextMessage)(sender, message2);
-          //console.log(message2)
         }
 
         i++;
@@ -204,7 +200,11 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
 }
 
 function isEven(value) {
-  if (value % 2 == 0) return true;else return false;
+  if (value % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function transformTextForIdos(text) {
@@ -217,6 +217,4 @@ function transformTextForIdos(text) {
 function encodeUrlParameter(value) {
   return encodeURIComponent(value).replace(/\%20/g, '+');
 }
-
-sendNextIDos('1959622390785359');
 //# sourceMappingURL=index.js.map

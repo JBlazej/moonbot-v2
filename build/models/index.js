@@ -79,6 +79,8 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
+var _db = require('../conf/db');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -86,9 +88,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var db = void 0;
 
 function getMongoUrl() {
-  var url = 'ds131983.mlab.com:31983/heroku_ph19r4wb';
-  var user = 'swagger';
-  var pass = 'abc1234567';
+  var url = _db.DB_URL;
+  var user = _db.DB_USER;
+  var pass = _db.DB_PASSWORD;
 
   return 'mongodb://' + user + ':' + pass + '@' + url;
 }

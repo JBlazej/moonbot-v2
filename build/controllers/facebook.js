@@ -7,13 +7,13 @@ exports.facebookEventHook = exports.facebookVerificationHook = undefined;
 
 var facebookVerificationHook = exports.facebookVerificationHook = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
-        var VERIFY_TOKEN, mode, token, challenge;
+        var VERIFY_TOKEN_SET, mode, token, challenge;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
                         // Your verify token. Should be a random string.
-                        VERIFY_TOKEN = "TriPrsaNaHrudi89";
+                        VERIFY_TOKEN_SET = _graph.VERIFY_TOKEN;
 
                         // Parse the query params
 
@@ -24,7 +24,7 @@ var facebookVerificationHook = exports.facebookVerificationHook = function () {
                         // Checks if a token and mode is in the query string of the request
 
                         if (mode && token) {
-                            if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+                            if (mode === 'subscribe' && token === VERIFY_TOKEN_SET) {
 
                                 res.status(200).send(challenge);
                             } else {
@@ -54,9 +54,6 @@ var facebookEventHook = exports.facebookEventHook = function () {
                     case 0:
                         body = req.body;
 
-                        /*if (!req.body || !req.body.entry[0] || !req.body.entry[0].messaging[0].message) {
-                            return console.log('No request received')
-                        }*/
 
                         if (body.object === 'page') {
                             // Iterates over each entry - there may be multiple if batched
@@ -85,6 +82,8 @@ var facebookEventHook = exports.facebookEventHook = function () {
 }();
 
 var _middleware = require('../bot/middleware');
+
+var _graph = require('../conf/graph');
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 //# sourceMappingURL=facebook.js.map

@@ -1,8 +1,9 @@
 import {botMessageMiddleware} from '../bot/middleware'
+import {VERIFY_TOKEN} from '../conf/graph'
 
 export async function  facebookVerificationHook(req, res) {
    // Your verify token. Should be a random string.
-   let VERIFY_TOKEN = "TriPrsaNaHrudi89"
+   let VERIFY_TOKEN_SET = VERIFY_TOKEN
      
    // Parse the query params
    let mode = req.query['hub.mode']
@@ -11,7 +12,7 @@ export async function  facebookVerificationHook(req, res) {
      
    // Checks if a token and mode is in the query string of the request
    if (mode && token) {
-     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+     if (mode === 'subscribe' && token === VERIFY_TOKEN_SET) {
          
        res.status(200).send(challenge)
      } else {
@@ -22,10 +23,7 @@ export async function  facebookVerificationHook(req, res) {
 
 export async function facebookEventHook(req, res){
     let body = req.body
-
-    /*if (!req.body || !req.body.entry[0] || !req.body.entry[0].messaging[0].message) {
-        return console.log('No request received')
-    }*/
+    
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {

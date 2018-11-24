@@ -32,7 +32,6 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           }
   
           result.push(parseTable)
-          console.log(result)
         }
 
         resolve(result)

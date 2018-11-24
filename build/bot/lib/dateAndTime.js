@@ -13,26 +13,24 @@ var _moment2 = _interopRequireDefault(_moment);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getTime(utcDate) {
-    var actualTime = (0, _moment2.default)(utcDate);
+function getTime(utcTimeAndDate) {
+    var actualTime = (0, _moment2.default)(utcTimeAndDate);
     var shiftedTime = actualTime.add(1, 'hours');
     var formatedTime = shiftedTime.format('HH:mm');
 
     return formatedTime;
 }
 
-function getDate(utcDate) {
-    var actualDate = (0, _moment2.default)(utcDate).format('D.M.YYYY');
+function getDate(utcTimeAndDate) {
+    var actualDate = (0, _moment2.default)(utcTimeAndDate).format('D.M.YYYY');
 
     return actualDate;
 }
 
 function shiftTimeAndDateUTC(utcTimeAndDate) {
     var actualTimeAndDateUTC = (0, _moment2.default)(utcTimeAndDate);
-    var shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(5, 'minutes');
+    var shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(10, 'minutes');
 
     return shiftedTimeAndDateUTC;
 }
-
-//2018-11-24T15:52:36.230Z
 //# sourceMappingURL=dateAndTime.js.map
