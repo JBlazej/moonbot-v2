@@ -163,8 +163,8 @@ export async function sendNextIDos(id){
     let text = 'spoj volha do chodov'
     
     console.log(pole)
-    console.log(pole.id)
-    console.log(pole.station)
+    console.log(pole[0].id)
+    console.log(pole[0].station)
 
 
     return sendIdosAnswer(sender, text, 'sadsad')
