@@ -159,14 +159,10 @@ export async function sendNextIDos(id){
   console.log(id)
   const pole = await getUserById(id)
   const jsonpole = JSON.stringify(pole)
-  if(jsonpole){
+  if(pole){
     let text = 'spoj volha do chodov'
-
-    console.log(jsonpole)
-    console.log(typeof jsonpole)
-    console.log(jsonpole.station.time)
-  
     
+    console.log(pole.hasOwnProperty("station"))
 
     return sendIdosAnswer(sender, text, 'sadsad')
   }else {
