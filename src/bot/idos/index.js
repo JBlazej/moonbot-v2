@@ -42,6 +42,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
 
  export function sendIdosAnswer(sender, text, utcTimeAndDate) {
    const stops = transformTextForIdos(text)
+   console.log(stops)
 
    let from = encodeUrlParameter(stops[0])
    let to = encodeUrlParameter(stops[1])
@@ -53,7 +54,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
    console.log(to)
    console.log(timeTravel)
    console.log(dateTravel)
-   
+
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
     initializePromise.then( (result) => {
         // Initialized table data
