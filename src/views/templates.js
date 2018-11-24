@@ -166,9 +166,9 @@ export const templates = {
 	},
 	send_gif:{
 		attachment:{
-      type: "video",
+      type: "image",
       payload:{
-        url: "https://giphy.com/gifs/l3UcrqNnA3zZTavMA/html5",
+        url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
         is_reusable: "TRUE"
       }
     }
