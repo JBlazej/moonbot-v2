@@ -44,9 +44,6 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
 
    let from = encodeUrlParameter(stops[0])
    let to = encodeUrlParameter(stops[1])
-
-   console.log(from)
-   console.log(to)
    
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
@@ -134,28 +131,27 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
     })
   }
   
-  function isEven(value) {
-      if (value%2 == 0)
-          return true;
-      else
-          return false;
+function isEven(value) {
+  if (value%2 == 0){
+    return true
+  }else {
+    return false
   }
+}
 
-  function transformTextForIdos(text){
-    const onlyConnections = text.replace("spoj ", "")
-    const stops = onlyConnections.split(" do ")
+function transformTextForIdos(text){
+  const onlyConnections = text.replace("spoj ", "")
+  const stops = onlyConnections.split(" do ")
 
-    return stops
-  }
-
+  return stops
+}
 
 function encodeUrlParameter(value) {
 	return encodeURIComponent(value)
   	.replace(/\%20/g, '+')
 }
 
-
-export async function sendNextIDos(id){
+export async function sendNextIdos(id){
   const pole = await getUserById(id)
 
   if(pole){

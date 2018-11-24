@@ -9,12 +9,10 @@ import router from './router'
 import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
 
-
 /**
  * Start Express server.
  */
 const app = express()
-
 /**
  * Setup Express server.
  */

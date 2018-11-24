@@ -47,7 +47,6 @@ export async function getUserById (id) {
   }
 
 export async function modifyUserById (id, from, to, utcTimeAndDate) {
-    
     let data = {
         station: {
             from: from,
@@ -55,7 +54,6 @@ export async function modifyUserById (id, from, to, utcTimeAndDate) {
             time: utcTimeAndDate
         }
     }
-    console.log(data)
 
     const user = await getDB().model('User', UserSchema).findOneAndUpdate({id: id}, data, {new: true})
     
@@ -65,7 +63,13 @@ export async function modifyUserById (id, from, to, utcTimeAndDate) {
 export async function createNewUser (id) {
     const User = await getDB().model('User', UserSchema)
     const user = new User({id: id})
-    user.save()
 
-    return user
+    const help = await getUserById(id)
+    console.log(help)
+    if(!help) {
+        user.save()
+        return user
+    } else {
+        return console.log('Existuje')
+    }
 }

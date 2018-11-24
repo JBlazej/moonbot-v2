@@ -1,15 +1,15 @@
 import moment from 'moment'
 
-export function getTime(utcDate){
-    const actualTime = moment(utcDate)
+export function getTime(utcTimeAndDate){
+    const actualTime = moment(utcTimeAndDate)
     const shiftedTime = actualTime.add(1, 'hours')
     const formatedTime = shiftedTime.format('HH:mm')
     
     return formatedTime
 }
 
-export function getDate(utcDate){
-    const actualDate = moment(utcDate).format('D.M.YYYY')
+export function getDate(utcTimeAndDate){
+    const actualDate = moment(utcTimeAndDate).format('D.M.YYYY')
     
     return actualDate
 }
@@ -20,5 +20,3 @@ export function shiftTimeAndDateUTC(utcTimeAndDate){
 
     return shiftedTimeAndDateUTC
 }
-
-//2018-11-24T15:52:36.230Z

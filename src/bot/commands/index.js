@@ -1,7 +1,11 @@
 import {sendTextMessage, sendIntroduction} from '../lib/messages'
 //import {templates} from '../../views/templates'
+
 import {sendIdosAnswer} from '../idos'
+
 import {intro} from '../../views/messages'
+
+import {createNewUser} from '../../models/v1/user'
 
 
 export async function commands(event){
@@ -38,6 +42,7 @@ export async function commands(event){
   
         case 'vse':
         case 'vše':
+        createNewUser(webhookEvent.sender.id)
         //sendGenMessage(webhookEvent.sender.id, templates['get_school'])
         break
   
