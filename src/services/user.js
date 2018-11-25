@@ -7,7 +7,7 @@ export async function setHackerNews(id, param){
     }
     
     const user = User.findOneAndUpdate({id : id}, data, {new : true})
-    console.log(user)
+
     return user
 }
 
@@ -59,4 +59,15 @@ export async function createNewUser (id) {
     } else {
         updateUserById(id)
     }
+}
+
+export async function getUserService(){
+    return {
+        setHackerNews : setHackerNews, 
+        getUserAll : getUserAll,
+        getUserById : getUserById,
+        modifyUserById: modifyUserById,
+        updateUserById: updateUserById,
+        createNewUser: createNewUser
+    }  
 }
