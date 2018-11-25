@@ -202,13 +202,13 @@ export const templates = {
 				content_type: "text",
 				title: "Spojení",
 				payload: "idos-intro",
-				image_url: "http://moonbot-v2-front.herokuapp.com/rocket"
+				image_url: "http://moonbot-v2-front.herokuapp.com/rockets"
 			},
 			{
 		 		content_type: "text",
 		  		title: "Novinky",
 		  		payload: "vse-intro",
-				image_url: "http://moonbot-v2-front.herokuapp.com/moon"
+				image_url: "http://moonbot-v2-front.herokuapp.com/moons"
 			},
 		  ]
 	},
@@ -219,7 +219,7 @@ export const templates = {
 			   content_type: "text",
 			   title: "Moonbot",
 			   payload: "moon-bot-intro",
-			   image_url: "http://moonbot-v2-front.herokuapp.com/moon"
+			   image_url: "http://moonbot-v2-front.herokuapp.com/moons"
 		   }
 		 ]
    },
