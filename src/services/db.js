@@ -8,7 +8,7 @@ export class UserService {
             hacker : param
         }
     
-        const user = await User.findOneAndUpdate({id : id}, data, {new : true})
+        const user = User.findOneAndUpdate({id : id}, data, {new : true})
         console.log(user)
         return user
     }
