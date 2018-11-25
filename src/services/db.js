@@ -3,7 +3,7 @@ import {User} from '../models/v1/user'
 
 export class UserService {
     
-    async setHackerNews(id, param){
+    setHackerNews(id, param){
         let data = {
             hacker : param
         }
