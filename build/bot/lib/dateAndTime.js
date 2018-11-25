@@ -7,6 +7,7 @@ exports.getTime = getTime;
 exports.getDate = getDate;
 exports.shiftTimeAndDateUTC = shiftTimeAndDateUTC;
 exports.increaseTime = increaseTime;
+exports.getTimeAndDateNow = getTimeAndDateNow;
 
 var _moment = require('moment');
 
@@ -45,4 +46,19 @@ function increaseTime(utcTimeAndDate) {
         return 6;
     }
 }
+
+// Return object
+function getTimeAndDateNow() {
+    var newDate = new Date();
+    var time = getTime(newDate).toString();
+    var date = getDate(newDate).toString();
+
+    return {
+        time: time,
+        date: date
+    };
+}
+
+var help = getTimeAndDateNow();
+console.log(help.time);
 //# sourceMappingURL=dateAndTime.js.map

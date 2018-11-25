@@ -1,19 +1,15 @@
-import {sendIntroduction, sendMultipleMessages, sendGenMessage} from '../lib/messages'
-
-import {sendNextIdos} from '../idos'
-
-import {starter, introIDOS} from '../../views/messages'
-
 import {createNewUser} from '../../models/v1/user'
-
-import {templates} from '../../views/templates'
+import {sendIntroduction, sendMultipleMessages, sendGenMessage} from '../lib/messages'
+import {starter, introIDOS} from '../lib/answers'
+import {templates} from '../lib/templates'
+import {sendNextIdos} from '../idos'
 
 export async function payloads(id, payload){
 
     switch(payload) {
         case 'started-payload':
         await sendMultipleMessages(id, starter)
-        await sendGenMessage(id, templates['send_intro'])
+        await sendGenMessage(id, templates['send_info'])
         await createNewUser(id)
         break
 

@@ -6,7 +6,7 @@ import cheerioTableparser from 'cheerio-tableparser'
 import {sendTextMessage, sendGenMessage} from '../lib/messages'
 import {getTime, getDate, shiftTimeAndDateUTC} from '../lib/dateAndTime'
 
-import {templates} from '../../views/templates'
+import {templates} from '../lib/templates'
 
 import {modifyUserById, getUserById} from '../../models/v1/user'
 

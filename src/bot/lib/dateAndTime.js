@@ -31,3 +31,15 @@ export function increaseTime(utcTimeAndDate){
         return 6
     }
 }
+
+// Return object
+export function getTimeAndDateNow(){
+    const newDate = new Date()
+    const time = getTime(newDate).toString()
+    const date = getDate(newDate).toString()
+    
+    return {
+        time : time,
+        date : date
+    }
+}

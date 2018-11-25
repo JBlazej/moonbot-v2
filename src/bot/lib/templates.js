@@ -212,6 +212,17 @@ export const templates = {
 			},
 		  ]
 	},
+	send_info:{
+		text: "🌚",
+		quick_replies:[
+		   {
+			   content_type: "text",
+			   title: "Moonbot",
+			   payload: "moon-bot-intro",
+			   image_url: "http://moonbot-v2-front.herokuapp.com/moon"
+		   }
+		 ]
+   },
 	send_quick_help:{
 		text: "Nechtěl si napsat?",
 		quick_replies:[

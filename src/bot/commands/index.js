@@ -1,13 +1,13 @@
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
-
+import {getTimeAndDateNow} from '../lib/dateAndTime'
 import {sendIdosAnswer} from '../idos'
 
-import {intro, introIDOS, help} from '../../views/messages'
-import {templates} from '../../views/templates'
+import {info, introIDOS, help} from '../lib/answers'
+import {templates} from '../lib/templates'
 
 import {createNewUser} from '../../models/v1/user'
 
-let utcNow = new Date()
+let utcNow = getTimeAndDateNow()
 
 export async function commands(event){
     let webhookEvent = event
@@ -21,8 +21,9 @@ export async function commands(event){
         sendTextMessage(webhookEvent.sender.id, 'Kravina')
         break
   
-        case 'moon':
-        sendMultipleMessages(webhookEvent.sender.id, intro)
+        case 'moonbot':
+        await sendMultipleMessages(webhookEvent.sender.id, info)
+        await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
         break
   
         case 'spojeni':
