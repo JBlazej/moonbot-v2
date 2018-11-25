@@ -182,20 +182,18 @@ export async function sendHackerNewsTemplate(sender){
                     
 
                     if(message.length === 2){
+                        console.log(JSON.stringify(message))
                         let hackerMessage = {
                             attachment:{
                                 type: "template",
                                 payload: {
                                     template_type: "generic",
-                                    elements: [
-                                        //Tady
-                                        message
-                                    ]
+                                    elements: message
                                 }
                             }
                         }
                         // Co dal?
-                        console.log(hackerMessage)
+                        //console.log(JSON.stringify(hackerMessage))
                         sendGenMessage(sender, hackerMessage)
 
                     }

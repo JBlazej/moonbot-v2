@@ -42,7 +42,7 @@ var payloads = exports.payloads = function () {
                         return _context.abrupt('break', 43);
 
                     case 15:
-                        (0, _hacker.sendTopStories)(id);
+                        (0, _hacker.sendHackerNewsTemplate)(id);
                         return _context.abrupt('break', 43);
 
                     case 17:
