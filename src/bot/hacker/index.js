@@ -5,8 +5,8 @@ export async function sendHackerTemplate(sender){
     const user = await getUserById(sender)
 
     const isSub = user
-    console.log(typeof isSub)
-    console.log(isSub)
+    console.log(typeof isSub[0].hacker)
+    console.log(isSub[0].hacke)
     const subButton = await getSubButton(isSub)
     const template = await getHackerTemplate(subButton)
 
