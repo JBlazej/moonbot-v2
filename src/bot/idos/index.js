@@ -128,7 +128,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           }, 800)
         })
       }, (err) => {
-        const text = ['Něco se pokazilo zkus to znovu :-(','Příkaz je ve tvaru: Spoj odkud do kam.']
+        const text = ['Něco se pokazilo. :-(','Příkaz je ve tvaru: Spoj odkud do kam']
         sendMultipleMessages(sender, text)
     })
   }
