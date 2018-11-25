@@ -19,7 +19,7 @@ export async function getUserAll () {
 
 export async function getUserById (id) {
     const user = User.find({"id": id})
-    
+    console.log(user)
     return {
         id: user.id,
         hacker: user.hacker,
