@@ -24,13 +24,11 @@ export async function payloads(id, payload){
 
         case 'subHacker':
         setHackerNews(id, true)
-        console.log(userService.setHackerNews(id, true))
         sendTextMessage(id, 'Děkuj za tvůj odběr.')
         break
 
         case 'unsubHacker':
         setHackerNews(id, false)
-        console.log(typeof userService.setHackerNews(id, false))
         sendTextMessage(id, 'Nevadí tak kdyžtak příště.')
         break
 
