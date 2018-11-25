@@ -22,9 +22,9 @@ export async function connectDB () {
   }
 }
 
-export function getDB (name, schema) {
+export function getDB () {
   if (!db) throw new Error(500, 'Database connection error')
-  return db.model(name, schema)
+  return db
 }
 
 export async function closeDBconnection () {

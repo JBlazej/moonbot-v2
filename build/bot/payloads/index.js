@@ -45,11 +45,11 @@ var payloads = exports.payloads = function () {
                         return _context.abrupt('break', 40);
 
                     case 16:
-                        (0, _db.setHackerNews)(id, true);
+                        (0, _user.setHackerNews)(id, true);
                         return _context.abrupt('break', 40);
 
                     case 18:
-                        (0, _db.setHackerNews)(id, false);
+                        (0, _user.setHackerNews)(id, false);
                         return _context.abrupt('break', 40);
 
                     case 20:
@@ -132,8 +132,6 @@ var _answers = require('../lib/answers');
 var _templates = require('../lib/templates');
 
 var _idos = require('../idos');
-
-var _db = require('../../services/db');
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 //# sourceMappingURL=index.js.map

@@ -13,7 +13,7 @@ var sendNextIdos = exports.sendNextIdos = function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0, _db.getUserById)(id);
+            return (0, _models.getUserById)(id);
 
           case 2:
             pole = _context.sent;
@@ -69,7 +69,7 @@ var _dateAndTime = require('../lib/dateAndTime');
 
 var _templates = require('../lib/templates');
 
-var _db = require('../../services/db');
+var _models = require('../../models');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -144,7 +144,7 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
           (0, _messages.sendGenMessage)(sender, _templates.templates['get_test']);
         }, 700);
         setTimeout(function () {
-          (0, _db.modifyUserById)(sender, stops[0], stops[1], utcTimeAndDate);
+          (0, _models.modifyUserById)(sender, stops[0], stops[1], utcTimeAndDate);
         }, 900);
 
         return callback(err);
