@@ -3,19 +3,14 @@ import {getUserById} from '../../services/user'
 
 export async function sendHackerTemplate(sender){
     const user = await getUserById(sender)
-    console.log(typeof user)
-    console.log(user)
-    
-    const isSub = user[0].hacker
-
-    const subButton = await getSubButton(isSub)
-    const template = await getHackerTemplate(subButton)
+    const button = await getSubButton(user[0].hacker)
+    const template = await getHackerTemplate(button)
 
     return template
 }
 
 export async function getHackerTemplate (button){
-    const subButton = button
+    const templateButton = button
 
     let template = {
         attachment: {
@@ -35,7 +30,7 @@ export async function getHackerTemplate (button){
                         },
                         buttons: [
                          // TADY VLOŽIT
-                         subButton
+                         templateButton
                         ] 
                     }
                 ]
