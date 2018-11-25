@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import {getDB} from '..'
 
 // USERS SCHEMA
 // -----------------------------------------------------------------------------

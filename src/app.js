@@ -9,6 +9,8 @@ import router from './router'
 import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
 
+//import {getHackerTemplate, sendHackerTemplate} from './bot/hacker'
+
 /**
  * Start Express server.
  */
@@ -16,8 +18,6 @@ const app = express()
 /**
  * Setup Express server.
  */
-// DB
-connectDB()
 // HEROKU SIGTERM
 sigterm()
 // SSL
@@ -36,6 +36,9 @@ app.use(router)
 // PORT
 app.set('port', (process.env.PORT || 3030))
 
+// DB
+connectDB()
+
 /**
  * Run Express server.
  */
@@ -47,6 +50,9 @@ app.listen(app.get("port"), () => {
     )
     console.log("Press CMD-C to stop\n");
 })
+//const h = getHackerTemplate()
+
+//sendHackerTemplate('1959622390785359')
 
 // HANDLINGS ERRORS
 let shuttingDown = false

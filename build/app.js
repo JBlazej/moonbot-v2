@@ -40,6 +40,8 @@ var _sigterm = require('./services/sigterm');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//import {getHackerTemplate, sendHackerTemplate} from './bot/hacker'
+
 /**
  * Start Express server.
  */
@@ -47,8 +49,6 @@ var app = (0, _express2.default)();
 /**
  * Setup Express server.
  */
-// DB
-(0, _models.connectDB)();
 // HEROKU SIGTERM
 (0, _sigterm.sigterm)();
 // SSL
@@ -67,6 +67,9 @@ app.use(_router2.default);
 // PORT
 app.set('port', process.env.PORT || 3030);
 
+// DB
+(0, _models.connectDB)();
+
 /**
  * Run Express server.
  */
@@ -74,6 +77,9 @@ app.listen(app.get("port"), function () {
     console.log("App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
     console.log("Press CMD-C to stop\n");
 });
+//const h = getHackerTemplate()
+
+//sendHackerTemplate('1959622390785359')
 
 // HANDLINGS ERRORS
 var shuttingDown = false;

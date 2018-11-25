@@ -89,9 +89,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var db = void 0;
 
 function getMongoUrl() {
-  var url = 'ds131983.mlab.com:31983/heroku_ph19r4wb';
-  var user = 'swagger';
-  var pass = 'abc1234567';
+  var url = _db.DB_URL;
+  var user = _db.DB_USER;
+  var pass = _db.DB_PASSWORD;
 
   return 'mongodb://' + user + ':' + pass + '@' + url;
 }
