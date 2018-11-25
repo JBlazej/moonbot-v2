@@ -86,7 +86,6 @@ export async function sendTopStories(sender) {
     request(topStories + printPara, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
     let top = body;
-    console.log(top)
   
     let smtg = top.toString().split(",",3);
       if(smtg){
@@ -109,33 +108,81 @@ export async function sendTopStories(sender) {
                 payload: {
                   template_type: "generic",
                           elements: [
-                              {
-                                  title: title,
-                                  subtitle: type,
-                                  image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
-                                  default_action: {
-                                      type: "web_url",
-                                      url: url,
-                                      messenger_extensions: "FALSE",
-                                      webview_height_ratio: "FULL"
-                                  },
-                      buttons:[
-                        {
-                          type: "element_share"
-  
-                        }
-                      ]
+                            {
+                                title: title,
+                                subtitle: type,
+                                image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
+                                default_action: {
+                                    type: "web_url",
+                                    url: url,
+                                    messenger_extensions: "FALSE",
+                                    webview_height_ratio: "FULL"
+                                },
+                              buttons:[
+                                  {
+                                      type: "element_share"
+
+                                  }
+                              ]
+                          }
+                        ]
                     }
-                  ]
                 }
-              }
             }
-            
-            console.log(hackerMessage)
 
             sendGenMessage(sender, hackerMessage)
           })
         }
       }
     })
+  }
+
+export async function parseRequest(smtg){
+    let result = []
+
+    for (var i = 0; i < 3; i++) {
+        let ahoj = await getNeco(smtg[i])
+        
+        result = result.concat(ahoj)
+        console.log(ahoj)
+    }
+
+    return result
+  }
+
+
+  async function getNeco(smtg){
+    const hlp = request( hackerItem + smtg + printPara, { json: true }, (err, res, body) => {
+        if (err) { return console.log(err) }
+        let title = body.title
+        let url = body.url
+        let type = body.type
+        let text = body.text
+
+        if(!url){
+        url = "https://news.ycombinator.com";
+        }
+        
+        const muj = {
+            title: title,
+            subtitle: type,
+            image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
+            default_action: {
+                type: "web_url",
+                url: url,
+                messenger_extensions: "FALSE",
+                webview_height_ratio: "FULL"
+            },
+            buttons:[
+              {
+                  type: "element_share"
+    
+              }
+            ]
+        }
+
+        //console.log(JSON.stringify(muj))
+    })
+
+    console.log(hlp)
   }
