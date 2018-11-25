@@ -129,6 +129,7 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
         })
       }, (err) => {
         sendTextMessage(sender, "Něco se pokazilo zkus to znovu :-(")
+        sendTextMessage(sender, "Příkaz je ve tvaru: Spoj odkud do kam ")
     })
   }
   
