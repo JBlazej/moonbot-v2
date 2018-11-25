@@ -5,6 +5,8 @@ import {sendIdosAnswer} from '../idos'
 import {info, introIDOS, help} from '../lib/answers'
 import {templates} from '../lib/templates'
 
+import {sendHackerTemplate} from '../hacker'
+
 let utcObject = getTimeAndDateNow()
 
 export async function commands(event){
@@ -70,7 +72,9 @@ export async function commands(event){
         break
   
         case 'hackernews':
-        sendGenMessage(webhookEvent.sender.id, templates['get_hackernews'])
+        const templato = await sendHackerTemplate(webhookEvent.sender.id)
+        console.log(templato)
+        await sendGenMessage(webhookEvent.sender.id, templato)
         break
   
         case 'jb':
