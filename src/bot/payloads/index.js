@@ -1,8 +1,11 @@
 import {createNewUser, setHackerNews} from '../../services/user'
+
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
+
 import {sendNextIdos} from '../idos'
+import {sendTopStories} from '../hacker'
 
 export async function payloads(id, payload){
 
