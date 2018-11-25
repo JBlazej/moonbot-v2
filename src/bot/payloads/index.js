@@ -1,12 +1,10 @@
-import {createNewUser, setHackerNews, getUserService} from '../../services/user'
+import {createNewUser, setHackerNews} from '../../services/user'
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 import {sendNextIdos} from '../idos'
 
-
-let userService = getUserService()
-
+console.log(userService.setHackerNews('1959622390785359', true))
 export async function payloads(id, payload){
 
     switch(payload) {
@@ -25,13 +23,13 @@ export async function payloads(id, payload){
         break
 
         case 'subHacker':
-        userService.setHackerNews(id, true)
+        setHackerNews(id, true)
         console.log(userService.setHackerNews(id, true))
         sendTextMessage(id, 'Děkuj za tvůj odběr.')
         break
 
         case 'unsubHacker':
-        userService.setHackerNews(id, false)
+        setHackerNews(id, false)
         console.log(typeof userService.setHackerNews(id, false))
         sendTextMessage(id, 'Nevadí tak kdyžtak příště.')
         break

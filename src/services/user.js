@@ -60,14 +60,3 @@ export async function createNewUser (id) {
         updateUserById(id)
     }
 }
-
-export async function getUserService(){
-    return {
-        setHackerNews : setHackerNews, 
-        getUserAll : getUserAll,
-        getUserById : getUserById,
-        modifyUserById: modifyUserById,
-        updateUserById: updateUserById,
-        createNewUser: createNewUser
-    }  
-}
