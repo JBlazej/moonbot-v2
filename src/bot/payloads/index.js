@@ -4,7 +4,6 @@ import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 import {sendNextIdos} from '../idos'
 
-console.log(userService.setHackerNews('1959622390785359', true))
 export async function payloads(id, payload){
 
     switch(payload) {
