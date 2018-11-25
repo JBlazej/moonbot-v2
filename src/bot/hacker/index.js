@@ -1,5 +1,7 @@
+import request from 'request-promise'
+
 import {getUserById} from '../../services/user'
-import {makeRequest, sendGenMessage} from '../lib/messages'
+import {sendGenMessage} from '../lib/messages'
 
 
 export async function sendHackerTemplate(sender){
@@ -81,7 +83,7 @@ const printPara  = '.json?print=pretty'
 
 export async function sendTopStories(sender) {
 
-    makeRequest(topStories + printPara, { json: true }, (err, res, body) => {
+    request(topStories + printPara, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
     let top = body;
   
