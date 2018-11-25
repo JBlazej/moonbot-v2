@@ -3,6 +3,7 @@ import {sendIntroduction, sendMultipleMessages, sendGenMessage} from '../lib/mes
 import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 import {sendNextIdos} from '../idos'
+import {setHackerNews} from '../../models/v1/user'
 
 export async function payloads(id, payload){
 
@@ -22,6 +23,8 @@ export async function payloads(id, payload){
         break
 
         case 'subHacker':
+        const help = setHackerNews(id, true)
+        console.log(help)
         break
 
         case 'unsubHacker':

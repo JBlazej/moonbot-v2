@@ -49,30 +49,40 @@ export async function getUserById (id) {
 export async function modifyUserById (id, from, to, utcTimeAndDate) {
     let data = {
         station: {
-            from: from,
-            to: to,
-            time: utcTimeAndDate
+            from : from,
+            to : to,
+            time : utcTimeAndDate
         }
     }
 
-    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id: id}, data, {new: true})
+    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id : id}, data, {new : true})
+    
+    return user
+}
+
+export async function setHackerNews(id, param){
+    let data = {
+        hacker : param
+    }
+    console.log(data)
+    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id : id}, data, {new : true})
     
     return user
 }
 
 export async function updateUserById (id) {
     let data = {
-        id: id
+        id : id
     }
 
-    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id: id}, data, {new: true})
+    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id : id}, data, {new: true})
     
     return user
 }
 
 export async function createNewUser (id) {
     const User = await getDB().model('User', UserSchema)
-    const user = new User({id: id})
+    const user = new User({id : id})
 
     const help = await getUserById(id)
     console.log(help.length)
