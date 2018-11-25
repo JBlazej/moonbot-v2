@@ -20,7 +20,15 @@ export async function getUserAll () {
 export async function getUserById (id) {
     const user = User.find({"id": id})
     
-    return user
+    return {
+        id: user.id,
+        hacker: user.hacker,
+        station: {
+            from: user.from,
+            to: user.to,
+            time: user.time
+        }
+    }
 }
 
 export async function modifyUserById (id, from, to, utcTimeAndDate) {

@@ -3,15 +3,13 @@ import {getUserById} from '../../services/user'
 
 export async function sendHackerTemplate(sender){
     const user = await getUserById(sender)
-
+    console.log(typeof user)
+    console.log(user)
+    
     const isSub = user[0].hacker
-    console.log(typeof user[0].hacker)
-    console.log(user[0].hacker)
 
     const subButton = await getSubButton(isSub)
     const template = await getHackerTemplate(subButton)
-
-    //console.log(template)
 
     return template
 }
@@ -61,7 +59,7 @@ async function getSubButton(isSub){
     const unsub = {
         type: "postback",
         title: "Zrušit odběr",
-        payload: "newStories"
+        payload: "unsubHacker"
    }
 
    if(isSub === true){
