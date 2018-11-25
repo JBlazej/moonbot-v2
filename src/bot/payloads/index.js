@@ -19,6 +19,7 @@ export async function payloads(id, payload){
         break
 
         case 'newStories':
+        sendTopStories(id)
         break
 
         case 'subHacker':

@@ -1,4 +1,5 @@
 import {getUserById} from '../../services/user'
+import {makeRequest, sendGenMessage} from '../lib/messages'
 
 
 export async function sendHackerTemplate(sender){
@@ -74,3 +75,59 @@ async function getSubButton(isSub){
    }
 
 }
+
+export async function sendTopStories(sender) {
+
+    makeRequest(topStories + printPara, { json: true }, (err, res, body) => {
+    if (err) { return console.log(err); }
+    let top = body;
+  
+    let smtg = top.toString().split(",",3);
+      if(smtg){
+    
+        for (var i = 0; i < 3; i++) {
+          request( hackerItem + smtg[i] + printPara, { json: true }, (err, res, body) => {
+            if (err) { return console.log(err) }
+            let title = body.title
+            let url = body.url
+            let type = body.type
+            let text = body.text
+  
+            if(!url){
+              url = "https://news.ycombinator.com";
+            }
+
+            let hackerMessage = {
+              attachment:{
+                type: "template",
+                payload: {
+                  template_type: "generic",
+                          elements: [
+                              {
+                                  title: title,
+                                  subtitle: type,
+                                  image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
+                                  default_action: {
+                                      type: "web_url",
+                                      url: url,
+                                      messenger_extensions: "FALSE",
+                                      webview_height_ratio: "FULL"
+                                  },
+                      buttons:[
+                        {
+                          type: "element_share"
+  
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+            
+            sendGenMessage(sender, hackerMessage)
+          })
+        }
+      }
+    })
+  }
