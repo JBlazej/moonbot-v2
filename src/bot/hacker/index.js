@@ -4,16 +4,15 @@ import {getUserById} from '../../services/user'
 export async function sendHackerTemplate(sender){
     const user = await getUserById(sender)
 
-    const isSub = user
-    console.log(typeof isSub[0].hacker)
-    console.log(isSub[0].hacke)
+    const isSub = isSub[0].hacker
+    console.log(isSub[0].hacker)
+
     const subButton = await getSubButton(isSub)
     const template = await getHackerTemplate(subButton)
 
     //console.log(template)
 
     return template
-
 }
 
 export async function getHackerTemplate (button){
@@ -45,9 +44,6 @@ export async function getHackerTemplate (button){
         }
     }
 
-    console.log(typeof template)
-    console.log(template)
-    console.log(template.attachment)
     const templateToString = JSON.stringify(template)
 
     return templateToString
