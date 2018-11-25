@@ -1,9 +1,9 @@
 import mongoose from 'mongoose'
 import {User} from '../models/v1/user'
 
-export class UserService {
+class UserService {
     
-    setHackerNews(id, param){
+    async setHackerNews(id, param){
         let data = {
             hacker : param
         }
@@ -13,3 +13,5 @@ export class UserService {
         return user
     }
 }
+
+export default {UserService}
