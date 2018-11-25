@@ -34,6 +34,8 @@ const UserSchema = new mongoose.Schema({
   }
 })
 
+export const User = mongoose.model('User', UserSchema)
+
 export async function getUserAll () {
     const user = await getDB().model('User', UserSchema).find({})
 

@@ -1,8 +1,10 @@
-import {createNewUser, setHackerNews} from '../../models/v1/user'
+import {createNewUser} from '../../models/v1/user'
 import {sendIntroduction, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 import {sendNextIdos} from '../idos'
+
+import {setHackerNews} from '../../services/db'
 
 export async function payloads(id, payload){
 

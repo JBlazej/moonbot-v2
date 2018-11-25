@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.createNewUser = exports.updateUserById = exports.setHackerNews = exports.modifyUserById = exports.getUserById = exports.getUserAll = exports.UserSchema = undefined;
+exports.createNewUser = exports.updateUserById = exports.setHackerNews = exports.modifyUserById = exports.getUserById = exports.getUserAll = exports.User = undefined;
 
 var getUserAll = exports.getUserAll = function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -208,7 +208,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 // USERS SCHEMA
 // -----------------------------------------------------------------------------
-var UserSchema = exports.UserSchema = new _mongoose2.default.Schema({
+var UserSchema = new _mongoose2.default.Schema({
     id: {
         type: String,
         unique: true,
@@ -239,5 +239,5 @@ var UserSchema = exports.UserSchema = new _mongoose2.default.Schema({
     }
 });
 
-setHackerNews('1959622390785359', true);
+var User = exports.User = _mongoose2.default.model('User', UserSchema);
 //# sourceMappingURL=user.js.map
