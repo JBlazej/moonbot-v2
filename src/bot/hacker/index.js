@@ -5,6 +5,7 @@ export async function sendHackerTemplate(sender){
     const user = await getUserById(sender)
 
     const isSub = user.hacker
+    console.log(isSub)
     const subButton = await getSubButton(isSub)
     const template = await getHackerTemplate(subButton)
 
@@ -58,7 +59,7 @@ async function getSubButton(isSub){
 
     const unsub = {
         type: "postback",
-        title: "Nové zprávy",
+        title: "Zrušit odběr",
         payload: "newStories"
    }
 
