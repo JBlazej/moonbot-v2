@@ -8,7 +8,7 @@ import {getTime, getDate, shiftTimeAndDateUTC} from '../lib/dateAndTime'
 
 import {templates} from '../lib/templates'
 
-import {modifyUserById, getUserById} from '../../models/v1/user'
+import {modifyUserById, getUserById} from '../../services/db'
 
 
 export function initializeIdosTable(from, to, timeTravel, dateTravel){
