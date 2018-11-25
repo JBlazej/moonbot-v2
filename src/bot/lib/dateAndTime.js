@@ -35,8 +35,8 @@ export function increaseTime(utcTimeAndDate){
 // Return object
 export function getTimeAndDateNow(){
     const newDate = new Date()
-    const time = getTime(newDate).toString()
-    const date = getDate(newDate).toString()
+    const time = getTime(newDate)
+    const date = getDate(newDate)
     
     return {
         utc : newDate, 

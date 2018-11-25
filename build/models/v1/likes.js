@@ -11,6 +11,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // LIKES SCHEMA
 // -----------------------------------------------------------------------------
 var LikeSchema = new _mongoose2.default.Schema({
+  year: {
+    type: Number
+  },
   likes: {
     type: Number
   }

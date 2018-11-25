@@ -195,7 +195,8 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
       }, 800);
     });
   }, function (err) {
-    (0, _messages.sendTextMessage)(sender, "Něco se pokazilo zkus to znovu :-(");
+    var text = ['Něco se pokazilo. :-(', 'Příkaz je ve tvaru: Spoj odkud do kam'];
+    (0, _messages.sendMultipleMessages)(sender, text);
   });
 }
 

@@ -50,12 +50,17 @@ function increaseTime(utcTimeAndDate) {
 // Return object
 function getTimeAndDateNow() {
     var newDate = new Date();
-    var time = getTime(newDate).toString();
-    var date = getDate(newDate).toString();
+    var time = getTime(newDate);
+    var date = getDate(newDate);
 
     return {
+        utc: newDate,
         time: time,
         date: date
     };
 }
+
+var help = getTimeAndDateNow();
+
+console.log(help);
 //# sourceMappingURL=dateAndTime.js.map

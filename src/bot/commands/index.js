@@ -5,7 +5,7 @@ import {sendIdosAnswer} from '../idos'
 import {info, introIDOS, help} from '../lib/answers'
 import {templates} from '../lib/templates'
 
-let utcNow = getTimeAndDateNow()
+let utcObject = getTimeAndDateNow()
 
 export async function commands(event){
     let webhookEvent = event
@@ -35,7 +35,7 @@ export async function commands(event){
         case 'vyzkoušet':
         case 'vyzkouset':
         const introTravel = 'spoj volha do hlavni nadrazi'
-        await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcNow.utc)
+        await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcObject.utc)
         await sendGenMessage(webhookEvent.sender.id, templates['send_gif'])
         break
 
@@ -69,7 +69,7 @@ export async function commands(event){
         break
   
         case 'hackernews':
-        //sendGenMessage(webhookEvent.sender.id, templates['get_hackernews'])
+        sendGenMessage(webhookEvent.sender.id, templates['get_hackernews'])
         break
   
         case 'jb':
