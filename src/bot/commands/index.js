@@ -21,7 +21,7 @@ export async function commands(event){
   
         case 'moonbot':
         case 'moon':
-        case 'bot'
+        case 'bot':
         await sendMultipleMessages(webhookEvent.sender.id, info)
         await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
         break
