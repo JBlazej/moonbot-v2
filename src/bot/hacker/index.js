@@ -76,6 +76,9 @@ async function getSubButton(isSub){
 
 }
 
+const topStories = 'https://hacker-news.firebaseio.com/v0/topstories'
+const printPara  = '.json?print=pretty'
+
 export async function sendTopStories(sender) {
 
     makeRequest(topStories + printPara, { json: true }, (err, res, body) => {
