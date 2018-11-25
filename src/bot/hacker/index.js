@@ -137,52 +137,85 @@ export async function sendTopStories(sender) {
     })
   }
 
-export async function parseRequest(smtg){
-    let result = []
+export async function sendHackerNewsTemplate(sender){
+    const url = hackerItem + '18525415' + printPara
+    const hh = topStories + printPara
+    const message = []
 
-    for (var i = 0; i < 3; i++) {
-        let ahoj = await getNeco(smtg[i])
-        
-        result = result.concat(ahoj)
-        console.log(ahoj)
-    }
+    getRequestBody(hh, (error, body)=>{
+        let top = body
+        let smtg = top.toString().split(",",3)
 
-    return result
-  }
+        if(smtg){
+            for(var i = 0; i < 2; i++){
+                getRequestBody(url, (error, body)=>{
+                    //console.log(body)
+                    let title = body.title
+                    let url = body.url
+                    let type = body.type
+                    let text = body.text
+                
+                    if(!url){
+                    url = "https://news.ycombinator.com";
+                    }
+                
+                    let muj = {
+                        title: title,
+                        subtitle: type,
+                        image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
+                        default_action: {
+                            type: "web_url",
+                            url: url,
+                            messenger_extensions: "FALSE",
+                            webview_height_ratio: "FULL"
+                        },
+                        buttons:[
+                            {
+                                type: "element_share"
+                    
+                            }
+                        ]
+                    }
 
+                    //console.log(hackerMessage)
+                    message.push(muj)
+                    
 
-  async function getNeco(smtg){
-    const hlp = request( hackerItem + smtg + printPara, { json: true }, (err, res, body) => {
-        if (err) { return console.log(err) }
-        let title = body.title
-        let url = body.url
-        let type = body.type
-        let text = body.text
+                    if(message.length === 2){
+                        let hackerMessage = {
+                            attachment:{
+                                type: "template",
+                                payload: {
+                                    template_type: "generic",
+                                    elements: [
+                                        //Tady
+                                        message
+                                    ]
+                                }
+                            }
+                        }
+                        // Co dal?
+                        console.log(hackerMessage)
+                        sendGenMessage(sender, hackerMessage)
 
-        if(!url){
-        url = "https://news.ycombinator.com";
+                    }
+
+                })
+                console.log(i)
+            }
+        }else {
+            console.log('Error')
         }
-        
-        const muj = {
-            title: title,
-            subtitle: type,
-            image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
-            default_action: {
-                type: "web_url",
-                url: url,
-                messenger_extensions: "FALSE",
-                webview_height_ratio: "FULL"
-            },
-            buttons:[
-              {
-                  type: "element_share"
-    
-              }
-            ]
-        }
-
-        //console.log(JSON.stringify(muj))
     })
+}
 
-    console.log(hlp)
-  }
+function getRequestBody(url, callback){
+    request.get(url, (error, response, body)=>{
+        if (!error && response.statusCode == 200) {
+        const info = JSON.parse(body)
+      
+        callback(null, info)
+        }
+    }) 
+}
+

@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 require('babel-polyfill');
 
 var _express = require('express');
@@ -39,8 +37,6 @@ var _router2 = _interopRequireDefault(_router);
 var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
-
-var _hacker = require('./bot/hacker');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -79,12 +75,6 @@ app.listen(app.get("port"), function () {
     console.log("App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
     console.log("Press CMD-C to stop\n");
 });
-
-var help = ['18503854', '18503060', '18508693'];
-var gg = (0, _hacker.parseRequest)(help);
-
-console.log(typeof gg === 'undefined' ? 'undefined' : _typeof(gg));
-console.log(gg);
 
 // HANDLINGS ERRORS
 var shuttingDown = false;
