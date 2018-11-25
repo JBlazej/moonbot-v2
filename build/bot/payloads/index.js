@@ -17,11 +17,11 @@ var payloads = exports.payloads = function () {
 
                     case 3:
                         _context.next = 5;
-                        return (0, _messages.sendMultipleMessages)(id, _messages2.starter);
+                        return (0, _messages.sendMultipleMessages)(id, _answers.starter);
 
                     case 5:
                         _context.next = 7;
-                        return (0, _messages.sendGenMessage)(id, _templates.templates['send_intro']);
+                        return (0, _messages.sendGenMessage)(id, _templates.templates['send_info']);
 
                     case 7:
                         _context.next = 9;
@@ -32,7 +32,7 @@ var payloads = exports.payloads = function () {
 
                     case 10:
                         _context.next = 12;
-                        return (0, _messages.sendMultipleMessages)(id, _messages2.introIDOS);
+                        return (0, _messages.sendMultipleMessages)(id, _answers.introIDOS);
 
                     case 12:
                         _context.next = 14;
@@ -121,15 +121,15 @@ var payloads = exports.payloads = function () {
     };
 }();
 
-var _messages = require('../lib/messages');
-
-var _idos = require('../idos');
-
-var _messages2 = require('../../views/messages');
-
 var _user = require('../../models/v1/user');
 
-var _templates = require('../../views/templates');
+var _messages = require('../lib/messages');
+
+var _answers = require('../lib/answers');
+
+var _templates = require('../lib/templates');
+
+var _idos = require('../idos');
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 //# sourceMappingURL=index.js.map

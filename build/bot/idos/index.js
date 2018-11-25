@@ -67,7 +67,7 @@ var _messages = require('../lib/messages');
 
 var _dateAndTime = require('../lib/dateAndTime');
 
-var _templates = require('../../views/templates');
+var _templates = require('../lib/templates');
 
 var _user = require('../../models/v1/user');
 

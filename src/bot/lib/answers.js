@@ -1,4 +1,5 @@
-import {getTime, getDate} from './dateAndTime'
+import {getTimeAndDateNow} from './dateAndTime'
+const utcNow = getTimeAndDateNow()
 
 export const intro = [
   'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.',
@@ -6,9 +7,11 @@ export const intro = [
   'Jo a takhle vypadam. :D'
 ]
 
+let gTime = utcNow.time
+
 export const starter = [
   'Ahoj já jsem Moonbot.',
-  'Dnes je ' + gTime + '.'
+  'Dnes je ' + gTime + ' hodin.'
   
 ]
 
@@ -16,9 +19,6 @@ export const info = [
   'A jsem zde od toho, abych tě mohl informovat o novinkách ze školy.',
   'Navíc ti dokážu rychle najít cestu kam zrovna potřebuješ.'
 ]
-
-
-console.log(starter)
 
 export const introIDOS = [
   'Využívám služby IDOS, která poskytuje informace o spojení MHD v Praze.',

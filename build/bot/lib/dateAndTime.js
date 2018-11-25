@@ -58,7 +58,4 @@ function getTimeAndDateNow() {
         date: date
     };
 }
-
-var help = getTimeAndDateNow();
-console.log(help.time);
 //# sourceMappingURL=dateAndTime.js.map

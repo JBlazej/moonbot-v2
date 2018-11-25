@@ -5,8 +5,6 @@ import {sendIdosAnswer} from '../idos'
 import {info, introIDOS, help} from '../lib/answers'
 import {templates} from '../lib/templates'
 
-import {createNewUser} from '../../models/v1/user'
-
 let utcNow = getTimeAndDateNow()
 
 export async function commands(event){
