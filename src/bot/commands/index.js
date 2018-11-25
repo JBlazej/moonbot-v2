@@ -40,7 +40,7 @@ export async function commands(event){
         break
 
         case 'spoj':
-        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcNow)
+        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObject)
         break
   
         case 'vse':
