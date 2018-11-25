@@ -23,11 +23,11 @@ export async function payloads(id, payload){
         break
 
         case 'subHacker':
-        const help = setHackerNews(id, true)
-        console.log(help)
+        setHackerNews(id, true)
         break
 
         case 'unsubHacker':
+        setHackerNews(id, false)
         break
 
         case 'like':
