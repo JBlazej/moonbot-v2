@@ -9,8 +9,6 @@ import router from './router'
 import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
 
-import {sendHackerTemplate} from './bot/hacker'
-
 /**
  * Start Express server.
  */
@@ -38,7 +36,7 @@ app.set('port', (process.env.PORT || 3030))
 
 // DB
 connectDB()
-sendHackerTemplate('1959622390785359')
+
 /**
  * Run Express server.
  */
@@ -50,9 +48,6 @@ app.listen(app.get("port"), () => {
     )
     console.log("Press CMD-C to stop\n");
 })
-//const h = getHackerTemplate()
-
-//sendHackerTemplate('1959622390785359')
 
 // HANDLINGS ERRORS
 let shuttingDown = false

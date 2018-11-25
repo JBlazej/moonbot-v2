@@ -30,6 +30,16 @@ export async function getHackerTemplate (button){
                         },
                         buttons: [
                          // TADY VLOŽIT
+                         {
+                            type: "postback",
+                            title: "Jak to funguje?",
+                            payload: "hacker-info"
+                        },
+                        {
+                            type: "postback",
+                            title: "Zobrazit nové zprávy",
+                            payload: "newStories"
+                        },
                          templateButton
                         ] 
                     }

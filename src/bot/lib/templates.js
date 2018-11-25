@@ -398,44 +398,6 @@ export const templates = {
 			}
     }
 	},
-	get_hackernews:{
-		attachment: {
-			type: "template",
-			payload: {
-				template_type: "generic",
-				elements: [
-					{
-						title: "Hacker news",
-      			image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackernews.png",
-      			subtitle: "Nejnovější zprávy ze světa kybernetiky a ne jen to.",
-      			default_action: {
-        			type: "web_url",
-        			url: "https://news.ycombinator.com",
-        			messenger_extensions: "FALSE",
-        			webview_height_ratio: "TALL"
-						},
-						buttons: [
-							{
-								type: "postback",
-								title: "Nové zprávy",
-								payload: "newStories"
-							},
-							{
-								type: "postback",
-								title: "Odběr",
-								payload: "subHacker"
-							},
-							{
-								type: "postback",
-								title: "Zrušit odběr",
-								payload: "unsubHacker"
-							}
-						]
-					}
-				]
-			}
-		}
-	},
 	get_dormitories: {
 		attachment: {
 			type: "template",
