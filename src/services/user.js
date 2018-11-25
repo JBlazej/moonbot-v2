@@ -48,7 +48,6 @@ export async function updateUserById (id) {
 }
 
 export async function createNewUser (id) {
-    const User = User
     const user = new User({id : id})
 
     const help = await getUserById(id)
