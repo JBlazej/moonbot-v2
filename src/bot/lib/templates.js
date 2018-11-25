@@ -219,7 +219,7 @@ export const templates = {
 			   content_type: "text",
 			   title: "Moonbot",
 			   payload: "moon-bot-intro",
-			   image_url: "http://moonbot-v2-front.herokuapp.com/moons"
+			   image_url: "http://moonbot-v2-front.herokuapp.com/moon"
 		   }
 		 ]
    },
