@@ -1,7 +1,5 @@
-import request from 'request-promise'
-
 import {getUserById} from '../../services/user'
-import {sendGenMessage} from '../lib/messages'
+import {sendGenMessage, makeRequest} from '../lib/messages'
 
 
 export async function sendHackerTemplate(sender){
@@ -80,10 +78,11 @@ async function getSubButton(isSub){
 
 const topStories = 'https://hacker-news.firebaseio.com/v0/topstories'
 const printPara  = '.json?print=pretty'
+const hackerItem = 'https://hacker-news.firebaseio.com/v0/item/'
 
 export async function sendTopStories(sender) {
 
-    request(topStories + printPara, { json: true }, (err, res, body) => {
+    makeRequest(topStories + printPara, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
     let top = body;
   
@@ -91,7 +90,7 @@ export async function sendTopStories(sender) {
       if(smtg){
     
         for (var i = 0; i < 3; i++) {
-          request( hackerItem + smtg[i] + printPara, { json: true }, (err, res, body) => {
+            makeRequest( hackerItem + smtg[i] + printPara, { json: true }, (err, res, body) => {
             if (err) { return console.log(err) }
             let title = body.title
             let url = body.url
