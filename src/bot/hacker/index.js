@@ -1,5 +1,6 @@
 import {getUserById} from '../../services/user'
-import {sendGenMessage, makeRequest} from '../lib/messages'
+import {sendGenMessage} from '../lib/messages'
+import request from 'request-promise'
 
 
 export async function sendHackerTemplate(sender){
@@ -82,15 +83,16 @@ const hackerItem = 'https://hacker-news.firebaseio.com/v0/item/'
 
 export async function sendTopStories(sender) {
 
-    makeRequest(topStories + printPara, { json: true }, (err, res, body) => {
+    request(topStories + printPara, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
     let top = body;
+    console.log(top)
   
     let smtg = top.toString().split(",",3);
       if(smtg){
     
         for (var i = 0; i < 3; i++) {
-            makeRequest( hackerItem + smtg[i] + printPara, { json: true }, (err, res, body) => {
+            request( hackerItem + smtg[i] + printPara, { json: true }, (err, res, body) => {
             if (err) { return console.log(err) }
             let title = body.title
             let url = body.url
@@ -129,6 +131,8 @@ export async function sendTopStories(sender) {
               }
             }
             
+            console.log(hackerMessage)
+
             sendGenMessage(sender, hackerMessage)
           })
         }

@@ -11,3 +11,5 @@ const LikeSchema = new mongoose.Schema({
       type: Number
   }
 })
+
+export const Like = mongoose.model('Like', LikeSchema)
