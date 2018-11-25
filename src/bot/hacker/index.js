@@ -47,7 +47,7 @@ export async function getHackerTemplate (button){
 
     console.log(typeof template)
     console.log(template)
-    console.log(typeof template.attachment)
+    console.log(template.attachment)
     const templateToString = JSON.stringify(template)
 
     return templateToString
