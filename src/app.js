@@ -9,7 +9,7 @@ import router from './router'
 import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
 
-//import {getHackerTemplate, sendHackerTemplate} from './bot/hacker'
+import {sendHackerTemplate} from './bot/hacker'
 
 /**
  * Start Express server.
@@ -38,7 +38,7 @@ app.set('port', (process.env.PORT || 3030))
 
 // DB
 connectDB()
-
+sendHackerTemplate('1959622390785359')
 /**
  * Run Express server.
  */
