@@ -8,8 +8,7 @@ import {getTime, getDate, shiftTimeAndDateUTC} from '../lib/dateAndTime'
 
 import {templates} from '../lib/templates'
 
-import {modifyUserById, getUserById} from '../../models'
-
+import {modifyUserById, getUserById} from '../../services/user'
 
 export function initializeIdosTable(from, to, timeTravel, dateTravel){
     let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
