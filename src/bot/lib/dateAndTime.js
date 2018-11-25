@@ -39,6 +39,7 @@ export function getTimeAndDateNow(){
     const date = getDate(newDate).toString()
     
     return {
+        utc : newDate, 
         time : time,
         date : date
     }

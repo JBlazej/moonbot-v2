@@ -35,7 +35,7 @@ export async function commands(event){
         case 'vyzkoušet':
         case 'vyzkouset':
         const introTravel = 'spoj volha do hlavni nadrazi'
-        await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcNow)
+        await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcNow.utc)
         await sendGenMessage(webhookEvent.sender.id, templates['send_gif'])
         break
 
