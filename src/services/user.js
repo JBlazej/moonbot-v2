@@ -37,16 +37,6 @@ export async function modifyUserById (id, from, to, utcTimeAndDate) {
     return user
 }
 
-export async function setHackerNews(id, param){
-    let data = {
-        hacker : param
-    }
-
-    const user = User.findOneAndUpdate({id : id}, data, {new : true})
-    
-    return user
-}
-
 export async function updateUserById (id) {
     let data = {
         id : id
