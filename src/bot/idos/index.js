@@ -3,7 +3,7 @@ import async from 'async'
 import cheerio from 'cheerio'
 import cheerioTableparser from 'cheerio-tableparser'
 
-import {sendTextMessage, sendGenMessage} from '../lib/messages'
+import {sendTextMessage, sendGenMessage, sendMultipleMessages} from '../lib/messages'
 import {getTime, getDate, shiftTimeAndDateUTC} from '../lib/dateAndTime'
 
 import {templates} from '../lib/templates'
@@ -128,8 +128,8 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
           }, 800)
         })
       }, (err) => {
-        sendTextMessage(sender, "Něco se pokazilo zkus to znovu :-(")
-        sendTextMessage(sender, "Příkaz je ve tvaru: Spoj odkud do kam ")
+        const text = ['Něco se pokazilo zkus to znovu :-(','Příkaz je ve tvaru: Spoj odkud do kam.']
+        sendMultipleMessages(sender, text)
     })
   }
   
