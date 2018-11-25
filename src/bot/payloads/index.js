@@ -4,7 +4,9 @@ import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 import {sendNextIdos} from '../idos'
 
-import {UserService} from '../../services/db'
+import UserService from '../../services/db'
+
+let userService = new UserService()
 
 export async function payloads(id, payload){
 
@@ -24,11 +26,11 @@ export async function payloads(id, payload){
         break
 
         case 'subHacker':
-        UserService.setHackerNews(id, true)
+        userService.setHackerNews(id, true)
         break
 
         case 'unsubHacker':
-        UserService.setHackerNews(id, false)
+        userService.setHackerNews(id, false)
         break
 
         case 'like':
