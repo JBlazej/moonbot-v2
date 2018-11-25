@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import {User} from '../models/v1/user'
     
-export  async function setHackerNews(id, param){
+export async function setHackerNews(id, param){
     let data = {
         hacker : param
     }
@@ -12,16 +12,16 @@ export  async function setHackerNews(id, param){
 }
 
 export async function getUserAll () {
-    const user = await getDB().model('User', UserSchema).find({})
+    const user = User.find({})
 
     return user
 }
 
 export async function getUserById (id) {
-    const user = await getDB().model('User', UserSchema).find({"id": id})
+    const user = User.find({"id": id})
     
     return user
-  }
+}
 
 export async function modifyUserById (id, from, to, utcTimeAndDate) {
     let data = {
@@ -32,7 +32,7 @@ export async function modifyUserById (id, from, to, utcTimeAndDate) {
         }
     }
 
-    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id : id}, data, {new : true})
+    const user = User.findOneAndUpdate({id : id}, data, {new : true})
     
     return user
 }
@@ -42,7 +42,7 @@ export async function setHackerNews(id, param){
         hacker : param
     }
 
-    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id : id}, data, {new : true})
+    const user = User.findOneAndUpdate({id : id}, data, {new : true})
     
     return user
 }
@@ -52,13 +52,13 @@ export async function updateUserById (id) {
         id : id
     }
 
-    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id : id}, data, {new: true})
+    const user = User.findOneAndUpdate({id : id}, data, {new: true})
     
     return user
 }
 
 export async function createNewUser (id) {
-    const User = await getDB().model('User', UserSchema)
+    const User = User
     const user = new User({id : id})
 
     const help = await getUserById(id)
