@@ -21,21 +21,22 @@ var connectDB = exports.connectDB = function () {
             db = _context.sent;
 
             console.log('DB connection OK');
-            _context.next = 11;
+            console.log(db.model('User'));
+            _context.next = 12;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 9:
+            _context.prev = 9;
             _context.t0 = _context['catch'](1);
 
             console.log(_context.t0);
 
-          case 11:
+          case 12:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 8]]);
+    }, _callee, this, [[1, 9]]);
   }));
 
   return function connectDB() {
@@ -88,9 +89,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var db = void 0;
 
 function getMongoUrl() {
-  var url = _db.DB_URL;
-  var user = _db.DB_USER;
-  var pass = _db.DB_PASSWORD;
+  var url = 'ds131983.mlab.com:31983/heroku_ph19r4wb';
+  var user = 'swagger';
+  var pass = 'abc1234567';
 
   return 'mongodb://' + user + ':' + pass + '@' + url;
 }

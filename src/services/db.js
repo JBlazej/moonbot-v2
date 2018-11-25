@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import {getDB} from '../models'
-
+import {UserSchema} from '../models/v1/user'
 
 export async function getUserAll () {
     const user = await getDB().model('User', UserSchema).find({})
@@ -33,7 +33,7 @@ export async function setHackerNews(id, param){
         hacker : param
     }
 
-    const user = await getDB().model('User', UserSchema).findOneAndUpdate({id : id}, data, {new : true})
+    const user = await getDB('User', UserSchema).findOneAndUpdate({id : id}, data, {new : true})
     
     return user
 }
