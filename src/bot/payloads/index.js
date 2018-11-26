@@ -30,7 +30,6 @@ export async function payloads(id, payload){
         break
 
         case 'idos-like':
-        console.log(utcObject.year)
         await incrementLikeInstance(utcObject.year, 1)
         await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
         break
