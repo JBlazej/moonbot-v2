@@ -63,7 +63,7 @@ export function increaseTime(utcTimeAndDate){
 }
 
 function getByHourIdosSettings(utcTimeAndDate, a){
-    const hour = moment(utcTimeAndDate).format('hh')
+    const hour = moment(utcTimeAndDate).format('H')
     const set = incrementTimeMinutes
     console.log(hour)
     if (hour === 0) {
