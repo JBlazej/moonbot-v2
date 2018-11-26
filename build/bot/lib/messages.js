@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sendMultipleMessages = exports.sendGenMessage = exports.sendTextMessage = exports.makeRequest = undefined;
+exports.sendMultipleMessages = exports.sendGenMessage = exports.sendTextMessage = undefined;
 
-var makeRequest = exports.makeRequest = function () {
+var makeRequest = function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(options) {
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {

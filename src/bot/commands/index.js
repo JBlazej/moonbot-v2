@@ -1,3 +1,5 @@
+import {createNewLikeInstance} from '../../services/like'
+
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {getTimeAndDateNow} from '../lib/dateAndTime'
 import {sendIdosAnswer} from '../idos'
@@ -51,6 +53,7 @@ export async function commands(event){
   
         case 'prvak':
         case 'prvák':
+        createNewLikeInstance(2018, 0)
         //sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
         break
   

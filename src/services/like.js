@@ -7,8 +7,6 @@ export async function createNewLikeInstance (setYear, setLike) {
     like.save()
     
     console.log(like)
-    return user
+
+    return like
 }
-
-
-createNewLikeInstance(2018, 0)

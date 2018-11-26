@@ -12,7 +12,7 @@ var payloads = exports.payloads = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.t0 = payload;
-                        _context.next = _context.t0 === 'started-payload' ? 3 : _context.t0 === 'idos-intro' ? 10 : _context.t0 === 'newStories' ? 15 : _context.t0 === 'subHacker' ? 17 : _context.t0 === 'unsubHacker' ? 20 : _context.t0 === 'like' ? 23 : _context.t0 === 'next' ? 24 : _context.t0 === 'howToIdos' ? 26 : _context.t0 === 'vse' ? 27 : _context.t0 === 'ffu' ? 28 : _context.t0 === 'fmv' ? 29 : _context.t0 === 'fph' ? 30 : _context.t0 === 'fis' ? 31 : _context.t0 === 'nf' ? 32 : _context.t0 === 'fm' ? 33 : _context.t0 === 'blanice' ? 34 : _context.t0 === 'vltava' ? 35 : _context.t0 === 'jarov1' ? 36 : _context.t0 === 'jarov1E' ? 37 : _context.t0 === 'jarov2' ? 38 : _context.t0 === 'jarov3G' ? 39 : _context.t0 === 'roos' ? 40 : _context.t0 === 'svec' ? 41 : _context.t0 === 'sayAboutMe' ? 42 : 43;
+                        _context.next = _context.t0 === 'started-payload' ? 3 : _context.t0 === 'idos-intro' ? 10 : _context.t0 === 'idos-like' ? 15 : _context.t0 === 'hacker-intro' ? 16 : _context.t0 === 'hacker-new-news' ? 17 : _context.t0 === 'hacker-subscribe' ? 19 : _context.t0 === 'hacker-unsubscribe' ? 22 : _context.t0 === 'next' ? 25 : _context.t0 === 'vse' ? 27 : _context.t0 === 'ffu' ? 28 : _context.t0 === 'fmv' ? 29 : _context.t0 === 'fph' ? 30 : _context.t0 === 'fis' ? 31 : _context.t0 === 'nf' ? 32 : _context.t0 === 'fm' ? 33 : _context.t0 === 'blanice' ? 34 : _context.t0 === 'vltava' ? 35 : _context.t0 === 'jarov1' ? 36 : _context.t0 === 'jarov1E' ? 37 : _context.t0 === 'jarov2' ? 38 : _context.t0 === 'jarov3G' ? 39 : _context.t0 === 'roos' ? 40 : _context.t0 === 'svec' ? 41 : _context.t0 === 'sayAboutMe' ? 42 : 43;
                         break;
 
                     case 3:
@@ -42,27 +42,27 @@ var payloads = exports.payloads = function () {
                         return _context.abrupt('break', 43);
 
                     case 15:
-                        (0, _hacker.sendHackerNewsTemplate)(id);
+                        return _context.abrupt('break', 43);
+
+                    case 16:
                         return _context.abrupt('break', 43);
 
                     case 17:
+                        (0, _hacker.sendHackerNews)(id);
+                        return _context.abrupt('break', 43);
+
+                    case 19:
                         (0, _user.setHackerNews)(id, true);
                         (0, _messages.sendTextMessage)(id, 'Děkuj za tvůj odběr.');
                         return _context.abrupt('break', 43);
 
-                    case 20:
+                    case 22:
                         (0, _user.setHackerNews)(id, false);
                         (0, _messages.sendTextMessage)(id, 'Nevadí tak kdyžtak příště.');
                         return _context.abrupt('break', 43);
 
-                    case 23:
-                        return _context.abrupt('break', 43);
-
-                    case 24:
+                    case 25:
                         (0, _idos.sendNextIdos)(id);
-                        return _context.abrupt('break', 43);
-
-                    case 26:
                         return _context.abrupt('break', 43);
 
                     case 27:
