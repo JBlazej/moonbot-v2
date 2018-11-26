@@ -14,11 +14,6 @@ export async function incrementLikeInstance (year){
     
     console.log(typeof like[0].likes)
     console.log(like[0].likes)
-    
-    const now = like[0].likes
-    const increment = ++now
-
-    console.log(increment)
 
     return like
 }
