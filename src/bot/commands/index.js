@@ -6,6 +6,7 @@ import { info, introIDOS, help } from '../lib/answers'
 import { templates} from '../lib/templates'
 
 import { sendHackerIntro } from '../hacker'
+import { sendTranslatedText } from '../google'
 
 export async function commands(event){
     let webhookEvent = event
@@ -46,6 +47,8 @@ export async function commands(event){
   
         case 'preloz':
         case 'přelož':
+        await sendTextMessage(webhookEvent.sender.id, 'Váš text se překládá...')
+        await sendTranslatedText(webhookEvent.sender.id, 'Ahoj', 'en')
         break
 
         case 'vse':
