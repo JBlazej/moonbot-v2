@@ -7,8 +7,6 @@ import {templates} from '../lib/templates'
 
 import {sendHackerIntro} from '../hacker'
 
-import {incrementLikeInstance} from '../../services/like'
-
 let utcObject = getTimeAndDateNow()
 
 export async function commands(event){
@@ -53,7 +51,6 @@ export async function commands(event){
   
         case 'prvak':
         case 'prvák':
-        incrementLikeInstance(2018, 1)
         //sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
         break
   

@@ -1,5 +1,5 @@
 import {createNewUser, setHackerNews} from '../../services/user'
-import {createNewLikeInstance} from '../../services/like'
+import {incrementLikeInstance} from '../../services/like'
 
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {starter, introIDOS} from '../lib/answers'
@@ -21,7 +21,13 @@ export async function payloads(id, payload){
         await sendGenMessage(id, templates['send_idos_intro'])
         break
 
+        case 'idos-next':
+        sendNextIdos(id)
+        break
+
         case 'idos-like':
+        await incrementLikeInstance(2018, 1)
+        await sendTextMessage(id, 'Děkuju ti za tvoje hodnocení a šťastnou cestu.')
         break
 
         case 'hacker-intro':
@@ -40,10 +46,6 @@ export async function payloads(id, payload){
         case 'hacker-unsubscribe':
         setHackerNews(id, false)
         sendTextMessage(id, 'Nevadí tak kdyžtak příště.')
-        break
-
-        case 'next':
-        sendNextIdos(id)
         break
     
         case 'vse':

@@ -387,12 +387,12 @@ export const templates = {
 					{
 						type: "postback",
             title: "Ano 👍",
-						payload: "like"
+						payload: "idos-like"
 					},
 					{
 						type: "postback",
             title: "Další spoj",
-						payload: "next"
+						payload: "idos-next"
 					}
   			]
 			}
