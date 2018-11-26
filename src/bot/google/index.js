@@ -8,7 +8,7 @@ export async function sendTranslatedText (id, setText, setlanguage) {
 
     const text = setText
     const target = setlanguage
-
+    console.log(text)
     transformTextForGoogle(setText, 'preloz')
 
     translate
