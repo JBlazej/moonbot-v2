@@ -11,14 +11,20 @@ export async function createNewLikeInstance (setYear, setLike) {
 
 export async function incrementLikeInstance (year, set){
     const like = await getLikeInstance(year)
-    console.log(like)
-    console.log(like.lenght)
     
-    like[0].likes = like[0].likes + set
+    console.log(like.length)
+    
+    if(like.length === 0) {
+        const newYear = await createNewLikeInstance(year, 0)
 
-    const newLikeNumber = await updateLikeInstance(year, like[0].likes)
+        return newYear
 
-    return newLikeNumber
+    }else {
+        like[0].likes = like[0].likes + set
+        const newLikeNumber = await updateLikeInstance(year, like[0].likes)
+
+        return newLikeNumber
+    }
 }
 
 
