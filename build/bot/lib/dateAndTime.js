@@ -3,12 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.getTimeAndDateNow = getTimeAndDateNow;
 exports.getTime = getTime;
 exports.getDate = getDate;
 exports.getYear = getYear;
 exports.shiftTimeAndDateUTC = shiftTimeAndDateUTC;
 exports.increaseTime = increaseTime;
-exports.getTimeAndDateNow = getTimeAndDateNow;
 
 var _moment = require('moment');
 
@@ -17,6 +17,24 @@ var _moment2 = _interopRequireDefault(_moment);
 var _constant = require('../../conf/constant');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getTimeAndDateNow(utc) {
+    var newDate = utc ? utc : new Date();
+
+    var time = getTime(newDate);
+    var date = getDate(newDate);
+    var year = getYear(newDate);
+
+    var set = getByHourIdosSettings(newDate);
+
+    return {
+        utc: newDate,
+        time: time,
+        date: date,
+        year: year,
+        set: set
+    };
+}
 
 function getTime(utcTimeAndDate) {
     var actualTime = (0, _moment2.default)(utcTimeAndDate);
@@ -66,7 +84,6 @@ function getByHourIdosSettings(utcTimeAndDate, a) {
     var set = _constant.incrementTimeMinutes;
 
     if (hour === 0) {
-        console.log('Půlnoc');
         return {
             partOfDay: 'půlnoc',
             idosConstant: a ? a + set.midnight : set.midnight
@@ -74,7 +91,6 @@ function getByHourIdosSettings(utcTimeAndDate, a) {
     }
 
     if (1 <= hour && hour < 9) {
-        console.log('Ráno');
         return {
             partOfDay: 'ráno',
             idosConstant: a ? a + set.morning : set.morning
@@ -82,23 +98,20 @@ function getByHourIdosSettings(utcTimeAndDate, a) {
     }
 
     if (9 <= hour && hour < 12) {
-        console.log('Odpoledne');
-        return {
-            partOfDay: 'odpoledne',
-            idosConstant: a ? a + set.afternoon : set.afternoon
-        };
-    }
-
-    if (12 <= hour && hour < 17) {
-        console.log('Dopoledne');
         return {
             partOfDay: 'dopoledne',
             idosConstant: a ? a + set.morning : set.morning
         };
     }
 
+    if (12 <= hour && hour < 17) {
+        return {
+            partOfDay: 'odpoledne',
+            idosConstant: a ? a + set.afternoon : set.afternoon
+        };
+    }
+
     if (17 <= hour && hour < 20) {
-        console.log('Podvečer');
         return {
             partOfDay: 'podvečer',
             idosConstant: a ? a + set.early_evening : set.early_evening
@@ -106,29 +119,10 @@ function getByHourIdosSettings(utcTimeAndDate, a) {
     }
 
     if (20 <= hour && hour < 24) {
-        console.log('Večer');
         return {
             partOfDay: 'večer',
             idosConstant: a ? a + set.evening : set.evening
         };
     }
-}
-
-function getTimeAndDateNow(utc) {
-    var newDate = utc ? utc : new Date();
-
-    var time = getTime(newDate);
-    var date = getDate(newDate);
-    var year = getYear(newDate);
-
-    var set = getByHourIdosSettings(newDate);
-
-    return {
-        utc: newDate,
-        time: time,
-        date: date,
-        year: year,
-        set: set
-    };
 }
 //# sourceMappingURL=dateAndTime.js.map

@@ -67,7 +67,6 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     const set = incrementTimeMinutes
 
     if (hour === 0) {
-        console.log('Půlnoc')
         return {
             partOfDay: 'půlnoc',
             idosConstant: a ? a + set.midnight : set.midnight
@@ -76,7 +75,6 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     }
 
     if (1 <= hour && hour < 9) {
-        console.log('Ráno')
         return {
             partOfDay: 'ráno',
             idosConstant: a ? a + set.morning : set.morning
@@ -85,7 +83,6 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     }
 
     if (9 <= hour && hour < 12) {
-        console.log('Dopoledne')
         return {
             partOfDay: 'dopoledne',
             idosConstant: a ? a + set.morning : set.morning
@@ -93,7 +90,6 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     }
 
     if (12 <= hour && hour < 17) {
-        console.log('Odpoledne')
         return {
             partOfDay: 'odpoledne',
             idosConstant: a ? a + set.afternoon : set.afternoon
@@ -101,7 +97,6 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     }
 
     if (17 <= hour && hour < 20 ) {
-        console.log('Podvečer')
         return {
             partOfDay: 'podvečer',
             idosConstant: a ? a + set.early_evening : set.early_evening
@@ -109,7 +104,6 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     }
 
     if (20 <= hour && hour < 24) {
-        console.log('Večer')
         return {
             partOfDay: 'večer',
             idosConstant: a ? a + set.evening : set.evening

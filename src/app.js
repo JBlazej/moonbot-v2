@@ -10,14 +10,24 @@ import {connectDB} from './models'
 import {sigterm} from './services/sigterm'
 
 /**
- * Start Express server.
+ * Start Express server
+ * 
+ * Moonbot
+ * version 2
+ * 
+ * Jan Blažej
+ * Vysoká škola ekonomická v Praze
+ * V roce 2018
+ * 
+ * Bachelor thesis
+ * 
  */
 const app = express()
+
 /**
- * Setup Express server.
+ * Setup Express server
+ * 
  */
-// HEROKU SIGTERM
-sigterm()
 // SSL
 app.use(sslRedirect())
 // PUBLIC
@@ -27,18 +37,28 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 // COOKIE
 app.use(cookieParser())
-// FAV
+// FAVICON
 app.use(serveFavicon(path.join(__dirname, '../public', 'favicon.ico')))
 // ROUTER
 app.use(router)
 // PORT
 app.set('port', (process.env.PORT || 3030))
 
-// DB
+/**
+ * Database connection
+ * 
+ */
 connectDB()
 
 /**
- * Run Express server.
+ * CRON services
+ * 
+ */
+sigterm()
+
+/**
+ * Run Express server
+ * 
  */
 app.listen(app.get("port"), () => {
     console.log(
@@ -48,8 +68,10 @@ app.listen(app.get("port"), () => {
     )
     console.log("Press CMD-C to stop\n");
 })
-
-// HANDLINGS ERRORS
+/**
+ * HANDLINGS ERRORS
+ * 
+ */
 let shuttingDown = false
 
 app.use((req, res, next) => {

@@ -26,7 +26,6 @@ export async function getHackerIntroTemplate (button) {
                          webview_height_ratio: "TALL"
                         },
                         buttons: [
-                         // TADY VLOŽIT
                          {
                             type: "postback",
                             title: "Jak to funguje?",
@@ -37,7 +36,8 @@ export async function getHackerIntroTemplate (button) {
                             title: "Zobrazit nové zprávy",
                             payload: "hacker-new-news"
                         },
-                         templateButton
+                        // TADY VLOŽIT
+                        templateButton
                         ] 
                     }
                 ]

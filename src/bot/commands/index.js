@@ -1,11 +1,12 @@
-import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
-import {getTimeAndDateNow} from '../lib/dateAndTime'
-import {sendIdosAnswer} from '../idos'
+import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
+import { getTimeAndDateNow } from '../lib/dateAndTime'
+import { sendIdosAnswer } from '../idos'
 
-import {info, introIDOS, help} from '../lib/answers'
-import {templates} from '../lib/templates'
+import { info, introIDOS, help } from '../lib/answers'
+import { templates} from '../lib/templates'
 
-import {sendHackerIntro} from '../hacker'
+import { sendHackerIntro } from '../hacker'
+import { sendTranslatedText } from '../google'
 
 export async function commands(event){
     let webhookEvent = event
@@ -44,6 +45,10 @@ export async function commands(event){
         sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObj.utc)
         break
   
+        case 'preloz':
+        sendTranslatedText(webhookEvent.sender.id, 'Ahoj', 'en')
+        break
+
         case 'vse':
         case 'vše':
         await sendGenMessage(webhookEvent.sender.id, templates['get_school'])
