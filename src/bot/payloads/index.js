@@ -10,8 +10,6 @@ import {getTimeAndDateNow} from '../lib/dateAndTime'
 import {sendNextIdos} from '../idos'
 import {sendHackerNews} from '../hacker'
 
-let utcObject = getTimeAndDateNow()
-
 export async function payloads(id, payload){
     switch(payload) {
         case 'started-payload':
@@ -30,6 +28,7 @@ export async function payloads(id, payload){
         break
 
         case 'idos-like':
+        const utcObject = getTimeAndDateNow()
         await incrementLikeInstance(utcObject.year, 1)
         await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
         break

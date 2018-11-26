@@ -11,11 +11,12 @@ export function getStartedPayload(){
 
   const starter = [
     'Ahoj já jsem Moonbot.',
-    'Dnes je ' + utc.time + ' hodin.'
+    'Dnes je ' + utc.time + ' hodin ' + utc.set.partOfDay + '.'
   ]
 
   return starter
 }
+
 
 export const info = [
   'A jsem zde od toho, abych tě mohl informovat o novinkách ze školy.',
