@@ -1,6 +1,24 @@
 import moment from 'moment'
 import {incrementTimeMinutes} from '../../conf/constant'
 
+export function getTimeAndDateNow(utc){
+    const newDate = utc ? utc : new Date()
+    
+    const time = getTime(newDate)
+    const date = getDate(newDate)
+    const year = getYear(newDate)
+
+    const set = getByHourIdosSettings(newDate)
+    
+    return {
+        utc : newDate, 
+        time : time,
+        date : date,
+        year : year,
+        set : set
+    }
+}
+
 export function getTime(utcTimeAndDate){
     const actualTime = moment(utcTimeAndDate)
     const shiftedTime = actualTime.add(1, 'hours')
@@ -96,23 +114,5 @@ function getByHourIdosSettings(utcTimeAndDate, a){
             partOfDay: 'večer',
             idosConstant: a ? a + set.evening : set.evening
         }
-    }
-}
-
-export function getTimeAndDateNow(utc){
-    const newDate = utc ? utc : new Date()
-    
-    const time = getTime(newDate)
-    const date = getDate(newDate)
-    const year = getYear(newDate)
-
-    const set = getByHourIdosSettings(newDate)
-    
-    return {
-        utc : newDate, 
-        time : time,
-        date : date,
-        year : year,
-        set : set
     }
 }
