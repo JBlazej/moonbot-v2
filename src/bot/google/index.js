@@ -4,6 +4,7 @@ import { sendTextMessage } from '../lib/messages'
 
 
 export async function sendTranslatedText (id, setText, setlanguage) {
+    console.log(gooAuth)
     const translate = new Translate({ projectId: serviceID, credentials: gooAuth })
 
     const text = setText
