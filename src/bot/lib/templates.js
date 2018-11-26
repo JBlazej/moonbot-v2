@@ -296,7 +296,7 @@ export const templates = {
     ]
 	},
 	send_next_translator:{
-	text: "👩🏻‍🚀 ",
+	text: "Zadej příkaz Přelož mezera a tvůj text.",
 	  quick_replies:[
 			  {
 		  content_type: "text",
