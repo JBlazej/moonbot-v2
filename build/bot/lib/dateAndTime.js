@@ -57,6 +57,7 @@ function increaseTime(utcTimeAndDate) {
 // Return object
 function getTimeAndDateNow() {
     var newDate = new Date();
+
     var time = getTime(newDate);
     var date = getDate(newDate);
     var year = getYear(newDate);

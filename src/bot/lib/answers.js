@@ -1,17 +1,21 @@
 import {getTimeAndDateNow} from './dateAndTime'
 
-let utc = getTimeAndDateNow()
-
 export const intro = [
   'Mojím hlavním úkolem je tě informovat o novinkách, které tě zrovna zajímají.',
   'Zeptej se me na napovedu a ja ti reknu dalsi prikazy, ktere umim.',
   'Jo a takhle vypadam. :D'
 ]
 
-export const starter = [
-  'Ahoj já jsem Moonbot.',
-  'Dnes je ' + utc.time + ' hodin.'
-]
+export function getStartedPayload(){
+  let utc = getTimeAndDateNow()
+
+  const starter = [
+    'Ahoj já jsem Moonbot.',
+    'Dnes je ' + utc.time + ' hodin.'
+  ]
+
+  return starter
+}
 
 export const info = [
   'A jsem zde od toho, abych tě mohl informovat o novinkách ze školy.',

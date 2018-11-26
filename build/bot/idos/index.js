@@ -114,6 +114,9 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
   var timeTravel = (0, _dateAndTime.getTime)(utcTimeAndDate);
   var dateTravel = (0, _dateAndTime.getDate)(utcTimeAndDate);
 
+  console.log(timeTravel);
+  console.log(dateTravel);
+
   (0, _messages.sendTextMessage)(sender, "Váš spoj se vyhledává...");
 
   var initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel);

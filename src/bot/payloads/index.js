@@ -2,7 +2,7 @@ import {createNewUser, setHackerNews} from '../../services/user'
 import {incrementLikeInstance} from '../../services/like'
 
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
-import {starter, introIDOS} from '../lib/answers'
+import {getStartedPayload, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 
 import {getTimeAndDateNow} from '../lib/dateAndTime'
@@ -15,7 +15,7 @@ let utcObject = getTimeAndDateNow()
 export async function payloads(id, payload){
     switch(payload) {
         case 'started-payload':
-        await sendMultipleMessages(id, starter)
+        await sendMultipleMessages(id, getStartedPayload())
         await sendGenMessage(id, templates['send_info'])
         await createNewUser(id)
         break
