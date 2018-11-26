@@ -2,7 +2,7 @@ import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/me
 import { getTimeAndDateNow } from '../lib/dateAndTime'
 import { sendIdosAnswer } from '../idos'
 
-import { info, introIDOS, help, googleTranslator, googleIntro } from '../lib/answers'
+import { info, introIDOS, help, googleTranslator, googleIntro, googleMore } from '../lib/answers'
 import { templates } from '../lib/templates'
 
 import { sendHackerIntro } from '../hacker'
@@ -62,7 +62,16 @@ export async function commands(event){
 
         case 'zjistit':
         await sendMultipleMessages(webhookEvent.sender.id, googleIntro)
+        await sendGenMessage(webhookEvent.sender.id, templates['send_last_translator'])
+        break
+
+        case 'ano':
+        await sendMultipleMessages(webhookEvent.sender.id, googleMore)
         await sendTraslatedMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?', formattedMessage[0])
+        break
+
+        case 'ne':
+        sendTextMessage(webhookEvent.sender.id, 'Haha')
         break
 
         case 'nastavení':

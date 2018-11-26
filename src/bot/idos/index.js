@@ -3,14 +3,14 @@ import async from 'async'
 import cheerio from 'cheerio'
 import cheerioTableparser from 'cheerio-tableparser'
 
-import {sendTextMessage, sendGenMessage, sendMultipleMessages} from '../lib/messages'
-import {getTime, getDate, shiftTimeAndDateUTC} from '../lib/dateAndTime'
+import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages'
+import { getTime, getDate, shiftTimeAndDateUTC } from '../lib/dateAndTime'
+import { templates } from '../lib/templates'
+import { loading } from '../lib/answers'
 
-import {templates} from '../lib/templates'
+import { modifyUserById, getUserById } from '../../services/user'
 
-import {modifyUserById, getUserById} from '../../services/user'
-
-export function initializeIdosTable(from, to, timeTravel, dateTravel){
+export function initializeIdosTable (from, to, timeTravel, dateTravel) {
     let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
     let result = []
   
@@ -47,7 +47,8 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
 
-   sendTextMessage(sender, "Váš spoj se vyhledává...")
+   
+   sendMultipleMessages(sender, loading)
    
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
     initializePromise.then( (result) => {

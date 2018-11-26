@@ -51,8 +51,15 @@ export const googleTranslator = [
 
 export const googleIntro = [
   'Můžeš přeložit libovolný text.',
-  'Jazyk překladu změníš příkazem Nastavení.',
+  'Jazyk překladu změníš příkazem Nastavení.'
+]
+
+export const googleMore = [
   'Příkaz je následující:',
-  'Přelož Ahoj jak se máš?',
-  '👩🏻‍🚀 '
+  'Přelož Ahoj jak se máš?'
+]
+
+export const loading = [
+  '👩🏻‍🚀 ',
+  'Váš text se překládá...'
 ]
