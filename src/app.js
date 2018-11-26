@@ -45,18 +45,6 @@ app.use(router)
 app.set('port', (process.env.PORT || 3030))
 
 /**
- * Database connection
- * 
- */
-connectDB()
-
-/**
- * CRON services
- * 
- */
-sigterm()
-
-/**
  * Run Express server
  * 
  */
@@ -68,6 +56,18 @@ app.listen(app.get("port"), () => {
     )
     console.log("Press CMD-C to stop\n");
 })
+/**
+ * Database connection
+ * 
+ */
+connectDB()
+
+/**
+ * CRON services
+ * 
+ */
+sigterm()
+
 /**
  * HANDLINGS ERRORS
  * 
