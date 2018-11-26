@@ -4,12 +4,12 @@ import { sendTextMessage } from '../lib/messages'
 
 
 export async function sendTranslatedText (id, setText, setlanguage) {
-    const hlp = gooAuth
-    console.log(hlp)
     const translate = new Translate({ projectId: gooAuth.project_id, credentials: gooAuth })
 
     const text = setText
     const target = setlanguage
+
+    transformTextForGoogle(setText, 'preloz')
 
     translate
         .translate(text, target)
@@ -22,6 +22,12 @@ export async function sendTranslatedText (id, setText, setlanguage) {
         console.error('ERROR:', err)
     })
 }
+
+function transformTextForGoogle(text, command){
+    const onlyText = text.replace(command +" ", "")
+    console.log(onlyText)
+    return onlyText
+  }
 
 
 
