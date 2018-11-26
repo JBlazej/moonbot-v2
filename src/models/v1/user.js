@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-
+const supportedLanguages =['en', 'cs', 'de', 'es']
 // USERS SCHEMA
 // -----------------------------------------------------------------------------
 const UserSchema = new mongoose.Schema({
@@ -30,7 +30,12 @@ const UserSchema = new mongoose.Schema({
   hacker: {
       type: Boolean,
       default: false
-  }
+  },
+  language: {
+    type: String,
+    enum: supportedLanguages,
+    default: 'en'
+}
 })
 
 export const User = mongoose.model('User', UserSchema)

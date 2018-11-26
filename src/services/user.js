@@ -11,6 +11,16 @@ export async function setHackerNews (id, param){
     return user
 }
 
+export async function setLanguage (id, param){
+    let data = {
+        language : param
+    }
+    
+    const user = User.findOneAndUpdate({id : id}, data, {new : true})
+
+    return user
+}
+
 export async function getUserAll () {
     const user = User.find({})
 
