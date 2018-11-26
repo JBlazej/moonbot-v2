@@ -6,9 +6,9 @@ import { getUserById } from '../../services/user'
 
 export async function sendTraslatedMessage (id, text, command) {
     const textToTranslate = await transformTextForGoogle(text, command)
-    
+
     if(textToTranslate === false){
-        await sendTextMessage(id, 'Špatně')
+        await sendTextMessage(id, 'Špatně zadán příkaz.')
     }else {
         await sendTextMessage(id, 'Váš text se překládá...')
         const userLanguage = await getUserById(id)

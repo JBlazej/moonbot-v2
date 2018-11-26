@@ -2,7 +2,7 @@ import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/me
 import { getTimeAndDateNow } from '../lib/dateAndTime'
 import { sendIdosAnswer } from '../idos'
 
-import { info, introIDOS, help } from '../lib/answers'
+import { info, introIDOS, help, googleTranslator } from '../lib/answers'
 import { templates} from '../lib/templates'
 
 import { sendHackerIntro } from '../hacker'
@@ -45,8 +45,10 @@ export async function commands(event){
         sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObj.utc)
         break
 
-        case 'translator':
-        sendGenMessage(webhookEvent.sender.id, templates['get_language'])
+        case 'translator': 
+        await sendMultipleMessages(webhookEvent.sender.id, googleTranslator)
+        await sendTextMessage(webhookEvent.sender.id, 'Google translator')
+        await sendGenMessage(webhookEvent.sender.id, templates['get_language'])
         break
   
         case 'preloz':
@@ -79,6 +81,7 @@ export async function commands(event){
         //sendGenMessage(webhookEvent.sender.id, templates['get_isis'])
         break
   
+        case 'novinky':
         case 'hackernews':
         case 'hacker':
         const templato = await sendHackerIntro(webhookEvent.sender.id)

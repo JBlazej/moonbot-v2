@@ -196,7 +196,7 @@ export const templates = {
 	 }
 	 },
 	 send_intro:{
-		 text: "Vyber si jednu možnost nebo když nevíš napiš nápověda",
+		 text: "Vyber si jednu možnost nebo když nevíš napiš nápověda.",
 		 quick_replies:[
 			{
 				content_type: "text",
@@ -207,9 +207,15 @@ export const templates = {
 			{
 		 		content_type: "text",
 		  		title: "Novinky",
-		  		payload: "vse-intro",
+		  		payload: "hacker-intro",
 				image_url: "http://moonbot-v2-front.herokuapp.com/moons"
 			},
+			{
+				content_type: "text",
+				title: "Translator",
+				payload: "translator-intro",
+			   	image_url: "http://moonbot-v2-front.herokuapp.com/moons"
+		   }
 		  ]
 	},
 	send_info:{
@@ -335,7 +341,7 @@ export const templates = {
 			type: "template",
 			payload: {
 				template_type: "button",
-				text: "Google Translator. Vyber si jazyk, který chceš používat pro překlad.",
+				text: "Vyber si jazyk, který chceš používat pro překlad.",
 				buttons:[
 					{
 						type: "postback",

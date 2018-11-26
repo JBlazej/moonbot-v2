@@ -53,17 +53,17 @@ export async function payloads(id, payload){
 
         case 'set-en':
         setLanguage(id, 'en')
-        sendTextMessage(id, 'Jazyk nastaven')
+        sendTextMessage(id, 'Jazyk nastaven.')
         break
 
         case 'set-de':
         setLanguage(id, 'de')
-        sendTextMessage(id, 'Jazyk nastaven')
+        sendTextMessage(id, 'Jazyk nastaven.')
         break
 
         case 'set-es':
         setLanguage(id, 'es')
-        sendTextMessage(id, 'Jazyk nastaven')
+        sendTextMessage(id, 'Jazyk nastaven.')
         break
     
         case 'vse':
