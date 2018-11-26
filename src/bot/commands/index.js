@@ -15,7 +15,6 @@ export async function commands(event){
     let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
     let formattedMessage = incomeMessage.toString().split(" ")
 
-
     switch(formattedMessage[0]) {
         case 'ahoj':
         sendTextMessage(webhookEvent.sender.id, 'Kravina')
@@ -71,6 +70,7 @@ export async function commands(event){
         break
   
         case 'hackernews':
+        case 'hacker':
         const templato = await sendHackerIntro(webhookEvent.sender.id)
         await sendGenMessage(webhookEvent.sender.id, templato)
         break

@@ -8,7 +8,6 @@ import {sendNextIdos} from '../idos'
 import {sendHackerNews} from '../hacker'
 
 export async function payloads(id, payload){
-
     switch(payload) {
         case 'started-payload':
         await sendMultipleMessages(id, starter)
@@ -21,30 +20,31 @@ export async function payloads(id, payload){
         await sendGenMessage(id, templates['send_idos_intro'])
         break
 
-        case 'newStories':
+        case 'idos-like':
+        break
+
+        case 'hacker-intro':
+        //Neco
+        break
+
+        case 'hacker-new-news':
         sendHackerNews(id)
         break
 
-        case 'subHacker':
+        case 'hacker-subscribe':
         setHackerNews(id, true)
         sendTextMessage(id, 'Děkuj za tvůj odběr.')
         break
 
-        case 'unsubHacker':
+        case 'hacker-unsubscribe':
         setHackerNews(id, false)
         sendTextMessage(id, 'Nevadí tak kdyžtak příště.')
-        break
-
-        case 'like':
         break
 
         case 'next':
         sendNextIdos(id)
         break
-
-        case 'howToIdos':
-        break
-
+    
         case 'vse':
         break
 

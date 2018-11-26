@@ -30,12 +30,12 @@ export async function getHackerIntroTemplate (button) {
                          {
                             type: "postback",
                             title: "Jak to funguje?",
-                            payload: "hacker-info"
+                            payload: "hacker-intro"
                         },
                         {
                             type: "postback",
                             title: "Zobrazit nové zprávy",
-                            payload: "newStories"
+                            payload: "hacker-new-news"
                         },
                          templateButton
                         ] 
@@ -55,13 +55,13 @@ async function getSubButton(isSub) {
     const sub = {
         type: "postback",
         title: "Odběr",
-        payload: "subHacker"
+        payload: "hacker-subscribe"
     }
 
     const unsub = {
         type: "postback",
         title: "Zrušit odběr",
-        payload: "unsubHacker"
+        payload: "hacker-unsubscribe"
    }
 
    if(isSub === true) {
