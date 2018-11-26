@@ -47,7 +47,6 @@ export async function commands(event){
   
         case 'preloz':
         case 'přelož':
-        await sendTextMessage(webhookEvent.sender.id, 'Váš text se překládá...')
         await sendTraslatedMessage(webhookEvent.sender.id, incomeMessage, formattedMessage[0])
         break
 
