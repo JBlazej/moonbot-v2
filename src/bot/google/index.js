@@ -3,11 +3,11 @@ import { Translate } from '@google-cloud/translate'
 import { sendTextMessage } from '../lib/messages'
 
 
-export async function sendTranslatedText (id, text, language) {
+export async function sendTranslatedText (id, setText, setlanguage) {
     const translate = new Translate({ projectId: serviceID, credentials: gooAuth })
 
-    const text = text
-    const target = language
+    const text = setText
+    const target = setlanguage
 
     translate
         .translate(text, target)
