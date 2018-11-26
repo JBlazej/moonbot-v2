@@ -233,19 +233,20 @@ export const templates = {
 		   },
 		   {
 				content_type: "text",
-				 title: "Novinky",
-				 payload: "vse-intro"
+				title: "HackerNews",
+				payload: "vse-intro"
 		   },
 		   {
-			content_type: "text",
-			 title: "VŠE",
-			 payload: "vse"
-	   		},{
+			   	content_type: "text",
+				title: "Translator",
+			 	payload: "vse"
+			},
+			   {
 				content_type: "text",
-				 title: "Hackernews",
-				 payload: "hacker"
-				},
-		 ]
+				title: "VŠE",
+				payload: "hacker"
+			},
+		]
    },
 	send_idos_intro:{
 		text: "Dostaneš následně ode mě textovou odpověd.",

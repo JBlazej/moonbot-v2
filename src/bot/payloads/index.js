@@ -1,4 +1,4 @@
-import {createNewUser, setHackerNews} from '../../services/user'
+import {createNewUser, setHackerNews, setLanguage } from '../../services/user'
 import {incrementLikeInstance} from '../../services/like'
 
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
@@ -49,6 +49,21 @@ export async function payloads(id, payload){
         case 'hacker-unsubscribe':
         setHackerNews(id, false)
         sendTextMessage(id, 'Nevadí tak kdyžtak příště.')
+        break
+
+        case 'set-en':
+        setLanguage(id, 'en')
+        sendTextMessage(id, 'Jazyk nastaven')
+        break
+
+        case 'set-de':
+        setLanguage(id, 'de')
+        sendTextMessage(id, 'Jazyk nastaven')
+        break
+
+        case 'set-es':
+        setLanguage(id, 'es')
+        sendTextMessage(id, 'Jazyk nastaven')
         break
     
         case 'vse':
