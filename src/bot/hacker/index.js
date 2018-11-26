@@ -2,6 +2,10 @@ import {getUserById} from '../../services/user'
 import {sendGenMessage} from '../lib/messages'
 import request from 'request-promise'
 
+const topStories = 'https://hacker-news.firebaseio.com/v0/topstories'
+const printPara  = '.json?print=pretty'
+const hackerItem = 'https://hacker-news.firebaseio.com/v0/item/'
+
 
 export async function sendHackerTemplate(sender){
     const user = await getUserById(sender)
@@ -77,78 +81,29 @@ async function getSubButton(isSub){
 
 }
 
-const topStories = 'https://hacker-news.firebaseio.com/v0/topstories'
-const printPara  = '.json?print=pretty'
-const hackerItem = 'https://hacker-news.firebaseio.com/v0/item/'
-
-export async function sendTopStories(sender) {
-
-    request(topStories + printPara, { json: true }, (err, res, body) => {
-    if (err) { return console.log(err); }
-    let top = body;
-  
-    let smtg = top.toString().split(",",3);
-      if(smtg){
-    
-        for (var i = 0; i < 3; i++) {
-            request( hackerItem + smtg[i] + printPara, { json: true }, (err, res, body) => {
-            if (err) { return console.log(err) }
-            let title = body.title
-            let url = body.url
-            let type = body.type
-            let text = body.text
-  
-            if(!url){
-              url = "https://news.ycombinator.com";
-            }
-
-            let hackerMessage = {
-              attachment:{
-                type: "template",
-                payload: {
-                  template_type: "generic",
-                          elements: [
-                            {
-                                title: title,
-                                subtitle: type,
-                                image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
-                                default_action: {
-                                    type: "web_url",
-                                    url: url,
-                                    messenger_extensions: "FALSE",
-                                    webview_height_ratio: "FULL"
-                                },
-                              buttons:[
-                                  {
-                                      type: "element_share"
-
-                                  }
-                              ]
-                          }
-                        ]
-                    }
-                }
-            }
-
-            sendGenMessage(sender, hackerMessage)
-          })
+function getRequestBody(url, callback){
+    request.get(url, (error, response, body)=>{
+        if (!error && response.statusCode == 200) {
+        const info = JSON.parse(body)
+      
+        callback(null, info)
         }
-      }
-    })
-  }
+    }) 
+}
 
 export async function sendHackerNewsTemplate(sender){
-    const url = hackerItem + '18525415' + printPara
-    const hh = topStories + printPara
+    const URL_TOP_ALL = topStories + printPara
     const message = []
 
-    getRequestBody(hh, (error, body)=>{
-        let top = body
-        let smtg = top.toString().split(",",3)
+    getRequestBody(URL_TOP_ALL, (error, body) => {
+        let result = body
+        let storyNumber = result.toString().split(",",3)
 
-        if(smtg){
-            for(var i = 0; i < 2; i++){
-                getRequestBody(url, (error, body)=>{
+        if(storyNumber){
+            for(var i = 0; i < storyNumber.length; i++){
+                const URL_TOP_ONE = hackerItem + storyNumber[i] + printPara
+                console.log(URL_TOP_ONE)
+                getRequestBody(URL_TOP_ONE, (error, body) => {
                     //console.log(body)
                     let title = body.title
                     let url = body.url
@@ -177,7 +132,6 @@ export async function sendHackerNewsTemplate(sender){
                         ]
                     }
 
-                    //console.log(hackerMessage)
                     message.push(muj)
                     
 
@@ -192,28 +146,15 @@ export async function sendHackerNewsTemplate(sender){
                                 }
                             }
                         }
-                        // Co dal?
-                        //console.log(JSON.stringify(hackerMessage))
+
                         sendGenMessage(sender, hackerMessage)
 
                     }
 
                 })
-                console.log(i)
             }
         }else {
             console.log('Error')
         }
     })
 }
-
-function getRequestBody(url, callback){
-    request.get(url, (error, response, body)=>{
-        if (!error && response.statusCode == 200) {
-        const info = JSON.parse(body)
-      
-        callback(null, info)
-        }
-    }) 
-}
-

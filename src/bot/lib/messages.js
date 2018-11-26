@@ -1,9 +1,8 @@
 import request from 'request-promise'
 import {GRAPH_URL_MESSAGES, PAGE_ACCESS_TOKEN} from '../../conf/graph'
 
-export async function makeRequest(options){
+async function makeRequest(options){
   return request(options)
-
 }
 
 export async function sendTextMessage(sender, text){
