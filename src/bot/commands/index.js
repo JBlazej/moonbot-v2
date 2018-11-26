@@ -40,11 +40,11 @@ export async function commands(event){
         break
 
         case 'spoj':
-        const utcObject = getTimeAndDateNow()
-        console.log(utcObject.utc)
-        console.log(utcObject.time)
+        const utcObj = getTimeAndDateNow()
+        console.log(utcObj.utc)
+        console.log(utcObj.time)
         
-        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObject.utc)
+        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObj.utc)
         break
   
         case 'vse':
