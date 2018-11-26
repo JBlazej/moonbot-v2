@@ -24,7 +24,9 @@ export async function sendTranslatedText (id, setText, setlanguage) {
         .then(results => {
         const translation = results[0]
 
-        sendTextMessage(id, translation)
+        const result = (translation !== setText) ? setText : 'Velice špatně' 
+
+        sendTextMessage(id, result)
         })
     .catch(err => {
         console.error('ERROR:', err)
@@ -35,7 +37,6 @@ async function transformTextForGoogle(text, command){
     const onlyText = text.replace(command +" ", "")
 
     const result = (text.length > 7) ? onlyText : false
-    console.log(result)
 
     return result
 }
