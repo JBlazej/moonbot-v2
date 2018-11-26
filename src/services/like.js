@@ -29,9 +29,9 @@ export async function getLikeInstance (year) {
     return like
 }
 
-export async function updateLikeInstance (year, like) {
+export async function updateLikeInstance (year, likeNumber) {
     let data = {
-        likes : like
+        likes : likeNumber
     }
 
     const like = Like.findOneAndUpdate({year : year}, data, {new: true})
