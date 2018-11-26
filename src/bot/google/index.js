@@ -4,8 +4,13 @@ import { sendTextMessage } from '../lib/messages'
 
 export async function sendTraslatedMessage (id, text, command) {
     const textToTranslate = await transformTextForGoogle(text, command)
-    await sendTextMessage(id, 'Váš text se překládá...')
-    await sendTranslatedText(id, textToTranslate, 'en')
+    console.log(textToTranslate)
+    if(textToTranslate === false){
+        await sendTextMessage(id, 'Špatně')
+    }else {
+        await sendTextMessage(id, 'Váš text se překládá...')
+        await sendTranslatedText(id, textToTranslate, 'en')
+    }
 }
 
 export async function sendTranslatedText (id, setText, setlanguage) {
@@ -26,12 +31,15 @@ export async function sendTranslatedText (id, setText, setlanguage) {
     })
 }
 
-function transformTextForGoogle(text, command){
+async function transformTextForGoogle(text, command){
     const onlyText = text.replace(command +" ", "")
     console.log(text.length)
     console.log(onlyText.length)
-
-    return onlyText
+    if(command.length > 7){
+        return onlyText
+    }else {
+        return false
+    }  
   }
 
 
