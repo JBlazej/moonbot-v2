@@ -8,6 +8,7 @@ export async function sendTranslatedText (id, setText, setlanguage) {
 
     const text = setText
     const target = setlanguage
+
     translate
         .translate(text, target)
         .then(results => {
