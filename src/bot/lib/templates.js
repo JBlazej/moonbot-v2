@@ -329,6 +329,32 @@ export const templates = {
 			}
 		}
 	},
+	get_language:{
+		attachment:{
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Google Translator. Vyber si jazyk, který chceš používat pro překlad.",
+				buttons:[
+					{
+						type: "postback",
+						title: "Angličtina",
+						payload: 'set-en'
+					},
+					{
+						type: "postback",
+						title: "Němčina",
+						payload: 'set-de'
+					},
+					{
+						type: "postback",
+						title: "Španělština",
+						payload: 'set-es'
+					}
+				]
+			}
+		}
+	},
 	get_isis:{
 		attachment:{
       type: "template",

@@ -44,6 +44,10 @@ export async function commands(event){
         const utcObj = getTimeAndDateNow()    
         sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObj.utc)
         break
+
+        case 'translator':
+        sendGenMessage(webhookEvent.sender.id, templates['get_language'])
+        break
   
         case 'preloz':
         case 'přelož':
