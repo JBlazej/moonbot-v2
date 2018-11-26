@@ -27,11 +27,11 @@ export const introIDOS = [
 ]
 
 export const help = [
-	'Platné příkazy: ',
+	'Platné příkazy:',
 	'Koleje',
 	'Prvák',
 	'Hackernews',
-	'Napoveda',
+	'Nápověda',
 	'VSE',
 	'InSIS',
   'Fakulty',

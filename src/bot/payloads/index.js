@@ -26,8 +26,8 @@ export async function payloads(id, payload){
         break
 
         case 'idos-like':
-        await incrementLikeInstance(2018, 1)
-        await sendTextMessage(id, 'Děkuju ti za tvoje hodnocení a šťastnou cestu.')
+        await incrementLikeInstance(2019, 1)
+        await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
         break
 
         case 'hacker-intro':
