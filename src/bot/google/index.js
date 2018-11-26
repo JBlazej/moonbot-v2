@@ -33,14 +33,11 @@ export async function sendTranslatedText (id, setText, setlanguage) {
 
 async function transformTextForGoogle(text, command){
     const onlyText = text.replace(command +" ", "")
-    console.log(text.length)
-    console.log(onlyText.length)
-    if(command.length > 7){
-        return onlyText
-    }else {
-        return false
-    }  
-  }
 
+    const result = (text.length > 7) ? onlyText : false
+    console.log(result)
+
+    return result
+}
 
 
