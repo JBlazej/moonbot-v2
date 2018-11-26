@@ -38,8 +38,6 @@ var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
 
-var _google = require('./bot/google');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -78,6 +76,14 @@ app.use(_router2.default);
 app.set('port', process.env.PORT || 3030);
 
 /**
+ * Run Express server
+ * 
+ */
+app.listen(app.get("port"), function () {
+  console.log("App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
+  console.log("Press CMD-C to stop\n");
+});
+/**
  * Database connection
  * 
  */
@@ -89,14 +95,6 @@ app.set('port', process.env.PORT || 3030);
  */
 (0, _sigterm.sigterm)();
 
-/**
- * Run Express server
- * 
- */
-app.listen(app.get("port"), function () {
-  console.log("App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
-  console.log("Press CMD-C to stop\n");
-});
 /**
  * HANDLINGS ERRORS
  * 

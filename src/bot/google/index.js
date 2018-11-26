@@ -28,6 +28,8 @@ export async function sendTranslatedText (id, setText, setlanguage) {
 
 function transformTextForGoogle(text, command){
     const onlyText = text.replace(command +" ", "")
+    console.log(text.length)
+    console.log(onlyText.length)
 
     return onlyText
   }

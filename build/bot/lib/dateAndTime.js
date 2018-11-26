@@ -80,7 +80,7 @@ function increaseTime(utcTimeAndDate) {
 }
 
 function getByHourIdosSettings(utcTimeAndDate, a) {
-    var hour = (0, _moment2.default)(utcTimeAndDate).format('h');
+    var hour = (0, _moment2.default)(utcTimeAndDate).format('H');
     var set = _constant.incrementTimeMinutes;
 
     if (hour === 0) {
