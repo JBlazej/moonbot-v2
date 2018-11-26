@@ -1,10 +1,10 @@
-import { serviceID, gooAuth } from '../../conf/google'
+import { gooAuth } from '../../conf/google'
 import { Translate } from '@google-cloud/translate'
 import { sendTextMessage } from '../lib/messages'
 
 
 export async function sendTranslatedText (id, setText, setlanguage) {
-    const translate = new Translate({ projectId: serviceID, credentials: gooAuth })
+    const translate = new Translate({ projectId: gooAuth.project_id, credentials: gooAuth })
 
     const text = setText
     const target = setlanguage
