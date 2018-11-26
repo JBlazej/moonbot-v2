@@ -2,6 +2,8 @@ import { gooAuth } from '../../conf/google'
 import { Translate } from '@google-cloud/translate'
 import { sendTextMessage } from '../lib/messages'
 
+import { getUserById } from '../../services/user'
+
 export async function sendTraslatedMessage (id, text, command) {
     const textToTranslate = await transformTextForGoogle(text, command)
     console.log(textToTranslate)
@@ -9,7 +11,9 @@ export async function sendTraslatedMessage (id, text, command) {
         await sendTextMessage(id, 'Špatně')
     }else {
         await sendTextMessage(id, 'Váš text se překládá...')
-        await sendTranslatedText(id, textToTranslate, 'en')
+        const userLanguage = await getUserById(id)
+        console.log(userLanguage)
+        await sendTranslatedText(id, textToTranslate, userLanguage.language)
     }
 }
 

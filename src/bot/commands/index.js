@@ -8,8 +8,6 @@ import { templates} from '../lib/templates'
 import { sendHackerIntro } from '../hacker'
 import { sendTranslatedText, sendTraslatedMessage } from '../google'
 
-import {setLanguage} from '../../services/user'
-
 export async function commands(event){
     let webhookEvent = event
 
@@ -59,13 +57,11 @@ export async function commands(event){
   
         case 'prvak':
         case 'prvák':
-        setLanguage(webhookEvent.sender.id, 'es')
         //sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
         break
   
         case 'fakulty':
         case 'fakulta':
-        setLanguage(webhookEvent.sender.id, 'cs')
         //sendGenMessage(webhookEvent.sender.id, templates['get_faculties'])
         break
   
