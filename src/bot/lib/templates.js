@@ -295,6 +295,22 @@ export const templates = {
       }
     ]
 	},
+	send_next_translator:{
+	text: "Přelož Ahoj jak se máš",
+	  quick_replies:[
+			  {
+		  content_type: "text",
+		  title: "Zjistit více",
+		  payload: "try-it"
+  
+		  },
+		{
+		  content_type: "text",
+		  title: "Nastavení",
+		  payload: "settings"
+		}
+	  ]
+	  },
 	send_help:{
   	text: "Nechtěl si napsat?",
     quick_replies:[

@@ -47,8 +47,7 @@ export async function commands(event){
 
         case 'translator': 
         await sendMultipleMessages(webhookEvent.sender.id, googleTranslator)
-        await sendTextMessage(webhookEvent.sender.id, 'Google translator')
-        await sendGenMessage(webhookEvent.sender.id, templates['get_language'])
+        await sendGenMessage(webhookEvent.sender.id, templates['send_next_translator'])
         break
   
         case 'preloz':
@@ -59,6 +58,19 @@ export async function commands(event){
         case 'vse':
         case 'vše':
         await sendGenMessage(webhookEvent.sender.id, templates['get_school'])
+        break
+
+        case 'zjistit':
+        await sendTextMessage(webhookEvent.sender.id, 'Příkaz je následující: ')
+        await sendTextMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?')
+        await sendTraslatedMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?', formattedMessage[0])
+        await sendTextMessage(webhookEvent.sender.id, 'Můžeš kdykoliv změnit jazyk překladu příkazem Nastavení.')
+        await sendTextMessage(webhookEvent.sender.id, 'A na diakritiku se můžeš vykašlat :-).')
+        break
+
+        case 'nastavení':
+        case 'nastaveni':
+        sendGenMessage(webhookEvent.sender.id, templates['get_language'])
         break
   
         case 'prvak':

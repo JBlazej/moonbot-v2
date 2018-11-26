@@ -40,12 +40,12 @@ export const help = [
 	'VSE',
 	'InSIS',
   'Fakulty',
-  'Spojení'
+  'Spojení',
+  'Nastavení'
 ]
 
 export const googleTranslator = [
   'Využívám Google Translator abych ti mohl pomoct s překladem textu.',
   'Zadej příkaz Přelož mezera a tvůj text.',
-  '👩🏻‍🚀',
-  'Přelož Ahoj jak se máš?'
+  '👩🏻‍🚀'
 ]
