@@ -12,8 +12,8 @@ export async function sendTraslatedMessage (id, text, command) {
     }else {
         await sendTextMessage(id, 'Váš text se překládá...')
         const userLanguage = await getUserById(id)
-        console.log(userLanguage)
-        await sendTranslatedText(id, textToTranslate, userLanguage.language)
+        
+        await sendTranslatedText(id, textToTranslate, userLanguage[0].language)
     }
 }
 
