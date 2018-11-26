@@ -5,7 +5,7 @@ import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 
 import {sendNextIdos} from '../idos'
-import {sendTopStories, sendHackerNewsTemplate} from '../hacker'
+import {sendHackerNews} from '../hacker'
 
 export async function payloads(id, payload){
 
@@ -22,7 +22,7 @@ export async function payloads(id, payload){
         break
 
         case 'newStories':
-        sendHackerNewsTemplate(id)
+        sendHackerNews(id)
         break
 
         case 'subHacker':

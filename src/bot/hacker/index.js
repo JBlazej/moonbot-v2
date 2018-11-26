@@ -6,16 +6,7 @@ const topStories = 'https://hacker-news.firebaseio.com/v0/topstories'
 const printPara  = '.json?print=pretty'
 const hackerItem = 'https://hacker-news.firebaseio.com/v0/item/'
 
-
-export async function sendHackerTemplate(sender){
-    const user = await getUserById(sender)
-    const button = await getSubButton(user[0].hacker)
-    const template = await getHackerTemplate(button)
-
-    return template
-}
-
-export async function getHackerTemplate (button){
+export async function getHackerIntroTemplate (button) {
     const templateButton = button
 
     let template = {
@@ -60,7 +51,7 @@ export async function getHackerTemplate (button){
 }
 
 
-async function getSubButton(isSub){
+async function getSubButton(isSub) {
     const sub = {
         type: "postback",
         title: "Odběr",
@@ -73,7 +64,7 @@ async function getSubButton(isSub){
         payload: "unsubHacker"
    }
 
-   if(isSub === true){
+   if(isSub === true) {
        return unsub
    }else {
        return sub
@@ -81,8 +72,16 @@ async function getSubButton(isSub){
 
 }
 
-function getRequestBody(url, callback){
-    request.get(url, (error, response, body)=>{
+export async function sendHackerIntro(sender){
+    const user = await getUserById(sender)
+    const button = await getSubButton(user[0].hacker)
+    const template = await getHackerIntroTemplate(button)
+
+    return template
+}
+
+function getRequestBody(url, callback) {
+    request.get(url, (error, response, body) => {
         if (!error && response.statusCode == 200) {
         const info = JSON.parse(body)
       
@@ -91,7 +90,7 @@ function getRequestBody(url, callback){
     }) 
 }
 
-export async function sendHackerNewsTemplate(sender){
+export async function sendHackerNews(sender) {
     const URL_TOP_ALL = topStories + printPara
     const message = []
 
@@ -102,9 +101,7 @@ export async function sendHackerNewsTemplate(sender){
         if(storyNumber){
             for(var i = 0; i < storyNumber.length; i++){
                 const URL_TOP_ONE = hackerItem + storyNumber[i] + printPara
-                console.log(URL_TOP_ONE)
                 getRequestBody(URL_TOP_ONE, (error, body) => {
-                    //console.log(body)
                     let title = body.title
                     let url = body.url
                     let type = body.type
@@ -114,7 +111,7 @@ export async function sendHackerNewsTemplate(sender){
                     url = "https://news.ycombinator.com";
                     }
                 
-                    let muj = {
+                    let templateElement = {
                         title: title,
                         subtitle: type,
                         image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/hackerLogo.png",
@@ -132,11 +129,10 @@ export async function sendHackerNewsTemplate(sender){
                         ]
                     }
 
-                    message.push(muj)
+                    message.push(templateElement)
                     
 
-                    if(message.length === 2){
-                        console.log(JSON.stringify(message))
+                    if(message.length === storyNumber.length) {
                         let hackerMessage = {
                             attachment:{
                                 type: "template",
@@ -150,7 +146,6 @@ export async function sendHackerNewsTemplate(sender){
                         sendGenMessage(sender, hackerMessage)
 
                     }
-
                 })
             }
         }else {

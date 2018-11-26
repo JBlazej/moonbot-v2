@@ -5,7 +5,7 @@ import {sendIdosAnswer} from '../idos'
 import {info, introIDOS, help} from '../lib/answers'
 import {templates} from '../lib/templates'
 
-import {sendHackerTemplate} from '../hacker'
+import {sendHackerIntro} from '../hacker'
 
 let utcObject = getTimeAndDateNow()
 
@@ -42,7 +42,6 @@ export async function commands(event){
         break
 
         case 'spoj':
-        console.log(utcObject.utc)
         sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObject.utc)
         break
   
@@ -72,8 +71,7 @@ export async function commands(event){
         break
   
         case 'hackernews':
-        const templato = await sendHackerTemplate(webhookEvent.sender.id)
-        console.log(templato)
+        const templato = await sendHackerIntro(webhookEvent.sender.id)
         await sendGenMessage(webhookEvent.sender.id, templato)
         break
   
