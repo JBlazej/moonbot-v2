@@ -11,9 +11,15 @@ export async function createNewLikeInstance (setYear, setLike) {
 
 export async function incrementLikeInstance (year){
     const like = await getLikeInstance(year)
-    console.log(typeof like)
-    console.log(like)
-    console.log(like.likes)
+    
+    console.log(typeof like[0].likes)
+    console.log(like[0].likes)
+    
+    const now = like[0].likes
+    const increment = ++now
+
+    console.log(increment)
+
     return like
 }
 
