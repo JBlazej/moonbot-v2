@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 import {Like} from '../models/v1/like'
 
-export async function createNewLikeInstance (year, like) {
-    const like = new Like({year : year, like : like})
+export async function createNewLikeInstance (setYear, setLike) {
+    const like = new Like({year : setYear, like : setLike})
 
     like.save()
     
