@@ -85,18 +85,18 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     }
 
     if (9 <= hour && hour < 12) {
-        console.log('Odpoledne')
-        return {
-            partOfDay: 'odpoledne',
-            idosConstant: a ? a + set.afternoon : set.afternoon
-        }
-    }
-
-    if (12 <= hour && hour < 17) {
         console.log('Dopoledne')
         return {
             partOfDay: 'dopoledne',
             idosConstant: a ? a + set.morning : set.morning
+        }
+    }
+
+    if (12 <= hour && hour < 17) {
+        console.log('Odpoledne')
+        return {
+            partOfDay: 'odpoledne',
+            idosConstant: a ? a + set.afternoon : set.afternoon
         }
     }
 
