@@ -33,14 +33,14 @@ export async function commands(event){
 
         case 'vyzkoušet':
         case 'vyzkouset':
-        let utcObject = getTimeAndDateNow()
+        const utcObject = getTimeAndDateNow()
         const introTravel = 'spoj volha do hlavni nadrazi'
         await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcObject.utc)
         await sendGenMessage(webhookEvent.sender.id, templates['send_gif'])
         break
 
         case 'spoj':
-        let utcObject = getTimeAndDateNow()
+        const utcObject = getTimeAndDateNow()
         console.log(utcObject.utc)
         console.log(utcObject.time)
         
