@@ -41,6 +41,7 @@ export function increaseTime(utcTimeAndDate){
 // Return object
 export function getTimeAndDateNow(){
     const newDate = new Date()
+    
     const time = getTime(newDate)
     const date = getDate(newDate)
     const year = getYear(newDate)

@@ -7,8 +7,6 @@ import {templates} from '../lib/templates'
 
 import {sendHackerIntro} from '../hacker'
 
-let utcObject = getTimeAndDateNow()
-
 export async function commands(event){
     let webhookEvent = event
 
@@ -35,12 +33,14 @@ export async function commands(event){
 
         case 'vyzkoušet':
         case 'vyzkouset':
+        let utcObject = getTimeAndDateNow()
         const introTravel = 'spoj volha do hlavni nadrazi'
         await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcObject.utc)
         await sendGenMessage(webhookEvent.sender.id, templates['send_gif'])
         break
 
         case 'spoj':
+        let utcObject = getTimeAndDateNow()
         console.log(utcObject.utc)
         console.log(utcObject.time)
         
