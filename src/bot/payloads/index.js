@@ -5,8 +5,12 @@ import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/mess
 import {starter, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 
+import {getTimeAndDateNow} from '../lib/dateAndTime'
+
 import {sendNextIdos} from '../idos'
 import {sendHackerNews} from '../hacker'
+
+let utcObject = getTimeAndDateNow()
 
 export async function payloads(id, payload){
     switch(payload) {
@@ -26,7 +30,8 @@ export async function payloads(id, payload){
         break
 
         case 'idos-like':
-        await incrementLikeInstance(2019, 1)
+        console.log(utcObject.year)
+        await incrementLikeInstance(utcObject.year, 1)
         await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
         break
 

@@ -14,6 +14,12 @@ export function getDate(utcTimeAndDate){
     return actualDate
 }
 
+export function getYear(utcTimeAndDate){
+    const actualYear = moment(utcTimeAndDate).format('YYYY')
+    
+    return actualYear
+}
+
 export function shiftTimeAndDateUTC(utcTimeAndDate){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
     const increaseForMinutes = increaseTime(utcTimeAndDate)
@@ -37,10 +43,12 @@ export function getTimeAndDateNow(){
     const newDate = new Date()
     const time = getTime(newDate)
     const date = getDate(newDate)
+    const year = getYear(newDate)
     
     return {
         utc : newDate, 
         time : time,
-        date : date
+        date : date,
+        year : year
     }
 }
