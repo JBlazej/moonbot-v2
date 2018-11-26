@@ -3,10 +3,23 @@ import {Like} from '../models/v1/like'
 
 export async function createNewLikeInstance (setYear, setLike) {
     const like = new Like({year : setYear, likes : setLike})
-    console.log(like)
+
     like.save()
     
-    console.log(like)
+    return like
+}
 
+export async function incrementLikeInstance (year){
+    const like = await getLikeInstance(year)
+    console.log(typeof like)
+    console.log(like)
+    console.log(like.likes)
+    return like
+}
+
+
+export async function getLikeInstance (year) {
+    const like = Like.find({"year": year})
+    
     return like
 }

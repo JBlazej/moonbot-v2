@@ -1,4 +1,5 @@
 import {createNewUser, setHackerNews} from '../../services/user'
+import {createNewLikeInstance} from '../../services/like'
 
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {starter, introIDOS} from '../lib/answers'

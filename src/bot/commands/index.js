@@ -1,5 +1,3 @@
-import {createNewLikeInstance} from '../../services/like'
-
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {getTimeAndDateNow} from '../lib/dateAndTime'
 import {sendIdosAnswer} from '../idos'
@@ -8,6 +6,8 @@ import {info, introIDOS, help} from '../lib/answers'
 import {templates} from '../lib/templates'
 
 import {sendHackerIntro} from '../hacker'
+
+import {incrementLikeInstance} from '../../services/like'
 
 let utcObject = getTimeAndDateNow()
 
@@ -53,7 +53,7 @@ export async function commands(event){
   
         case 'prvak':
         case 'prvák':
-        createNewLikeInstance(2018, 0)
+        incrementLikeInstance(2018)
         //sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
         break
   
