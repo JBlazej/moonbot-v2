@@ -53,7 +53,7 @@ export async function commands(event){
   
         case 'prvak':
         case 'prvák':
-        incrementLikeInstance(2018)
+        incrementLikeInstance(2018, 1)
         //sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
         break
   
