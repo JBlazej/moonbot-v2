@@ -24,8 +24,8 @@ export async function sendTranslatedText (id, setText, setlanguage) {
         .then(results => {
         const translation = results[0]
 
-        const result = (translation === setText) ? 'Velice špatně' : setText
-
+        const result = (translation != setText) ? setText : 'Velice špatně'
+        console.log(result)
         sendTextMessage(id, result)
         })
     .catch(err => {
