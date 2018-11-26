@@ -13,6 +13,8 @@ export const starter = [
   'Dnes je ' + utc.time + ' hodin.'
 ]
 
+console.log('Starter: ', starter)
+
 export const info = [
   'A jsem zde od toho, abych tě mohl informovat o novinkách ze školy.',
   'Navíc ti dokážu rychle najít cestu kam zrovna potřebuješ.'

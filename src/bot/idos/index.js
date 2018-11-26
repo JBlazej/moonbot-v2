@@ -47,6 +47,9 @@ export function initializeIdosTable(from, to, timeTravel, dateTravel){
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
 
+   console.log(timeTravel)
+   console.log(dateTravel)
+
    sendTextMessage(sender, "Váš spoj se vyhledává...")
    
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)

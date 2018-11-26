@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getTime = getTime;
 exports.getDate = getDate;
+exports.getYear = getYear;
 exports.shiftTimeAndDateUTC = shiftTimeAndDateUTC;
 exports.increaseTime = increaseTime;
 exports.getTimeAndDateNow = getTimeAndDateNow;
@@ -27,6 +28,12 @@ function getDate(utcTimeAndDate) {
     var actualDate = (0, _moment2.default)(utcTimeAndDate).format('D.M.YYYY');
 
     return actualDate;
+}
+
+function getYear(utcTimeAndDate) {
+    var actualYear = (0, _moment2.default)(utcTimeAndDate).format('YYYY');
+
+    return actualYear;
 }
 
 function shiftTimeAndDateUTC(utcTimeAndDate) {
@@ -52,11 +59,13 @@ function getTimeAndDateNow() {
     var newDate = new Date();
     var time = getTime(newDate);
     var date = getDate(newDate);
+    var year = getYear(newDate);
 
     return {
         utc: newDate,
         time: time,
-        date: date
+        date: date,
+        year: year
     };
 }
 //# sourceMappingURL=dateAndTime.js.map
