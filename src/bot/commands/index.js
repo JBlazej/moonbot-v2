@@ -2,8 +2,8 @@ import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/me
 import { getTimeAndDateNow } from '../lib/dateAndTime'
 import { sendIdosAnswer } from '../idos'
 
-import { info, introIDOS, help, googleTranslator } from '../lib/answers'
-import { templates} from '../lib/templates'
+import { info, introIDOS, help, googleTranslator, googleIntro } from '../lib/answers'
+import { templates } from '../lib/templates'
 
 import { sendHackerIntro } from '../hacker'
 import { sendTranslatedText, sendTraslatedMessage } from '../google'
@@ -61,11 +61,8 @@ export async function commands(event){
         break
 
         case 'zjistit':
-        await sendTextMessage(webhookEvent.sender.id, 'Příkaz je následující: ')
-        await sendTextMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?')
+        await sendMultipleMessages(webhookEvent.sender.id, googleIntro)
         await sendTraslatedMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?', formattedMessage[0])
-        await sendTextMessage(webhookEvent.sender.id, 'Můžeš kdykoliv změnit jazyk překladu příkazem Nastavení.')
-        await sendTextMessage(webhookEvent.sender.id, 'A na diakritiku se můžeš vykašlat :-).')
         break
 
         case 'nastavení':

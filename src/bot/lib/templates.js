@@ -296,7 +296,7 @@ export const templates = {
     ]
 	},
 	send_next_translator:{
-	text: "Přelož Ahoj jak se máš",
+	text: "👩🏻‍🚀 ",
 	  quick_replies:[
 			  {
 		  content_type: "text",
@@ -388,22 +388,6 @@ export const templates = {
 					{
 						type: "web_url",
             url: "https://insis.vse.cz/auth/",
-            title: "Vstoupit"
-					}
-  			]
-			}
-    }
-	},
-	get_x:{
-		attachment:{
-      type: "template",
-			payload: {
-  			template_type: "button",
-  			text: "⚫️",
-  			buttons:[
-					{
-						type: "web_url",
-            url: "http://sleepy-spire-95698.herokuapp.com/x",
             title: "Vstoupit"
 					}
   			]
