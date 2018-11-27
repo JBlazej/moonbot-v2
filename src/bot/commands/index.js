@@ -67,7 +67,7 @@ export async function commands(event){
 
         case 'ano':
         await sendMultipleMessages(webhookEvent.sender.id, googleMore)
-        await sendTraslatedMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?', formattedMessage[0])
+        await sendTraslatedMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?', 'Přelož')
         break
 
         case 'ne':
