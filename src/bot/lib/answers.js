@@ -9,19 +9,27 @@ export const intro = [
 export function getStartedPayload(){
   let utc = getTimeAndDateNow()
   console.log(utc.time)
-  const starter = [
+  const result = [
     'Ahoj já jsem Moonbot.',
     'Dnes je ' + utc.time + ' hodin ' + utc.set.partOfDay + '.'
   ]
-  console.log(starter)
-  return starter
+
+  return result
 }
 
+export function getMoonbotPayload(){
+  let utc = getTimeAndDateNow()
+  
+  const result = [
+    'Dne ' + utc.date + 'si mě oživil.',
+    'Za to jsem ti velice zavázan.',
+    'Za to ti pomůžu s vyhledat spojení, když se někam budeš chtít dostat.',
+    'Dotoho si u mě můžeš nastavit odběr novinek ze světa Vysoké školy ekonomické.'
+  ]
+  
+  return result
+}
 
-export const info = [
-  'A jsem zde od toho, abych tě mohl informovat o novinkách ze školy.',
-  'Navíc ti dokážu rychle najít cestu kam zrovna potřebuješ nebo přeložit text do cizího jazyka.'
-]
 
 export const introIDOS = [
   'Využívám služby IDOS, která poskytuje informace o spojení MHD v Praze.',

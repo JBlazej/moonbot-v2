@@ -196,7 +196,7 @@ export const templates = {
 	 }
 	 },
 	 send_intro:{
-		 text: "Vyber si jednu možnost nebo když nevíš napiš nápověda.",
+		 text: "Klikni na jednu z možností a zjistíš více nebo napiš nápověda.",
 		 quick_replies:[
 			{
 				content_type: "text",
