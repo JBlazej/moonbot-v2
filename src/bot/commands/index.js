@@ -2,13 +2,13 @@ import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/me
 import { getTimeAndDateNow } from '../lib/dateAndTime'
 import { sendIdosAnswer } from '../idos'
 
-import { info, introIDOS, help, googleTranslator, googleIntro, googleMore } from '../lib/answers'
+import { introIDOS, help, googleTranslator, googleIntro, googleMore , getMoonbotPayload } from '../lib/answers'
 import { templates } from '../lib/templates'
 
 import { sendHackerIntro } from '../hacker'
 import { sendTranslatedText, sendTraslatedMessage } from '../google'
 
-export async function commands(event){
+export async function commands (event) {
     let webhookEvent = event
 
     let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
@@ -22,7 +22,7 @@ export async function commands(event){
         case 'moonbot':
         case 'moon':
         case 'bot':
-        await sendMultipleMessages(webhookEvent.sender.id, info)
+        await sendMultipleMessages(webhookEvent.sender.id, getMoonbotPayload())
         await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
         break
   
