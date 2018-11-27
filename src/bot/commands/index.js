@@ -14,7 +14,7 @@ export async function commands (event) {
     let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
     let formattedMessage = incomeMessage.toString().split(" ")
 
-    switch(formattedMessage[0]) {
+    switch (formattedMessage[0]) {
         case 'ahoj':
         sendTextMessage(webhookEvent.sender.id, 'Kravina')
         break

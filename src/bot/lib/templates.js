@@ -125,29 +125,29 @@ export const templates = {
 				elements: [
 					{
 						title: "Vysoká škola ekonomická v Praze",
-      			image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/vse.png",
-      			subtitle: "Koukni se na naše stránky školy nebo se zeptej Moonbota ať ti řekne víc.",
-      			default_action: {
-        			type: "web_url",
-        			url: "www.vse.cz",
-        			messenger_extensions: "FALSE",
-        			webview_height_ratio: "TALL"
+      					image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/vse.png",
+      					subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
+      					default_action: {
+        					type: "web_url",
+        					url: "www.vse.cz",
+        					messenger_extensions: "FALSE",
+        					webview_height_ratio: "TALL"
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "https://www.vse.cz/kategorie/810",
-		            title: "Harmonogram"
-							},
-							{
-								type: "web_url",
-		            url: "https://www.vse.cz/kategorie/38",
-		            title: "Zájemci o studium"
+								type: "postback",
+								title: "Rychlé info",
+								payload: "vse-info"
 							},
 							{
 								type: "postback",
-								title: "Řekni mi víc",
-								payload: "vse"
+								title: "Fakulty",
+								payload: "faculties"
+							},
+							{
+								type: "postback",
+								title: "Koleje",
+								payload: "colleges"
 							}
 						]
 					}

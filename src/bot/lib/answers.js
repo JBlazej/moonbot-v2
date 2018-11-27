@@ -19,9 +19,9 @@ export function getStartedPayload(){
 
 export function getMoonbotPayload(){
   let utc = getTimeAndDateNow()
-  
+
   const result = [
-    'Dne ' + utc.date + 'si mě oživil.',
+    'Dne ' + utc.date + ' si mě oživil.',
     'Za to jsem ti velice zavázan.',
     'Za to ti pomůžu s vyhledat spojení, když se někam budeš chtít dostat.',
     'Dotoho si u mě můžeš nastavit odběr novinek ze světa Vysoké školy ekonomické.'
@@ -40,16 +40,16 @@ export const introIDOS = [
 ]
 
 export const help = [
-	'Platné příkazy:',
-	'Koleje',
-	'Prvák',
-	'Hackernews',
-	'Nápověda',
-	'VSE',
-	'InSIS',
-  'Fakulty',
+  'Platné příkazy:',
+  'Moonbot',
+  'VŠE',
+  'Novinky',
+  'InSIS',
   'Spojení',
-  'Nastavení'
+  'Translator',
+  'Nastavení',
+	'Hackernews',
+	'Nápověda'
 ]
 
 export const googleTranslator = [
@@ -70,4 +70,8 @@ export const googleMore = [
 export const loading = [
   '👩🏻‍🚀 ',
   'Váš text se překládá...'
+]
+
+export const vseInfo = [
+  'Neco'
 ]
