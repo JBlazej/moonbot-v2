@@ -200,21 +200,29 @@ export const templates = {
 		 quick_replies:[
 			{
 				content_type: "text",
-				title: "Spojení",
-				payload: "idos-intro",
-				image_url: "http://moonbot-v2-front.herokuapp.com/rockets"
+				title: "VŠE",
+				payload: "hacker"
 			},
-			{
-		 		content_type: "text",
-		  		title: "Novinky",
-		  		payload: "hacker-intro",
-				image_url: "http://moonbot-v2-front.herokuapp.com/moons"
+
+		   {
+			   content_type: "text",
+			   title: "Spojení",
+			   payload: "spoj-intro"
+		   },
+		   {
+				content_type: "text",
+		 		title: "Translator",
+				payload: "vse"
 			},
 			{
 				content_type: "text",
-				title: "Translator",
-				payload: "translator-intro",
-			   	image_url: "http://moonbot-v2-front.herokuapp.com/moons"
+				title: "Novinky",
+				payload: "news-intro"
+		   	},
+		   	{
+				content_type: "text",
+				title: "HackerNews",
+				payload: "vse-intro"
 		   }
 		  ]
 	},
