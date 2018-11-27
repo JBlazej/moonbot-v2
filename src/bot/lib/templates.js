@@ -232,6 +232,12 @@ export const templates = {
 	send_quick_help:{
 		text: "Nechtěl si napsat?",
 		quick_replies:[
+			{
+				content_type: "text",
+				title: "VŠE",
+				payload: "hacker"
+			},
+
 		   {
 			   content_type: "text",
 			   title: "Spojení",
@@ -239,19 +245,19 @@ export const templates = {
 		   },
 		   {
 				content_type: "text",
+		 		title: "Translator",
+				payload: "vse"
+			},
+			{
+				content_type: "text",
+				title: "Novinky",
+				payload: "news-intro"
+		   	},
+		   	{
+				content_type: "text",
 				title: "HackerNews",
 				payload: "vse-intro"
-		   },
-		   {
-			   	content_type: "text",
-				title: "Translator",
-			 	payload: "vse"
-			},
-			   {
-				content_type: "text",
-				title: "VŠE",
-				payload: "hacker"
-			},
+		   }
 		]
    },
 	send_idos_intro:{
