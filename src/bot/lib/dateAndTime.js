@@ -63,12 +63,15 @@ export function increaseTime(utcTimeAndDate){
 }
 
 function getByHourIdosSettings(utcTimeAndDate, a){
-    const hour = moment(utcTimeAndDate).format('H')
+    const actualTime = moment(utcTimeAndDate)
+    const hour = actualTime.add(1, 'hours')
+    const formatedHour = hour.format('H')
+
     const set = incrementTimeMinutes
 
-    console.log(hour)
+    console.log(formatedHour)
     
-    if (hour === 0) {
+    if (formatedHour === 0) {
         return {
             partOfDay: 'půlnoc',
             idosConstant: a ? a + set.midnight : set.midnight
@@ -76,7 +79,7 @@ function getByHourIdosSettings(utcTimeAndDate, a){
 
     }
 
-    if (1 <= hour && hour < 9) {
+    if (1 <= formatedHour && formatedHour < 9) {
         return {
             partOfDay: 'ráno',
             idosConstant: a ? a + set.morning : set.morning
@@ -84,28 +87,28 @@ function getByHourIdosSettings(utcTimeAndDate, a){
 
     }
 
-    if (9 <= hour && hour < 12) {
+    if (9 <= formatedHour && formatedHour < 12) {
         return {
             partOfDay: 'dopoledne',
             idosConstant: a ? a + set.morning : set.morning
         }
     }
 
-    if (12 <= hour && hour < 17) {
+    if (12 <= formatedHour && formatedHour < 17) {
         return {
             partOfDay: 'odpoledne',
             idosConstant: a ? a + set.afternoon : set.afternoon
         }
     }
 
-    if (17 <= hour && hour < 20 ) {
+    if (17 <= formatedHour && formatedHour < 20 ) {
         return {
             partOfDay: 'podvečer',
             idosConstant: a ? a + set.early_evening : set.early_evening
         }
     }
 
-    if (20 <= hour && hour < 24) {
+    if (20 <= formatedHour && formatedHour < 24) {
         return {
             partOfDay: 'večer',
             idosConstant: a ? a + set.evening : set.evening
