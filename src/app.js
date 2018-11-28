@@ -80,7 +80,7 @@ const redisRepo = new RedisRepo();
 
 
 RedisExpiredEvents();
-const value = await redisRepo.setReminder('Key', 'Ahoj-svet', 3);
+const value = redisRepo.setReminder('Key', 'Ahoj-svet', 3);
 console.log(value)
 
 /**
