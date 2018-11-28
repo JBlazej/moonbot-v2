@@ -74,7 +74,7 @@ client.on('error', err => {
 })
  * 
  */
-import RedisExpiredEvents from "./redis.expired-events";
+import RedisExpiredEvents from "../redis.expired-events";
 RedisExpiredEvents();
 
 /**
