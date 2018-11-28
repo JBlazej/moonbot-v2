@@ -125,7 +125,7 @@ export const templates = {
 				elements: [
 					{
 						title: "Vysoká škola ekonomická v Praze",
-      					image_url: "https://http://moonbot-v2-front.herokuapp.com/bot/vse.png",
+      					image_url: "https://moonbot-v2-front.herokuapp.com/bot/vse.png",
       					subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
       					default_action: {
         					type: "web_url",
