@@ -12,6 +12,7 @@ export default class RedisRepo {
     get(key) {
       return this.redis.get(key);
     }
+    
     setReminder(key, value, expire) {
       this.redis
         .multi()

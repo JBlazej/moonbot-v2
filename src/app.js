@@ -75,7 +75,13 @@ client.on('error', err => {
  * 
  */
 import RedisExpiredEvents from "./redis.expired-events";
+import RedisRepo from "./redis.repo";
+const redisRepo = new RedisRepo();
+
+
 RedisExpiredEvents();
+const value = await redisRepo.setReminder('Key', 'Ahoj-svet', 3);
+console.log(value)
 
 /**
  * Database connection
