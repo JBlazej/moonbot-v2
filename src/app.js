@@ -61,7 +61,8 @@ app.listen(app.get("port"), () => {
  * Redis
  * 
  */
-const REDIS_URL = process.env.REDIS_URL;
+/**
+ * const REDIS_URL = process.env.REDIS_URL;
 const client = redis.createClient(REDIS_URL);
 
 client.on('connect', () => {
@@ -71,7 +72,10 @@ client.on('connect', () => {
 client.on('error', err => {
     console.log(`Error: ${err}`);
 })
-
+ * 
+ */
+import RedisExpiredEvents from "./redis.expired-events";
+RedisExpiredEvents();
 
 /**
  * Database connection
