@@ -64,13 +64,38 @@ app.listen(app.get("port"), () => {
 const REDIS_URL = process.env.REDIS_URL;
 const client = redis.createClient(REDIS_URL);
 
-client.on('connect', () => {
-    console.log(`connected to redis`);
-})
+client.on('connect', runSample)
 
 client.on('error', err => {
     console.log(`Error: ${err}`);
 })
+
+function runSample() {
+    // Set a value
+    client.set('string key', 'Hello World', redis.print);
+    // Expire in 3 seconds
+    client.expire('string key', 3);
+ 
+    // This timer is only to demo the TTL
+    // Runs every second until the timeout
+    // occurs on the value
+    var myTimer = setInterval(function() {
+        client.get('string key', function (err, reply) {
+            if(reply) {
+                console.log('I live: ' + reply.toString());
+                client.ttl('string key', writeTTL);
+            } else {
+                clearTimeout(myTimer);
+                console.log('I expired');
+                client.quit();
+            }
+        });
+    }, 1000);
+}
+ 
+function writeTTL(err, data) {
+    console.log('I live for this long yet: ' + data);
+}
 
 
 /**
