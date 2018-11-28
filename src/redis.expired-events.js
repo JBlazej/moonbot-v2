@@ -1,5 +1,5 @@
-import PubSub from "pubsub";
-import RedisRepo from "redis.repo";
+import {PubSub} from "./pubsub";
+import {RedisRepo} from "./redis.repo";
 
 const redisRepo = new RedisRepo();
 
