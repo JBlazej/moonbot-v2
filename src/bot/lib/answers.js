@@ -23,7 +23,7 @@ export function getMoonbotPayload(){
   const result = [
     'Dne ' + utc.date + ' si mě oživil.',
     'Za to jsem ti velice zavázan.',
-    'Za to ti pomůžu s vyhledat spojení, když se někam budeš chtít dostat.',
+    'Za to ti pomůžu vyhledat spojení, když se někam budeš chtít dostat nebo přeložit text do cizího jazyka.',
     'Dotoho si u mě můžeš nastavit odběr novinek ze světa Vysoké školy ekonomické.'
   ]
   
