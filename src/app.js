@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import serveFavicon from 'serve-favicon'
 import sslRedirect from 'heroku-ssl-redirect'
 import cookieParser from 'cookie-parser'
+import redis from 'redis'
 import path from 'path'
 import router from './router'
 import {connectDB} from './models'
@@ -56,6 +57,22 @@ app.listen(app.get("port"), () => {
     )
     console.log("Press CMD-C to stop\n");
 })
+/**
+ * Redis
+ * 
+ */
+const REDIS_URL = process.env.REDIS_URL;
+const client = redis.createClient(REDIS_URL);
+
+client.on('connect', () => {
+    console.log(`connected to redis`);
+})
+
+client.on('error', err => {
+    console.log(`Error: ${err}`);
+})
+
+
 /**
  * Database connection
  * 
