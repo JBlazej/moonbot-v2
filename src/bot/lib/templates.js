@@ -8,7 +8,7 @@ export const templates = {
 					{
 						title: "Fakulta financí a účetnictví",
 						subtitle: "Obory financí, účetnictví a finanční řízení podniku.",
-						image_url: "https://http://moonbot-v2-front.herokuapp.com/bot/ffu.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/bot/ffu.png",
 						default_action: {
 							type: "web_url",
 							url: "http://ffu.vse.cz",
@@ -26,7 +26,7 @@ export const templates = {
 					{
 						title: "Fakulta mezinárodních vztahů",
 						subtitle: "Obory mezinárodní ekonomické vztahy, cestovní ruch a mezinárodní politika.",
-						image_url: "https://http://moonbot-v2-front.herokuapp.com/bot/fmv.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fmv.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fmv.vse.cz",
@@ -44,7 +44,7 @@ export const templates = {
 					{
 						title: "Fakulta podnikohospodářská",
 						subtitle: "Obory podniková ekonomika a managment a Arts managment.",
-						image_url: "https://http://moonbot-v2-front.herokuapp.com/bot/fph.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fph.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fph.vse.cz",
@@ -62,7 +62,7 @@ export const templates = {
 					{
 						title: "Fakulta inforamtiky a statistiky",
 						subtitle: "Obory zabývající se informačními systémy s použitím počítačů a statistikou.",
-						image_url: "https://http://moonbot-v2-front.herokuapp.com/bot/fis.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fis.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fis.vse.cz",
@@ -80,7 +80,7 @@ export const templates = {
 					{
 						title: "Národohospodářská fakulta",
 						subtitle: "Obor ekonomie, národní hospodářství, veřejná správa a regionální rozvoj.",
-						image_url: "https://http://moonbot-v2-front.herokuapp.com/bot/nf.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/bot/nf.png",
 						default_action: {
 							type: "web_url",
 							url: "http://nf.vse.cz",
@@ -98,7 +98,7 @@ export const templates = {
 					{
 						title: "Fakulta managementu",
 						subtitle: "Obory ekonomika a managment.",
-						image_url: "https://http://moonbot-v2-front.herokuapp.com/bot/fm.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fm.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fm.vse.cz",
@@ -159,7 +159,7 @@ export const templates = {
 		attachment:{
       type: "image",
       payload:{
-        url: "https://http://moonbot-v2-front.herokuapp.com/bot/moonbot.jpg",
+        url: "https://moonbot-v2-front.herokuapp.com/bot/moonbot.jpg",
         is_reusable: "TRUE"
       }
     }
