@@ -6,7 +6,7 @@ import cheerioTableparser from 'cheerio-tableparser'
 import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages'
 import { getTime, getDate, shiftTimeAndDateUTC } from '../lib/dateAndTime'
 import { templates } from '../lib/templates'
-import { loading } from '../lib/answers'
+import { loadingIDOS } from '../lib/answers'
 
 import { modifyUserById, getUserById } from '../../services/user'
 
@@ -48,7 +48,7 @@ export function initializeIdosTable (from, to, timeTravel, dateTravel) {
    let dateTravel = getDate(utcTimeAndDate)
 
    
-   sendMultipleMessages(sender, loading)
+   sendMultipleMessages(sender, loadingIDOS)
    
    const initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel)
     initializePromise.then( (result) => {

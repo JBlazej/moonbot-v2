@@ -2,7 +2,7 @@ import { gooAuth } from '../../conf/google'
 import { Translate } from '@google-cloud/translate'
 import { sendTextMessage, sendMultipleMessages } from '../lib/messages'
 
-import { loading } from '../lib/answers'
+import { loadingTranslator } from '../lib/answers'
 
 import { getUserById } from '../../services/user'
 
@@ -12,7 +12,7 @@ export async function sendTraslatedMessage (id, text, command) {
     if(textToTranslate === false){
         await sendTextMessage(id, 'Špatně zadán příkaz.')
     }else {
-        await sendMultipleMessages(id, loading)
+        await sendMultipleMessages(id, loadingTranslator)
         const userLanguage = await getUserById(id)
         
         await sendTranslatedText(id, textToTranslate, userLanguage[0].language)

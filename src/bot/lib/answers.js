@@ -67,7 +67,12 @@ export const googleMore = [
   'Přelož Ahoj jak se máš?'
 ]
 
-export const loading = [
+export const loadingTranslator = [
+  '👩🏻‍🚀 ',
+  'Váš text se překládá...'
+]
+
+export const loadingIDOS = [
   '👩🏻‍🚀 ',
   'Váš text se překládá...'
 ]
