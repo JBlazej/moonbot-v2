@@ -4,7 +4,6 @@ import bodyParser from 'body-parser'
 import serveFavicon from 'serve-favicon'
 import sslRedirect from 'heroku-ssl-redirect'
 import cookieParser from 'cookie-parser'
-import redis from 'redis'
 import path from 'path'
 import router from './router'
 import {connectDB} from './models'
@@ -29,20 +28,14 @@ const app = express()
  * Setup Express server
  * 
  */
-// SSL
 app.use(sslRedirect())
-// PUBLIC
 app.use('/public', express.static(__dirname + '../public'))
-// BODY
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-// COOKIE
 app.use(cookieParser())
-// FAVICON
 app.use(serveFavicon(path.join(__dirname, '../public', 'favicon.ico')))
-// ROUTER
 app.use(router)
-// PORT
+
 app.set('port', (process.env.PORT || 3030))
 
 /**
@@ -57,47 +50,6 @@ app.listen(app.get("port"), () => {
     )
     console.log("Press CMD-C to stop\n");
 })
-/**
- * Redis
- * 
- */
-const REDIS_URL = process.env.REDIS_URL;
-const client = redis.createClient(REDIS_URL);
-
-client.on('connect', runSample)
-
-client.on('error', err => {
-    console.log(`Error: ${err}`);
-})
-
-function runSample() {
-    // Set a value
-    client.set('string key', 'Hello World', redis.print);
-    // Expire in 3 seconds
-    client.expire('string key', 3);
- 
-    // This timer is only to demo the TTL
-    // Runs every second until the timeout
-    // occurs on the value
-    var myTimer = setInterval(function() {
-        client.get('string key', function (err, reply) {
-            if(reply) {
-                console.log('I live: ' + reply.toString());
-                client.ttl('string key', writeTTL);
-            } else {
-                clearTimeout(myTimer);
-                console.log('I expired');
-                client.quit();
-            }
-        });
-    }, 1000);
-}
- 
-function writeTTL(err, data) {
-    console.log('I live for this long yet: ' + data);
-    
-}
-
 
 /**
  * Database connection
