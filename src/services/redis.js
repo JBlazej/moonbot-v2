@@ -10,7 +10,12 @@ const client = redis.createClient(REDIS_URL);
 
 
 
-var eventNotifier = new RedisNotifier(client);
+var eventNotifier = new RedisNotifier(redis, {
+    redis : { host : 'ec2-63-32-66-219.eu-west-1.compute.amazonaws.com', port : 37959 },
+    expired : true,
+    evicted : true,
+    logLevel : 'DEBUG' //Defaults To INFO
+  });
   
   //Listen for event emission
   eventNotifier.on('message', function(pattern, channelPattern, emittedKey) {
