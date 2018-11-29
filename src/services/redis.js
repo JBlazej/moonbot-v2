@@ -42,7 +42,7 @@ function writeTTL(err, data) {
     
 }
 
-var eventNotifier = new RedisNotifier(redis, {
+var eventNotifier = new RedisNotifier(client, {
     redis : REDIS_URL,
     expired : true,
     evicted : true,
