@@ -6,7 +6,6 @@ import sslRedirect from 'heroku-ssl-redirect'
 import cookieParser from 'cookie-parser'
 import path from 'path'
 import router from './router'
-import redis from './services/redis'
 import {connectDB} from './models'
 import {sigtermBE, sigtermFE} from './services/sigterm'
 
