@@ -42,12 +42,7 @@ function writeTTL(err, data) {
     
 }
 
-var eventNotifier = new RedisNotifier(client, {
-    redis : REDIS_URL,
-    expired : true,
-    evicted : true,
-    logLevel : 'DEBUG' //Defaults To INFO
-});
+var eventNotifier = new RedisNotifier(redis, REDIS_URL);
   
   //Listen for event emission
   eventNotifier.on('message', function(pattern, channelPattern, emittedKey) {
