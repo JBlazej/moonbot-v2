@@ -20,6 +20,8 @@ export async function sendTraslatedMessage (id, text, command) {
 }
 
 export async function sendTranslatedText (id, setText, setlanguage) {
+    console.log(gooAuth.project_id)
+    console.log(gooAuth)
     const translate = new Translate({ projectId: gooAuth.project_id, credentials: gooAuth })
 
     const text = setText
