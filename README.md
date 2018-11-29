@@ -11,9 +11,7 @@ https://moonbot-v2-front.herokuapp.com
 heroku logs --tail -a
 
 # Moje poznámky
-Dodělat templates VSE, Koleje, Fakulty
-Nastavit payloady
-
+Templaty doladit payloady
 CRON k odběru novinek
-
-Dodělat Google Auth 
+Zabezpečit Google Auth 
+Redis
