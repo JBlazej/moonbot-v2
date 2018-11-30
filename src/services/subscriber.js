@@ -6,6 +6,10 @@ redis.on('message', (channel, message) => {
     console.log(`Received the following message from ${channel}: ${message}`);
 });
 
+redis.on('ready', () => {
+    redis.config('SET', 'notify-keyspace-events', 'Ex')
+})
+
 const channel = 'garageDoor';
 
 redis.subscribe(channel, (error, count) => {
@@ -14,3 +18,5 @@ redis.subscribe(channel, (error, count) => {
     }
     console.log(`Subscribed to ${count} channel. Listening for updates on the ${channel} channel.`);
 });
+
+redis.subscribe("__keyevent@0__:expired")
