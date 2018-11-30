@@ -9,7 +9,8 @@ import router from './router'
 import {connectDB} from './models'
 import {sigtermBE, sigtermFE} from './services/sigterm'
 
-import redis from './services/redis'
+import publisher from './services/publisher'
+import subscriber from './services/subscriber'
 
 /**
  * Start Express server

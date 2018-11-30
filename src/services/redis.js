@@ -16,6 +16,7 @@ async function main () {
   redis.disconnect()
 }
 
-redis.connect(() => console.log('Connected'))
+redis.connect(() => console.log('Connected to Redis server'))
+redis.subscribe("__keyspace@0__:*")
 
 main()
