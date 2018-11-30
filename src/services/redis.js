@@ -20,7 +20,7 @@ function runSample() {
   console.log(client)
     client.set('string key', 'Hello World', redis.print);
 
-    client.expire('string key', 3000);
+    client.expire('string key', 3);
  
     var myTimer = setInterval(function() {
         client.get('string key', function (err, reply) {
