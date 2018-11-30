@@ -3,32 +3,34 @@
  * Test
  */
 import redis from 'redis'
-import RedisNotifier from 'redis-notifier'
 
 const REDIS_URL = process.env.REDIS_URL;
 //const client = redis.createClient(REDIS_URL);
 
+const client = redis.createClient(REDIS_URL)
 
+client.on("error", function (err) {
+  console.log("Error " + err);
+});
 
-var eventNotifier = new RedisNotifier(redis, {
-    redis : { url: REDIS_URL },
-    expired : true,
-    evicted : true,
-    logLevel : 'DEBUG' //Defaults To INFO
-  });
-  
-  //Listen for event emission
-  eventNotifier.on('message', function(pattern, channelPattern, emittedKey) {
-    var channel = this.parseMessageChannel(channelPattern);
-    switch(channel.key) {
-      case 'expired':
-        console.info(`Expired Key ${key}`);
-        break;
-      case "evicted":
-        console.info(`Evicted Key ${key}`);        
-        break;
-      default:
-        logger.debug("Unrecognized Channel Type:" + channel.type);
-    }
-  });
-  
+client.on("connect", runSample);
+
+function runSample() {
+
+  console.log(client)
+    client.set('string key', 'Hello World', redis.print);
+
+    client.expire('string key', 3000);
+ 
+    var myTimer = setInterval(function() {
+        client.get('string key', function (err, reply) {
+            if(reply) {
+                console.log('I live: ' + reply.toString());
+            } else {
+                clearTimeout(myTimer);
+                console.log('I expired');
+                client.quit();
+            }
+        });
+    }, 1000);
+}
