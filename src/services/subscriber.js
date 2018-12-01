@@ -36,7 +36,7 @@ function start () {
         } else {
             clearTimeout(myTimer);
             console.log('I expired');
-            client.quit();
+            
         }
     });
     }, 1000);
