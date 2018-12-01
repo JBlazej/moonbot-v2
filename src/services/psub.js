@@ -3,6 +3,8 @@ import Redis from 'ioredis'
 
 const redis = new Redis(process.env.REDIS_URL)
 
+const channel = '__keyevent@0__:*';
+
 redis.subscribe( "__keyevent@0__:*", (error, count) => {
     if (error) {
         throw new Error(error);
