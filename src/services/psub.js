@@ -17,9 +17,9 @@ redis.on('message', (channel, message) => {
 });
 
 function start () {
-    redis.set('cat', 'Garfield', 'ex', 10);
+    redis.set('__keyevent@0__:cat', 'Garfield', 'ex', 10);
 
-    redis.get('cat').then((result) => {
+    redis.get('__keyevent@0__:cat').then((result) => {
         console.log(result)
     })
 }
