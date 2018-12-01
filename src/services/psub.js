@@ -18,18 +18,10 @@ redis.on('message', (channel, message) => {
 
 function start () {
     redis.set('cat', 'Garfield', 'ex', 10);
-    
-    var myTimer = setInterval(function() {
-    redis.get('cat', function (err, reply) {
-        if(reply) {
-            console.log('I live: ' + reply.toString());
-        } else {
-            clearTimeout(myTimer);
-            console.log('I expired');
-            
-        }
-    });
-    }, 1000);
+
+    redis.get('cat').then((result) => {
+        console.log(result)
+    })
 }
 
 start()
