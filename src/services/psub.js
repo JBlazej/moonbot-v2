@@ -17,8 +17,7 @@ redis.on('message', (channel, message) => {
 });
 
 function start () {
-    redis.set('cat', 'Garfield');
-    redis.expire('cat', 8)
+    redis.set('cat', 'Garfield', 'ex', 10);
     
     var myTimer = setInterval(function() {
     redis.get('cat', function (err, reply) {
