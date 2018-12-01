@@ -3,11 +3,11 @@ import Redis from 'ioredis'
 
 const redis = new Redis(process.env.REDIS_URL)
 
-redis.psubscribe( "pattern", function (err) {
+redis.subscribe( "__keyevent@0__:", function (err) {
     console.log(err)
 });
 
-redis.on('pmessage', (pattern,channel, msg) => {
+redis.on('message', (pattern,channel, msg) => {
     console.log( "S2: received on "+channel+" event "+msg )
 });
 
