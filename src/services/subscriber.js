@@ -18,11 +18,12 @@ redis.subscribe(channel, (error, count) => {
 
 //redis.subscribe("__keyevent@0__:expired")
 
-redis.on('pmessage', function(pattern,channel, msg) {
-    console.log( "S2: received on "+channel+" event "+msg )
-});
-redis.psubscribe( "__keyspace@0__:*", function (err) {
+redis.psubscribe( "pattern", function (err) {
     console.log(err)
+});
+
+redis.on('pmessage', (pattern,channel, msg) => {
+    console.log( "S2: received on "+channel+" event "+msg )
 });
 
 function start () {
