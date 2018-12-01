@@ -6,9 +6,6 @@ redis.on('message', (channel, message) => {
     console.log(`Received the following message from ${channel}: ${message}`);
 });
 
-redis.on('ready', () => {
-    redis.config('SET', 'notify-keyspace-events', 'Ex')
-})
 
 const channel = 'garageDoor';
 
