@@ -3,12 +3,15 @@ import Redis from 'ioredis'
 
 const redis = new Redis(process.env.REDIS_URL)
 
-redis.subscribe( "__keyevent@0__:", function (err) {
-    console.log(err)
+redis.subscribe( "__keyevent@0__:*", (error, count) => {
+    if (error) {
+        throw new Error(error);
+    }
+    console.log(`Počet ${count} channel. Posloucham na ${channel} channel.`);
 });
 
-redis.on('message', (pattern,channel, msg) => {
-    console.log( "S2: received on "+channel+" event "+msg )
+redis.on('message', (channel, message) => {
+    console.log("S2: received on " + channel + " event " + message )
 });
 
 function start () {
