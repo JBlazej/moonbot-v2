@@ -22,7 +22,7 @@ redis.on('pmessage', function(pattern,channel, msg) {
     console.log( "S2: received on "+channel+" event "+msg )
 });
 redis.psubscribe( "__keyspace@0__:*", function (err) {
-    next();
+    console.log(err)
 });
 
 function start () {
