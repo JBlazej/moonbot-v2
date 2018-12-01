@@ -16,7 +16,7 @@ redis.subscribe(channel, (error, count) => {
     console.log(`Subscribed to ${count} channel. Listening for updates on the ${channel} channel.`);
 });
 
-redis.subscribe("__keyevent@0__:expired")
+//redis.subscribe("__keyevent@0__:expired")
 
 redis.on('pmessage', function(pattern,channel, msg) {
     console.log( "S2: received on "+channel+" event "+msg )
