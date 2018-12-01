@@ -3,9 +3,9 @@ import Redis from 'ioredis'
 
 const redis = new Redis(process.env.REDIS_URL)
 
-const channel = '__keyevent@0__:*';
+const channel = 'kokos';
 
-redis.subscribe( "__keyevent@0__:*", (error, count) => {
+redis.subscribe( channel, (error, count) => {
     if (error) {
         throw new Error(error);
     }
@@ -17,9 +17,9 @@ redis.on('message', (channel, message) => {
 });
 
 function start () {
-    //redis.set('__keyevent@0__:cat', 'Garfield', 'ex', 10);
+    redis.set(channel, 'Garfield', 'ex', 10);
 
-    redis.get('__keyevent@0__:cat').then((err, result) => {
+    redis.get(chennel).then((err, result) => {
         if(err){
             console.log(err)
         }else {
