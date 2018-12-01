@@ -19,7 +19,7 @@ redis.on('message', (channel, message) => {
 function start () {
     redis.set(channel, 'Garfield', 'ex', 10);
 
-    redis.get(chennel).then((err, result) => {
+    redis.get(channel).then((err, result) => {
         if(err){
             console.log(err)
         }else {
