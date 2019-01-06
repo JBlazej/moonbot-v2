@@ -17,20 +17,6 @@ export function getStartedPayload(){
   return result
 }
 
-export function getMoonbotPayload(){
-  let utc = getTimeAndDateNow()
-
-  const result = [
-    'Dne ' + utc.date + ' si mě oživil.',
-    'Za to jsem ti velice zavázan.',
-    'Za to ti pomůžu vyhledat spojení, když se někam budeš chtít dostat nebo přeložit text do cizího jazyka.',
-    'Dotoho si u mě můžeš nastavit odběr novinek ze světa Vysoké školy ekonomické.'
-  ]
-  
-  return result
-}
-
-
 export const introIDOS = [
   'Využívám služby IDOS, která poskytuje informace o spojení MHD v Praze.',
   'Pro vyhledávání zadej příkaz Spoj a zadej názvy zastávek odkud a kam.',

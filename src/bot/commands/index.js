@@ -2,7 +2,7 @@ import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/me
 import { getTimeAndDateNow } from '../lib/dateAndTime'
 import { sendIdosAnswer } from '../idos'
 
-import { introIDOS, help, googleTranslator, googleIntro, googleMore , getMoonbotPayload } from '../lib/answers'
+import { introIDOS, help, googleTranslator, googleIntro, googleMore } from '../lib/answers'
 import { templates } from '../lib/templates'
 
 import { sendHackerIntro } from '../hacker'
@@ -16,9 +16,15 @@ export async function commands (event) {
 
     switch (formattedMessage[0]) {
         case 'ahoj':
-        sendTextMessage(webhookEvent.sender.id, 'Čus')
+        sendTextMessage(webhookEvent.sender.id, 'Kravina')
         break
-
+  
+        case 'moonbot':
+        case 'moon':
+        case 'bot':
+        await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
+        break
+  
         case 'spojeni':
         case 'spojení':
         await sendMultipleMessages(webhookEvent.sender.id, introIDOS)
