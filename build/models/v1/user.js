@@ -11,6 +11,7 @@ var _mongoose2 = _interopRequireDefault(_mongoose);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var supportedLanguages = ['en', 'cs', 'de', 'es'];
 // USERS SCHEMA
 // -----------------------------------------------------------------------------
 var UserSchema = new _mongoose2.default.Schema({
@@ -41,6 +42,11 @@ var UserSchema = new _mongoose2.default.Schema({
     hacker: {
         type: Boolean,
         default: false
+    },
+    language: {
+        type: String,
+        enum: supportedLanguages,
+        default: 'en'
     }
 });
 

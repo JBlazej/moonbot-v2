@@ -11,7 +11,7 @@ export function getStartedPayload(){
   console.log(utc.time)
   const result = [
     'Ahoj já jsem Moonbot.',
-    'Dnes je ' + utc.time + ' hodin ' + utc.set.partOfDay + '.'
+    'Dnes je ' + utc.time + ' hodin ' + utc.set.partOfDay + ' a jsem tu od toho abych ti pomáhal.'
   ]
 
   return result

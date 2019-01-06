@@ -69,6 +69,8 @@ var _dateAndTime = require('../lib/dateAndTime');
 
 var _templates = require('../lib/templates');
 
+var _answers = require('../lib/answers');
+
 var _user = require('../../services/user');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -114,7 +116,7 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
   var timeTravel = (0, _dateAndTime.getTime)(utcTimeAndDate);
   var dateTravel = (0, _dateAndTime.getDate)(utcTimeAndDate);
 
-  (0, _messages.sendTextMessage)(sender, "Váš spoj se vyhledává...");
+  (0, _messages.sendMultipleMessages)(sender, _answers.loadingIDOS);
 
   var initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel);
   initializePromise.then(function (result) {

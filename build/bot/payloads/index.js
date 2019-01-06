@@ -13,7 +13,7 @@ var payloads = exports.payloads = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.t0 = payload;
-                        _context.next = _context.t0 === 'started-payload' ? 3 : _context.t0 === 'idos-intro' ? 10 : _context.t0 === 'idos-next' ? 15 : _context.t0 === 'idos-like' ? 17 : _context.t0 === 'hacker-intro' ? 23 : _context.t0 === 'hacker-new-news' ? 24 : _context.t0 === 'hacker-subscribe' ? 26 : _context.t0 === 'hacker-unsubscribe' ? 29 : _context.t0 === 'vse' ? 32 : _context.t0 === 'ffu' ? 33 : _context.t0 === 'fmv' ? 34 : _context.t0 === 'fph' ? 35 : _context.t0 === 'fis' ? 36 : _context.t0 === 'nf' ? 37 : _context.t0 === 'fm' ? 38 : _context.t0 === 'blanice' ? 39 : _context.t0 === 'vltava' ? 40 : _context.t0 === 'jarov1' ? 41 : _context.t0 === 'jarov1E' ? 42 : _context.t0 === 'jarov2' ? 43 : _context.t0 === 'jarov3G' ? 44 : _context.t0 === 'roos' ? 45 : _context.t0 === 'svec' ? 46 : _context.t0 === 'sayAboutMe' ? 47 : 48;
+                        _context.next = _context.t0 === 'started-payload' ? 3 : _context.t0 === 'idos-intro' ? 10 : _context.t0 === 'idos-next' ? 15 : _context.t0 === 'idos-like' ? 17 : _context.t0 === 'hacker-intro' ? 23 : _context.t0 === 'hacker-new-news' ? 24 : _context.t0 === 'hacker-subscribe' ? 26 : _context.t0 === 'hacker-unsubscribe' ? 29 : _context.t0 === 'set-en' ? 32 : _context.t0 === 'set-de' ? 35 : _context.t0 === 'set-es' ? 38 : _context.t0 === 'vse-info' ? 41 : _context.t0 === 'colleges' ? 44 : _context.t0 === 'faculties' ? 46 : _context.t0 === 'ffu' ? 48 : _context.t0 === 'fmv' ? 49 : _context.t0 === 'fph' ? 50 : _context.t0 === 'fis' ? 51 : _context.t0 === 'nf' ? 52 : _context.t0 === 'fm' ? 53 : _context.t0 === 'blanice' ? 54 : _context.t0 === 'vltava' ? 55 : _context.t0 === 'jarov1' ? 56 : _context.t0 === 'jarov1E' ? 57 : _context.t0 === 'jarov2' ? 58 : _context.t0 === 'jarov3G' ? 59 : _context.t0 === 'roos' ? 60 : _context.t0 === 'svec' ? 61 : _context.t0 === 'sayAboutMe' ? 62 : 63;
                         break;
 
                     case 3:
@@ -29,7 +29,7 @@ var payloads = exports.payloads = function () {
                         return (0, _user.createNewUser)(id);
 
                     case 9:
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 10:
                         _context.next = 12;
@@ -40,11 +40,11 @@ var payloads = exports.payloads = function () {
                         return (0, _messages.sendGenMessage)(id, _templates.templates['send_idos_intro']);
 
                     case 14:
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 15:
                         (0, _idos.sendNextIdos)(id);
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 17:
                         utcObject = (0, _dateAndTime.getTimeAndDateNow)();
@@ -56,74 +56,101 @@ var payloads = exports.payloads = function () {
                         return (0, _messages.sendTextMessage)(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.');
 
                     case 22:
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 23:
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 24:
                         (0, _hacker.sendHackerNews)(id);
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 26:
                         (0, _user.setHackerNews)(id, true);
                         (0, _messages.sendTextMessage)(id, 'Děkuj za tvůj odběr.');
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 29:
                         (0, _user.setHackerNews)(id, false);
                         (0, _messages.sendTextMessage)(id, 'Nevadí tak kdyžtak příště.');
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 32:
-                        return _context.abrupt('break', 48);
-
-                    case 33:
-                        return _context.abrupt('break', 48);
-
-                    case 34:
-                        return _context.abrupt('break', 48);
+                        (0, _user.setLanguage)(id, 'en');
+                        (0, _messages.sendTextMessage)(id, 'Jazyk nastaven.');
+                        return _context.abrupt('break', 63);
 
                     case 35:
-                        return _context.abrupt('break', 48);
-
-                    case 36:
-                        return _context.abrupt('break', 48);
-
-                    case 37:
-                        return _context.abrupt('break', 48);
+                        (0, _user.setLanguage)(id, 'de');
+                        (0, _messages.sendTextMessage)(id, 'Jazyk nastaven.');
+                        return _context.abrupt('break', 63);
 
                     case 38:
-                        return _context.abrupt('break', 48);
-
-                    case 39:
-                        return _context.abrupt('break', 48);
-
-                    case 40:
-                        return _context.abrupt('break', 48);
+                        (0, _user.setLanguage)(id, 'es');
+                        (0, _messages.sendTextMessage)(id, 'Jazyk nastaven.');
+                        return _context.abrupt('break', 63);
 
                     case 41:
-                        return _context.abrupt('break', 48);
-
-                    case 42:
-                        return _context.abrupt('break', 48);
+                        _context.next = 43;
+                        return (0, _messages.sendMultipleMessages)(id, _answers.vseInfo);
 
                     case 43:
-                        return _context.abrupt('break', 48);
+                        return _context.abrupt('break', 63);
 
                     case 44:
-                        return _context.abrupt('break', 48);
-
-                    case 45:
-                        return _context.abrupt('break', 48);
+                        (0, _messages.sendGenMessage)(id, _templates.templates['get_dormitories']);
+                        return _context.abrupt('break', 63);
 
                     case 46:
-                        return _context.abrupt('break', 48);
-
-                    case 47:
-                        return _context.abrupt('break', 48);
+                        (0, _messages.sendGenMessage)(id, _templates.templates['get_faculties']);
+                        return _context.abrupt('break', 63);
 
                     case 48:
+                        return _context.abrupt('break', 63);
+
+                    case 49:
+                        return _context.abrupt('break', 63);
+
+                    case 50:
+                        return _context.abrupt('break', 63);
+
+                    case 51:
+                        return _context.abrupt('break', 63);
+
+                    case 52:
+                        return _context.abrupt('break', 63);
+
+                    case 53:
+                        return _context.abrupt('break', 63);
+
+                    case 54:
+                        return _context.abrupt('break', 63);
+
+                    case 55:
+                        return _context.abrupt('break', 63);
+
+                    case 56:
+                        return _context.abrupt('break', 63);
+
+                    case 57:
+                        return _context.abrupt('break', 63);
+
+                    case 58:
+                        return _context.abrupt('break', 63);
+
+                    case 59:
+                        return _context.abrupt('break', 63);
+
+                    case 60:
+                        return _context.abrupt('break', 63);
+
+                    case 61:
+                        return _context.abrupt('break', 63);
+
+                    case 62:
+                        return _context.abrupt('break', 63);
+
+                    case 63:
                     case 'end':
                         return _context.stop();
                 }

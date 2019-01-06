@@ -38,6 +38,10 @@ var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
 
+var _spacex = require('./bot/spacex');
+
+var _spacex2 = _interopRequireDefault(_spacex);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -59,20 +63,18 @@ var app = (0, _express2.default)();
  * Setup Express server
  * 
  */
-// SSL
+
+
+//import publisher from './services/publisher'
+//import subscriber from './services/subscriber'
 app.use((0, _herokuSslRedirect2.default)());
-// PUBLIC
 app.use('/public', _express2.default.static(__dirname + '../public'));
-// BODY
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
-// COOKIE
 app.use((0, _cookieParser2.default)());
-// FAVICON
 app.use((0, _serveFavicon2.default)(_path2.default.join(__dirname, '../public', 'favicon.ico')));
-// ROUTER
 app.use(_router2.default);
-// PORT
+
 app.set('port', process.env.PORT || 3030);
 
 /**
@@ -83,6 +85,7 @@ app.listen(app.get("port"), function () {
   console.log("App is running at http://localhost:%d in %s mode", app.get("port"), app.get("env"));
   console.log("Press CMD-C to stop\n");
 });
+
 /**
  * Database connection
  * 
@@ -93,7 +96,8 @@ app.listen(app.get("port"), function () {
  * CRON services
  * 
  */
-(0, _sigterm.sigterm)();
+(0, _sigterm.sigtermBE)();
+(0, _sigterm.sigtermFE)();
 
 /**
  * HANDLINGS ERRORS

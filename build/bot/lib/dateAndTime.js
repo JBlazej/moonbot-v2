@@ -80,45 +80,50 @@ function increaseTime(utcTimeAndDate) {
 }
 
 function getByHourIdosSettings(utcTimeAndDate, a) {
-    var hour = (0, _moment2.default)(utcTimeAndDate).format('H');
+    var actualTime = (0, _moment2.default)(utcTimeAndDate);
+    var hour = actualTime.add(1, 'hours');
+    var formatedHour = hour.format('H');
+
     var set = _constant.incrementTimeMinutes;
 
-    if (hour === 0) {
+    console.log(formatedHour);
+
+    if (formatedHour === 0) {
         return {
             partOfDay: 'půlnoc',
             idosConstant: a ? a + set.midnight : set.midnight
         };
     }
 
-    if (1 <= hour && hour < 9) {
+    if (1 <= formatedHour && formatedHour < 9) {
         return {
             partOfDay: 'ráno',
             idosConstant: a ? a + set.morning : set.morning
         };
     }
 
-    if (9 <= hour && hour < 12) {
+    if (9 <= formatedHour && formatedHour < 12) {
         return {
             partOfDay: 'dopoledne',
             idosConstant: a ? a + set.morning : set.morning
         };
     }
 
-    if (12 <= hour && hour < 17) {
+    if (12 <= formatedHour && formatedHour < 17) {
         return {
             partOfDay: 'odpoledne',
             idosConstant: a ? a + set.afternoon : set.afternoon
         };
     }
 
-    if (17 <= hour && hour < 20) {
+    if (17 <= formatedHour && formatedHour < 20) {
         return {
             partOfDay: 'podvečer',
             idosConstant: a ? a + set.early_evening : set.early_evening
         };
     }
 
-    if (20 <= hour && hour < 24) {
+    if (20 <= formatedHour && formatedHour < 24) {
         return {
             partOfDay: 'večer',
             idosConstant: a ? a + set.evening : set.evening

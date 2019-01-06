@@ -16,16 +16,9 @@ export async function commands (event) {
 
     switch (formattedMessage[0]) {
         case 'ahoj':
-        sendTextMessage(webhookEvent.sender.id, 'Kravina')
+        sendTextMessage(webhookEvent.sender.id, 'Čus')
         break
-  
-        case 'moonbot':
-        case 'moon':
-        case 'bot':
-        await sendMultipleMessages(webhookEvent.sender.id, getMoonbotPayload())
-        await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
-        break
-  
+
         case 'spojeni':
         case 'spojení':
         await sendMultipleMessages(webhookEvent.sender.id, introIDOS)

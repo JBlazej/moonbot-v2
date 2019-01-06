@@ -11,7 +11,7 @@ import {sigtermBE, sigtermFE} from './services/sigterm'
 
 //import publisher from './services/publisher'
 //import subscriber from './services/subscriber'
-//import psbu from './services/psub'
+import spacex from './bot/spacex'
 
 /**
  * Start Express server
