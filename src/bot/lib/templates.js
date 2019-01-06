@@ -269,7 +269,7 @@ export const templates = {
 		]
    },
 	send_idos_intro:{
-		text: "Dostaneš následně ode mě textovou odpověd.",
+		text: "Spoj Volha do Hlavní nádraží",
 		quick_replies:[
 		   {
 			   content_type: "text",

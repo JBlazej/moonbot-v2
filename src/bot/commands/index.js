@@ -19,12 +19,6 @@ export async function commands (event) {
         sendTextMessage(webhookEvent.sender.id, 'Kravina')
         break
   
-        case 'moonbot':
-        case 'moon':
-        case 'bot':
-        await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
-        break
-  
         case 'spojeni':
         case 'spojení':
         await sendMultipleMessages(webhookEvent.sender.id, introIDOS)
@@ -36,7 +30,6 @@ export async function commands (event) {
         const utcObject = getTimeAndDateNow()
         const introTravel = 'spoj volha do hlavni nadrazi'
         await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcObject.utc)
-        await sendGenMessage(webhookEvent.sender.id, templates['send_gif'])
         break
 
         case 'spoj':

@@ -18,11 +18,8 @@ export function getStartedPayload(){
 }
 
 export const introIDOS = [
-  'Využívám služby IDOS, která poskytuje informace o spojení MHD v Praze.',
   'Pro vyhledávání zadej příkaz Spoj a zadej názvy zastávek odkud a kam.',
-  '👩🏼‍🚀 🚀 ',
-  'Přesně v tomto tvaru: ',
-  'Spoj Volha do Hlavní nádraží'
+  'Například'
 ]
 
 export const help = [
@@ -54,13 +51,11 @@ export const googleMore = [
 ]
 
 export const loadingTranslator = [
-  '👩🏻‍🚀 ',
   'Váš text se překládá...'
 ]
 
 export const loadingIDOS = [
-  '👩🏻‍🚀 ',
-  'Váš text se překládá...'
+  'Váš spoj se vyhledává...'
 ]
 
 export const vseInfo = [
