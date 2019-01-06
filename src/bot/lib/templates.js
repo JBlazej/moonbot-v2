@@ -136,11 +136,6 @@ export const templates = {
 						buttons: [
 							{
 								type: "postback",
-								title: "Rychlé info",
-								payload: "vse-info"
-							},
-							{
-								type: "postback",
 								title: "Fakulty",
 								payload: "faculties"
 							},
@@ -218,12 +213,7 @@ export const templates = {
 				content_type: "text",
 				title: "Novinky",
 				payload: "news-intro"
-		   	},
-		   	{
-				content_type: "text",
-				title: "HackerNews",
-				payload: "vse-intro"
-		   }
+		   	}
 		]
 	},
 	send_info:{

@@ -108,8 +108,8 @@ export async function commands (event) {
         break
 
         default:
-        await sendTextMessage(webhookEvent.sender.id, 'Tenhle příkaz neznám... promiň :-(')
-        await sendGenMessage(webhookEvent.sender.id, templates['send_quick_help'])
+        await sendTextMessage(webhookEvent.sender.id, 'Tenhle příkaz neznám.')
+        await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
         break
     }
 }

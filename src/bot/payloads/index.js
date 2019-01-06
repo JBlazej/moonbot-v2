@@ -2,7 +2,7 @@ import {createNewUser, setHackerNews, setLanguage } from '../../services/user'
 import {incrementLikeInstance} from '../../services/like'
 
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
-import {getStartedPayload, introIDOS, vseInfo} from '../lib/answers'
+import {getStartedPayload, introIDOS} from '../lib/answers'
 import {templates} from '../lib/templates'
 
 import {getTimeAndDateNow} from '../lib/dateAndTime'
@@ -64,10 +64,6 @@ export async function payloads(id, payload){
         case 'set-es':
         setLanguage(id, 'es')
         sendTextMessage(id, 'Jazyk nastaven.')
-        break
-
-        case 'vse-info':
-        await sendMultipleMessages(id, vseInfo)
         break
 
         case 'colleges':

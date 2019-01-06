@@ -57,7 +57,3 @@ export const loadingTranslator = [
 export const loadingIDOS = [
   'Váš spoj se vyhledává...'
 ]
-
-export const vseInfo = [
-  'Neco'
-]
