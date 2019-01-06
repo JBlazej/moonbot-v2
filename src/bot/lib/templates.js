@@ -223,13 +223,8 @@ export const templates = {
 				content_type: "text",
 				title: "HackerNews",
 				payload: "vse-intro"
-		   },
-		   {
-			content_type: "text",
-			title: "Nápověda",
-			payload: "help-intro"
-	   }
-		  ]
+		   }
+		]
 	},
 	send_info:{
 		text: "🌚",
