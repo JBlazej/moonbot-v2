@@ -14,6 +14,7 @@ export async function payloads(id, payload){
     switch(payload) {
         case 'started-payload':
         await sendMultipleMessages(id, getStartedPayload())
+        console.log(templates['send_intro'])
         await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
         await createNewUser(id)
         break

@@ -19,4 +19,4 @@ async function main () {
 redis.connect(() => console.log('Connected to Redis server'))
 redis.subscribe("__keyspace@0__:*")
 
-main()
+// main()
