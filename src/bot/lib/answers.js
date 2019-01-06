@@ -36,7 +36,8 @@ export const help = [
 ]
 
 export const googleTranslator = [
-  'Dokážu překládat do Angličtiny, Němčiny a Španělštiny.'
+  'Dokážu překládat do Angličtiny, Němčiny a Španělštiny.',
+  'Zadej příkaz Přelož mezera a tvůj text.'
 ]
 
 export const googleMore = [

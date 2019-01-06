@@ -300,7 +300,7 @@ export const templates = {
     ]
 	},
 	send_next_translator:{
-	text: "Zadej příkaz Přelož mezera a tvůj text.",
+	text: "Nebo vyber jazyk překladu.",
 	  quick_replies:[
 			  {
 		  content_type: "text",
