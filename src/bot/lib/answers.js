@@ -36,17 +36,10 @@ export const help = [
 ]
 
 export const googleTranslator = [
-  'Využívám Google Translator abych ti mohl pomoct s překladem textu.',
   'Dokážu překládat do Angličtiny, Němčiny a Španělštiny.'
 ]
 
-export const googleIntro = [
-  'Můžeš přeložit libovolný text.',
-  'Jazyk překladu změníš příkazem Nastavení.'
-]
-
 export const googleMore = [
-  'Příkaz je následující:',
   'Přelož Ahoj jak se máš?'
 ]
 

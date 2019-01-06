@@ -304,33 +304,17 @@ export const templates = {
 	  quick_replies:[
 			  {
 		  content_type: "text",
-		  title: "Zjistit více",
+		  title: "Ukaž",
 		  payload: "try-it"
   
 		  },
 		{
 		  content_type: "text",
-		  title: "Nastavení",
+		  title: "Jazyk",
 		  payload: "settings"
 		}
 	  ]
 	  },
-	  send_last_translator:{
-		text: "Chceš ukázat jak na to?",
-		  quick_replies:[
-				  {
-			  content_type: "text",
-			  title: "Ano",
-			  payload: "try-it"
-	  
-			  },
-			{
-			  content_type: "text",
-			  title: "Ne",
-			  payload: "settings"
-			}
-		  ]
-		  },
 	send_help:{
   	text: "Nechtěl si napsat?",
     quick_replies:[

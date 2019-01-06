@@ -2,11 +2,10 @@ import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/me
 import { getTimeAndDateNow } from '../lib/dateAndTime'
 import { sendIdosAnswer } from '../idos'
 
-import { introIDOS, help, googleTranslator, googleIntro, googleMore } from '../lib/answers'
+import { introIDOS, help, googleTranslator, googleMore } from '../lib/answers'
 import { templates } from '../lib/templates'
 
-import { sendHackerIntro } from '../hacker'
-import { sendTranslatedText, sendTraslatedMessage } from '../google'
+import { sendTraslatedMessage } from '../google'
 
 export async function commands (event) {
     let webhookEvent = event
@@ -52,22 +51,13 @@ export async function commands (event) {
         await sendGenMessage(webhookEvent.sender.id, templates['get_school'])
         break
 
-        case 'zjistit':
-        await sendMultipleMessages(webhookEvent.sender.id, googleIntro)
-        await sendGenMessage(webhookEvent.sender.id, templates['send_last_translator'])
-        break
-
-        case 'ano':
+        case 'ukaz':
+        case 'ukaž':
         await sendMultipleMessages(webhookEvent.sender.id, googleMore)
         await sendTraslatedMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?', 'Přelož')
         break
 
-        case 'ne':
-        sendTextMessage(webhookEvent.sender.id, 'Haha')
-        break
-
-        case 'nastavení':
-        case 'nastaveni':
+        case 'jazyk':
         sendGenMessage(webhookEvent.sender.id, templates['get_language'])
         break
   
@@ -89,13 +79,6 @@ export async function commands (event) {
         case 'insis':
         case 'isis':
         //sendGenMessage(webhookEvent.sender.id, templates['get_isis'])
-        break
-  
-        case 'novinky':
-        case 'hackernews':
-        case 'hacker':
-        const templato = await sendHackerIntro(webhookEvent.sender.id)
-        await sendGenMessage(webhookEvent.sender.id, templato)
         break
   
         case 'jb':
