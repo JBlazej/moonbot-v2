@@ -21,13 +21,7 @@ export async function createDormitory (id, title, headName, headEmail, headPhone
         adressURL: adressURL
     })
     
-    dormitory.save((err) => {
-        if (err) { 
-            console.log('Špatně')
-            console.log(err)
-        }
-        else {
-            return dormitory
-        }
-    })
+    dormitory.save()
+    
+    return dormitory
 }
