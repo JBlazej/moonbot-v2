@@ -10,9 +10,9 @@ export async function sendHeadAndRep(id, sender) {
     ]
 
     let rep = [
-        data[0].contact.rep.name,
-        data[0].contact.rep.email,
-        data[0].contact.rep.phone
+        data[0].contact.representative.name,
+        data[0].contact.representative.email,
+        data[0].contact.representative.phone
     ]
 
     await sendMultipleMessages(sender, head)
