@@ -6,7 +6,6 @@ export async function botMessengerMiddleware(event) {
   let webhookEvent = event
   
   if(webhookEvent.message) {
-    console.log(webhookEvent.message)
     if(webhookEvent.message.text) {
       // Text
       commands(webhookEvent)
@@ -16,6 +15,7 @@ export async function botMessengerMiddleware(event) {
     }
   }else {
     // Payload
+    console.log(webhookEvent.postback.payload)
     payloads(webhookEvent.sender.id, webhookEvent.postback.payload)
   }
 }

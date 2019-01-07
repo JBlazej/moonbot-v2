@@ -453,14 +453,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejblanice.vse.cz/kolejblanice/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "blanice"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -476,14 +481,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://vltava.vse.cz/o-koleji/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "vltava"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -499,14 +509,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejjarov1.vse.cz/informace-o-koleji/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "jarov1"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -522,14 +537,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejjarov1e.vse.cz/informace-o-koleji/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "jarov1E"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -545,14 +565,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejjarov2.vse.cz/kolejjarov2/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "jarov2"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -568,14 +593,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejjarov3f.vse.cz/kolejjarov3f/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "jarov3F"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -591,14 +621,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejjarov3g.vse.cz/kolejjarov3g/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "jarov3G"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -614,14 +649,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejrooseveltova.vse.cz/kolejrooseveltova/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "roos"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					},
@@ -637,14 +677,19 @@ export const templates = {
 						},
 						buttons: [
 							{
-								type: "web_url",
-		            url: "http://kolejsvecova.fm.vse.cz/kolejsvecova/kontakty/",
-		            title: "Kontakty"
+								type: "postback",
+								title: "Úřední hodiny",
+								payload: "office-hours"
 							},
 							{
 								type: "postback",
-								title: "Úřední hodiny",
-								payload: "svec"
+								title: "Vedoucí a zástupce",
+								payload: "head-and-representative"
+							},
+							{
+								type: "postback",
+								title: "Adresa",
+								payload: "adress"
 							}
 						]
 					}
