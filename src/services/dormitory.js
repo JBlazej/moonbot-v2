@@ -2,7 +2,7 @@ import {Dormitory} from '../models/v1/dormitory'
 
 
 
-export async function createDormitory (id, title, headName, headEmail, headPhone, repName, repEmail, headPhone, adressURL) {
+export async function createDormitory (id, title, headName, headEmail, headPhone, repName, repEmail, repPhone, adressURL) {
     const dormitory = new Dormitory({
         id: id, 
         title: title, 
@@ -15,7 +15,7 @@ export async function createDormitory (id, title, headName, headEmail, headPhone
             representative: {
                 name: repName, 
                 email: repEmail, 
-                phone: headPhone
+                phone: repPhone
             }
         },
         adressURL: adressURL
