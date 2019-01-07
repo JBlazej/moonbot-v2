@@ -9,7 +9,7 @@ import {getTimeAndDateNow} from '../lib/dateAndTime'
 
 import {sendNextIdos} from '../idos'
 import {sendHackerNews} from '../hacker'
-import { sendHeadAndRep } from '../vse'
+import { sendHeadAndRep, sendOfficeHours } from '../vse'
 
 export async function payloads(id, payload){
     switch(payload) {
@@ -77,6 +77,10 @@ export async function payloads(id, payload){
 
         case 'head-and-representative':
         sendHeadAndRep('1', id)
+        break
+
+        case 'office-hours':
+        sendOfficeHours('1', id)
         break
 
         case 'ffu':
