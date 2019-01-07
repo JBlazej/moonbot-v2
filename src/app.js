@@ -9,10 +9,7 @@ import router from './router'
 import {connectDB} from './models'
 import {sigtermBE, sigtermFE} from './services/sigterm'
 
-//import publisher from './services/publisher'
-//import subscriber from './services/subscriber'
-// import spacex from './bot/spacex'
-
+import {createDormitory} from './services/dormitory'
 /**
  * Start Express server
  * 
@@ -98,4 +95,5 @@ app.use((err, req, res, next) => {
     }
 })
 
+createDormitory('1', '22', '+ě+', '13', '131', '123131', '12312', '1231', '123123', '13131')
 export default app
