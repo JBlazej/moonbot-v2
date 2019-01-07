@@ -38,11 +38,11 @@ var _models = require('./models');
 
 var _sigterm = require('./services/sigterm');
 
-var _spacex = require('./bot/spacex');
-
-var _spacex2 = _interopRequireDefault(_spacex);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//import publisher from './services/publisher'
+//import subscriber from './services/subscriber'
+// import spacex from './bot/spacex'
 
 /**
  * Start Express server
@@ -63,10 +63,6 @@ var app = (0, _express2.default)();
  * Setup Express server
  * 
  */
-
-
-//import publisher from './services/publisher'
-//import subscriber from './services/subscriber'
 app.use((0, _herokuSslRedirect2.default)());
 app.use('/public', _express2.default.static(__dirname + '../public'));
 app.use(_bodyParser2.default.json());

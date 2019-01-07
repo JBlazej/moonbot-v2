@@ -8,7 +8,7 @@ https://moonbot-v2-front.herokuapp.com
 1986144768118336
 
 # Heroku logs
-heroku logs --tail -a
+heroku logs --tail -a moonbot-v2
 
 # Moje poznámky
 Templaty doladit payloady

@@ -14,10 +14,6 @@ export async function commands (event) {
     let formattedMessage = incomeMessage.toString().split(" ")
 
     switch (formattedMessage[0]) {
-        case 'ahoj':
-        sendTextMessage(webhookEvent.sender.id, 'Kravina')
-        break
-  
         case 'spojeni':
         case 'spojení':
         await sendMultipleMessages(webhookEvent.sender.id, introIDOS)

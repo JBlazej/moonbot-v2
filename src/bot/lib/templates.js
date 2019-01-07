@@ -459,7 +459,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "blanice"
 							}
 						]
@@ -482,7 +482,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "vltava"
 							}
 						]
@@ -505,7 +505,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "jarov1"
 							}
 						]
@@ -528,7 +528,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "jarov1E"
 							}
 						]
@@ -551,7 +551,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "jarov2"
 							}
 						]
@@ -574,7 +574,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "jarov3F"
 							}
 						]
@@ -597,7 +597,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "jarov3G"
 							}
 						]
@@ -620,7 +620,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "roos"
 							}
 						]
@@ -643,7 +643,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Základní informace",
+								title: "Úřední hodiny",
 								payload: "svec"
 							}
 						]

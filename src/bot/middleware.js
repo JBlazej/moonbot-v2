@@ -6,6 +6,7 @@ export async function botMessengerMiddleware(event) {
   let webhookEvent = event
   
   if(webhookEvent.message) {
+    console.log(webhookEvent.message)
     if(webhookEvent.message.text) {
       // Text
       commands(webhookEvent)
