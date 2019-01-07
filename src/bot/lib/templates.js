@@ -465,12 +465,7 @@ export const templates = {
 							{
 								type: "web_url",
 								url: "https://www.google.com/maps/place/Kolej+Blanice/@50.0198007,14.4956339,17z/data=!3m1!4b1!4m5!3m4!1s0x470b9229c94d6f2b:0x3427c9d8147fef0f!8m2!3d50.0197973!4d14.4978227",
-								title: "View Website"
-							  },
-							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								title: "Adresa"
 							}
 						]
 					},
