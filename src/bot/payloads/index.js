@@ -9,6 +9,7 @@ import {getTimeAndDateNow} from '../lib/dateAndTime'
 
 import {sendNextIdos} from '../idos'
 import {sendHackerNews} from '../hacker'
+import { sendHeadAndRep } from '../vse'
 
 export async function payloads(id, payload){
     switch(payload) {
@@ -72,6 +73,10 @@ export async function payloads(id, payload){
 
         case 'faculties':
         sendGenMessage(id, templates['get_faculties'])
+        break
+
+        case 'head-and-representative':
+        sendHeadAndRep('1', id)
         break
 
         case 'ffu':
