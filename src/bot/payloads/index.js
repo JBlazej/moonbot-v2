@@ -80,7 +80,7 @@ export async function payloads(id, payload){
         break
 
         case 'office-hours':
-        sendOfficeHours('1', id)
+        sendOfficeHours(id)
         break
 
         case 'ffu':

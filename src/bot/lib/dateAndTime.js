@@ -74,10 +74,7 @@ function getByHourIdosSettings(utcTimeAndDate, a){
     const actualTime = moment(utcTimeAndDate)
     const hour = actualTime.add(1, 'hours')
     const formatedHour = hour.format('H')
-
     const set = incrementTimeMinutes
-
-    console.log(formatedHour)
     
     if (formatedHour === 0) {
         return {
