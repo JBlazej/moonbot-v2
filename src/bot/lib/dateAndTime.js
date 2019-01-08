@@ -24,8 +24,8 @@ function getDayOfTheWeek(utcTimeAndDate){
     const actualTime = moment(utcTimeAndDate)
     const dayOfWeek = actualTime.day()
 
-    console.log(day)
-    return day
+    console.log(dayOfWeek)
+    return dayOfWeek
 }
 
 function getTime(utcTimeAndDate){
