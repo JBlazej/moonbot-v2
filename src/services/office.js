@@ -1,13 +1,12 @@
 import {Office} from '../models/v1/office'
 
-export async function createOffice (id, monday, tuesday, wednesday, thursday, friday){
+export async function createOffice (id, college, name, time){
     const office = new Office({
         id: id, 
-        monday: monday,
-        tuesday: tuesday,
-        wednesday: wednesday,
-        thursday : thursday,
-        friday: friday
+        college: college,
+        name: name,
+        time: time
+        
     })
     
     office.save()
