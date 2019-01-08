@@ -19,8 +19,6 @@ export async function sendHeadAndRep(id, sender) {
 
 export async function sendOfficeHours(sender) {
     let utc = await getTimeAndDateNow()
-    console.log(typeof utc.day)
-    console.log(utc.day)
     let data = await getOfficeById('1')
 
     let answer = [
@@ -29,6 +27,6 @@ export async function sendOfficeHours(sender) {
     ]
 
     console.log(answer)
-    
+
     await sendMultipleMessages(sender, answer)
 }

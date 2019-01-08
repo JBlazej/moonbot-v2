@@ -4,7 +4,7 @@ export async function createOffice (id, college, name, time){
     const office = new Office({
         id: id, 
         college: college,
-        name: name,
+        nameOfDay: name,
         opening: time
         
     })
