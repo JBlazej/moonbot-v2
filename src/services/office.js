@@ -5,7 +5,7 @@ export async function createOffice (id, college, name, time){
         id: id, 
         college: college,
         name: name,
-        time: time
+        opening: time
         
     })
     

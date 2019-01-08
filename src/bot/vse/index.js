@@ -23,7 +23,12 @@ export async function sendOfficeHours(sender) {
     console.log(utc.day)
     let data = await getOfficeById('1')
 
-    let monday = data[0].monday
+    let answer = [
+        data[0].nameOfDay,
+        data[0].opening
+    ]
 
-    await sendTextMessage(sender, monday)
+    console.log(answer)
+    
+    await sendMultipleMessages(sender, answer)
 }
