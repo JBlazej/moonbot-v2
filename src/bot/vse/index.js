@@ -19,7 +19,7 @@ export async function sendHeadAndRep(id, sender) {
 
 export async function sendOfficeHours(sender) {
     let utc = await getTimeAndDateNow()
-    let data = await getOfficeById('1')
+    let data = await getOfficeById(utc.day)
 
     let answer = [
         data[0].nameOfDay,
