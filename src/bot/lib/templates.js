@@ -131,7 +131,7 @@ export const templates = {
         					type: "web_url",
         					url: "www.vse.cz",
         					messenger_extensions: "FALSE",
-        					webview_height_ratio: "TALL"
+        					webview_height_ratio: "FULL"
 						},
 						buttons: [
 							{
@@ -459,7 +459,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Vedoucí a zástupce",
+								title: "Vedoucí koleje",
 								payload: "head-and-representative"
 							},
 							{
