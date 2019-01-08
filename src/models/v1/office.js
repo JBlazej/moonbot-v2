@@ -7,19 +7,13 @@ const OfficeSchema = new mongoose.Schema({
   id: {
     type: Number
   },
-  monday: {
+  college:  {
       type: String
   },
-  tuesday: {
+  nameOfDay: {
       type: String
   },
-  wednesday: {
-      type: String
-  },
-  thursday: {
-      type: String
-  },
-  friday: {
+  opening: {
       type: String
   }
 })

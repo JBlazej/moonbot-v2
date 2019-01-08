@@ -2,6 +2,8 @@ import { sendTextMessage, sendMultipleMessages } from '../lib/messages'
 import { getDormitoryById } from '../../services/dormitory'
 import { getOfficeById } from '../../services/office'
 
+import {getTimeAndDateNow} from '../lib/dateAndTime'
+
 export async function sendHeadAndRep(id, sender) {
     let data = await getDormitoryById(id)
 
@@ -15,8 +17,11 @@ export async function sendHeadAndRep(id, sender) {
 
 }
 
-export async function sendOfficeHours(id, sender) {
-    let data = await getOfficeById(id)
+export async function sendOfficeHours(sender) {
+    let utc = await getTimeAndDateNow()
+    console.log(typeof utc.day)
+    console.log(utc.day)
+    let data = await getOfficeById('1')
 
     let monday = data[0].monday
 

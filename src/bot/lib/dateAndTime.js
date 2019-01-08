@@ -1,13 +1,13 @@
 import moment from 'moment'
 import {incrementTimeMinutes} from '../../conf/constant'
 
-export function getTimeAndDateNow(utc){
+export async function getTimeAndDateNow(utc){
     const newDate = utc ? utc : new Date()
     
     const time = getTime(newDate)
     const date = getDate(newDate)
     const year = getYear(newDate)
-
+    const day = getDayOfTheWeek(newDate)
     const set = getByHourIdosSettings(newDate)
     
     return {
@@ -15,11 +15,20 @@ export function getTimeAndDateNow(utc){
         time : time,
         date : date,
         year : year,
-        set : set
+        set : set,
+        day : day
     }
 }
 
-export function getTime(utcTimeAndDate){
+function getDayOfTheWeek(utcTimeAndDate){
+    const actualTime = moment(utcTimeAndDate)
+    const dayOfWeek = actualTime.day()
+
+    console.log(day)
+    return day
+}
+
+function getTime(utcTimeAndDate){
     const actualTime = moment(utcTimeAndDate)
     const shiftedTime = actualTime.add(1, 'hours')
     const formatedTime = shiftedTime.format('HH:mm')
@@ -27,19 +36,19 @@ export function getTime(utcTimeAndDate){
     return formatedTime
 }
 
-export function getDate(utcTimeAndDate){
+function getDate(utcTimeAndDate){
     const actualDate = moment(utcTimeAndDate).format('D.M.YYYY')
     
     return actualDate
 }
 
-export function getYear(utcTimeAndDate){
+function getYear(utcTimeAndDate){
     const actualYear = moment(utcTimeAndDate).format('YYYY')
     
     return actualYear
 }
 
-export function shiftTimeAndDateUTC(utcTimeAndDate){
+function shiftTimeAndDateUTC(utcTimeAndDate){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
     const increaseForMinutes = increaseTime(utcTimeAndDate)
    
@@ -48,7 +57,7 @@ export function shiftTimeAndDateUTC(utcTimeAndDate){
     return shiftedTimeAndDateUTC
 }
 
-export function increaseTime(utcTimeAndDate){
+function increaseTime(utcTimeAndDate){
     const day = moment(utcTimeAndDate).format('dddd')
 
     if(day === 'Saturday' || day === 'Sunday'){
