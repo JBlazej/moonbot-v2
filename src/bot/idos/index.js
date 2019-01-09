@@ -39,7 +39,6 @@ export function initializeIdosTable (from, to, timeTravel, dateTravel) {
   }
 
  export function sendIdosAnswer(sender, text, utcTimeAndDate) {
-   console.log(utcTimeAndDate)
    const stops = transformTextForIdos(text)
 
    let from = encodeUrlParameter(stops[0])
@@ -162,7 +161,7 @@ export async function sendNextIdos(id){
     let text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to
     
     let utcTimeAndDate = pole[0].station.time
-    console.log(utcTimeAndDate)
+
     let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
 
     return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
