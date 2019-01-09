@@ -161,6 +161,7 @@ export async function sendNextIdos(id){
     
     let utcTimeAndDate = pole[0].station.time
     let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
+    console.log(shiftedTimeAndDateUTC)
 
     return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
   }else {

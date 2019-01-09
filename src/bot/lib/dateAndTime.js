@@ -41,7 +41,7 @@ export function getDate(utcTimeAndDate){
     return actualDate
 }
 
-function getYear(utcTimeAndDate){
+export function getYear(utcTimeAndDate){
     const actualYear = moment(utcTimeAndDate).format('YYYY')
     
     return actualYear
@@ -50,13 +50,15 @@ function getYear(utcTimeAndDate){
 export function shiftTimeAndDateUTC(utcTimeAndDate){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
     const increaseForMinutes = increaseTime(utcTimeAndDate)
+
+    console.log(increaseForMinutes)
    
     const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(increaseForMinutes, 'minutes')
 
     return shiftedTimeAndDateUTC
 }
 
-function increaseTime(utcTimeAndDate){
+export function increaseTime(utcTimeAndDate){
     const day = moment(utcTimeAndDate).format('dddd')
 
     if(day === 'Saturday' || day === 'Sunday'){
@@ -70,7 +72,7 @@ function increaseTime(utcTimeAndDate){
     }
 }
 
-function getByHourIdosSettings(utcTimeAndDate, a){
+export function getByHourIdosSettings(utcTimeAndDate, a){
     const actualTime = moment(utcTimeAndDate)
     const hour = actualTime.add(1, 'hours')
     const formatedHour = hour.format('H')
