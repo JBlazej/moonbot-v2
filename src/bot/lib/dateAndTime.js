@@ -64,9 +64,7 @@ export function increaseTime(utcTimeAndDate){
 
         return minutesWeekend.idosConstant
     }else {
-        console.log(utcTimeAndDate)
         const minutes = getByHourIdosSettings(utcTimeAndDate)
-        console.log(minutes)
         
         return minutes.idosConstant
     }
