@@ -50,8 +50,6 @@ export function getYear(utcTimeAndDate){
 export function shiftTimeAndDateUTC(utcTimeAndDate){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
     const increaseForMinutes = increaseTime(utcTimeAndDate)
-
-    console.log(increaseForMinutes)
    
     const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(increaseForMinutes, 'minutes')
 
@@ -66,8 +64,10 @@ export function increaseTime(utcTimeAndDate){
 
         return minutesWeekend.idosConstant
     }else {
+        console.log(utcTimeAndDate)
         const minutes = getByHourIdosSettings(utcTimeAndDate)
-    
+        console.log(minutes)
+        
         return minutes.idosConstant
     }
 }
