@@ -155,13 +155,14 @@ function encodeUrlParameter(value) {
 
 export async function sendNextIdos(id){
   const pole = await getUserById(id)
+  console.log(pole)
 
   if(pole){
     let text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to
     
     let utcTimeAndDate = pole[0].station.time
+    console.log(utcTimeAndDate)
     let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
-    console.log(shiftedTimeAndDateUTC)
 
     return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
   }else {
