@@ -27,7 +27,7 @@ function getDayOfTheWeek(utcTimeAndDate){
     return dayOfWeek
 }
 
-function getTime(utcTimeAndDate){
+export function getTime(utcTimeAndDate){
     const actualTime = moment(utcTimeAndDate)
     const shiftedTime = actualTime.add(1, 'hours')
     const formatedTime = shiftedTime.format('HH:mm')
@@ -35,7 +35,7 @@ function getTime(utcTimeAndDate){
     return formatedTime
 }
 
-function getDate(utcTimeAndDate){
+export function getDate(utcTimeAndDate){
     const actualDate = moment(utcTimeAndDate).format('D.M.YYYY')
     
     return actualDate
@@ -47,7 +47,7 @@ function getYear(utcTimeAndDate){
     return actualYear
 }
 
-function shiftTimeAndDateUTC(utcTimeAndDate){
+export function shiftTimeAndDateUTC(utcTimeAndDate){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
     const increaseForMinutes = increaseTime(utcTimeAndDate)
    
