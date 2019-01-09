@@ -39,6 +39,7 @@ export function initializeIdosTable (from, to, timeTravel, dateTravel) {
   }
 
  export function sendIdosAnswer(sender, text, utcTimeAndDate) {
+   console.log(utcTimeAndDate)
    const stops = transformTextForIdos(text)
 
    let from = encodeUrlParameter(stops[0])
