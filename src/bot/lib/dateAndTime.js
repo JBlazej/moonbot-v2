@@ -1,7 +1,7 @@
 import moment from 'moment'
 import {incrementTimeMinutes} from '../../conf/constant'
 
-export async function getTimeAndDateNow(utc){
+export function getTimeAndDateNow(utc){
     const newDate = utc ? utc : new Date()
     
     const time = getTime(newDate)

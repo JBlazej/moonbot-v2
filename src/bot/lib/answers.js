@@ -8,7 +8,6 @@ export const intro = [
 
 export function getStartedPayload(){
   let utc = getTimeAndDateNow()
-  console.log(utc.time)
   const result = [
     'Ahoj já jsem Moonbot.',
     'Dnes je ' + utc.time + ' hodin ' + utc.set.partOfDay + ' a jsem tu od toho abych ti pomáhal.'

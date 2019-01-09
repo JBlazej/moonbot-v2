@@ -155,7 +155,7 @@ function encodeUrlParameter(value) {
 
 export async function sendNextIdos(id){
   const pole = await getUserById(id)
-  console.log(pole)
+
 
   if(pole){
     let text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to
