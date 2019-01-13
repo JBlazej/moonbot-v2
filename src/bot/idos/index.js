@@ -11,34 +11,32 @@ import { loadingIDOS } from '../lib/answers'
 import { modifyUserById, getUserById } from '../../services/user'
 
 export function initializeIdosTable (from, to, timeTravel, dateTravel) {
-    let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
-    let result = []
-  
-    return new Promise( (resolve, reject) => {
-      request(url).then((html) => {
-  
-        const parseHtml = cheerio.load(html, { decodeEntities: false, normalizeWhitespace: true })
-        cheerioTableparser(parseHtml)
-  
-        // Parse data from Idos
-        const data = parseHtml('table tbody').attr('class', 'results').first().parsetable(true, true, true)
-        // 6 columns in 1 row
-        console.log(data)
+  let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
+  let result = []
 
-        for ( var j = 0; j < data[2].length; j++ ){
-          const parseTable = []
-  
-          for( var i = 2; i < data.length ; i++ ){
-            parseTable.push(data[i][j])
-          }
-  
-          result.push(parseTable)
+  return new Promise( (resolve, reject) => {
+    request(url).then((html) => {
+      const parseHtml = cheerio.load(html, { decodeEntities: false, normalizeWhitespace: true })
+      cheerioTableparser(parseHtml)
+      console.log(parseHtml)
+      // Parse data from Idos
+      const data = parseHtml('table tbody').attr('class', 'results').first().parsetable(true, true, true)
+      // 6 columns in 1 row
+      console.log(data)
+      for ( var j = 0; j < data[2].length; j++ ){
+        const parseTable = []
+
+        for( var i = 2; i < data.length ; i++ ){
+          parseTable.push(data[i][j])
         }
-        console.log(result)
-        resolve(result)
-      }).catch((err) => reject(err))
-    })
-  }
+
+        result.push(parseTable)
+      }
+
+      resolve(result)
+    }).catch((err) => reject(err))
+  })
+}
 
  export function sendIdosAnswer(sender, text, utcTimeAndDate) {
    const stops = transformTextForIdos(text)
