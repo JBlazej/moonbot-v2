@@ -32,7 +32,7 @@ export function initializeIdosTable (from, to, timeTravel, dateTravel) {
   
           result.push(parseTable)
         }
-
+        console.log(result)
         resolve(result)
       }).catch((err) => reject(err))
     })
@@ -46,14 +46,6 @@ export function initializeIdosTable (from, to, timeTravel, dateTravel) {
    
    let timeTravel = getTime(utcTimeAndDate)
    let dateTravel = getDate(utcTimeAndDate)
-
-   console.log(timeTravel)
-   console.log(dateTravel)
-
-   console.log(from)
-   console.log(to)
-
-
    
    sendMultipleMessages(sender, loadingIDOS)
    
@@ -61,7 +53,7 @@ export function initializeIdosTable (from, to, timeTravel, dateTravel) {
     initializePromise.then( (result) => {
         // Initialized table data
         const data = result
-        console.log(data)
+  
         let i = 0
   
         async.eachSeries(data, function(idosData, callback) {
