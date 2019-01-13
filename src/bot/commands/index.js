@@ -28,8 +28,8 @@ export async function commands (event) {
         break
 
         case 'spoj':
-        const utcObj = getTimeAndDateNow()    
-        sracka(webhookEvent.sender.id, incomeMessage, utcObj.utc)
+        const utcObj = getTimeAndDateNow() 
+        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObj.utc)
         break
 
         case 'translator': 
