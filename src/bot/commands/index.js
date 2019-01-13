@@ -1,6 +1,6 @@
 import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
 import { getTimeAndDateNow } from '../lib/dateAndTime'
-import { sendIdosAnswer } from '../idos'
+import { sendIdosAnswer, sracka } from '../idos'
 
 import { introIDOS, help, googleTranslator, googleMore } from '../lib/answers'
 import { templates } from '../lib/templates'
@@ -29,7 +29,7 @@ export async function commands (event) {
 
         case 'spoj':
         const utcObj = getTimeAndDateNow()    
-        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObj.utc)
+        sracka(webhookEvent.sender.id, incomeMessage, utcObj.utc)
         break
 
         case 'translator': 

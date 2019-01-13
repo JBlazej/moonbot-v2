@@ -3,6 +3,8 @@ import async from 'async'
 import cheerio from 'cheerio'
 import cheerioTableparser from 'cheerio-tableparser'
 
+import tabletojson from 'tabletojson'
+
 import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages'
 import { getTime, getDate, shiftTimeAndDateUTC } from '../lib/dateAndTime'
 import { templates } from '../lib/templates'
@@ -167,4 +169,101 @@ export async function sendNextIdos(id){
   }else {
     sendTextMessage(id, "Něco se pokazilo zkus to znovu :-(")
   }
+}
+
+function test(from, to, timeTravel, dateTravel){
+  let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`;
+  console.log(url)
+  return new Promise( (resolve, reject) => {
+        tabletojson.convertUrl(
+          url,
+          function(tablesAsJson) {
+              //console.log(tablesAsJson[1]);
+              resolve(tablesAsJson[1]);
+          }
+      );
+  })
+}
+
+
+
+
+export function sracka(sender, text, utcTimeAndDate) {
+  const stops = transformTextForIdos(text)
+
+  let from = encodeUrlParameter(stops[0])
+  let to = encodeUrlParameter(stops[1])
+   
+  let timeTravel = getTime(utcTimeAndDate)
+  let dateTravel = getDate(utcTimeAndDate)
+   
+  sendMultipleMessages(sender, loadingIDOS)
+
+  const initializePromise = test(from, to, timeTravel, dateTravel);
+  initializePromise.then((result) => {
+    const data = result;
+    let i = 0
+    
+    async.eachSeries(data, (idosData, callback) => {
+      if (i === data.length - 1) {
+        // Break out of async
+        var err = new Error('Broke out of async')
+        const pom = data.length
+        const splitInformation = []
+        splitInformation.push(data[pom-1])
+
+        let extraInformation = splitInformation[0]['Odkud/Přestup/Kam'].split(",",3).toString()
+        extraInformation += " Kč"
+
+        err.break = true
+
+        setTimeout(()=>{sendTextMessage(sender, extraInformation)}, 500)
+        setTimeout(()=>{sendGenMessage(sender, templates['get_test'])}, 700)
+        setTimeout(()=>{modifyUserById(sender, stops[0], stops[1], utcTimeAndDate)}, 900)
+
+        return callback(err)
+        }
+
+      setTimeout(() => {
+        let zastavka = idosData['Odkud/Přestup/Kam']
+        let prijezd = idosData['Příj.']
+        let odjezd  = idosData['Odj.']
+        let spoj = idosData['6']
+
+        if (odjezd.length === 0 || odjezd.length === 1){ odjezd = 'příjezd'; }
+        if (prijezd.length === 0 || prijezd.length === 1){ prijezd = 'odjezd'; }
+        if (spoj.length === 3){
+          spoj = ', autobusem č. ' + spoj
+        }
+          
+        if (spoj === 'A' || spoj === 'B' || spoj === 'C'){
+          spoj = ', metro ' + spoj
+        }
+          
+        if(spoj.length === 2 || spoj.length === 1){
+          spoj = ', tramvají č. ' + spoj
+        }
+          
+        if(spoj.charAt(0) === 'P'){
+          spoj = ', ' + spoj.toLowerCase()
+        }
+          
+        let val = isEven(i);
+          
+        if (val === false){
+          let message = zastavka + ' ' + odjezd + ' ' + prijezd + spoj 
+          sendTextMessage(sender, message)
+        } else {
+          let message2 = zastavka + ' ' + prijezd + ' ' + odjezd + spoj 
+          sendTextMessage(sender, message2)
+        }
+
+        i++
+        callback()
+        }, 800)
+      })
+      }, (err) => {
+        const text = ['Něco se pokazilo. :-(','Příkaz je ve tvaru: Spoj odkud do kam']
+        sendMultipleMessages(sender, text)
+    })
 }

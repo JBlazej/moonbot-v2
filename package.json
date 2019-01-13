@@ -35,7 +35,8 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "require-dir": "^1.1.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "tabletojson": "^1.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
