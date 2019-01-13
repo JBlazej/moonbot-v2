@@ -13,12 +13,10 @@ import { modifyUserById, getUserById } from '../../services/user'
 export function initializeIdosTable (from, to, timeTravel, dateTravel) {
     let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
     let result = []
-
-    console.log(url)
   
     return new Promise( (resolve, reject) => {
       request(url).then((html) => {
-        console.log(html)
+  
         const parseHtml = cheerio.load(html, { decodeEntities: false, normalizeWhitespace: true })
         cheerioTableparser(parseHtml)
   
