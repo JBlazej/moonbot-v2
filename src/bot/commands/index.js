@@ -1,6 +1,6 @@
 import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
 import { getTimeAndDateNow } from '../lib/dateAndTime'
-import { sendIdosAnswer, sracka } from '../idos'
+import { sendIdosAnswer } from '../idos'
 
 import { introIDOS, help, googleTranslator, googleMore } from '../lib/answers'
 import { templates } from '../lib/templates'

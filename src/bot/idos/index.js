@@ -1,8 +1,5 @@
 import request from 'request-promise'
 import async from 'async'
-import cheerio from 'cheerio'
-import cheerioTableparser from 'cheerio-tableparser'
-
 import tabletojson from 'tabletojson'
 
 import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages'
@@ -13,8 +10,8 @@ import { loadingIDOS } from '../lib/answers'
 import { modifyUserById, getUserById } from '../../services/user'
 
 function getDataFromIdos(from, to, timeTravel, dateTravel){
-  let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`;
-  console.log(url)
+  let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
+
   return new Promise( (resolve, reject) => {
         tabletojson.convertUrl(
           url,

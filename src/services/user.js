@@ -34,7 +34,6 @@ export async function getUserById (id) {
 }
 
 export async function modifyUserById (id, from, to, utcTimeAndDate) {
-    console.log(utcTimeAndDate)
     let data = {
         station: {
             from : from,
