@@ -123,7 +123,7 @@ function encodeUrlParameter(value) {
   	.replace(/\%20/g, '+')
 }
 
-export async function sendNextIdos(id){
+export async function sendNextIdos(id, shift){
   const pole = await getUserById(id)
 
   if(pole){
@@ -131,7 +131,7 @@ export async function sendNextIdos(id){
     
     let utcTimeAndDate = pole[0].station.time
 
-    let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate)
+    let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate, shift)
 
     return sendIdosAnswer(id, text, shiftedTimeAndDateUTC)
   }else {

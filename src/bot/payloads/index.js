@@ -25,7 +25,7 @@ export async function payloads(id, payload){
         break
 
         case 'idos-next':
-        sendNextIdos(id)
+        sendNextIdos(id, 10)
         break
 
         case 'idos-like':
@@ -81,6 +81,18 @@ export async function payloads(id, payload){
 
         case 'office-hours':
         sendOfficeHours(id)
+        break
+
+        case '10':
+        console.log('10')
+        break
+        
+        case '30':
+        console.log('30')
+        break
+
+        case '60':
+        console.log('60')
         break
 
         case 'ffu':

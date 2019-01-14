@@ -414,27 +414,22 @@ export const templates = {
 			}
     }
 	},
-	get_test:{
-		attachment:{
-      type: "template",
-			payload: {
-  			template_type: "button",
-  			text: "Našli jste svůj spoj?",
-  			buttons:[
-					{
-						type: "postback",
-            title: "Ano 👍",
-						payload: "idos-like"
-					},
-					{
-						type: "postback",
-            title: "Další spoj",
-						payload: "idos-next"
-					}
+get_test:{
+	attachment: {
+		type: "template",
+		payload: {
+			template_type: "button",
+			text: "Našli jste svůj spoj?",
+			buttons:[
+				{
+					type: "postback",
+            		title: "Další spoj",
+					payload: "idos-next"
+				}
   			]
-			}
-    }
-	},
+		}
+	}
+},
 	get_dormitories: {
 		attachment: {
 			type: "template",

@@ -47,27 +47,13 @@ export function getYear(utcTimeAndDate){
     return actualYear
 }
 
-export function shiftTimeAndDateUTC(utcTimeAndDate){
+export function shiftTimeAndDateUTC(utcTimeAndDate, shift){
     const actualTimeAndDateUTC = moment(utcTimeAndDate)
-    const increaseForMinutes = increaseTime(utcTimeAndDate)
+    const increaseForMinutes = shift
    
     const shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(increaseForMinutes, 'minutes')
 
     return shiftedTimeAndDateUTC
-}
-
-export function increaseTime(utcTimeAndDate){
-    const day = moment(utcTimeAndDate).format('dddd')
-
-    if(day === 'Saturday' || day === 'Sunday'){
-        const minutesWeekend = getByHourIdosSettings(utcTimeAndDate, 5)
-
-        return minutesWeekend.idosConstant
-    }else {
-        const minutes = getByHourIdosSettings(utcTimeAndDate)
-        
-        return minutes.idosConstant
-    }
 }
 
 export function getByHourIdosSettings(utcTimeAndDate, a){
