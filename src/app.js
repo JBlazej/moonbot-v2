@@ -104,6 +104,7 @@ app.use((err, req, res, next) => {
 //createOffice('0', 'bla', 'Nedelě', 'Zavřeno')
 
 //sendHeadAndRep('1')
+import { createDormitory } from './services/dormitory'
 createDormitory('2', 'Vltava', 'Dagmar Šolarová', 'dagmar.solarova@vse.cz', '+420 224 092 511', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/Kolej+Vltava/@50.0198809,14.4933567,17z/data=!3m1!4b1!4m5!3m4!1s0x470b922a1eea29e1:0x4403a577efccf6d5!8m2!3d50.0198809!4d14.4955454')
 createDormitory('3', 'Jarov I.', 'Petra Angerová', 'petra.angerova@vse.cz', '+420 224 092 197', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/kolej+Jarov+I/@50.0919837,14.4816273,17z/data=!3m1!4b1!4m5!3m4!1s0x470b9345d7594aa7:0x5054f325ab985a43!8m2!3d50.0919837!4d14.483816')
 createDormitory('4', 'Jarov I.E', 'Ing. Zuzana Chudobová', 'zuzana.chudobova@vse.cz', '+420 224 092 108', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/search/kolej+jarov+I.E/@50.0920282,14.4815833,17z/data=!3m1!4b1')
