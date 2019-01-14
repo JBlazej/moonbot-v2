@@ -414,7 +414,7 @@ export const templates = {
 			}
     }
 	},
-get_test:{
+get_next_idos:{
 	attachment: {
 		type: "template",
 		payload: {
@@ -423,8 +423,18 @@ get_test:{
 			buttons:[
 				{
 					type: "postback",
-            		title: "Další spoj",
-					payload: "idos-next"
+            		title: "Další + 10 min",
+					payload: "10"
+				},
+				{
+					type: "postback",
+            		title: "Další + 30 min",
+					payload: "30"
+				},
+				{
+					type: "postback",
+            		title: "Další + 1 hod",
+					payload: "60"
 				}
   			]
 		}

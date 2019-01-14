@@ -56,7 +56,7 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
         err.break = true
 
         setTimeout(()=>{sendTextMessage(sender, extraInformation)}, 500)
-        setTimeout(()=>{sendGenMessage(sender, templates['get_test'])}, 700)
+        setTimeout(()=>{sendGenMessage(sender, templates['get_next_idos'])}, 700)
         setTimeout(()=>{modifyUserById(sender, stops[0], stops[1], utcTimeAndDate)}, 900)
 
         return callback(err)

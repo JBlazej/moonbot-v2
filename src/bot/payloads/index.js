@@ -23,10 +23,6 @@ export async function payloads(id, payload){
         await sendGenMessage(id, templates['send_idos_intro'])
         break
 
-        case 'idos-next':
-        sendNextIdos(id, 10)
-        break
-
         case 'idos-like':
         const utcObject = getTimeAndDateNow()
         await incrementLikeInstance(utcObject.year, 1)
@@ -79,15 +75,15 @@ export async function payloads(id, payload){
         break
 
         case '10':
-        console.log('10')
+        sendNextIdos(id, 10)
         break
         
         case '30':
-        console.log('30')
+        sendNextIdos(id, 30)
         break
 
         case '60':
-        console.log('60')
+        sendNextIdos(id, 60)
         break
 
         case 'ffu':
