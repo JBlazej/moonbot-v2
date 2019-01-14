@@ -34,10 +34,6 @@ export async function payloads(id, payload){
         await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
         break
 
-        case 'hacker-intro':
-        //Neco
-        break
-
         case 'hacker-new-news':
         sendHackerNews(id)
         break
