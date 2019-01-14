@@ -419,21 +419,21 @@ get_next_idos:{
 		type: "template",
 		payload: {
 			template_type: "button",
-			text: "Našli jste svůj spoj?",
+			text: "Další spoj za",
 			buttons:[
 				{
 					type: "postback",
-            		title: "Další + 10 min",
+            		title: "10 minut",
 					payload: "10"
 				},
 				{
 					type: "postback",
-            		title: "Další + 30 min",
+            		title: "30 minut",
 					payload: "30"
 				},
 				{
 					type: "postback",
-            		title: "Další + 1 hod",
+            		title: "1 hodinu",
 					payload: "60"
 				}
   			]
