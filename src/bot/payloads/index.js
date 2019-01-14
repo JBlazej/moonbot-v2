@@ -1,5 +1,4 @@
 import {createNewUser, setHackerNews, setLanguage } from '../../services/user'
-import {incrementLikeInstance} from '../../services/like'
 
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {getStartedPayload, introIDOS} from '../lib/answers'
