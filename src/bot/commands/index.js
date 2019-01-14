@@ -9,6 +9,8 @@ import { sendTraslatedMessage } from '../google'
 
 import { sendNextOfficeHours } from '../vse'
 
+import {getUserById} from '../../services/user'
+
 export async function commands (event) {
     let webhookEvent = event
 

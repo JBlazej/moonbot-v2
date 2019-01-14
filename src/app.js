@@ -94,8 +94,8 @@ app.use((err, req, res, next) => {
     }
 })
 
-import { createOffice } from './services/office'
-createOffice('1', 'bla', 'Pondělí', '8:00-11:00, 13:00-15:00')
+// import { createOffice } from './services/office'
+// createOffice('1', 'bla', 'Pondělí', '8:00-11:00, 13:00-15:00')
 // createOffice('2', 'bla', 'Úterý', '8:00-11:00')
 // createOffice('3', 'bla', 'Středa', '13:00-15:00')
 // createOffice('4', 'bla', 'Čtvrtek', '8:00-11:00')
