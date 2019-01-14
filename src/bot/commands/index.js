@@ -7,6 +7,8 @@ import { templates } from '../lib/templates'
 
 import { sendTraslatedMessage } from '../google'
 
+import { sendNextOfficeHours } from '../vse'
+
 export async function commands (event) {
     let webhookEvent = event
 
@@ -55,6 +57,11 @@ export async function commands (event) {
 
         case 'jazyk':
         sendGenMessage(webhookEvent.sender.id, templates['get_language'])
+        break
+
+        case 'Ukázat':
+        const utcObject = getTimeAndDateNow()
+        await sendNextOfficeHours(webhookEvent.sender.id, utcObject.day)
         break
   
         case 'prvak':

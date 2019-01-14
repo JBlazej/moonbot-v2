@@ -340,6 +340,16 @@ export const templates = {
       }
     ]
 	},
+	send_hours:{
+		text: "Ostatní dny je otevřeno",
+	  quick_replies:[
+		{
+		  content_type: "text",
+		  title: "Ukázat",
+		  payload: "next-days"
+		}
+	  ]
+	  },
 	send_manual:{
 		attachment:{
 			type: "template",

@@ -67,43 +67,53 @@ export async function payloads(id, payload){
         break
 
         case 'head-and-representative-1':
-        sendHeadAndRep('1', id)
+        await sendHeadAndRep('1', id)
+        await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'head-and-representative-2':
-        sendHeadAndRep('2', id)
+        await sendHeadAndRep('2', id)
+        await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'head-and-representative-3':
-        sendHeadAndRep('3', id)
+        await sendHeadAndRep('3', id)
+        await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'head-and-representative-4':
-        sendHeadAndRep('4', id)
+        await sendHeadAndRep('4', id)
+        await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'head-and-representative-5':
-        sendHeadAndRep('5', id)
+        await sendHeadAndRep('5', id)
+        await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'head-and-representative-6':
-        sendHeadAndRep('6', id)
+        await sendHeadAndRep('6', id)
+        await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'head-and-representative-7':
         sendHeadAndRep('7', id)
+        await sendGenMessage(webhookEvent.sender.id, templates['send_hours'])
         break
 
         case 'head-and-representative-8':
         sendHeadAndRep('8', id)
+        await sendGenMessage(webhookEvent.sender.id, templates['send_hours'])
         break
 
         case 'head-and-representative-9':
         sendHeadAndRep('9', id)
+        await sendGenMessage(webhookEvent.sender.id, templates['send_hours'])
         break
 
         case 'office-hours':
-        sendOfficeHours(id)
+        let setDay = await getTimeAndDateNow()
+        sendOfficeHours(id, setDay.day)
         break
 
         case '10':
