@@ -50,3 +50,8 @@ export const loadingTranslator = [
 export const loadingIDOS = [
   'Váš spoj se vyhledává...'
 ]
+
+export const errorIDOS = [
+  'Špatný název zastávky.',
+  'Příkaz je ve tvaru: Spoj odkud do kam'
+]

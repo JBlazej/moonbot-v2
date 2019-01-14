@@ -5,7 +5,7 @@ import tabletojson from 'tabletojson'
 import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages'
 import { getTime, getDate, shiftTimeAndDateUTC } from '../lib/dateAndTime'
 import { templates } from '../lib/templates'
-import { loadingIDOS } from '../lib/answers'
+import { loadingIDOS, errorIDOS } from '../lib/answers'
 
 import { modifyUserById, getUserById } from '../../services/user'
 
@@ -31,15 +31,14 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
   let timeTravel = getTime(utcTimeAndDate)
   let dateTravel = getDate(utcTimeAndDate)
    
-  sendMultipleMessages(sender, loadingIDOS)
-
   const initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel)
   initializePromise.then((result) => {
     let data = result ? result : null 
 
       if( data === null){
-        const text = ['Špatný název zastávky.','Příkaz je ve tvaru: Spoj odkud do kam']
-        sendMultipleMessages(sender, text)
+        sendMultipleMessages(sender, errorIDOS)
+      } else {
+        sendMultipleMessages(sender, loadingIDOS)
       }
     let i = 0
     
@@ -101,9 +100,6 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
         callback()
         }, 800)
       })
-      }, (err) => {
-        const text = ['Něco se pokazilo. :-(','Příkaz je ve tvaru: Spoj odkud do kam']
-        sendMultipleMessages(sender, text)
     })
 }
 
