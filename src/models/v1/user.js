@@ -31,6 +31,10 @@ const UserSchema = new mongoose.Schema({
       type: Boolean,
       default: false
   },
+  college: {
+    type: String,
+    default: 'bla'
+  },
   language: {
     type: String,
     enum: supportedLanguages,

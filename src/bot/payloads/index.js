@@ -1,4 +1,4 @@
-import {createNewUser, setHackerNews, setLanguage } from '../../services/user'
+import {createNewUser, setHackerNews, setLanguage, setCollege } from '../../services/user'
 
 import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
 import {getStartedPayload, introIDOS} from '../lib/answers'
@@ -102,9 +102,59 @@ export async function payloads(id, payload){
         sendHeadAndRep('9', id)
         break
 
-        case 'office-hours':
+        case 'bla':
         let setDay = await getTimeAndDateNow()
-        await sendOfficeHours(id, setDay.day, 'bla')
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
+        await sendGenMessage(id, templates['send_hours'])
+        break
+
+        case 'vlt':
+        let setDay = await getTimeAndDateNow()
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
+        await sendGenMessage(id, templates['send_hours'])
+        break
+
+        case 'jarI':
+        let setDay = await getTimeAndDateNow()
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
+        await sendGenMessage(id, templates['send_hours'])
+        break
+
+        case 'jarIE':
+        let setDay = await getTimeAndDateNow()
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
+        await sendGenMessage(id, templates['send_hours'])
+        break
+
+        case 'jarII':
+        let setDay = await getTimeAndDateNow()
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
+        await sendGenMessage(id, templates['send_hours'])
+        break
+
+        case 'jarIIIF':
+        let setDay = await getTimeAndDateNow()
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
+        await sendGenMessage(id, templates['send_hours'])
+        break
+
+        case 'jarIIIG':
+        let setDay = await getTimeAndDateNow()
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
+        await sendGenMessage(id, templates['send_hours'])
+        break
+
+        case 'roo':
+        let setDay = await getTimeAndDateNow()
+        await setCollege(id, payload)
+        await sendOfficeHours(id, setDay.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 

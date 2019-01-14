@@ -470,7 +470,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "bla"
 							},
 							{
 								type: "postback",
@@ -498,7 +498,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "vlt"
 							},
 							{
 								type: "postback",
@@ -526,7 +526,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "jarI"
 							},
 							{
 								type: "postback",
@@ -554,7 +554,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "jarIE"
 							},
 							{
 								type: "postback",
@@ -582,7 +582,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "jarII"
 							},
 							{
 								type: "postback",
@@ -610,7 +610,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "jarIIIF"
 							},
 							{
 								type: "postback",
@@ -638,7 +638,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "jarIIIG"
 							},
 							{
 								type: "postback",
@@ -666,7 +666,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "roo"
 							},
 							{
 								type: "postback",
