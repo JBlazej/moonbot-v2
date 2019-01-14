@@ -104,5 +104,16 @@ app.use((err, req, res, next) => {
 //createOffice('0', 'bla', 'Nedelě', 'Zavřeno')
 
 //sendHeadAndRep('1')
-//createDormitory('1', 'Blanice', 'Miroslava Tichá', 'tichami@vse.cz', '+420 224 092 511', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 092 513', 'https://www.google.com/maps/place/Kolej+Blanice/@50.0198007,14.4956339,17z/data=!3m1!4b1!4m5!3m4!1s0x470b9229c94d6f2b:0x3427c9d8147fef0f!8m2!3d50.0197973!4d14.4978227')
+createDormitory('2', 'Vltava', 'Dagmar Šolarová', 'dagmar.solarova@vse.cz', '+420 224 092 511', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/Kolej+Vltava/@50.0198809,14.4933567,17z/data=!3m1!4b1!4m5!3m4!1s0x470b922a1eea29e1:0x4403a577efccf6d5!8m2!3d50.0198809!4d14.4955454')
+createDormitory('3', 'Jarov I.', 'Petra Angerová', 'petra.angerova@vse.cz', '+420 224 092 197', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/kolej+Jarov+I/@50.0919837,14.4816273,17z/data=!3m1!4b1!4m5!3m4!1s0x470b9345d7594aa7:0x5054f325ab985a43!8m2!3d50.0919837!4d14.483816')
+createDormitory('4', 'Jarov I.E', 'Ing. Zuzana Chudobová', 'zuzana.chudobova@vse.cz', '+420 224 092 108', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/search/kolej+jarov+I.E/@50.0920282,14.4815833,17z/data=!3m1!4b1')
+createDormitory('5', 'Jarov II.', 'Zuzana Fofoňková', 'zuzana.fofonkova@vse.cz', '+420 224 092 010', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/kolej+Jarov+II./@50.0906535,14.4919244,17z/data=!3m1!4b1!4m5!3m4!1s0x470b93384df452eb:0x9ac2a927e12384d8!8m2!3d50.0906535!4d14.4941131')
+createDormitory('6', 'Jarov III.F', 'Novotná Hana', 'hana.novotna@vse.cz	', '+420 224 092 313', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/Koleje+Jarov+III.+F/@50.0915304,14.4838884,17z/data=!3m1!4b1!4m5!3m4!1s0x470b93465c66b63f:0x89eb9abafd8070e9!8m2!3d50.0915304!4d14.4860771')
+createDormitory('7', 'Jarov III.G', 'Kateřina Vykuková', 'vykukovk@vse.cz', '+420 224 092 315', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/Vysok%C3%A1+%C5%A1kola+ekonomick%C3%A1+v+Praze+-+Kolej+Jarov+III.+G/@50.0914537,14.4810951,17z/data=!3m1!4b1!4m5!3m4!1s0x470b9345cef6982b:0x832087338635827a!8m2!3d50.0914537!4d14.4832838')
+createDormitory('8', 'Rooseveltova kolej', 'Hanáková Eva', 'hanakove@vse.cz', '+420 224 098 199', 'Petra Kowalská', 'petra.kowalska@vse.cz', '+420 224 098 695', 'https://www.google.com/maps/place/Rooseveltova+kolej/@50.1045145,14.4325107,17z/data=!3m1!4b1!4m5!3m4!1s0x470b94c971e317c1:0xf30b5a234d8b5045!8m2!3d50.1045145!4d14.4346994')
+
+
+
+
+
 export default app

@@ -66,8 +66,40 @@ export async function payloads(id, payload){
         sendGenMessage(id, templates['get_faculties'])
         break
 
-        case 'head-and-representative':
+        case 'head-and-representative-1':
         sendHeadAndRep('1', id)
+        break
+
+        case 'head-and-representative-2':
+        sendHeadAndRep('2', id)
+        break
+
+        case 'head-and-representative-3':
+        sendHeadAndRep('3', id)
+        break
+
+        case 'head-and-representative-4':
+        sendHeadAndRep('4', id)
+        break
+
+        case 'head-and-representative-5':
+        sendHeadAndRep('5', id)
+        break
+
+        case 'head-and-representative-6':
+        sendHeadAndRep('6', id)
+        break
+
+        case 'head-and-representative-7':
+        sendHeadAndRep('7', id)
+        break
+
+        case 'head-and-representative-8':
+        sendHeadAndRep('8', id)
+        break
+
+        case 'head-and-representative-9':
+        sendHeadAndRep('9', id)
         break
 
         case 'office-hours':

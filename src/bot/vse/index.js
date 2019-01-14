@@ -25,8 +25,6 @@ export async function sendOfficeHours(sender) {
         data[0].nameOfDay,
         data[0].opening
     ]
-
-    console.log(answer)
-
+    
     await sendMultipleMessages(sender, answer)
 }

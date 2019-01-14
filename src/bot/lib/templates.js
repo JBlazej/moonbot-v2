@@ -465,7 +465,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí koleje",
-								payload: "head-and-representative"
+								payload: "head-and-representative-1"
 							},
 							{
 								type: "web_url",
@@ -493,7 +493,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-2"
 							},
 							{
 								type: "postback",
@@ -521,7 +521,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-3"
 							},
 							{
 								type: "postback",
@@ -549,7 +549,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-4"
 							},
 							{
 								type: "postback",
@@ -577,7 +577,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-5"
 							},
 							{
 								type: "postback",
@@ -605,7 +605,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-6"
 							},
 							{
 								type: "postback",
@@ -633,7 +633,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-7"
 							},
 							{
 								type: "postback",
@@ -661,7 +661,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-8"
 							},
 							{
 								type: "postback",
@@ -689,7 +689,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative"
+								payload: "head-and-representative-9"
 							},
 							{
 								type: "postback",
