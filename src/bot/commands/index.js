@@ -60,8 +60,8 @@ export async function commands (event) {
         break
 
         case 'Ukázat':
-        const utcObject = getTimeAndDateNow()
-        await sendNextOfficeHours(webhookEvent.sender.id, utcObject.day)
+        const utcDay = getTimeAndDateNow()
+        await sendNextOfficeHours(webhookEvent.sender.id, utcDay.day)
         break
   
         case 'prvak':
