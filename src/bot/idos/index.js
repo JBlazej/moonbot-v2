@@ -12,13 +12,13 @@ import { modifyUserById, getUserById } from '../../services/user'
 function getDataFromIdos(from, to, timeTravel, dateTravel){
   let url = `https://jizdnirady.idnes.cz/praha/spojeni/?f=${from}&t=${to}&time=${timeTravel}&date=${dateTravel}&submit=true`
 
-  return new Promise( (resolve, reject) => {
+  return new Promise( (resolve) => {
         tabletojson.convertUrl(
           url,
           function(tablesAsJson) {
-              resolve(tablesAsJson[1])
+            resolve(tablesAsJson[1])
           }
-      ).catch((err) => reject(err))
+      )
   })
 }
 
@@ -33,9 +33,14 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
    
   sendMultipleMessages(sender, loadingIDOS)
 
-  const initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel);
+  const initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel)
   initializePromise.then((result) => {
-    const data = result;
+    let data = result ? result : null 
+
+      if( data === null){
+        const text = ['Špatný název zastávky.','Příkaz je ve tvaru: Spoj odkud do kam']
+        sendMultipleMessages(sender, text)
+      }
     let i = 0
     
     async.eachSeries(data, (idosData, callback) => {
