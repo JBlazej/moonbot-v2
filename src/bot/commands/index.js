@@ -59,7 +59,7 @@ export async function commands (event) {
         sendGenMessage(webhookEvent.sender.id, templates['get_language'])
         break
 
-        case 'Ukázat':
+        case 'ukázat':
         const utcDay = getTimeAndDateNow()
         await sendNextOfficeHours(webhookEvent.sender.id, utcDay.day)
         break
