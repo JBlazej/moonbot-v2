@@ -11,6 +11,8 @@ import {sendHackerNews} from '../hacker'
 import { sendHeadAndRep, sendOfficeHours } from '../vse'
 
 export async function payloads(id, payload){
+    const utcObject = getTimeAndDateNow()
+
     switch(payload) {
         case 'started-payload':
         await sendMultipleMessages(id, getStartedPayload())
@@ -24,7 +26,6 @@ export async function payloads(id, payload){
         break
 
         case 'idos-like':
-        const utcObject = getTimeAndDateNow()
         await incrementLikeInstance(utcObject.year, 1)
         await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
         break
@@ -103,58 +104,50 @@ export async function payloads(id, payload){
         break
 
         case 'bla':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'vlt':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'jarI':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'jarIE':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'jarII':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'jarIIIF':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'jarIIIG':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
         case 'roo':
-        let setDay = await getTimeAndDateNow()
         await setCollege(id, payload)
-        await sendOfficeHours(id, setDay.day, payload)
+        await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
         break
 
