@@ -15,9 +15,9 @@ export async function sendHeadAndRep(id, sender) {
 
 }
 
-export async function sendOfficeHours(sender, day) {
+export async function sendOfficeHours(sender, day, college) {
     let id = day
-    let data = await getOfficeById(id)
+    let data = await getOfficeById(id, college)
 
     let answer = [
         data[0].nameOfDay,
@@ -27,7 +27,7 @@ export async function sendOfficeHours(sender, day) {
     await sendMultipleMessages(sender, answer)
 }
 
-export async function sendNextOfficeHours(sender, dayNow){
+export async function sendNextOfficeHours(sender, dayNow, college){
 
     let remove = dayNow
 
@@ -39,6 +39,6 @@ export async function sendNextOfficeHours(sender, dayNow){
     }   
 
     for(var i in array){
-        await sendOfficeHours(sender, array[i])
+        await sendOfficeHours(sender, array[i], college)
     }
 }

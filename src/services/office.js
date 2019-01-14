@@ -14,8 +14,8 @@ export async function createOffice (id, college, name, time){
     return office
 }
 
-export async function getOfficeById (id) {
-    const office = Office.find({"id": id})
+export async function getOfficeById (id, coll) {
+    const office = Office.find({"id": id, "college": coll})
     
     return office
 }
