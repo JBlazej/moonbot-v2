@@ -50,8 +50,7 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
         const splitInformation = []
         splitInformation.push(data[pom-1])
 
-        let extraInformation = splitInformation[0]['Odkud/Přestup/Kam'].split(",",3).toString()
-        extraInformation += " Kč"
+        let extraInformation = splitInformation[0]['Odkud/Přestup/Kam'].split(",",1).toString()
 
         err.break = true
 
