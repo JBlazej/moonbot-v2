@@ -105,7 +105,7 @@ export async function payloads(id, payload){
         case 'office-hours':
         let setDay = await getTimeAndDateNow()
         await sendOfficeHours(id, setDay.day, 'bla')
-        await sendGenMessage(webhookEvent.sender.id, templates['send_hours'])
+        await sendGenMessage(id, templates['send_hours'])
         break
 
         case '10':

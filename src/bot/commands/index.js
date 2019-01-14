@@ -61,7 +61,7 @@ export async function commands (event) {
 
         case 'ukázat':
         const utcDay = getTimeAndDateNow()
-        await sendNextOfficeHours(webhookEvent.sender.id, utcDay.day)
+        await sendNextOfficeHours(webhookEvent.sender.id, utcDay.day, 'bla')
         break
   
         case 'prvak':
