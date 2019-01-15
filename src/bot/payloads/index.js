@@ -109,43 +109,7 @@ export async function payloads(id, payload){
         await sendGenMessage(id, templates['send_hours'])
         break
 
-        case 'vlt':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
-        break
-
-        case 'jarI':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
-        break
-
         case 'jarIE':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
-        break
-
-        case 'jarII':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
-        break
-
-        case 'jarIIIF':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
-        break
-
-        case 'jarIIIG':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
-        break
-
-        case 'roo':
         await setCollege(id, payload)
         await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])

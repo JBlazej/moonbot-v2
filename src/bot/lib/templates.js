@@ -341,11 +341,11 @@ export const templates = {
     ]
 	},
 	send_hours:{
-		text: "Ostatní dny je otevřeno",
+		text: "Koukni na další dny.",
 	  quick_replies:[
 		{
 		  content_type: "text",
-		  title: "Ukázat",
+		  title: "▼",
 		  payload: "next-days"
 		}
 	  ]
