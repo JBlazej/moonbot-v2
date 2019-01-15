@@ -429,7 +429,7 @@ get_next_idos:{
 		type: "template",
 		payload: {
 			template_type: "button",
-			text: "Další za",
+			text: "Najdi další spoj.",
 			buttons:[
 				{
 					type: "postback",
