@@ -498,17 +498,17 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "vlt"
+								payload: "bla"
 							},
 							{
 								type: "postback",
-								title: "Vedoucí a zástupce",
+								title: "Vedoucí koleje",
 								payload: "head-and-representative-2"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/place/Kolej+Vltava/@50.0198809,14.4933567,17z/data=!3m1!4b1!4m5!3m4!1s0x470b922a1eea29e1:0x4403a577efccf6d5!8m2!3d50.0198809!4d14.4955454",
+								title: "Adresa"
 							}
 						]
 					},
@@ -526,17 +526,17 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "jarI"
+								payload: "bla"
 							},
 							{
 								type: "postback",
-								title: "Vedoucí a zástupce",
+								title: "Vedoucí koleje",
 								payload: "head-and-representative-3"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/place/kolej+Jarov+I/@50.0919837,14.4816273,17z/data=!3m1!4b1!4m5!3m4!1s0x470b9345d7594aa7:0x5054f325ab985a43!8m2!3d50.0919837!4d14.483816",
+								title: "Adresa"
 							}
 						]
 					},
@@ -558,13 +558,13 @@ get_next_idos:{
 							},
 							{
 								type: "postback",
-								title: "Vedoucí a zástupce",
+								title: "Vedoucí koleje",
 								payload: "head-and-representative-4"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/search/kolej+jarov+I.E/@50.0920282,14.4815833,17z/data=!3m1!4b1",
+								title: "Adresa"
 							}
 						]
 					},
@@ -582,17 +582,17 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "jarII"
+								payload: "bla"
 							},
 							{
 								type: "postback",
-								title: "Vedoucí a zástupce",
+								title: "Vedoucí koleje",
 								payload: "head-and-representative-5"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/place/kolej+Jarov+II./@50.0906535,14.4919244,17z/data=!3m1!4b1!4m5!3m4!1s0x470b93384df452eb:0x9ac2a927e12384d8!8m2!3d50.0906535!4d14.4941131",
+								title: "Adresa"
 							}
 						]
 					},
@@ -610,17 +610,17 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "jarIIIF"
+								payload: "bla"
 							},
 							{
 								type: "postback",
-								title: "Vedoucí a zástupce",
+								title: "Vedoucí koleje",
 								payload: "head-and-representative-6"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/place/Koleje+Jarov+III.+F/@50.0915304,14.4838884,17z/data=!3m1!4b1!4m5!3m4!1s0x470b93465c66b63f:0x89eb9abafd8070e9!8m2!3d50.0915304!4d14.4860771",
+								title: "Adresa"
 							}
 						]
 					},
@@ -638,7 +638,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "jarIIIG"
+								payload: "bla"
 							},
 							{
 								type: "postback",
@@ -646,9 +646,9 @@ get_next_idos:{
 								payload: "head-and-representative-7"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/place/Vysok%C3%A1+%C5%A1kola+ekonomick%C3%A1+v+Praze+-+Kolej+Jarov+III.+G/@50.0914537,14.4810951,17z/data=!3m1!4b1!4m5!3m4!1s0x470b9345cef6982b:0x832087338635827a!8m2!3d50.0914537!4d14.4832838",
+								title: "Adresa"
 							}
 						]
 					},
@@ -666,7 +666,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "roo"
+								payload: "bla"
 							},
 							{
 								type: "postback",
@@ -674,9 +674,9 @@ get_next_idos:{
 								payload: "head-and-representative-8"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/place/Rooseveltova+kolej/@50.1045145,14.4325107,17z/data=!3m1!4b1!4m5!3m4!1s0x470b94c971e317c1:0xf30b5a234d8b5045!8m2!3d50.1045145!4d14.4346994",
+								title: "Adresa"
 							}
 						]
 					},
@@ -694,7 +694,7 @@ get_next_idos:{
 							{
 								type: "postback",
 								title: "Úřední hodiny",
-								payload: "office-hours"
+								payload: "bla"
 							},
 							{
 								type: "postback",
@@ -702,9 +702,9 @@ get_next_idos:{
 								payload: "head-and-representative-9"
 							},
 							{
-								type: "postback",
-								title: "Adresa",
-								payload: "adress"
+								type: "web_url",
+								url: "https://www.google.com/maps/place/Rooseveltova+kolej/@50.1045145,14.4325107,17z/data=!3m1!4b1!4m5!3m4!1s0x470b94c971e317c1:0xf30b5a234d8b5045!8m2!3d50.1045145!4d14.4346994",
+								title: "Adresa"
 							}
 						]
 					}
