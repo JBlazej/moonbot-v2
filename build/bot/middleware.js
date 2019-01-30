@@ -25,6 +25,7 @@ var botMessengerMiddleware = exports.botMessengerMiddleware = function () {
               }
             } else {
               // Payload
+              console.log(webhookEvent.postback.payload);
               (0, _payloads.payloads)(webhookEvent.sender.id, webhookEvent.postback.payload);
             }
 

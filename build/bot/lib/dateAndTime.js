@@ -8,7 +8,7 @@ exports.getTime = getTime;
 exports.getDate = getDate;
 exports.getYear = getYear;
 exports.shiftTimeAndDateUTC = shiftTimeAndDateUTC;
-exports.increaseTime = increaseTime;
+exports.getByHourIdosSettings = getByHourIdosSettings;
 
 var _moment = require('moment');
 
@@ -24,7 +24,7 @@ function getTimeAndDateNow(utc) {
     var time = getTime(newDate);
     var date = getDate(newDate);
     var year = getYear(newDate);
-
+    var day = getDayOfTheWeek(newDate);
     var set = getByHourIdosSettings(newDate);
 
     return {
@@ -32,8 +32,16 @@ function getTimeAndDateNow(utc) {
         time: time,
         date: date,
         year: year,
-        set: set
+        set: set,
+        day: day
     };
+}
+
+function getDayOfTheWeek(utcTimeAndDate) {
+    var actualTime = (0, _moment2.default)(utcTimeAndDate);
+    var dayOfWeek = actualTime.day();
+
+    return dayOfWeek;
 }
 
 function getTime(utcTimeAndDate) {
@@ -56,37 +64,20 @@ function getYear(utcTimeAndDate) {
     return actualYear;
 }
 
-function shiftTimeAndDateUTC(utcTimeAndDate) {
+function shiftTimeAndDateUTC(utcTimeAndDate, shift) {
     var actualTimeAndDateUTC = (0, _moment2.default)(utcTimeAndDate);
-    var increaseForMinutes = increaseTime(utcTimeAndDate);
+    var increaseForMinutes = shift;
 
     var shiftedTimeAndDateUTC = actualTimeAndDateUTC.add(increaseForMinutes, 'minutes');
 
     return shiftedTimeAndDateUTC;
 }
 
-function increaseTime(utcTimeAndDate) {
-    var day = (0, _moment2.default)(utcTimeAndDate).format('dddd');
-
-    if (day === 'Saturday' || day === 'Sunday') {
-        var minutesWeekend = getByHourIdosSettings(utcTimeAndDate, 5);
-
-        return minutesWeekend.idosConstant;
-    } else {
-        var minutes = getByHourIdosSettings(utcTimeAndDate);
-
-        return minutes.idosConstant;
-    }
-}
-
 function getByHourIdosSettings(utcTimeAndDate, a) {
     var actualTime = (0, _moment2.default)(utcTimeAndDate);
     var hour = actualTime.add(1, 'hours');
     var formatedHour = hour.format('H');
-
     var set = _constant.incrementTimeMinutes;
-
-    console.log(formatedHour);
 
     if (formatedHour === 0) {
         return {

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.sendNextIdos = undefined;
 
 var sendNextIdos = exports.sendNextIdos = function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(id, shift) {
     var pole, text, utcTimeAndDate, shiftedTimeAndDateUTC;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -25,7 +25,7 @@ var sendNextIdos = exports.sendNextIdos = function () {
 
             text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to;
             utcTimeAndDate = pole[0].station.time;
-            shiftedTimeAndDateUTC = (0, _dateAndTime.shiftTimeAndDateUTC)(utcTimeAndDate);
+            shiftedTimeAndDateUTC = (0, _dateAndTime.shiftTimeAndDateUTC)(utcTimeAndDate, shift);
             return _context.abrupt('return', sendIdosAnswer(id, text, shiftedTimeAndDateUTC));
 
           case 10:
@@ -39,12 +39,11 @@ var sendNextIdos = exports.sendNextIdos = function () {
     }, _callee, this);
   }));
 
-  return function sendNextIdos(_x) {
+  return function sendNextIdos(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
 
-exports.initializeIdosTable = initializeIdosTable;
 exports.sendIdosAnswer = sendIdosAnswer;
 
 var _requestPromise = require('request-promise');
@@ -55,13 +54,9 @@ var _async = require('async');
 
 var _async2 = _interopRequireDefault(_async);
 
-var _cheerio = require('cheerio');
+var _tabletojson = require('tabletojson');
 
-var _cheerio2 = _interopRequireDefault(_cheerio);
-
-var _cheerioTableparser = require('cheerio-tableparser');
-
-var _cheerioTableparser2 = _interopRequireDefault(_cheerioTableparser);
+var _tabletojson2 = _interopRequireDefault(_tabletojson);
 
 var _messages = require('../lib/messages');
 
@@ -77,32 +72,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-function initializeIdosTable(from, to, timeTravel, dateTravel) {
+function getDataFromIdos(from, to, timeTravel, dateTravel) {
   var url = 'https://jizdnirady.idnes.cz/praha/spojeni/?f=' + from + '&t=' + to + '&time=' + timeTravel + '&date=' + dateTravel + '&submit=true';
-  var result = [];
 
-  return new Promise(function (resolve, reject) {
-    (0, _requestPromise2.default)(url).then(function (html) {
-      var parseHtml = _cheerio2.default.load(html, { decodeEntities: false, normalizeWhitespace: true });
-      (0, _cheerioTableparser2.default)(parseHtml);
-
-      // Parse data from Idos
-      var data = parseHtml('table tbody').attr('class', 'results').first().parsetable(true, true, true);
-      // 6 columns in 1 row
-
-      for (var j = 0; j < data[2].length; j++) {
-        var parseTable = [];
-
-        for (var i = 2; i < data.length; i++) {
-          parseTable.push(data[i][j]);
-        }
-
-        result.push(parseTable);
-      }
-
-      resolve(result);
-    }).catch(function (err) {
-      return reject(err);
+  return new Promise(function (resolve) {
+    _tabletojson2.default.convertUrl(url, function (tablesAsJson) {
+      resolve(tablesAsJson[1]);
     });
   });
 }
@@ -116,17 +91,18 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
   var timeTravel = (0, _dateAndTime.getTime)(utcTimeAndDate);
   var dateTravel = (0, _dateAndTime.getDate)(utcTimeAndDate);
 
-  (0, _messages.sendMultipleMessages)(sender, _answers.loadingIDOS);
-
-  var initializePromise = initializeIdosTable(from, to, timeTravel, dateTravel);
+  var initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel);
   initializePromise.then(function (result) {
-    // Initialized table data
-    var data = result;
+    var data = result ? result : null;
 
+    if (data === null) {
+      (0, _messages.sendMultipleMessages)(sender, _answers.errorIDOS);
+    } else {
+      (0, _messages.sendMultipleMessages)(sender, _answers.loadingIDOS);
+    }
     var i = 0;
 
     _async2.default.eachSeries(data, function (idosData, callback) {
-
       if (i === data.length - 1) {
         // Break out of async
         var err = new Error('Broke out of async');
@@ -134,8 +110,7 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
         var splitInformation = [];
         splitInformation.push(data[pom - 1]);
 
-        var extraInformation = splitInformation[0][0].split(",", 3).toString();
-        extraInformation += " Kč";
+        var extraInformation = splitInformation[0]['Odkud/Přestup/Kam'].split(",", 1).toString();
 
         err.break = true;
 
@@ -143,7 +118,7 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
           (0, _messages.sendTextMessage)(sender, extraInformation);
         }, 500);
         setTimeout(function () {
-          (0, _messages.sendGenMessage)(sender, _templates.templates['get_test']);
+          (0, _messages.sendGenMessage)(sender, _templates.templates['get_next_idos']);
         }, 700);
         setTimeout(function () {
           (0, _user.modifyUserById)(sender, stops[0], stops[1], utcTimeAndDate);
@@ -153,10 +128,10 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
       }
 
       setTimeout(function () {
-        var zastavka = idosData[0];
-        var prijezd = idosData[1];
-        var odjezd = idosData[2];
-        var spoj = idosData[5];
+        var zastavka = idosData['Odkud/Přestup/Kam'];
+        var prijezd = idosData['Příj.'];
+        var odjezd = idosData['Odj.'];
+        var spoj = idosData['6'];
 
         if (odjezd.length === 0 || odjezd.length === 1) {
           odjezd = 'příjezd';
@@ -165,7 +140,6 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
           prijezd = 'odjezd';
         }
         if (spoj.length === 3) {
-
           spoj = ', autobusem č. ' + spoj;
         }
 
@@ -192,13 +166,9 @@ function sendIdosAnswer(sender, text, utcTimeAndDate) {
         }
 
         i++;
-
         callback();
       }, 800);
     });
-  }, function (err) {
-    var text = ['Něco se pokazilo. :-(', 'Příkaz je ve tvaru: Spoj odkud do kam'];
-    (0, _messages.sendMultipleMessages)(sender, text);
   });
 }
 

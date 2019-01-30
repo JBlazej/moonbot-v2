@@ -43,6 +43,10 @@ var UserSchema = new _mongoose2.default.Schema({
         type: Boolean,
         default: false
     },
+    college: {
+        type: String,
+        default: 'bla'
+    },
     language: {
         type: String,
         enum: supportedLanguages,

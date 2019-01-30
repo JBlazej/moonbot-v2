@@ -94,14 +94,16 @@ app.use((err, req, res, next) => {
     }
 })
 
-import { createOffice } from './services/office'
-createOffice('1', 'jarIE', 'Pondělí', '9:00-12:00')
-createOffice('2', 'jarIE', 'Úterý', '9:00-12:00')
-createOffice('3', 'jarIE', 'Středa', '13:00-15:00')
-createOffice('4', 'jarIE', 'Čtvrtek', '8:00-11:00')
-createOffice('5', 'jarIE', 'Pátek', '9:00-12:00')
-createOffice('6', 'jarIE', 'Sobota', 'Zavřeno')
-createOffice('0', 'jarIE', 'Nedelě', 'Zavřeno')
+//import { createOffice } from './bot/news'
+
+//import { createOffice } from './services/office'
+//createOffice('1', 'jarIE', 'Pondělí', '9:00-12:00')
+//createOffice('2', 'jarIE', 'Úterý', '9:00-12:00')
+//createOffice('3', 'jarIE', 'Středa', '13:00-15:00')
+//createOffice('4', 'jarIE', 'Čtvrtek', '8:00-11:00')
+//createOffice('5', 'jarIE', 'Pátek', '9:00-12:00')
+//createOffice('6', 'jarIE', 'Sobota', 'Zavřeno')
+//createOffice('0', 'jarIE', 'Nedelě', 'Zavřeno')
 
 // sendHeadAndRep('1')
 // import { createDormitory } from './services/dormitory'

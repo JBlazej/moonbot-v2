@@ -1,14 +1,15 @@
-import {createNewUser, setHackerNews, setLanguage, setCollege } from '../../services/user'
+import { createNewUser, setHackerNews, setLanguage, setCollege } from '../../services/user'
 
-import {sendTextMessage, sendMultipleMessages, sendGenMessage} from '../lib/messages'
-import {getStartedPayload, introIDOS} from '../lib/answers'
-import {templates} from '../lib/templates'
+import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
+import { getStartedPayload, introIDOS } from '../lib/answers'
+import { templates } from '../lib/templates'
 
-import {getTimeAndDateNow} from '../lib/dateAndTime'
+import { getTimeAndDateNow}  from '../lib/dateAndTime'
 
-import {sendNextIdos} from '../idos'
-import {sendHackerNews} from '../hacker'
+import { sendNextIdos } from '../idos'
+import { sendHackerNews } from '../hacker'
 import { sendHeadAndRep, sendOfficeHours } from '../vse'
+import { getFeed } from '../news'
 
 export async function payloads(id, payload){
     const utcObject = getTimeAndDateNow()
@@ -65,6 +66,10 @@ export async function payloads(id, payload){
 
         case 'faculties':
         sendGenMessage(id, templates['get_faculties'])
+        break
+
+        case 'vse-news':
+        getFeed(id, 0)
         break
 
         case 'head-and-representative-1':

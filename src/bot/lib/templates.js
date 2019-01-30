@@ -143,6 +143,11 @@ export const templates = {
 								type: "postback",
 								title: "Koleje",
 								payload: "colleges"
+							},
+							{
+								type: "postback",
+								title: "Novinky",
+								payload: "vse-news"
 							}
 						]
 					}
