@@ -90,40 +90,8 @@ export async function payloads(id, payload){
         await sendTitle(id)
         break
 
-        case 'head-and-representative-1':
-        await sendHeadAndRep('1', id)
-        break
-
-        case 'head-and-representative-2':
-        await sendHeadAndRep('2', id)
-        break
-
-        case 'head-and-representative-3':
-        await sendHeadAndRep('3', id)
-        break
-
-        case 'head-and-representative-4':
-        await sendHeadAndRep('4', id)
-        break
-
-        case 'head-and-representative-5':
-        await sendHeadAndRep('5', id)
-        break
-
-        case 'head-and-representative-6':
-        await sendHeadAndRep('6', id)
-        break
-
-        case 'head-and-representative-7':
-        sendHeadAndRep('7', id)
-        break
-
-        case 'head-and-representative-8':
-        sendHeadAndRep('8', id)
-        break
-
-        case 'head-and-representative-9':
-        sendHeadAndRep('9', id)
+        case 'head':
+        await sendHeadAndRep(id, formattedPayload[1])
         break
 
         case 'bla':

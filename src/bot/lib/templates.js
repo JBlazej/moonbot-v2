@@ -325,7 +325,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí koleje",
-								payload: "head-and-representative-1"
+								payload: "head-1"
 							},
 							{
 								type: "web_url",
@@ -353,7 +353,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí koleje",
-								payload: "head-and-representative-2"
+								payload: "head-2"
 							},
 							{
 								type: "web_url",
@@ -381,7 +381,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí koleje",
-								payload: "head-and-representative-3"
+								payload: "head-3"
 							},
 							{
 								type: "web_url",
@@ -409,7 +409,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí koleje",
-								payload: "head-and-representative-4"
+								payload: "head-4"
 							},
 							{
 								type: "web_url",
@@ -437,7 +437,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí koleje",
-								payload: "head-and-representative-5"
+								payload: "head-5"
 							},
 							{
 								type: "web_url",
@@ -465,7 +465,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí koleje",
-								payload: "head-and-representative-6"
+								payload: "head-6"
 							},
 							{
 								type: "web_url",
@@ -493,7 +493,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative-7"
+								payload: "head-7"
 							},
 							{
 								type: "web_url",
@@ -521,7 +521,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative-8"
+								payload: "head-8"
 							},
 							{
 								type: "web_url",
@@ -549,7 +549,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Vedoucí a zástupce",
-								payload: "head-and-representative-9"
+								payload: "head-9"
 							},
 							{
 								type: "web_url",
