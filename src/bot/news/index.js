@@ -42,7 +42,7 @@ export async function sendTitle(id){
                     }
                 }
             }
-            sendGenMessage(id, message)
+            await sendGenMessage(id, message)
         });
     });
     } else {
@@ -89,7 +89,7 @@ export async function sendDescription(id, off, par){
                 }
             }
 
-            sendGenMessage(id, message)
+            await sendGenMessage(id, message)
         });
     });
 }
