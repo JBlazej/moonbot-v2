@@ -18,7 +18,7 @@ export const templates = {
 						buttons: [
 							{
 								type: "postback",
-								title: "Řekni mi víc",
+								title: "Novinky",
 								payload: "ffu"
 							}
 						]
@@ -36,7 +36,7 @@ export const templates = {
 						buttons: [
 							{
 								type: "postback",
-								title: "Řekni mi víc",
+								title: "Novinky",
 								payload: "fmv"
 							}
 						]
@@ -54,7 +54,7 @@ export const templates = {
 						buttons: [
 							{
 								type: "postback",
-								title: "Řekni mi víc",
+								title: "Novinky",
 								payload: "fph"
 							}
 						]
@@ -72,7 +72,7 @@ export const templates = {
 						buttons: [
 							{
 								type: "postback",
-								title: "Řekni mi víc",
+								title: "Novinky",
 								payload: "fis"
 							}
 						]
@@ -90,7 +90,7 @@ export const templates = {
 						buttons: [
 							{
 								type: "postback",
-								title: "Řekni mi víc",
+								title: "Novinky",
 								payload: "nf"
 							}
 						]
@@ -108,7 +108,7 @@ export const templates = {
 						buttons: [
 							{
 								type: "postback",
-								title: "Řekni mi víc",
+								title: "Novinky",
 								payload: "fm"
 							}
 						]

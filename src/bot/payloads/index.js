@@ -1,4 +1,4 @@
-import { createNewUser, setLanguage, setCollege, setOffset } from '../../services/user'
+import { createNewUser, setLanguage, setCollege, setOffset, setURL } from '../../services/user'
 
 import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
 import { getStartedPayload, introIDOS } from '../lib/answers'
@@ -7,7 +7,6 @@ import { templates } from '../lib/templates'
 import { getTimeAndDateNow}  from '../lib/dateAndTime'
 
 import { sendNextIdos } from '../idos'
-import { sendHackerNews } from '../hacker'
 import { sendHeadAndRep, sendOfficeHours } from '../vse'
 import { sendTitle, sendDescription, incrementOffset } from '../news'
 
@@ -56,6 +55,43 @@ export async function payloads(id, payload){
 
         case 'article-vse':
         await setOffset(id, 0)
+        await setURL(id, 'vse')
+        await sendTitle(id)
+        break
+
+        case 'ffu':
+        await setOffset(id, 0)
+        await setURL(id, payload)
+        await sendTitle(id)
+        break
+
+        case 'fmv':
+        await setOffset(id, 0)
+        await setURL(id, payload)
+        await sendTitle(id)
+        break
+
+        case 'fph':
+        await setOffset(id, 0)
+        await setURL(id, payload)
+        await sendTitle(id)
+        break
+
+        case 'fis':
+        await setOffset(id, 0)
+        await setURL(id, payload)
+        await sendTitle(id)
+        break
+
+        case 'nf':
+        await setOffset(id, 0)
+        await setURL(id, payload)
+        await sendTitle(id)
+        break
+
+        case 'fm':
+        await setOffset(id, 0)
+        await setURL(id, payload)
         await sendTitle(id)
         break
 
