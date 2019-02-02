@@ -15,9 +15,7 @@ export async function sendTitle(id){
         const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
         
         request(url, (error, response, body) => {
-        if(body.length === 0){
-            console.log('error')
-        }
+        console.log(response)
         const xml = body.toString()
         
         parseString(xml, (err, result) => {
