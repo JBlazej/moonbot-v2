@@ -29,8 +29,8 @@ const UserSchema = new mongoose.Schema({
       }
   },
   offset: {
-    type: String,
-    default: '0'
+    type: Number,
+    default: 0
   },
   url: {
       type: String,

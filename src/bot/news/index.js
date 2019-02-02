@@ -1,6 +1,6 @@
 import request from 'request'
 import { parseString } from 'xml2js'
-import { sendMultipleMessages, sendGenMessage } from '../lib/messages'
+import { sendMultipleMessages, sendGenMessage, sendTextMessage } from '../lib/messages'
 
 import { getUserById } from '../../services/user'
 
@@ -10,14 +10,14 @@ export async function sendTitle(id){
     const param = user[0].url
     const offset = user[0].offset
 
-    console.log(user[0].offset)
-    console.log(user[0].url)
+    console.log(offset)
 
-    const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
+    if (offset < 3) {
+        const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
-    request(url, (error, response, body) => {
+        request(url, (error, response, body) => {
         const xml = body.toString()
-
+        
         parseString(xml, (err, result) => {
             const title = result.rss.channel[0].item[offset].title.toString()
     
@@ -42,14 +42,23 @@ export async function sendTitle(id){
                     }
                 }
             }
-
             sendGenMessage(id, message)
         });
     });
+    } else {
+        sendTextMessage(id, 'Žádné nové články.')
+    }
 }
 
-export async function sendDescription(id, offset, param){
-    const url = param ? 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss' : 'https://vse.cz/archiv/aktuality?feed=rss'
+export async function sendDescription(id){
+    const user = await getUserById(id)
+
+    const param = user[0].url
+    const offset = user[0].offset
+
+    console.log(offset)
+
+    const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
     request(url, (error, response, body) => {
         const xml = body.toString()
@@ -87,4 +96,15 @@ export async function sendDescription(id, offset, param){
             sendGenMessage(id, message)
         });
     });
+}
+
+export async function incrementOffset(id){
+    const user = await getUserById(id)
+
+    const offset = user[0].offset
+    offset++
+    console.log(offset)
+
+    return offset
+
 }
