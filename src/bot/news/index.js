@@ -25,7 +25,7 @@ export async function getFeed(id, offset, param){
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: title,
+                        text: modDescription,
                         buttons:[
                             {
                                 type: "postback",
@@ -34,7 +34,7 @@ export async function getFeed(id, offset, param){
                             },
                             {
                                 type: "postback",
-                                title: "Další",
+                                title: "Další článek",
                                 payload: "article-next",
                             }
                         ]
