@@ -13,6 +13,12 @@ import { sendTitle, sendDescription, incrementOffset } from '../news'
 export async function payloads(id, payload){
     const utcObject = getTimeAndDateNow()
 
+    let incomePayload = payload.toLowerCase().trim()
+    let formattedPayload = incomePayload.toString().split("-")
+
+    console.log(formattedPayload[0])
+    console.log(formattedPayload[1])
+
     switch(payload) {
         case 'started-payload':
         await sendMultipleMessages(id, getStartedPayload())
