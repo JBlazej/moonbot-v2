@@ -102,8 +102,8 @@ export async function incrementOffset(id){
     const user = await getUserById(id)
 
     const offset = user[0].offset
-    offset++
     console.log(offset)
+    console.log(typeof offset)
 
     return offset
 
