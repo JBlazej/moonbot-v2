@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 const supportedLanguages =['en', 'cs', 'de', 'es']
-const supportedURL =['vse', 'ffu', 'fmv', 'fph', 'fis', 'nf', 'fm']
+//const supportedURL =['vse', 'ffu', 'fmv', 'fph', 'fis', 'nf', 'fm']
 
 // USERS SCHEMA
 // -----------------------------------------------------------------------------
@@ -35,7 +35,6 @@ const UserSchema = new mongoose.Schema({
   },
   url: {
       type: String,
-      enum: supportedURL,
       default: 'vse'
   },
   language: {
