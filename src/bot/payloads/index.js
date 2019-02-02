@@ -42,6 +42,7 @@ export async function payloads(id, payload){
         case 'vse':
         await setOffset(id, 0)
         await setURL(id, payload)
+        
         await sendTitle(id)
         break
 

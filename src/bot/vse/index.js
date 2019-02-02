@@ -2,7 +2,7 @@ import { sendTextMessage, sendMultipleMessages } from '../lib/messages'
 import { getDormitoryById } from '../../services/dormitory'
 import { getOfficeById } from '../../services/office'
 
-export async function sendHeadAndRep(id, sender) {
+export async function sendHeadAndRep(sender, id) {
     let data = await getDormitoryById(id)
 
     let head = [

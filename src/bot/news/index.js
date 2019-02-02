@@ -31,7 +31,7 @@ export async function sendTitle(id){
                             {
                                 type: "postback",
                                 title: "Popis",
-                                payload: "article-description",
+                                payload: "article-" + offset,
                             },
                             {
                                 type: "web_url",
