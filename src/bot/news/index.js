@@ -2,7 +2,11 @@ import request from 'request'
 import { parseString } from 'xml2js'
 import { sendMultipleMessages, sendGenMessage } from '../lib/messages'
 
+import { getUserById } from '../../services/user'
+
 export async function sendTitle(id, offset, param){
+    const help = getUserById(id)
+    console.log(help)
     const url = param ? 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss' : 'https://vse.cz/archiv/aktuality?feed=rss'
 
     request(url, (error, response, body) => {

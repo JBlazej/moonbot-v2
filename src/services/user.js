@@ -1,9 +1,19 @@
 import mongoose from 'mongoose'
 import {User} from '../models/v1/user'
     
-export async function setHackerNews (id, param){
+export async function setOffset (id, param){
     let data = {
-        hacker : param
+        offset : param
+    }
+    
+    const user = User.findOneAndUpdate({id : id}, data, {new : true})
+
+    return user
+}
+
+export async function setURL (id, param){
+    let data = {
+        url : param
     }
     
     const user = User.findOneAndUpdate({id : id}, data, {new : true})

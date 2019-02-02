@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 const supportedLanguages =['en', 'cs', 'de', 'es']
+
 // USERS SCHEMA
 // -----------------------------------------------------------------------------
 const UserSchema = new mongoose.Schema({
@@ -27,13 +28,13 @@ const UserSchema = new mongoose.Schema({
           default: Date.now
       }
   },
-  hacker: {
-      type: Boolean,
-      default: false
-  },
-  college: {
+  offset: {
     type: String,
-    default: 'bla'
+    default: '0'
+  },
+  url: {
+      type: String,
+      default: 'vse'
   },
   language: {
     type: String,
