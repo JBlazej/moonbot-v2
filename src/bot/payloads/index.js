@@ -9,7 +9,7 @@ import { getTimeAndDateNow}  from '../lib/dateAndTime'
 import { sendNextIdos } from '../idos'
 import { sendHackerNews } from '../hacker'
 import { sendHeadAndRep, sendOfficeHours } from '../vse'
-import { getFeed } from '../news'
+import { sendTitle, sendDescription } from '../news'
 
 export async function payloads(id, payload){
     const utcObject = getTimeAndDateNow()
@@ -69,7 +69,15 @@ export async function payloads(id, payload){
         break
 
         case 'vse-news':
-        getFeed(id, 0)
+        sendTitle(id, 0)
+        break
+
+        case 'article-description':
+        sendDescription(id, 0)
+        break
+
+        case: 'article-next':
+        console.log('next')
         break
 
         case 'head-and-representative-1':
