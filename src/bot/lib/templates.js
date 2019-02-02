@@ -155,61 +155,21 @@ export const templates = {
 			}
 		}
 	},
-	send_img:{
-		attachment:{
-      type: "image",
-      payload:{
-        url: "https://moonbot-v2-front.herokuapp.com/bot/moonbot.jpg",
-        is_reusable: "TRUE"
-      }
-    }
-	},
-	send_gif:{
-		attachment:{
-      type: "image",
-      payload:{
-        url: "https://media.giphy.com/media/l3UcrqNnA3zZTavMA/giphy.gif",
-        is_reusable: "TRUE"
-      }
-    }
-	},
-	dormitories:{
-	 blanice:{
-		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/blanice.png",
-		 text: "Bla blaaa."
-	 },
-	 vltava:{
-		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/vltava.jpg",
-		 text: "Více bla bla."
-	 },
-	 jarov:{
-		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/jarov1.jpg",
-		 text: "Ještě bla bla."
-	 },
-	 roosveltova:{
-		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/roosevelt.jpg",
-		 text: "Tady bla bla."
-	 },
-	 sveco:{
-		 url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/dormitories/svecova.jpg",
-		 text: "Poslední bla."
-	 }
-	 },
-	 send_intro:{
-		 text: "Vyber jednu z možností.",
-		 quick_replies:[
+	send_intro: {
+		text: "Vyber jednu z možností.",
+		quick_replies:[
 			{
 				content_type: "text",
 				title: "VŠE",
 				payload: "hacker"
 			},
 
-		   {
-			   content_type: "text",
-			   title: "Spojení",
-			   payload: "spoj-intro"
-		   },
-		   {
+		   	{
+			   	content_type: "text",
+			   	title: "Spojení",
+			   	payload: "spoj-intro"
+		   	},
+		   	{
 				content_type: "text",
 		 		title: "Translator",
 				payload: "vse"
@@ -221,48 +181,6 @@ export const templates = {
 		   	}
 		]
 	},
-	send_info:{
-		text: "🌚",
-		quick_replies:[
-		   {
-			   content_type: "text",
-			   title: "Moonbot",
-			   payload: "moon-bot-intro",
-			   image_url: "http://moonbot-v2-front.herokuapp.com/moon"
-		   }
-		 ]
-   },
-	send_quick_help:{
-		text: "Nechtěl si napsat?",
-		quick_replies:[
-			{
-				content_type: "text",
-				title: "VŠE",
-				payload: "hacker"
-			},
-
-		   {
-			   content_type: "text",
-			   title: "Spojení",
-			   payload: "spoj-intro"
-		   },
-		   {
-				content_type: "text",
-		 		title: "Translator",
-				payload: "vse"
-			},
-			{
-				content_type: "text",
-				title: "Novinky",
-				payload: "news-intro"
-		   	},
-		   	{
-				content_type: "text",
-				title: "HackerNews",
-				payload: "vse-intro"
-		   }
-		]
-   },
 	send_idos_intro:{
 		text: "Spoj Volha do Hlavní nádraží",
 		quick_replies:[
@@ -273,88 +191,31 @@ export const templates = {
 		   }
 		 ]
    	},
-	send_quick:{
-  	text: "Moje oblíbené příkazy",
-    quick_replies:[
-			{
-        content_type: "text",
-        title: "Koleje",
-        payload: "koleje"
-
-	    },
-      {
-        content_type: "text",
-        title: "Hackernews",
-        payload: "hackernews"
-      },
-			{
-        content_type: "text",
-        title: "VSE",
-        payload: "quickvse"
-      },
-			{
-        content_type: "text",
-        title: "Fakulty",
-        payload: "faq"
-      },
-			{
-        content_type: "text",
-        title: "Spojeni",
-        payload: "spojeni"
-      }
-    ]
-	},
 	send_next_translator:{
-	text: "Nebo vyber jazyk překladu.",
-	  quick_replies:[
-			  {
-		  content_type: "text",
-		  title: "Ukaž",
-		  payload: "try-it"
-  
-		  },
-		{
-		  content_type: "text",
-		  title: "Jazyk",
-		  payload: "settings"
-		}
-	  ]
-	  },
-	send_help:{
-  	text: "Nechtěl si napsat?",
-    quick_replies:[
-      {
-        content_type: "text",
-        title: "Hackernews",
-        payload: "hackernews"
-      },
+		text: "Nebo vyber jazyk překladu.",
+	  	quick_replies:[
 			{
-        content_type: "text",
-        title: "InSIS",
-        payload: "isis"
-      },
+				content_type: "text",
+				title: "Ukaž",
+				payload: "try-it"
+			},
 			{
-        content_type: "text",
-        title: "Vtip",
-        payload: "vtip"
-      },
-			{
-        content_type: "text",
-        title: "Spojeni",
-        payload: "spojeni"
-      }
-    ]
+		  		content_type: "text",
+		  		title: "Jazyk",
+		  		payload: "settings"
+			}
+		]
 	},
 	send_hours:{
 		text: "Koukni na další dny.",
-	  quick_replies:[
-		{
-		  content_type: "text",
-		  title: "▼",
-		  payload: "next-days"
-		}
-	  ]
-	  },
+		quick_replies:[
+			{
+		  		ontent_type: "text",
+		  		title: "▼",
+		  		payload: "next-days"
+			}
+		]
+	},
 	get_article_title:{
 		attachment:{
 			type: "template",
@@ -397,64 +258,48 @@ export const templates = {
 			}
 		}
 	},
-	get_isis:{
-		attachment:{
-      type: "template",
-			payload: {
-  			template_type: "button",
-  			text: "Po kliknutí vstoupíš do integrovaného studijního informačního systémů 📕📘📗",
-  			buttons:[
-					{
-						type: "web_url",
-            url: "https://insis.vse.cz/auth/",
-            title: "Vstoupit"
-					}
-  			]
-			}
-    }
-	},
 	get_idos:{
 		attachment:{
-      type: "template",
+			type: "template",
 			payload: {
-  			template_type: "button",
-  			text: "Dokážu ti poradit nejrychlejší cestu 🚇 , 🚊, 🚌. po Praze. Koukni se na to jde to fakt rychle.",
-  			buttons:[
+				template_type: "button",
+				text: "Dokážu ti poradit nejrychlejší cestu 🚇 , 🚊, 🚌. po Praze. Koukni se na to jde to fakt rychle.",
+				buttons:[
 					{
 						type: "postback",
-            title: "Jak na to?",
+						title: "Jak na to?",
 						payload: "howToIdos"
 					}
-  			]
+				]
 			}
-    }
-	},
-get_next_idos:{
-	attachment: {
-		type: "template",
-		payload: {
-			template_type: "button",
-			text: "Najdi další spoj.",
-			buttons:[
-				{
-					type: "postback",
-            		title: "10 minut",
-					payload: "10"
-				},
-				{
-					type: "postback",
-            		title: "30 minut",
-					payload: "30"
-				},
-				{
-					type: "postback",
-            		title: "1 hodinu",
-					payload: "60"
-				}
-  			]
 		}
-	}
-},
+	},
+	get_next_idos:{
+		attachment: {
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Najdi další spoj.",
+				buttons:[
+					{
+						type: "postback",
+            			title: "10 minut",
+						payload: "10"
+					},
+					{
+						type: "postback",
+            			title: "30 minut",
+						payload: "30"
+					},
+					{
+						type: "postback",
+            			title: "1 hodinu",
+						payload: "60"
+					}
+				]
+			}
+		}
+	},
 	get_dormitories: {
 		attachment: {
 			type: "template",
@@ -710,33 +555,6 @@ get_next_idos:{
 								type: "web_url",
 								url: "https://www.google.com/maps/place/Rooseveltova+kolej/@50.1045145,14.4325107,17z/data=!3m1!4b1!4m5!3m4!1s0x470b94c971e317c1:0xf30b5a234d8b5045!8m2!3d50.1045145!4d14.4346994",
 								title: "Adresa"
-							}
-						]
-					}
-				]
-			}
-		}
-	},
-	get_jb:{
-		attachment: {
-			type: "template",
-			payload: {
-				template_type: "generic",
-				elements: [
-					{
-						title: "Jan Blažej",
-      			image_url: "https://raw.githubusercontent.com/JBlazej/Moonbot/master/assets/images/author.jpg",
-      			subtitle: "Tvůrce Moonbota,student VŠE a node js vývojář 💻",
-						buttons: [
-							{
-								type: "web_url",
-		            url: "https://github.com/JBlazej",
-		            title: "Moje práce"
-							},
-							{
-								type: "postback",
-								title: "Řekni něco o sobě",
-								payload: "sayAboutMe"
 							}
 						]
 					}

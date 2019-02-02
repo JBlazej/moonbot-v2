@@ -66,12 +66,7 @@ export async function commands (event) {
         const param = await getUserById(webhookEvent.sender.id)
         await sendNextOfficeHours(webhookEvent.sender.id, utcDay.day, param[0].college)
         break
-  
-        case 'prvak':
-        case 'prvák':
-        //sendGenMessage(webhookEvent.sender.id, templates['send_manual'])
-        break
-  
+        
         case 'fakulty':
         case 'fakulta':
         //sendGenMessage(webhookEvent.sender.id, templates['get_faculties'])
@@ -82,15 +77,6 @@ export async function commands (event) {
         //sendGenMessage(webhookEvent.sender.id, templates['get_dormitories'])
         break
   
-        case 'insis':
-        case 'isis':
-        //sendGenMessage(webhookEvent.sender.id, templates['get_isis'])
-        break
-  
-        case 'jb':
-        //sendGenMessage(webhookEvent.sender.id, templates['get_jb'])
-        break
-
         case 'napoveda':
         case 'nápověda':
         await sendMultipleMessages(webhookEvent.sender.id, help)
