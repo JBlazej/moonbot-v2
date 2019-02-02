@@ -355,7 +355,7 @@ export const templates = {
 		}
 	  ]
 	  },
-	send_manual:{
+	get_article_title:{
 		attachment:{
 			type: "template",
 			payload: {

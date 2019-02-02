@@ -1,6 +1,6 @@
 import request from 'request'
 import { parseString } from 'xml2js'
-import { sendMultipleMessages } from '../lib/messages'
+import { sendMultipleMessages, sendGenMessage } from '../lib/messages'
 
 export async function getFeed(id, offset, param){
     const url = param ? 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss' : 'https://vse.cz/archiv/aktuality?feed=rss'
@@ -20,7 +20,29 @@ export async function getFeed(id, offset, param){
                 modDescription
             ]
 
-            sendMultipleMessages(id, message)
+            let postback = {
+                attachment:{
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: title,
+                        buttons:[
+                            {
+                                type: "postback",
+                                title: "Popis",
+                                payload: "article-description",
+                            },
+                            {
+                                type: "postback",
+                                title: "Další",
+                                payload: "article-next",
+                            }
+                        ]
+                    }
+                }
+            }
+
+            sendGenMessage(id, postback)
         });
     });
 }
