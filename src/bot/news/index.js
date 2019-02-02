@@ -10,9 +10,8 @@ export async function sendTitle(id){
     const param = user[0].url
     const offset = user[0].offset
 
-    console.log(offset)
-
-    if (offset < 3) {
+    // Z API CHODÍ 10 ČLÁNKŮ
+    if (offset < 10) {
         const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
         request(url, (error, response, body) => {
@@ -56,8 +55,6 @@ export async function sendDescription(id){
     const param = user[0].url
     const offset = user[0].offset
 
-    console.log(offset)
-
     const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
     request(url, (error, response, body) => {
@@ -100,10 +97,9 @@ export async function sendDescription(id){
 
 export async function incrementOffset(id){
     const user = await getUserById(id)
-    const offset = user[0].offset + 1
+    const offset = user[0].offset < 10 ? user[0].offset + 1 : 10
 
     setOffset(id, offset)
 
     return offset
-
 }
