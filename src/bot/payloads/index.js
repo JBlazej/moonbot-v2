@@ -53,9 +53,9 @@ export async function payloads(id, payload){
         sendGenMessage(id, templates['get_faculties'])
         break
 
-        case 'article-vse':
+        case 'vse':
         await setOffset(id, 0)
-        await setURL(id, 'vse')
+        await setURL(id, payload)
         await sendTitle(id)
         break
 

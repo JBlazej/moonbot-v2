@@ -147,7 +147,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "article-vse"
+								payload: "vse"
 							}
 						]
 					}
@@ -161,7 +161,7 @@ export const templates = {
 			{
 				content_type: "text",
 				title: "VŠE",
-				payload: "hacker"
+				payload: "vse-template"
 			},
 
 		   	{
@@ -172,7 +172,7 @@ export const templates = {
 		   	{
 				content_type: "text",
 		 		title: "Translator",
-				payload: "vse"
+				payload: "translator-intro"
 			},
 			{
 				content_type: "text",
