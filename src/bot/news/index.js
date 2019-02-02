@@ -55,11 +55,11 @@ export async function sendTitle(id){
     }
 }
 
-export async function sendDescription(id, offset){
+export async function sendDescription(id, off){
     const user = await getUserById(id)
 
     const param = user[0].url
-    const offset = offset
+    const offset = off
 
     const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
