@@ -42,7 +42,6 @@ export async function payloads(id, payload){
         case 'vse':
         await setOffset(id, 0)
         await setURL(id, payload)
-        
         await sendTitle(id)
         break
 
@@ -82,11 +81,11 @@ export async function payloads(id, payload){
         await sendTitle(id)
         break
 
-        case 'article-description':
-        sendDescription(id)
+        case 'article':
+        sendDescription(id, formattedPayload[1])
         break
 
-        case 'article-next':
+        case 'next':
         await incrementOffset(id)
         await sendTitle(id)
         break

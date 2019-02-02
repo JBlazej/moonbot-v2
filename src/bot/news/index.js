@@ -41,7 +41,7 @@ export async function sendTitle(id){
                             {
                                 type: "postback",
                                 title: "Další článek",
-                                payload: "article-next",
+                                payload: "next",
                             }
                         ]
                     }
@@ -55,11 +55,11 @@ export async function sendTitle(id){
     }
 }
 
-export async function sendDescription(id){
+export async function sendDescription(id, offset){
     const user = await getUserById(id)
 
     const param = user[0].url
-    const offset = user[0].offset
+    const offset = offset
 
     const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
@@ -89,7 +89,7 @@ export async function sendDescription(id){
                             {
                                 type: "postback",
                                 title: "Další článek",
-                                payload: "article-next",
+                                payload: "next",
                             }
                         ]
                     }
