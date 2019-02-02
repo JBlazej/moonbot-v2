@@ -113,8 +113,7 @@ export async function sendQuickNews(id, message){
     } else {
         await setOffset(id, 0)
         const help = await setURL(id, formattedNews[1])
-        console.log(help)
-        console.log(typeof help)
+        
         await sendTitle(id)
     }
 }
