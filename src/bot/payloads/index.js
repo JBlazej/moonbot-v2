@@ -1,4 +1,4 @@
-import { createNewUser, setHackerNews, setLanguage, setCollege } from '../../services/user'
+import { createNewUser, setLanguage, setCollege, setOffset } from '../../services/user'
 
 import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
 import { getStartedPayload, introIDOS } from '../lib/answers'
@@ -31,20 +31,6 @@ export async function payloads(id, payload){
         await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
         break
 
-        case 'hacker-new-news':
-        sendHackerNews(id)
-        break
-
-        case 'hacker-subscribe':
-        setHackerNews(id, true)
-        sendTextMessage(id, 'Děkuj za tvůj odběr.')
-        break
-
-        case 'hacker-unsubscribe':
-        setHackerNews(id, false)
-        sendTextMessage(id, 'Nevadí tak kdyžtak příště.')
-        break
-
         case 'set-en':
         setLanguage(id, 'en')
         sendTextMessage(id, 'Jazyk nastaven.')
@@ -68,8 +54,9 @@ export async function payloads(id, payload){
         sendGenMessage(id, templates['get_faculties'])
         break
 
-        case 'vse-news':
-        sendTitle(id)
+        case 'article-vse':
+        await setOffset(id, 0)
+        await sendTitle(id)
         break
 
         case 'article-description':
@@ -139,51 +126,6 @@ export async function payloads(id, payload){
 
         case '60':
         sendNextIdos(id, 60)
-        break
-
-        case 'ffu':
-        break
-
-        case 'fmv':
-        break
-
-        case 'fph':
-        break
-
-        case 'fis':
-        break
-
-        case 'nf':
-        break
-
-        case 'fm':
-        break
-
-        case 'blanice':
-        break
-
-        case 'vltava':
-        break
-
-        case 'jarov1':
-        break
-
-        case 'jarov1E':
-        break
-
-        case 'jarov2':
-        break
-
-        case 'jarov3G':
-        break
-
-        case 'roos':
-        break
-
-        case 'svec':
-        break
-
-        case 'sayAboutMe':
         break
     }
 }
