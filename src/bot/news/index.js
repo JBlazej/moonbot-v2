@@ -4,10 +4,16 @@ import { sendMultipleMessages, sendGenMessage } from '../lib/messages'
 
 import { getUserById } from '../../services/user'
 
-export async function sendTitle(id, offset, param){
-    const help = await getUserById(id)
-    console.log(help)
-    const url = param ? 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss' : 'https://vse.cz/archiv/aktuality?feed=rss'
+export async function sendTitle(id){
+    const user = await getUserById(id)
+
+    const param = user[0].url
+    const offset = user[0].offset
+
+    console.log(user[0].offset)
+    console.log(user[0].url)
+
+    const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
     request(url, (error, response, body) => {
         const xml = body.toString()

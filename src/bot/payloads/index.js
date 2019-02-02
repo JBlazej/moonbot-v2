@@ -69,7 +69,7 @@ export async function payloads(id, payload){
         break
 
         case 'vse-news':
-        sendTitle(id, 0)
+        sendTitle(id)
         break
 
         case 'article-description':
