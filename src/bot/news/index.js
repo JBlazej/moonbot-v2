@@ -19,7 +19,7 @@ export async function sendTitle(id){
         
         parseString(xml, (err, result) => {
             const title = result.rss.channel[0].item[offset].title.toString()
-            const link = result.rss.channel[0].item[offset].link.toString()
+        
     
             let message = {
                 attachment:{
