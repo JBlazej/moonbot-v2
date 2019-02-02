@@ -19,35 +19,15 @@ export async function payloads(id, payload){
     console.log(formattedPayload[0])
     console.log(formattedPayload[1])
 
-    switch(payload) {
-        case 'started-payload':
+    switch(formattedPayload[0]) {
+        case 'started':
         await sendMultipleMessages(id, getStartedPayload())
         await sendGenMessage(id, templates['send_intro'])
         await createNewUser(id)
         break
 
-        case 'idos-intro':
-        await sendMultipleMessages(id, introIDOS)
-        await sendGenMessage(id, templates['send_idos_intro'])
-        break
-
-        case 'idos-like':
-        await incrementLikeInstance(utcObject.year, 1)
-        await sendTextMessage(id, 'Děkuju ti za tvé hodnocení a šťastnou cestu.')
-        break
-
-        case 'set-en':
-        setLanguage(id, 'en')
-        sendTextMessage(id, 'Jazyk nastaven.')
-        break
-
-        case 'set-de':
-        setLanguage(id, 'de')
-        sendTextMessage(id, 'Jazyk nastaven.')
-        break
-
-        case 'set-es':
-        setLanguage(id, 'es')
+        case 'set':
+        setLanguage(id, formattedPayload[1])
         sendTextMessage(id, 'Jazyk nastaven.')
         break
 
