@@ -19,7 +19,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "ffu"
+								payload: "facultie-ffu"
 							}
 						]
 					},
@@ -37,7 +37,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "fmv"
+								payload: "facultie-fmv"
 							}
 						]
 					},
@@ -55,7 +55,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "fph"
+								payload: "facultie-fph"
 							}
 						]
 					},
@@ -73,7 +73,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "fis"
+								payload: "facultie-fis"
 							}
 						]
 					},
@@ -91,7 +91,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "nf"
+								payload: "facultie-nf"
 							}
 						]
 					},
@@ -109,7 +109,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "fm"
+								payload: "facultie-fm"
 							}
 						]
 					}

@@ -45,39 +45,9 @@ export async function payloads(id, payload){
         await sendTitle(id)
         break
 
-        case 'ffu':
+        case 'facultie':
         await setOffset(id, 0)
-        await setURL(id, payload)
-        await sendTitle(id)
-        break
-
-        case 'fmv':
-        await setOffset(id, 0)
-        await setURL(id, payload)
-        await sendTitle(id)
-        break
-
-        case 'fph':
-        await setOffset(id, 0)
-        await setURL(id, payload)
-        await sendTitle(id)
-        break
-
-        case 'fis':
-        await setOffset(id, 0)
-        await setURL(id, payload)
-        await sendTitle(id)
-        break
-
-        case 'nf':
-        await setOffset(id, 0)
-        await setURL(id, payload)
-        await sendTitle(id)
-        break
-
-        case 'fm':
-        await setOffset(id, 0)
-        await setURL(id, payload)
+        await setURL(id, formattedPayload[1])
         await sendTitle(id)
         break
 
