@@ -2,7 +2,7 @@ import request from 'request'
 import { parseString } from 'xml2js'
 import { sendMultipleMessages, sendGenMessage, sendTextMessage } from '../lib/messages'
 
-import { getUserById, setOffset } from '../../services/user'
+import { getUserById, setOffset, setURL } from '../../services/user'
 
 export async function sendTitle(id){
     const user = await getUserById(id)
@@ -101,4 +101,19 @@ export async function incrementOffset(id){
     setOffset(id, offset)
 
     return offset
+}
+
+export async function sendQuickNews(id, message){
+    let incomeNews = message.toLowerCase().trim()
+    let formattedNews = incomeNews.toString().split(" ")
+
+    if(formattedNews.length === 1){
+        await setOffset(id, 0)
+        await sendTitle(id)
+    } else {
+        console.log('neco')
+        await setOffset(id, 0)
+        await setURL(id, formattedNews[1])
+        await sendTitle(id)
+    }
 }

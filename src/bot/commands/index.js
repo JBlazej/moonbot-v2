@@ -9,6 +9,8 @@ import { sendTraslatedMessage } from '../google'
 
 import { sendNextOfficeHours } from '../vse'
 
+import { sendQuickNews } from '../news'
+
 import {getUserById} from '../../services/user'
 
 export async function commands (event) {
@@ -75,6 +77,10 @@ export async function commands (event) {
         case 'koleje':
         case 'kolej':
         sendGenMessage(webhookEvent.sender.id, templates['get_dormitories'])
+        break
+
+        case 'novinky':
+        sendQuickNews(webhookEvent.sender.id, incomeMessage)
         break
   
         case 'napoveda':
