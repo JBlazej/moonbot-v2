@@ -112,13 +112,14 @@ export async function sendQuickNews(id, message){
         await sendTitle(id)
     } else {
         const supportedURL = ['vse', 'ffu', 'fmv', 'fph', 'fis', 'nf', 'fm']
-        const help = supportedURL.indexOf('vse')
-        const help2 = supportedURL.indexOf(formattedNews[1])
-        console.log(help)
-        console.log(help2)
-        await setOffset(id, 0)
-        await setURL(id, formattedNews[1])
+
+        if(supportedURL.indexOf(formattedNews[1]) === -1){
+            sendTextMessage(id, 'Špatně zadaný příkaz.')
+        } else {
+            await setOffset(id, 0)
+            await setURL(id, formattedNews[1])
         
-        await sendTitle(id)
+            await sendTitle(id)
+        }
     }
 }
