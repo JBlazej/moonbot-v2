@@ -112,7 +112,7 @@ export async function sendQuickNews(id, message){
         await sendTitle(id)
     } else {
         await setOffset(id, 0)
-        const help = await setURL(id, formattedNews[1])
+        await setURL(id, formattedNews[1])
         
         await sendTitle(id)
     }
