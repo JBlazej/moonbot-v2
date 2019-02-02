@@ -2,7 +2,7 @@ import request from 'request'
 import { parseString } from 'xml2js'
 import { sendMultipleMessages, sendGenMessage, sendTextMessage } from '../lib/messages'
 
-import { getUserById } from '../../services/user'
+import { getUserById, setOffset } from '../../services/user'
 
 export async function sendTitle(id){
     const user = await getUserById(id)
@@ -100,9 +100,9 @@ export async function sendDescription(id){
 
 export async function incrementOffset(id){
     const user = await getUserById(id)
-    console.log(user[0].offset)
     const offset = user[0].offset + 1
-    console.log(offset)
+
+    setOffset(id, offset)
 
     return offset
 
