@@ -147,7 +147,7 @@ export const templates = {
 							{
 								type: "postback",
 								title: "Novinky",
-								payload: "vse"
+								payload: "facultie-vse"
 							}
 						]
 					}
