@@ -34,11 +34,6 @@ export async function sendTitle(id){
                                 payload: "article-" + offset,
                             },
                             {
-                                type: "web_url",
-                                title: "Odkaz na článek",
-                                url: link,
-                            },
-                            {
                                 type: "postback",
                                 title: "Další článek",
                                 payload: "next",
