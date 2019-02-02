@@ -15,6 +15,9 @@ export async function sendTitle(id){
         const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
         
         request(url, (error, response, body) => {
+        if(!error){
+            console.log(error)
+        }
         const xml = body.toString()
         
         parseString(xml, (err, result) => {
@@ -111,7 +114,6 @@ export async function sendQuickNews(id, message){
         await setOffset(id, 0)
         await sendTitle(id)
     } else {
-        console.log('neco')
         await setOffset(id, 0)
         await setURL(id, formattedNews[1])
         await sendTitle(id)
