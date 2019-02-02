@@ -69,12 +69,12 @@ export async function commands (event) {
         
         case 'fakulty':
         case 'fakulta':
-        sendGenMessage(id, templates['get_faculties'])
+        sendGenMessage(webhookEvent.sender.id, templates['get_faculties'])
         break
   
         case 'koleje':
         case 'kolej':
-        sendGenMessage(id, templates['get_dormitories'])
+        sendGenMessage(webhookEvent.sender.id, templates['get_dormitories'])
         break
   
         case 'napoveda':

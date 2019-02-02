@@ -13,12 +13,13 @@ export async function sendTitle(id){
     // Z API CHODÍ 10 ČLÁNKŮ
     if (offset < 10) {
         const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
-
+        
         request(url, (error, response, body) => {
         const xml = body.toString()
         
         parseString(xml, (err, result) => {
             const title = result.rss.channel[0].item[offset].title.toString()
+            const link = result.rss.channel[0].item[offset].link.toString()
     
             let message = {
                 attachment:{
@@ -31,6 +32,11 @@ export async function sendTitle(id){
                                 type: "postback",
                                 title: "Popis",
                                 payload: "article-description",
+                            },
+                            {
+                                type: "web_url",
+                                title: "Odkaz na článek",
+                                url: link,
                             },
                             {
                                 type: "postback",
@@ -77,7 +83,7 @@ export async function sendDescription(id){
                         buttons:[
                             {
                                 type: "web_url",
-                                title: "Celý článek",
+                                title: "Odkaz na článek",
                                 url: link,
                             },
                             {
