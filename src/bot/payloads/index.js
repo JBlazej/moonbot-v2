@@ -76,7 +76,7 @@ export async function payloads(id, payload){
         sendDescription(id, 0)
         break
 
-        case: 'article-next':
+        case 'article-next':
         console.log('next')
         break
 
