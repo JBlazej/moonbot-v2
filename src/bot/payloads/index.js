@@ -37,7 +37,6 @@ export async function payloads(id, payload){
         break
 
         case 'facultie':
-        await setURL(id, formattedPayload[1])
         await sendTitle(id, 0, formattedPayload[1])
         break
 

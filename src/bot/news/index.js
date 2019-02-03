@@ -10,7 +10,7 @@ export async function sendTitle(id, off, url){
 
     // Z API CHODÍ 10 ČLÁNKŮ
     if (offset < 10) {
-        const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
+        const url = param === 'vse' || 'vše' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
         
         request(url, (error, response, body) => {
         const xml = body.toString()
@@ -54,7 +54,7 @@ export async function sendDescription(id, off, par){
     const param = par
     const offset = off
 
-    const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
+    const url = param === 'vse' || 'vše' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
     request(url, (error, response, body) => {
         const xml = body.toString()
@@ -96,31 +96,21 @@ export async function sendDescription(id, off, par){
     });
 }
 
-export async function incrementOffset(id){
-    const user = await getUserById(id)
-    const offset = user[0].offset < 10 ? user[0].offset + 1 : 10
-
-    setOffset(id, offset)
-
-    return offset
-}
-
 export async function sendQuickNews(id, message){
     let incomeNews = message.toLowerCase().trim()
     let formattedNews = incomeNews.toString().split(" ")
 
     if(formattedNews.length === 1){
         const user = await getUserById(id)
-        const param = user[0].url
+        const param = user[0].facultie
 
         await sendTitle(id, 0, param)
     } else {
-        const supportedURL = ['vse', 'ffu', 'fmv', 'fph', 'fis', 'nf', 'fm']
+        const supportedURL = ['vše','vse', 'ffu', 'fmv', 'fph', 'fis', 'nf', 'fm']
 
         if(supportedURL.indexOf(formattedNews[1]) === -1){
             sendTextMessage(id, 'Špatně zadaný příkaz.')
         } else {
-            await setURL(id, formattedNews[1])
             await sendTitle(id, 0, formattedNews[1])
         }
     }
