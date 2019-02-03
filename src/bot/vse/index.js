@@ -49,8 +49,9 @@ export async function sendNextOfficeHours(sender, dayNow, college){
 
 export async function sendVSETemplate(sender){
     const facultieTemplate = templates['fis'] 
-    const user = getUserById(sender)
+    const user = await getUserById(sender)
     
+    console.log(user)
     console.log(user[0].facultie)
     
     console.log(facultieTemplate)
