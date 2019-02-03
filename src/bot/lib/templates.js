@@ -561,5 +561,115 @@ export const templates = {
 				]
 			}
 		}
+	},
+	ffu: {
+			title: "Fakulta financí a účetnictví",
+			subtitle: "Obory financí, účetnictví a finanční řízení podniku.",
+			image_url: "https://moonbot-v2-front.herokuapp.com/bot/ffu.png",
+			default_action: {
+				type: "web_url",
+				url: "http://ffu.vse.cz",
+				messenger_extensions: "FALSE",
+				webview_height_ratio: "FULL"
+			},
+			buttons: [
+				{
+					type: "postback",
+					title: "Novinky",
+					payload: "facultie-ffu"
+				}
+			]
+	},
+	fmv: {
+			title: "Fakulta mezinárodních vztahů",
+			subtitle: "Obory mezinárodní ekonomické vztahy, cestovní ruch a mezinárodní politika.",
+			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fmv.png",
+			default_action: {
+				type: "web_url",
+				url: "http://fmv.vse.cz",
+				messenger_extensions: "FALSE",
+				webview_height_ratio: "FULL"
+			},
+			buttons: [
+				{
+					type: "postback",
+					title: "Novinky",
+					payload: "facultie-fmv"
+				}
+			]
+	},
+	fph: {
+			title: "Fakulta podnikohospodářská",
+			subtitle: "Obory podniková ekonomika a managment a Arts managment.",
+			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fph.png",
+			default_action: {
+				type: "web_url",
+				url: "http://fph.vse.cz",
+				messenger_extensions: "FALSE",
+				webview_height_ratio: "FULL"
+			},
+			buttons: [
+				{
+					type: "postback",
+					title: "Novinky",
+					payload: "facultie-fph"
+				}
+			]
+	},
+	fis: {
+			title: "Fakulta inforamtiky a statistiky",
+			subtitle: "Obory zabývající se informačními systémy s použitím počítačů a statistikou.",
+			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fis.png",
+			default_action: {
+				type: "web_url",
+				url: "http://fis.vse.cz",
+				messenger_extensions: "FALSE",
+				webview_height_ratio: "FULL"
+			},
+			buttons: [
+				{
+					type: "postback",
+					title: "Novinky",
+					payload: "facultie-fis"
+				}
+			]
+	},
+	nf: {
+
+			title: "Národohospodářská fakulta",
+			subtitle: "Obor ekonomie, národní hospodářství, veřejná správa a regionální rozvoj.",
+			image_url: "https://moonbot-v2-front.herokuapp.com/bot/nf.png",
+			default_action: {
+				type: "web_url",
+				url: "http://nf.vse.cz",
+				messenger_extensions: "FALSE",
+				webview_height_ratio: "FULL"
+			},
+			buttons: [
+				{
+					type: "postback",
+					title: "Novinky",
+					payload: "facultie-nf"
+				}
+			]
+	},
+	fm: {
+			title: "Fakulta managementu",
+			subtitle: "Obory ekonomika a managment.",
+			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fm.png",
+			default_action: {
+				type: "web_url",
+				url: "http://fm.vse.cz",
+				messenger_extensions: "FALSE",
+				webview_height_ratio: "FULL"
+			},
+			buttons: [
+				{
+					type: "postback",
+					title: "Novinky",
+					payload: "facultie-fm"
+				}
+			]
 	}
+
 }

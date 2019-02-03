@@ -7,7 +7,7 @@ import { templates } from '../lib/templates'
 
 import { sendTraslatedMessage } from '../google'
 
-import { sendNextOfficeHours } from '../vse'
+import { sendNextOfficeHours, sendVSETemplate } from '../vse'
 
 import { sendQuickNews } from '../news'
 
@@ -50,7 +50,7 @@ export async function commands (event) {
 
         case 'vse':
         case 'vše':
-        await sendGenMessage(webhookEvent.sender.id, templates['get_school'])
+        sendVSETemplate(webhookEvent.sender.id)
         break
 
         case 'ukaz':

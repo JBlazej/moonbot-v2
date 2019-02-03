@@ -1,6 +1,8 @@
-import { sendTextMessage, sendMultipleMessages } from '../lib/messages'
+import { sendGenMessage,sendMultipleMessages } from '../lib/messages'
 import { getDormitoryById } from '../../services/dormitory'
 import { getOfficeById } from '../../services/office'
+
+import { templates } from '../lib/templates'
 
 export async function sendHeadAndRep(sender, id) {
     let data = await getDormitoryById(id)
@@ -41,4 +43,54 @@ export async function sendNextOfficeHours(sender, dayNow, college){
     for(var i in array){
         await sendOfficeHours(sender, array[i], college)
     }
+}
+
+
+export async function sendVSETemplate(sender){
+    const facultieTemplate = templates['fis']
+    console.log(facultieTemplate)
+    console.log(typeof facultieTemplate)
+    
+    
+    let message = {
+		attachment: {
+			type: "template",
+			payload: {
+				template_type: "generic",
+				elements: [
+					{
+						title: "Vysoká škola ekonomická v Praze",
+      					image_url: "https://moonbot-v2-front.herokuapp.com/bot/vse.png",
+      					subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
+      					default_action: {
+        					type: "web_url",
+        					url: "www.vse.cz",
+        					messenger_extensions: "FALSE",
+        					webview_height_ratio: "FULL"
+						},
+						buttons: [
+							{
+								type: "postback",
+								title: "Fakulty",
+								payload: "faculties"
+							},
+							{
+								type: "postback",
+								title: "Koleje",
+								payload: "colleges"
+							},
+							{
+								type: "postback",
+								title: "Novinky",
+								payload: "facultie-vse"
+							}
+						]
+					},
+				]
+			}
+		}
+    }
+    
+    sendGenMessage(sender, message)
+
 }
