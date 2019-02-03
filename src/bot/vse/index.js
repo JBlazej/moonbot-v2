@@ -1,6 +1,7 @@
 import { sendGenMessage,sendMultipleMessages } from '../lib/messages'
 import { getDormitoryById } from '../../services/dormitory'
 import { getOfficeById } from '../../services/office'
+import { getUserById } from '../../services/user'
 
 import { templates } from '../lib/templates'
 
@@ -47,51 +48,59 @@ export async function sendNextOfficeHours(sender, dayNow, college){
 
 
 export async function sendVSETemplate(sender){
-    const facultieTemplate = templates['fis']
+    const facultieTemplate = templates['fis'] 
+    const user = getUserById(sender)
+    
+    console.log(user[0].facultie)
+    
     console.log(facultieTemplate)
     console.log(typeof facultieTemplate)
     
-    
-    let message = {
-		attachment: {
-			type: "template",
-			payload: {
-				template_type: "generic",
-				elements: [
-					{
-						title: "Vysoká škola ekonomická v Praze",
-      					image_url: "https://moonbot-v2-front.herokuapp.com/bot/vse.png",
-      					subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
-      					default_action: {
-        					type: "web_url",
-        					url: "www.vse.cz",
-        					messenger_extensions: "FALSE",
-        					webview_height_ratio: "FULL"
-						},
-						buttons: [
-							{
-								type: "postback",
-								title: "Fakulty",
-								payload: "faculties"
-							},
-							{
-								type: "postback",
-								title: "Koleje",
-								payload: "colleges"
-							},
-							{
-								type: "postback",
-								title: "Novinky",
-								payload: "facultie-vse"
-							}
-						]
-                    },
-                    facultieTemplate
-				]
-			}
-		}
+    if (user[0].facultie === 'vse'){
+        let message = {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [
+                        {
+                            title: "Vysoká škola ekonomická v Praze",
+                              image_url: "https://moonbot-v2-front.herokuapp.com/bot/vse.png",
+                              subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
+                              default_action: {
+                                type: "web_url",
+                                url: "www.vse.cz",
+                                messenger_extensions: "FALSE",
+                                webview_height_ratio: "FULL"
+                            },
+                            buttons: [
+                                {
+                                    type: "postback",
+                                    title: "Fakulty",
+                                    payload: "faculties"
+                                },
+                                {
+                                    type: "postback",
+                                    title: "Koleje",
+                                    payload: "colleges"
+                                },
+                                {
+                                    type: "postback",
+                                    title: "Novinky",
+                                    payload: "facultie-vse"
+                                }
+                            ]
+                        },
+                        facultieTemplate
+                    ]
+                }
+            }
+        }
+        
+        sendGenMessage(sender, message)
+    } else {
+        console.log('nope')
     }
     
-    sendGenMessage(sender, message)
 
 }

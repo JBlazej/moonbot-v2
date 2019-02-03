@@ -29,9 +29,9 @@ const UserSchema = new mongoose.Schema({
           default: Date.now
       }
   },
-  offset: {
-    type: Number,
-    default: 0
+  facultie: {
+    type: String,
+    default: 'vse'
   },
   url: {
       type: String,
