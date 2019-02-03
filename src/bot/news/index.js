@@ -5,11 +5,6 @@ import { sendGenMessage, sendTextMessage } from '../lib/messages'
 import { getUserById, setOffset, setURL } from '../../services/user'
 
 export async function sendTitle(id, off, url){
-    //const user = await getUserById(id)
-
-    //const param = user[0].url
-    //const offset = user[0].offset
-
     const param = url
     const offset = off
 
@@ -22,10 +17,9 @@ export async function sendTitle(id, off, url){
         
         parseString(xml, (err, result) => {
             const title = result.rss.channel[0].item[offset].title.toString()
+            
             const offsetToNumber = parseInt(offset, 10)
-
             const newOffset = offsetToNumber + 1
-            console.log(newOffset)
 
             let message = {
                 attachment:{
@@ -72,9 +66,8 @@ export async function sendDescription(id, off, par){
             const modDescription  = description.replace('[&#8230;]', '...')
             
             const offsetToNumber = parseInt(offset, 10)
-
             const newOffset = offsetToNumber + 1
-            console.log(newOffset)
+    
 
             let message = {
                 attachment:{
@@ -117,18 +110,18 @@ export async function sendQuickNews(id, message){
     let formattedNews = incomeNews.toString().split(" ")
 
     if(formattedNews.length === 1){
-        await setOffset(id, 0)
-        await sendTitle(id)
+        const user = await getUserById(id)
+        const param = user[0].url
+
+        await sendTitle(id, 0, param)
     } else {
         const supportedURL = ['vse', 'ffu', 'fmv', 'fph', 'fis', 'nf', 'fm']
 
         if(supportedURL.indexOf(formattedNews[1]) === -1){
             sendTextMessage(id, 'Špatně zadaný příkaz.')
         } else {
-            await setOffset(id, 0)
             await setURL(id, formattedNews[1])
-        
-            await sendTitle(id)
+            await sendTitle(id, 0, formattedNews[1])
         }
     }
 }

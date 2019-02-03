@@ -37,8 +37,7 @@ export async function payloads(id, payload){
         break
 
         case 'facultie':
-        //await setOffset(id, 0)
-        //await setURL(id, formattedPayload[1])
+        await setURL(id, formattedPayload[1])
         await sendTitle(id, 0, formattedPayload[1])
         break
 
@@ -47,7 +46,6 @@ export async function payloads(id, payload){
         break
 
         case 'next':
-        //await incrementOffset(id)
         await sendTitle(id, formattedPayload[1], formattedPayload[2])
         break
 
