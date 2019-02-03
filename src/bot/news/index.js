@@ -24,8 +24,9 @@ export async function sendTitle(id, off, url){
             const title = result.rss.channel[0].item[offset].title.toString()
             const newOffset = parseInt(offset, 10)
             
-            newOffset + 1
+            ++newOffset
             console.log(newOffset)
+            console.log(typeof newOffset)
 
             let message = {
                 attachment:{
@@ -73,7 +74,7 @@ export async function sendDescription(id, off, par){
             
             const newOffset = parseInt(offset, 10)
             
-            newOffset + 1
+            ++newOffset
             console.log(newOffset)
 
             let message = {
