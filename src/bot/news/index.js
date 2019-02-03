@@ -10,7 +10,7 @@ export async function sendTitle(id, off, url){
 
     // Z API CHODÍ 10 ČLÁNKŮ
     if (offset < 10) {
-        const url = param === 'vse' || 'vše' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
+        const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
         
         request(url, (error, response, body) => {
         const xml = body.toString()
@@ -54,7 +54,7 @@ export async function sendDescription(id, off, par){
     const param = par
     const offset = off
 
-    const url = param === 'vse' || 'vše' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
+    const url = param === 'vse' ? 'https://vse.cz/archiv/aktuality?feed=rss' : 'https://' + param + '.vse.cz/archiv/aktuality?feed=rss'
 
     request(url, (error, response, body) => {
         const xml = body.toString()
