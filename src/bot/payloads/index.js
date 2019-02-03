@@ -16,9 +16,6 @@ export async function payloads(id, payload){
     let incomePayload = payload.toLowerCase().trim()
     let formattedPayload = incomePayload.toString().split("-")
 
-    console.log(formattedPayload[0])
-    console.log(formattedPayload[1])
-
     switch(formattedPayload[0]) {
         case 'started':
         await sendMultipleMessages(id, getStartedPayload())
@@ -40,9 +37,9 @@ export async function payloads(id, payload){
         break
 
         case 'facultie':
-        await setOffset(id, 0)
-        await setURL(id, formattedPayload[1])
-        await sendTitle(id)
+        //await setOffset(id, 0)
+        //await setURL(id, formattedPayload[1])
+        await sendTitle(id, 0, formattedPayload[1])
         break
 
         case 'article':
@@ -50,8 +47,8 @@ export async function payloads(id, payload){
         break
 
         case 'next':
-        await incrementOffset(id)
-        await sendTitle(id)
+        //await incrementOffset(id)
+        await sendTitle(id, formattedPayload[1], formattedPayload[2])
         break
 
         case 'head':

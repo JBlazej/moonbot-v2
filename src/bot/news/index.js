@@ -1,14 +1,17 @@
 import request from 'request'
 import { parseString } from 'xml2js'
-import { sendMultipleMessages, sendGenMessage, sendTextMessage } from '../lib/messages'
+import { sendGenMessage, sendTextMessage } from '../lib/messages'
 
 import { getUserById, setOffset, setURL } from '../../services/user'
 
-export async function sendTitle(id){
-    const user = await getUserById(id)
+export async function sendTitle(id, off, param){
+    //const user = await getUserById(id)
 
-    const param = user[0].url
-    const offset = user[0].offset
+    //const param = user[0].url
+    //const offset = user[0].offset
+
+    const param = url
+    const offset = off
 
     // Z API CHODÍ 10 ČLÁNKŮ
     if (offset < 10) {
@@ -36,7 +39,7 @@ export async function sendTitle(id){
                             {
                                 type: "postback",
                                 title: "Další článek",
-                                payload: "next",
+                                payload: "next-" + offset + "-" + param + 1,
                             }
                         ]
                     }
@@ -65,8 +68,6 @@ export async function sendDescription(id, off, par){
             const description = result.rss.channel[0].item[offset].description.toString()
             const modDescription  = description.replace('[&#8230;]', '...')
 
-            console.log(modDescription.length)
-
             let message = {
                 attachment:{
                     type: "template",
@@ -82,7 +83,7 @@ export async function sendDescription(id, off, par){
                             {
                                 type: "postback",
                                 title: "Další článek",
-                                payload: "next",
+                                payload: "next-" + offset + "-" + param + 1,
                             }
                         ]
                     }
