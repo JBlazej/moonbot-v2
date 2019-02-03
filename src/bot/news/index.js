@@ -22,13 +22,10 @@ export async function sendTitle(id, off, url){
         
         parseString(xml, (err, result) => {
             const title = result.rss.channel[0].item[offset].title.toString()
-            const newOffset = parseInt(offset, 10)
-            
-            console.log(newOffset)
-            console.log(typeof newOffset)
+            const offsetToNumber = parseInt(offset, 10)
 
-            const help = newOffset + 1
-            console.log(help)
+            const newOffset = offsetToNumber + 1
+            console.log(newOffset)
 
             let message = {
                 attachment:{
@@ -74,8 +71,9 @@ export async function sendDescription(id, off, par){
             const description = result.rss.channel[0].item[offset].description.toString()
             const modDescription  = description.replace('[&#8230;]', '...')
             
-            const newOffset = parseInt(offset, 10)
-            
+            const offsetToNumber = parseInt(offset, 10)
+
+            const newOffset = offsetToNumber + 1
             console.log(newOffset)
 
             let message = {
