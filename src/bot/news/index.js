@@ -4,7 +4,7 @@ import { sendGenMessage, sendTextMessage } from '../lib/messages'
 
 import { getUserById, setOffset, setURL } from '../../services/user'
 
-export async function sendTitle(id, off, param){
+export async function sendTitle(id, off, url){
     //const user = await getUserById(id)
 
     //const param = user[0].url
