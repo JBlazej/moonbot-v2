@@ -20,6 +20,11 @@ export const templates = {
 								type: "postback",
 								title: "Novinky",
 								payload: "facultie-ffu"
+							},
+							{
+								type: "postback",
+								title: "Vybrat Fakulta",
+								payload: "subscribe-ffu"
 							}
 						]
 					},
@@ -38,6 +43,11 @@ export const templates = {
 								type: "postback",
 								title: "Novinky",
 								payload: "facultie-fmv"
+							},
+							{
+								type: "postback",
+								title: "Vybrat Fakulta",
+								payload: "subscribe-fmv"
 							}
 						]
 					},
@@ -56,6 +66,11 @@ export const templates = {
 								type: "postback",
 								title: "Novinky",
 								payload: "facultie-fph"
+							},
+							{
+								type: "postback",
+								title: "Vybrat Fakulta",
+								payload: "subscribe-fph"
 							}
 						]
 					},
@@ -74,6 +89,11 @@ export const templates = {
 								type: "postback",
 								title: "Novinky",
 								payload: "facultie-fis"
+							},
+							{
+								type: "postback",
+								title: "Vybrat Fakulta",
+								payload: "subscribe-fis"
 							}
 						]
 					},
@@ -92,6 +112,11 @@ export const templates = {
 								type: "postback",
 								title: "Novinky",
 								payload: "facultie-nf"
+							},
+							{
+								type: "postback",
+								title: "Vybrat Fakulta",
+								payload: "subscribe-nf"
 							}
 						]
 					},
@@ -110,6 +135,11 @@ export const templates = {
 								type: "postback",
 								title: "Novinky",
 								payload: "facultie-fm"
+							},
+							{
+								type: "postback",
+								title: "Vybrat Fakulta",
+								payload: "subscribe-fm"
 							}
 						]
 					}

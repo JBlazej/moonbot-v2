@@ -21,6 +21,16 @@ export async function setURL (id, param){
     return user
 }
 
+export async function setFacultie (id, param){
+    let data = {
+        facultie : param
+    }
+    
+    const user = User.findOneAndUpdate({id : id}, data, {new : true})
+
+    return user
+}
+
 export async function setCollege(id, param){
     let data = {
         college : param

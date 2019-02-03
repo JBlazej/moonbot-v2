@@ -1,10 +1,10 @@
-import { createNewUser, setLanguage, setCollege, setOffset, setURL } from '../../services/user'
+import { createNewUser, setLanguage, setCollege, setOffset, setURL , setFacultie} from '../../services/user'
 
 import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
 import { getStartedPayload, introIDOS } from '../lib/answers'
 import { templates } from '../lib/templates'
 
-import { getTimeAndDateNow}  from '../lib/dateAndTime'
+import { getTimeAndDateNow }  from '../lib/dateAndTime'
 
 import { sendNextIdos } from '../idos'
 import { sendHeadAndRep, sendOfficeHours } from '../vse'
@@ -39,6 +39,12 @@ export async function payloads(id, payload){
         case 'facultie':
         await setURL(id, formattedPayload[1])
         await sendTitle(id, 0, formattedPayload[1])
+        break
+
+        case 'subscribe':
+        await setFacultie(id, formattedPayload[1])
+        await sendTextMessage(id, 'Tvoje fakulta je ' + formattedPayload[1])
+        
         break
 
         case 'article':

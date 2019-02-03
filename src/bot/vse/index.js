@@ -136,6 +136,6 @@ export async function sendVSETemplate(sender){
             }
         }
 
-        sendGenMessage(sender, message)
+        sendGenMessage(sender, messageVSE)
     }
 }
