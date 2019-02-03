@@ -85,7 +85,8 @@ export async function sendVSETemplate(sender){
 								payload: "facultie-vse"
 							}
 						]
-					},
+                    },
+                    facultieTemplate
 				]
 			}
 		}
