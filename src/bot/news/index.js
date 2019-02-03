@@ -76,7 +76,6 @@ export async function sendDescription(id, off, par){
             
             const newOffset = parseInt(offset, 10)
             
-            ++newOffset
             console.log(newOffset)
 
             let message = {
