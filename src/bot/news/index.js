@@ -24,9 +24,11 @@ export async function sendTitle(id, off, url){
             const title = result.rss.channel[0].item[offset].title.toString()
             const newOffset = parseInt(offset, 10)
             
-            ++newOffset
             console.log(newOffset)
             console.log(typeof newOffset)
+
+            const help = newOffset + 1
+            console.log(help)
 
             let message = {
                 attachment:{
