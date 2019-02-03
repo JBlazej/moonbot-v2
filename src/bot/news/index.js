@@ -22,9 +22,10 @@ export async function sendTitle(id, off, url){
         
         parseString(xml, (err, result) => {
             const title = result.rss.channel[0].item[offset].title.toString()
-        
-            offset + 1
-            console.log(offset)
+            const newOffset = parseInt(offset, 10)
+            
+            newOffset + 1
+            console.log(newOffset)
 
             let message = {
                 attachment:{
@@ -41,7 +42,7 @@ export async function sendTitle(id, off, url){
                             {
                                 type: "postback",
                                 title: "Další článek",
-                                payload: "next-" + offset + "-" + param,
+                                payload: "next-" + newOffset + "-" + param,
                             }
                         ]
                     }
@@ -69,8 +70,12 @@ export async function sendDescription(id, off, par){
             
             const description = result.rss.channel[0].item[offset].description.toString()
             const modDescription  = description.replace('[&#8230;]', '...')
-            offset + 1
             
+            const newOffset = parseInt(offset, 10)
+            
+            newOffset + 1
+            console.log(newOffset)
+
             let message = {
                 attachment:{
                     type: "template",
@@ -86,7 +91,7 @@ export async function sendDescription(id, off, par){
                             {
                                 type: "postback",
                                 title: "Další článek",
-                                payload: "next-" + offset + "-" + param,
+                                payload: "next-" + newOffset + "-" + param,
                             }
                         ]
                     }
