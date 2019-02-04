@@ -8,7 +8,7 @@ export const templates = {
 					{
 						title: "Fakulta financí a účetnictví",
 						subtitle: "Obory financí, účetnictví a finanční řízení podniku.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/ffu.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/ffu.png",
 						default_action: {
 							type: "web_url",
 							url: "http://ffu.vse.cz",
@@ -31,7 +31,7 @@ export const templates = {
 					{
 						title: "Fakulta mezinárodních vztahů",
 						subtitle: "Obory mezinárodní ekonomické vztahy, cestovní ruch a mezinárodní politika.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fmv.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fmv.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fmv.vse.cz",
@@ -54,7 +54,7 @@ export const templates = {
 					{
 						title: "Fakulta podnikohospodářská",
 						subtitle: "Obory podniková ekonomika a managment a Arts managment.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fph.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fph.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fph.vse.cz",
@@ -77,7 +77,7 @@ export const templates = {
 					{
 						title: "Fakulta inforamtiky a statistiky",
 						subtitle: "Obory zabývající se informačními systémy s použitím počítačů a statistikou.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fis.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fis.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fis.vse.cz",
@@ -100,7 +100,7 @@ export const templates = {
 					{
 						title: "Národohospodářská fakulta",
 						subtitle: "Obor ekonomie, národní hospodářství, veřejná správa a regionální rozvoj.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/nf.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/nf.png",
 						default_action: {
 							type: "web_url",
 							url: "http://nf.vse.cz",
@@ -123,7 +123,7 @@ export const templates = {
 					{
 						title: "Fakulta managementu",
 						subtitle: "Obory ekonomika a managment.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/fm.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fm.png",
 						default_action: {
 							type: "web_url",
 							url: "http://fm.vse.cz",
@@ -155,7 +155,7 @@ export const templates = {
 				elements: [
 					{
 						title: "Vysoká škola ekonomická v Praze",
-      					image_url: "https://moonbot-v2-front.herokuapp.com/bot/vse.png",
+      					image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/vse.png",
       					subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
       					default_action: {
         					type: "web_url",
@@ -339,7 +339,7 @@ export const templates = {
 					{
 						title: "Kolej Blanice",
 						subtitle: "Kolej situována v areálu kolejí na Jižním Městě v Praze 4.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/blanice.png",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/blanice.png",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejblanice.vse.cz",
@@ -367,7 +367,7 @@ export const templates = {
 					{
 						title: "Kolej Vltava",
 						subtitle: "Kolej je situována v areálu kolejí na Jižním Městě v Praze 4.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/vltava.jpg",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/vltava.jpg",
 						default_action: {
 							type: "web_url",
 							url: "http://vltava.vse.cz",
@@ -395,7 +395,7 @@ export const templates = {
 					{
 						title: "Kolej Jarov I.",
 						subtitle: "Kolej je situován v areálu kolejí na Jarově v Praze 3 přímo na ulici Koněvova.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/jarov1.jpg",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/jarov1.jpg",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejjarov1.vse.cz",
@@ -423,7 +423,7 @@ export const templates = {
 					{
 						title: "Kolej Jarov I.E",
 						subtitle: "Kolej je situován v areálu kolejí na Jarově v Praze 3 přímo na ulici Koněvova.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/jarov1E.jpg",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/jarov1E.jpg",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejjarov1e.vse.cz",
@@ -451,7 +451,7 @@ export const templates = {
 					{
 						title: "Kolej Jarov II.",
 						subtitle: "Budova koleje Jarov II je situována v klidné bytové zástavbě.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/jarov2.jpg",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/jarov2.jpg",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejjarov2.vse.cz",
@@ -479,7 +479,7 @@ export const templates = {
 					{
 						title: "Kolej Jarov III.F",
 						subtitle: "Poloha koleje Jarov III F je pro studentské ubytování velmi výhodná.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/jarov3F.jpg",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/jarov3F.jpg",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejjarov3f.vse.cz",
@@ -507,7 +507,7 @@ export const templates = {
 					{
 						title: "Kolej Jarov III.G",
 						subtitle: "Budova postavená v roce 1977 v areálu kolejí na Jarově v Praze 3.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/jarov3G.jpg",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/jarov3G.jpg",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejjarov3g.vse.cz",
@@ -535,7 +535,7 @@ export const templates = {
 					{
 						title: "Rooseveltova kolej",
 						subtitle: "Kolej s kapacitou 373 lůžek v lokalitě v Praze 7 Holešovicích.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/roosevelt.jpg",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/roosevelt.jpg",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejrooseveltova.vse.cz",
@@ -563,7 +563,7 @@ export const templates = {
 					{
 						title: "Švecova kolej",
 						subtitle: "Kolej je umístěn ve středu Jindřichova Hradce.",
-						image_url: "https://moonbot-v2-front.herokuapp.com/bot/svecova.JPG",
+						image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/svecova.JPG",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejsvecova.fm.vse.cz",
@@ -595,7 +595,7 @@ export const templates = {
 	ffu: {
 			title: "Fakulta financí a účetnictví",
 			subtitle: "Obory financí, účetnictví a finanční řízení podniku.",
-			image_url: "https://moonbot-v2-front.herokuapp.com/bot/ffu.png",
+			image_url: "https://moonbot-v2-front.herokuapp.com/bot/v2/ffu.png",
 			default_action: {
 				type: "web_url",
 				url: "http://ffu.vse.cz",
@@ -613,7 +613,7 @@ export const templates = {
 	fmv: {
 			title: "Fakulta mezinárodních vztahů",
 			subtitle: "Obory mezinárodní ekonomické vztahy, cestovní ruch a mezinárodní politika.",
-			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fmv.png",
+			image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fmv.png",
 			default_action: {
 				type: "web_url",
 				url: "http://fmv.vse.cz",
@@ -631,7 +631,7 @@ export const templates = {
 	fph: {
 			title: "Fakulta podnikohospodářská",
 			subtitle: "Obory podniková ekonomika a managment a Arts managment.",
-			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fph.png",
+			image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fph.png",
 			default_action: {
 				type: "web_url",
 				url: "http://fph.vse.cz",
@@ -649,7 +649,7 @@ export const templates = {
 	fis: {
 			title: "Fakulta inforamtiky a statistiky",
 			subtitle: "Obory zabývající se informačními systémy s použitím počítačů a statistikou.",
-			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fis.png",
+			image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fis.png",
 			default_action: {
 				type: "web_url",
 				url: "http://fis.vse.cz",
@@ -668,7 +668,7 @@ export const templates = {
 
 			title: "Národohospodářská fakulta",
 			subtitle: "Obor ekonomie, národní hospodářství, veřejná správa a regionální rozvoj.",
-			image_url: "https://moonbot-v2-front.herokuapp.com/bot/nf.png",
+			image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/nf.png",
 			default_action: {
 				type: "web_url",
 				url: "http://nf.vse.cz",
@@ -686,7 +686,7 @@ export const templates = {
 	fm: {
 			title: "Fakulta managementu",
 			subtitle: "Obory ekonomika a managment.",
-			image_url: "https://moonbot-v2-front.herokuapp.com/bot/fm.png",
+			image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/fm.png",
 			default_action: {
 				type: "web_url",
 				url: "http://fm.vse.cz",
