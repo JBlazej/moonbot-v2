@@ -595,7 +595,7 @@ export const templates = {
 	ffu: {
 			title: "Fakulta financí a účetnictví",
 			subtitle: "Obory financí, účetnictví a finanční řízení podniku.",
-			image_url: "https://moonbot-v2-front.herokuapp.com/bot/v2/ffu.png",
+			image_url: "https://moonbot-v2-front.herokuapp.com/v2/bot/ffu.png",
 			default_action: {
 				type: "web_url",
 				url: "http://ffu.vse.cz",
