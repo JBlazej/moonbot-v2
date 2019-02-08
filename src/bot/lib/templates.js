@@ -23,7 +23,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Vybrat Fakulta",
+								title: "Vybrat Fakultu",
 								payload: "subscribe-ffu"
 							}
 						]
@@ -46,7 +46,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Vybrat Fakulta",
+								title: "Vybrat Fakultu",
 								payload: "subscribe-fmv"
 							}
 						]
@@ -69,7 +69,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Vybrat Fakulta",
+								title: "Vybrat Fakultu",
 								payload: "subscribe-fph"
 							}
 						]
@@ -92,7 +92,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Vybrat Fakulta",
+								title: "Vybrat Fakultu",
 								payload: "subscribe-fis"
 							}
 						]
@@ -115,7 +115,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Vybrat Fakulta",
+								title: "Vybrat Fakultu",
 								payload: "subscribe-nf"
 							}
 						]
@@ -138,7 +138,7 @@ export const templates = {
 							},
 							{
 								type: "postback",
-								title: "Vybrat Fakulta",
+								title: "Vybrat Fakultu",
 								payload: "subscribe-fm"
 							}
 						]
