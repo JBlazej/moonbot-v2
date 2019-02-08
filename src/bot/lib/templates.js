@@ -240,7 +240,7 @@ export const templates = {
 		text: "Koukni na další dny.",
 		quick_replies:[
 			{
-		  		ontent_type: "text",
+		  		content_type: "text",
 		  		title: "▼",
 		  		payload: "next-days"
 			}
