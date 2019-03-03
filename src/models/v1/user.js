@@ -33,9 +33,13 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: 'vse'
   },
-  url: {
-      type: String,
-      default: 'vse'
+  college: {
+    type: String,
+    default: 'bla'
+  },
+  count: {
+      type: Number,
+      default: 0
   },
   language: {
     type: String,
