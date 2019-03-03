@@ -44,8 +44,7 @@ app.set('port', (process.env.PORT || 3030))
  */
 app.listen(app.get("port"), () => {
     console.log(
-      "App is running at %u:%d in %s mode",
-      app.get('host'),
+      "App is running on port %d in %s mode",
       app.get("port"),
       app.get("env")
     )
