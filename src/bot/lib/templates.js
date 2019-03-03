@@ -572,6 +572,11 @@ export const templates = {
 					type: "postback",
 					title: "Novinky",
 					payload: "facultie-ffu"
+				},
+				{
+					type: "postback",
+					title: "Zrušit fakultu",
+					payload: "cancel"
 				}
 			]
 	},
@@ -590,6 +595,11 @@ export const templates = {
 					type: "postback",
 					title: "Novinky",
 					payload: "facultie-fmv"
+				},
+				{
+					type: "postback",
+					title: "Zrušit fakultu",
+					payload: "cancel"
 				}
 			]
 	},
@@ -608,6 +618,11 @@ export const templates = {
 					type: "postback",
 					title: "Novinky",
 					payload: "facultie-fph"
+				},
+				{
+					type: "postback",
+					title: "Zrušit fakultu",
+					payload: "cancel"
 				}
 			]
 	},
@@ -626,6 +641,11 @@ export const templates = {
 					type: "postback",
 					title: "Novinky",
 					payload: "facultie-fis"
+				},
+				{
+					type: "postback",
+					title: "Zrušit fakultu",
+					payload: "cancel"
 				}
 			]
 	},
@@ -645,6 +665,11 @@ export const templates = {
 					type: "postback",
 					title: "Novinky",
 					payload: "facultie-nf"
+				},
+				{
+					type: "postback",
+					title: "Zrušit fakultu",
+					payload: "cancel"
 				}
 			]
 	},
@@ -663,6 +688,11 @@ export const templates = {
 					type: "postback",
 					title: "Novinky",
 					payload: "facultie-fm"
+				},
+				{
+					type: "postback",
+					title: "Zrušit fakultu",
+					payload: "cancel"
 				}
 			]
 	}

@@ -27,7 +27,7 @@ export async function payloads(id, payload){
 
         case 'set':
         setLanguage(sender, formattedPayload[1])
-        sendTextMessage(sender, 'Jazyk nastaven.')
+        sendTextMessage(sender, 'Jazyk' + formattedPayload[1].toUpperCase() + 'byl nastaven.')
         break
 
         case 'colleges':
@@ -45,7 +45,11 @@ export async function payloads(id, payload){
         case 'subscribe':
         await setFacultie(sender, formattedPayload[1])
         await sendTextMessage(sender, 'Tvoje fakulta je ' + formattedPayload[1].toUpperCase())
-        
+        break
+
+        case 'cancel':
+        await setFacultie(sender, 'vse')
+        await sendTextMessage(sender, 'Tvoje fakulta byla zrušena.')
         break
 
         case 'article':
