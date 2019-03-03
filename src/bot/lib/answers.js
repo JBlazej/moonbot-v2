@@ -1,4 +1,4 @@
-import {getTimeAndDateNow} from './dateAndTime'
+import { getTimeAndDateNow } from './dateAndTime'
 
 export function getStartedPayload(){
   let utc = getTimeAndDateNow()

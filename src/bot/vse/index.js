@@ -1,9 +1,9 @@
 import { sendGenMessage,sendMultipleMessages } from '../lib/messages'
+import { templates } from '../lib/templates'
+
 import { getDormitoryById } from '../../services/dormitory'
 import { getOfficeById } from '../../services/office'
 import { getUserById } from '../../services/user'
-
-import { templates } from '../lib/templates'
 
 export async function sendHeadAndRep(sender, id) {
     let data = await getDormitoryById(id)

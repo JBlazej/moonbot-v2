@@ -1,4 +1,4 @@
-import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
+import { sendMultipleMessages, sendGenMessage } from '../lib/messages'
 import { getTimeAndDateNow } from '../lib/dateAndTime'
 import { introIDOS, help, googleTranslator, googleMore } from '../lib/answers'
 import { templates } from '../lib/templates'

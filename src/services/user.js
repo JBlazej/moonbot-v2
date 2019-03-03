@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 import {User} from '../models/v1/user'
     
 export async function setOffset (id, param){

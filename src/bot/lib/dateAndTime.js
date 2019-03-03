@@ -1,5 +1,4 @@
 import moment from 'moment'
-import {incrementTimeMinutes} from '../../conf/constant'
 
 export function getTimeAndDateNow(utc){
     const newDate = utc ? utc : new Date()
@@ -8,7 +7,7 @@ export function getTimeAndDateNow(utc){
     const date = getDate(newDate)
     const year = getYear(newDate)
     const day = getDayOfTheWeek(newDate)
-    const set = getByHourIdosSettings(newDate)
+    const set = getPartOfTheDay(newDate)
     
     return {
         utc : newDate, 
@@ -56,53 +55,46 @@ export function shiftTimeAndDateUTC(utcTimeAndDate, shift){
     return shiftedTimeAndDateUTC
 }
 
-export function getByHourIdosSettings(utcTimeAndDate, a){
+export function getPartOfTheDay(utcTimeAndDate){
     const actualTime = moment(utcTimeAndDate)
     const hour = actualTime.add(1, 'hours')
     const formatedHour = hour.format('H')
-    const set = incrementTimeMinutes
     
     if (formatedHour === 0) {
         return {
-            partOfDay: 'půlnoc',
-            idosConstant: a ? a + set.midnight : set.midnight
+            partOfDay: 'půlnoc'
         }
 
     }
 
     if (1 <= formatedHour && formatedHour < 9) {
         return {
-            partOfDay: 'ráno',
-            idosConstant: a ? a + set.morning : set.morning
+            partOfDay: 'ráno'
         }
 
     }
 
     if (9 <= formatedHour && formatedHour < 12) {
         return {
-            partOfDay: 'dopoledne',
-            idosConstant: a ? a + set.morning : set.morning
+            partOfDay: 'dopoledne'
         }
     }
 
     if (12 <= formatedHour && formatedHour < 17) {
         return {
-            partOfDay: 'odpoledne',
-            idosConstant: a ? a + set.afternoon : set.afternoon
+            partOfDay: 'odpoledne'
         }
     }
 
     if (17 <= formatedHour && formatedHour < 20 ) {
         return {
-            partOfDay: 'podvečer',
-            idosConstant: a ? a + set.early_evening : set.early_evening
+            partOfDay: 'podvečer'
         }
     }
 
     if (20 <= formatedHour && formatedHour < 24) {
         return {
-            partOfDay: 'večer',
-            idosConstant: a ? a + set.evening : set.evening
+            partOfDay: 'večer'
         }
     }
 }

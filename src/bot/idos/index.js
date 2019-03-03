@@ -1,4 +1,3 @@
-import request from 'request-promise'
 import async from 'async'
 import tabletojson from 'tabletojson'
 

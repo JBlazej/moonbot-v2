@@ -1,5 +1,6 @@
 import {commands} from './commands'
 import {payloads} from './payloads'
+
 import {sendTextMessage} from './lib/messages'
 
 export async function botMessengerMiddleware(event) {

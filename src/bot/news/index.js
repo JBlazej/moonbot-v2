@@ -1,8 +1,9 @@
 import request from 'request'
 import { parseString } from 'xml2js'
+
 import { sendGenMessage, sendTextMessage } from '../lib/messages'
 
-import { getUserById, setOffset, setURL } from '../../services/user'
+import { getUserById } from '../../services/user'
 
 export async function sendTitle(id, off, url){
     const param = url
