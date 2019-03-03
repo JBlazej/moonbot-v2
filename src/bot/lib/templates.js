@@ -1,4 +1,4 @@
-const URL_IMAGES = "https://moonbot-v2-front.herokuapp.com/v2/bot/"
+export const URL_IMAGES = "https://moonbot-v2-front.herokuapp.com/v2/bot/"
 
 export const templates = {
 	get_faculties: {
@@ -142,44 +142,6 @@ export const templates = {
 								type: "postback",
 								title: "Vybrat Fakultu",
 								payload: "subscribe-fm"
-							}
-						]
-					}
-				]
-			}
-		}
-	},
-	get_school:{
-		attachment: {
-			type: "template",
-			payload: {
-				template_type: "generic",
-				elements: [
-					{
-						title: "Vysoká škola ekonomická v Praze",
-      					image_url: URL_IMAGES+"vse.png",
-      					subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
-      					default_action: {
-        					type: "web_url",
-        					url: "www.vse.cz",
-        					messenger_extensions: "FALSE",
-        					webview_height_ratio: "FULL"
-						},
-						buttons: [
-							{
-								type: "postback",
-								title: "Fakulty",
-								payload: "faculties"
-							},
-							{
-								type: "postback",
-								title: "Koleje",
-								payload: "colleges"
-							},
-							{
-								type: "postback",
-								title: "Novinky",
-								payload: "facultie-vse"
 							}
 						]
 					}

@@ -46,6 +46,7 @@ export async function sendNextOfficeHours(sender, dayNow, college){
     }
 }
 
+import { URL_IMAGES } from '../lib/templates'
 
 export async function sendVSETemplate(sender){
     const user = await getUserById(sender)
@@ -61,7 +62,7 @@ export async function sendVSETemplate(sender){
                     elements: [
                         {
                             title: "Vysoká škola ekonomická v Praze",
-                              image_url: "https://moonbot-v2-front.herokuapp.com/bot/vse.png",
+                              image_url: URL_IMAGES + "vse.png",
                               subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
                               default_action: {
                                 type: "web_url",
@@ -105,7 +106,7 @@ export async function sendVSETemplate(sender){
                     elements: [
                         {
                             title: "Vysoká škola ekonomická v Praze",
-                              image_url: "https://moonbot-v2-front.herokuapp.com/bot/vse.png",
+                              image_url: URL_IMAGES + "vse.png",
                               subtitle: "Základní informace o škole, kde jsem byl vytvořen.",
                               default_action: {
                                 type: "web_url",
