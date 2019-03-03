@@ -5,6 +5,7 @@ import serveFavicon from 'serve-favicon'
 import sslRedirect from 'heroku-ssl-redirect'
 import cookieParser from 'cookie-parser'
 import path from 'path'
+
 import router from './router'
 import {connectDB} from './models'
 import {sigtermBE, sigtermFE} from './services/sigterm'
