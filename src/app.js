@@ -42,13 +42,11 @@ app.set('port', (process.env.PORT || 3030))
  * Run Express server
  * 
  */
-const HOST = process.env.HOST
-const PORT = process.env.PORT
-const ENV = process.env.ENV
-
 app.listen(app.get("port"), () => {
     console.log(
-      "App is running on " + HOST + "/" + PORT + " in " + ENV + "mode"
+      "App is running on port %d in %s mode",
+      app.get("port"),
+      app.get("env")
     )
 })
 
