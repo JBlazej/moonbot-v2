@@ -1,24 +1,24 @@
-import {commands} from './commands'
-import {payloads} from './payloads'
+import { commands } from './commands';
+import { payloads } from './payloads';
 
-import {sendTextMessage} from './lib/messages'
+import { sendTextMessage } from './lib/messages';
 
 export async function botMessengerMiddleware(event) {
-  let webhookEvent = event
-  
-  if(webhookEvent.message) {
-    if(webhookEvent.message.text) {
-      // Text
-      commands(webhookEvent)
-    }else {
-      // Attachments or likes
-      sendTextMessage(webhookEvent.sender.id, 'O tomhle nic moc nevím...')
-    }
-  }else {
-    // Payload
-    console.log(webhookEvent.postback.payload)
-    payloads(webhookEvent.sender.id, webhookEvent.postback.payload)
-  }
+	let webhookEvent = event;
+
+	if (webhookEvent.message) {
+		if (webhookEvent.message.text) {
+			// Text
+			commands(webhookEvent);
+		} else {
+			// Attachments or likes
+			sendTextMessage(webhookEvent.sender.id, 'O tomhle nic moc nevím...');
+		}
+	} else {
+		// Payload
+		console.log(webhookEvent.postback.payload);
+		payloads(webhookEvent.sender.id, webhookEvent.postback.payload);
+	}
 }
 
 // Likes
