@@ -1,4 +1,4 @@
-export const URL_IMAGES = "https://moonbot-v2-front.herokuapp.com/v2/bot/"
+export const URL_IMAGES = "https://moonbot-v2-front.herokuapp.com/v1/bot/"
 const phoneNumber = "+420724937056"
 
 export const templates = {
@@ -304,7 +304,7 @@ export const templates = {
 					{
 						title: "Kolej Blanice",
 						subtitle: "Kolej situována v areálu kolejí na Jižním Městě v Praze 4.",
-						image_url: URL_IMAGES+"blanice.png",
+						image_url: URL_IMAGES + "blanice.png",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejblanice.vse.cz",
