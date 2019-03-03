@@ -4,6 +4,9 @@ import { getUserById, setCount } from '../../services/user'
 
 export async function sendDefaultAnswer(sender){
     let user = getUserById(sender)
+    console.log(user)
+    console.log(user[0].count)
+    
     let offset = user[0].count + 1
 
     if( user[0].count < 2){
