@@ -61,8 +61,8 @@ connectDB()
  * CRON services
  * 
  */
-sigtermBE()
-sigtermFE()
+//sigtermBE()
+//sigtermFE()
 
 /**
  * HANDLINGS ERRORS

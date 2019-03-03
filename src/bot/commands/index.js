@@ -1,96 +1,93 @@
 import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages'
 import { getTimeAndDateNow } from '../lib/dateAndTime'
-import { sendIdosAnswer } from '../idos'
-
 import { introIDOS, help, googleTranslator, googleMore } from '../lib/answers'
 import { templates } from '../lib/templates'
+import { sendDefaultAnswer } from '../lib/default'
 
+import { sendIdosAnswer } from '../idos'
 import { sendTraslatedMessage } from '../google'
-
 import { sendNextOfficeHours, sendVSETemplate } from '../vse'
-
 import { sendQuickNews } from '../news'
 
-import {getUserById} from '../../services/user'
+import { getUserById } from '../../services/user'
 
 export async function commands (event) {
-    let webhookEvent = event
+    let sender = event.sender.id
 
-    let incomeMessage = webhookEvent.message.text.toLowerCase().trim()
+    let incomeMessage = event.message.text.toLowerCase().trim()
     let formattedMessage = incomeMessage.toString().split(" ")
 
     switch (formattedMessage[0]) {
         case 'spojeni':
         case 'spojení':
-        await sendMultipleMessages(webhookEvent.sender.id, introIDOS)
-        await sendGenMessage(webhookEvent.sender.id, templates['send_idos_intro'])
+        await sendMultipleMessages(sender, introIDOS)
+        await sendGenMessage(sender, templates['send_idos_intro'])
         break
 
         case 'vyzkoušet':
         case 'vyzkouset':
         const utcObject = getTimeAndDateNow()
         const introTravel = 'spoj volha do hlavni nadrazi'
-        await sendIdosAnswer(webhookEvent.sender.id, introTravel, utcObject.utc)
+        await sendIdosAnswer(sender, introTravel, utcObject.utc)
         break
 
         case 'spoj':
         const utcObj = getTimeAndDateNow() 
-        sendIdosAnswer(webhookEvent.sender.id, incomeMessage, utcObj.utc)
+        sendIdosAnswer(sender, incomeMessage, utcObj.utc)
         break
 
         case 'translator': 
-        await sendMultipleMessages(webhookEvent.sender.id, googleTranslator)
-        await sendGenMessage(webhookEvent.sender.id, templates['send_next_translator'])
+        await sendMultipleMessages(sender, googleTranslator)
+        await sendGenMessage(sender, templates['send_next_translator'])
         break
   
         case 'preloz':
         case 'přelož':
-        await sendTraslatedMessage(webhookEvent.sender.id, incomeMessage, formattedMessage[0])
+        await sendTraslatedMessage(sender, incomeMessage, formattedMessage[0])
         break
 
         case 'vse':
         case 'vše':
-        sendVSETemplate(webhookEvent.sender.id)
+        sendVSETemplate(sender)
         break
 
         case 'ukaz':
         case 'ukaž':
-        await sendMultipleMessages(webhookEvent.sender.id, googleMore)
-        await sendTraslatedMessage(webhookEvent.sender.id, 'Přelož Ahoj jak se máš?', 'Přelož')
+        await sendMultipleMessages(sender, googleMore)
+        await sendTraslatedMessage(sender, 'Přelož Ahoj jak se máš?', 'Přelož')
         break
 
         case 'jazyk':
-        sendGenMessage(webhookEvent.sender.id, templates['get_language'])
+        sendGenMessage(sender, templates['get_language'])
         break
 
         case '▼':
         const utcDay = getTimeAndDateNow()
-        const param = await getUserById(webhookEvent.sender.id)
-        await sendNextOfficeHours(webhookEvent.sender.id, utcDay.day, param[0].college)
+        const param = await getUserById(sender)
+        await sendNextOfficeHours(sender, utcDay.day, param[0].college)
         break
         
         case 'fakulty':
         case 'fakulta':
-        sendGenMessage(webhookEvent.sender.id, templates['get_faculties'])
+        sendGenMessage(sender, templates['get_faculties'])
         break
   
         case 'koleje':
         case 'kolej':
-        sendGenMessage(webhookEvent.sender.id, templates['get_dormitories'])
+        sendGenMessage(sender, templates['get_dormitories'])
         break
 
         case 'novinky':
-        sendQuickNews(webhookEvent.sender.id, incomeMessage)
+        sendQuickNews(sender, incomeMessage)
         break
   
         case 'napoveda':
         case 'nápověda':
-        await sendMultipleMessages(webhookEvent.sender.id, help)
+        await sendMultipleMessages(sender, help)
         break
 
         default:
-        await sendTextMessage(webhookEvent.sender.id, 'Tenhle příkaz neznám.')
-        await sendGenMessage(webhookEvent.sender.id, templates['send_intro'])
+        await sendDefaultAnswer(sender)
         break
     }
 }

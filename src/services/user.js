@@ -41,6 +41,16 @@ export async function setCollege(id, param){
     return user
 }
 
+export async function setCount(id, param){
+    let data = {
+        count : param
+    }
+    
+    const user = User.findOneAndUpdate({id : id}, data, {new : true})
+
+    return user
+}
+
 export async function setLanguage (id, param){
     let data = {
         language : param

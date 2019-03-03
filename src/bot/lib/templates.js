@@ -1,4 +1,5 @@
 export const URL_IMAGES = "https://moonbot-v2-front.herokuapp.com/v2/bot/"
+const phoneNumber = "+420724937056"
 
 export const templates = {
 	get_faculties: {
@@ -273,6 +274,22 @@ export const templates = {
 						type: "postback",
             			title: "1 hodinu",
 						payload: "60"
+					}
+				]
+			}
+		}
+	},
+	get_help:{
+		attachment: {
+			type: "template",
+			payload: {
+				template_type: "button",
+				text: "Potřebujete pomoct? Zavolejte na naši infolinku.",
+				buttons:[
+					{
+						type:"phone_number",
+						title:"Zavolej mi",
+						payload: phoneNumber
 					}
 				]
 			}

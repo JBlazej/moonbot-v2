@@ -12,74 +12,76 @@ import { sendTitle, sendDescription, incrementOffset } from '../news'
 
 export async function payloads(id, payload){
     const utcObject = getTimeAndDateNow()
+    
+    let sender = id
 
     let incomePayload = payload.toLowerCase().trim()
     let formattedPayload = incomePayload.toString().split("-")
 
     switch(formattedPayload[0]) {
         case 'started':
-        await sendMultipleMessages(id, getStartedPayload())
-        await sendGenMessage(id, templates['send_intro'])
-        await createNewUser(id)
+        await sendMultipleMessages(sender, getStartedPayload())
+        await sendGenMessage(sender, templates['send_intro'])
+        await createNewUser(sender)
         break
 
         case 'set':
-        setLanguage(id, formattedPayload[1])
-        sendTextMessage(id, 'Jazyk nastaven.')
+        setLanguage(sender, formattedPayload[1])
+        sendTextMessage(sender, 'Jazyk nastaven.')
         break
 
         case 'colleges':
-        sendGenMessage(id, templates['get_dormitories'])
+        sendGenMessage(sender, templates['get_dormitories'])
         break
 
         case 'faculties':
-        sendGenMessage(id, templates['get_faculties'])
+        sendGenMessage(sender, templates['get_faculties'])
         break
 
         case 'facultie':
-        await sendTitle(id, 0, formattedPayload[1])
+        await sendTitle(sender, 0, formattedPayload[1])
         break
 
         case 'subscribe':
-        await setFacultie(id, formattedPayload[1])
-        await sendTextMessage(id, 'Tvoje fakulta je ' + formattedPayload[1].toUpperCase())
+        await setFacultie(sender, formattedPayload[1])
+        await sendTextMessage(sender, 'Tvoje fakulta je ' + formattedPayload[1].toUpperCase())
         
         break
 
         case 'article':
-        sendDescription(id, formattedPayload[1], formattedPayload[2])
+        sendDescription(sender, formattedPayload[1], formattedPayload[2])
         break
 
         case 'next':
-        await sendTitle(id, formattedPayload[1], formattedPayload[2])
+        await sendTitle(sender, formattedPayload[1], formattedPayload[2])
         break
 
         case 'head':
-        await sendHeadAndRep(id, formattedPayload[1])
+        await sendHeadAndRep(sender, formattedPayload[1])
         break
 
         case 'bla':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
+        await setCollege(sender, payload)
+        await sendOfficeHours(sender, utcObject.day, payload)
+        await sendGenMessage(sender, templates['send_hours'])
         break
 
         case 'jarie':
-        await setCollege(id, payload)
-        await sendOfficeHours(id, utcObject.day, payload)
-        await sendGenMessage(id, templates['send_hours'])
+        await setCollege(sender, payload)
+        await sendOfficeHours(sender, utcObject.day, payload)
+        await sendGenMessage(sender, templates['send_hours'])
         break
 
         case '10':
-        sendNextIdos(id, 10)
+        sendNextIdos(sender, 10)
         break
         
         case '30':
-        sendNextIdos(id, 30)
+        sendNextIdos(sender, 30)
         break
 
         case '60':
-        sendNextIdos(id, 60)
+        sendNextIdos(sender, 60)
         break
     }
 }
