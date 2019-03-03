@@ -511,7 +511,7 @@ export const templates = {
 					{
 						title: "Švecova kolej",
 						subtitle: "Kolej je umístěn ve středu Jindřichova Hradce.",
-						image_url: URL_IMAGES+"svecova.jpg",
+						image_url: URL_IMAGES+"svecova.JPG",
 						default_action: {
 							type: "web_url",
 							url: "http://kolejsvecova.fm.vse.cz",

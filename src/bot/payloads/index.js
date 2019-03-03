@@ -42,7 +42,7 @@ export async function payloads(id, payload){
 
         case 'subscribe':
         await setFacultie(id, formattedPayload[1])
-        await sendTextMessage(id, 'Tvoje fakulta je ' + formattedPayload[1])
+        await sendTextMessage(id, 'Tvoje fakulta je ' + formattedPayload[1].toUpperCase())
         
         break
 
@@ -64,7 +64,7 @@ export async function payloads(id, payload){
         await sendGenMessage(id, templates['send_hours'])
         break
 
-        case 'jarIE':
+        case 'jarie':
         await setCollege(id, payload)
         await sendOfficeHours(id, utcObject.day, payload)
         await sendGenMessage(id, templates['send_hours'])
