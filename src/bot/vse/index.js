@@ -1,5 +1,6 @@
 import { sendGenMessage, sendMultipleMessages } from '../lib/messages';
 import { templates } from '../lib/templates';
+import { URL_IMAGES } from '../../conf/api';
 
 import { getDormitoryById } from '../../services/dormitory';
 import { getOfficeById } from '../../services/office';
@@ -36,8 +37,6 @@ export async function sendNextOfficeHours(sender, dayNow, college) {
 		await sendOfficeHours(sender, array[i], college);
 	}
 }
-
-import { URL_IMAGES } from '../lib/templates';
 
 export async function sendVSETemplate(sender) {
 	const user = await getUserById(sender);

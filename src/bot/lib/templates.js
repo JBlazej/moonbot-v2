@@ -1,5 +1,4 @@
-export const URL_IMAGES = 'https://moonbot-v2-front.herokuapp.com/v1/bot/';
-const phoneNumber = '+420724937056';
+import { URL_IMAGES, PHONE_NUMBER } from '../../conf/api';
 
 export const templates = {
 	get_faculties: {
@@ -289,7 +288,7 @@ export const templates = {
 					{
 						type: 'phone_number',
 						title: 'Zavolej mi',
-						payload: phoneNumber
+						payload: PHONE_NUMBER
 					}
 				]
 			}
