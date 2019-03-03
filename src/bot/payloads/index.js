@@ -44,7 +44,7 @@ export async function payloads(id, payload){
 
         case 'subscribe':
         await setFacultie(sender, formattedPayload[1])
-        await sendTextMessage(sender, 'Tvoje fakulta je ' + formattedPayload[1].toUpperCase())
+        await sendTextMessage(sender, 'Tvoje fakulta je ' + formattedPayload[1].toUpperCase() + '.')
         break
 
         case 'cancel':
