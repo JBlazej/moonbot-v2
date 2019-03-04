@@ -12,17 +12,7 @@ export function getStartedPayload() {
 
 export const introIDOS = [ 'Pro vyhledávání zadej příkaz Spoj a zadej názvy zastávek odkud a kam.', 'Například' ];
 
-export const help = [
-	'Platné příkazy:',
-	'VŠE',
-	'Fakutly',
-	'Koleje',
-	'Novinky',
-	'Spojení',
-	'Translator',
-	'Nastavení',
-	'Nápověda'
-];
+export const help = [ 'Platné příkazy:', 'VŠE', 'Fakutly', 'Koleje', 'Novinky', 'Spojení', 'Translator', 'Nápověda' ];
 
 export const googleTranslator = [
 	'Dokážu překládat do Angličtiny, Němčiny a Španělštiny.',
