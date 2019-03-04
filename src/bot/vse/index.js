@@ -1,5 +1,6 @@
 import { sendGenMessage, sendMultipleMessages } from '../lib/messages';
 import { templates } from '../lib/templates';
+
 import { URL_IMAGES } from '../../conf/api';
 
 import { getDormitoryById } from '../../services/dormitory';
@@ -23,7 +24,9 @@ export async function sendOfficeHours(sender, day, college) {
 	await sendMultipleMessages(sender, answer);
 }
 
-export async function sendNextOfficeHours(sender, dayNow, college) {
+export async function sendNextOfficeHours(sender, dayNow) {
+	const user = await getUserById(sender);
+
 	let remove = dayNow;
 
 	var array = [ 1, 2, 3, 4, 5 ];
@@ -34,7 +37,7 @@ export async function sendNextOfficeHours(sender, dayNow, college) {
 	}
 
 	for (var i in array) {
-		await sendOfficeHours(sender, array[i], college);
+		await sendOfficeHours(sender, array[i], user[0].college);
 	}
 }
 

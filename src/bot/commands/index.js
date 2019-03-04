@@ -9,8 +9,6 @@ import { sendTraslatedMessage } from '../google';
 import { sendNextOfficeHours, sendVSETemplate } from '../vse';
 import { sendQuickNews } from '../news';
 
-import { getUserById } from '../../services/user';
-
 export async function commands(event) {
 	let sender = event.sender.id;
 	let utcObject = getTimeAndDateNow();
@@ -61,8 +59,7 @@ export async function commands(event) {
 			break;
 
 		case '▼':
-			const user = await getUserById(sender);
-			await sendNextOfficeHours(sender, utcObject.day, user[0].college);
+			await sendNextOfficeHours(sender, utcObject.day);
 			break;
 
 		case 'fakulty':
