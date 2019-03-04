@@ -1,7 +1,8 @@
 import request from 'request';
 import { parseString } from 'xml2js';
 
-import { sendGenMessage, sendTextMessage } from '../lib/messages';
+import { sendGenMessage, sendMultipleMessages } from '../lib/messages';
+import { vseNewsNoMoreArticle, vseNewsError } from '../lib/answers';
 
 import { getUserById } from '../../services/user';
 
@@ -50,7 +51,7 @@ export async function sendTitle(id, off, url) {
 			});
 		});
 	} else {
-		sendTextMessage(id, 'Žádné nové články.');
+		sendMultipleMessages(id, vseNewsNoMoreArticle);
 	}
 }
 
@@ -115,7 +116,7 @@ export async function sendQuickNews(id, message) {
 		const supportedURL = [ 'vše', 'vse', 'ffu', 'fmv', 'fph', 'fis', 'nf', 'fm' ];
 
 		if (supportedURL.indexOf(formattedNews[1]) === -1) {
-			sendTextMessage(id, 'Špatně zadaný příkaz.');
+			sendMultipleMessages(id, vseNewsError);
 		} else {
 			await sendTitle(id, 0, formattedNews[1]);
 		}

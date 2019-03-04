@@ -136,6 +136,6 @@ export async function sendNextIdos(id, shift) {
 
 		return sendIdosAnswer(id, text, shiftUTC);
 	} else {
-		sendTextMessage(id, 'Něco se pokazilo zkus to znovu :-(');
+		sendMultipleMessages(sender, idosError);
 	}
 }

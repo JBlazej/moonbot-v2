@@ -3,7 +3,7 @@ import { Translate } from '@google-cloud/translate';
 import { gooAuth } from '../../conf/google';
 
 import { sendTextMessage, sendMultipleMessages } from '../lib/messages';
-import { googleTranslatorLoading } from '../lib/answers';
+import { googleTranslatorLoading, googleTranslatorError } from '../lib/answers';
 
 import { getUserById } from '../../services/user';
 
@@ -11,7 +11,7 @@ export async function sendTraslatedMessage(id, text, command) {
 	const textToTranslate = await transformTextForGoogle(text, command);
 
 	if (textToTranslate === false) {
-		await sendTextMessage(id, 'Špatně zadán příkaz.');
+		await sendMultipleMessages(id, googleTranslatorError);
 	} else {
 		await sendMultipleMessages(id, googleTranslatorLoading);
 		const userLanguage = await getUserById(id);
