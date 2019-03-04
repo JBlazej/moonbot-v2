@@ -11,7 +11,7 @@ import { sendHeadAndRep, sendOfficeHours } from '../vse';
 import { sendTitle, sendDescription, incrementOffset } from '../news';
 
 export async function payloads(id, payload) {
-	const utcObject = getTimeAndDateNow();
+	let utcObject = getTimeAndDateNow();
 
 	let sender = id;
 

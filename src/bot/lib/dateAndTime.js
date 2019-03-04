@@ -19,33 +19,6 @@ export function getTimeAndDateNow(utc) {
 	};
 }
 
-function getDayOfTheWeek(utcTimeAndDate) {
-	const actualTime = moment(utcTimeAndDate);
-	const dayOfWeek = actualTime.day();
-
-	return dayOfWeek;
-}
-
-export function getTime(utcTimeAndDate) {
-	const actualTime = moment(utcTimeAndDate);
-	const shiftedTime = actualTime.add(1, 'hours');
-	const formatedTime = shiftedTime.format('HH:mm');
-
-	return formatedTime;
-}
-
-export function getDate(utcTimeAndDate) {
-	const actualDate = moment(utcTimeAndDate).format('D.M.YYYY');
-
-	return actualDate;
-}
-
-export function getYear(utcTimeAndDate) {
-	const actualYear = moment(utcTimeAndDate).format('YYYY');
-
-	return actualYear;
-}
-
 export function shiftTimeAndDateUTC(utcTimeAndDate, shift) {
 	const actualTimeAndDateUTC = moment(utcTimeAndDate);
 	const increaseForMinutes = shift;
@@ -55,7 +28,34 @@ export function shiftTimeAndDateUTC(utcTimeAndDate, shift) {
 	return shiftedTimeAndDateUTC;
 }
 
-export function getPartOfTheDay(utcTimeAndDate) {
+function getTime(utcTimeAndDate) {
+	const actualTime = moment(utcTimeAndDate);
+	const shiftedTime = actualTime.add(1, 'hours');
+	const formatedTime = shiftedTime.format('HH:mm');
+
+	return formatedTime;
+}
+
+function getDate(utcTimeAndDate) {
+	const actualDate = moment(utcTimeAndDate).format('D.M.YYYY');
+
+	return actualDate;
+}
+
+function getYear(utcTimeAndDate) {
+	const actualYear = moment(utcTimeAndDate).format('YYYY');
+
+	return actualYear;
+}
+
+function getDayOfTheWeek(utcTimeAndDate) {
+	const actualTime = moment(utcTimeAndDate);
+	const dayOfWeek = actualTime.day();
+
+	return dayOfWeek;
+}
+
+function getPartOfTheDay(utcTimeAndDate) {
 	const actualTime = moment(utcTimeAndDate);
 	const hour = actualTime.add(1, 'hours');
 	const formatedHour = hour.format('H');

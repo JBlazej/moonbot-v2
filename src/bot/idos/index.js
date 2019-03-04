@@ -24,11 +24,7 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
 	let from = encodeUrlParameter(stops[0]);
 	let to = encodeUrlParameter(stops[1]);
 
-	let timeTravel = utcTimeAndDate.time;
-	console.log(timeTravel);
-	let dateTravel = utcTimeAndDate.date;
-
-	const initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel);
+	const initializePromise = getDataFromIdos(from, to, utcTimeAndDate.time, utcTimeAndDate.date);
 	initializePromise.then((result) => {
 		let data = result ? result : null;
 
@@ -129,16 +125,14 @@ function encodeUrlParameter(value) {
 }
 
 export async function sendNextIdos(id, shift) {
-	const pole = await getUserById(id);
+	const user = await getUserById(id);
 
-	if (pole) {
-		let text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to;
+	if (user) {
+		let text = 'spoj ' + user[0].station.from + ' do ' + user[0].station.to;
 
-		let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(pole[0].station.time, shift);
-		console.log(shiftedTimeAndDateUTC);
+		let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(user[0].station.time, shift);
+
 		let shiftUTC = getTimeAndDateNow(shiftedTimeAndDateUTC);
-
-		console.log(shiftUTC);
 
 		return sendIdosAnswer(id, text, shiftUTC);
 	} else {

@@ -13,6 +13,7 @@ import { getUserById } from '../../services/user';
 
 export async function commands(event) {
 	let sender = event.sender.id;
+	let utcObject = getTimeAndDateNow();
 
 	let incomeMessage = event.message.text.toLowerCase().trim();
 	let formattedMessage = incomeMessage.toString().split(' ');
@@ -26,14 +27,12 @@ export async function commands(event) {
 
 		case 'vyzkoušet':
 		case 'vyzkouset':
-			const utcObject = getTimeAndDateNow();
 			const introTravel = 'spoj volha do hlavni nadrazi';
 			await sendIdosAnswer(sender, introTravel, utcObject);
 			break;
 
 		case 'spoj':
-			const utcObj = getTimeAndDateNow();
-			sendIdosAnswer(sender, incomeMessage, utcObj);
+			sendIdosAnswer(sender, incomeMessage, utcObject);
 			break;
 
 		case 'translator':
@@ -62,9 +61,8 @@ export async function commands(event) {
 			break;
 
 		case '▼':
-			const utcDay = getTimeAndDateNow();
-			const param = await getUserById(sender);
-			await sendNextOfficeHours(sender, utcDay.day, param[0].college);
+			const user = await getUserById(sender);
+			await sendNextOfficeHours(sender, utcObject.day, user[0].college);
 			break;
 
 		case 'fakulty':
