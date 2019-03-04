@@ -25,7 +25,7 @@ import { sigtermBE, sigtermFE } from './services/sigterm';
 const app = express();
 
 /**
- * Setup Express server
+ * Setup server
  * 
  */
 app.use(sslRedirect());
