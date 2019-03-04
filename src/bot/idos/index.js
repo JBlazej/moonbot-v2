@@ -2,7 +2,7 @@ import async from 'async';
 import tabletojson from 'tabletojson';
 
 import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages';
-import { getTimeAndDateNow } from '../lib/dateAndTime';
+import { getTimeAndDateNow, shiftTimeAndDateUTC } from '../lib/dateAndTime';
 import { templates } from '../lib/templates';
 import { loadingIDOS, errorIDOS } from '../lib/answers';
 
@@ -20,16 +20,13 @@ function getDataFromIdos(from, to, timeTravel, dateTravel) {
 
 export function sendIdosAnswer(sender, text, utcTimeAndDate) {
 	const stops = transformTextForIdos(text);
-	console.log(utcTimeAndDate);
 
 	let from = encodeUrlParameter(stops[0]);
 	let to = encodeUrlParameter(stops[1]);
 
 	let timeTravel = utcTimeAndDate.time;
+	console.log(timeTravel);
 	let dateTravel = utcTimeAndDate.date;
-
-	console.log(utcTimeAndDate.time);
-	console.log(utcTimeAndDate.date);
 
 	const initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel);
 	initializePromise.then((result) => {
@@ -137,12 +134,13 @@ export async function sendNextIdos(id, shift) {
 	if (pole) {
 		let text = 'spoj ' + pole[0].station.from + ' do ' + pole[0].station.to;
 
-		let utcTimeAndDate = pole[0].station.time;
+		let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(pole[0].station.time, shift);
+		console.log(shiftedTimeAndDateUTC);
+		let shiftUTC = getTimeAndDateNow(shiftedTimeAndDateUTC);
 
-		let timeAndDateObject = getTimeAndDateNow(utcTimeAndDate, shift);
-		console.log(timeAndDateObject);
+		console.log(shiftUTC);
 
-		return sendIdosAnswer(id, text, timeAndDateObject);
+		return sendIdosAnswer(id, text, shiftUTC);
 	} else {
 		sendTextMessage(id, 'Něco se pokazilo zkus to znovu :-(');
 	}

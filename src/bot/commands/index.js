@@ -28,12 +28,11 @@ export async function commands(event) {
 		case 'vyzkouset':
 			const utcObject = getTimeAndDateNow();
 			const introTravel = 'spoj volha do hlavni nadrazi';
-			await sendIdosAnswer(sender, introTravel, utcObject.utc);
+			await sendIdosAnswer(sender, introTravel, utcObject);
 			break;
 
 		case 'spoj':
 			const utcObj = getTimeAndDateNow();
-			console.log(utcObj);
 			sendIdosAnswer(sender, incomeMessage, utcObj);
 			break;
 
