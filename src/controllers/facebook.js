@@ -25,8 +25,8 @@ export async function facebookEventHook(req, res) {
 
 	if (body.object === 'page') {
 		// Iterates over each entry - there may be multiple if batched
-		body.entry.forEach(function(entry) {
-			entry.messaging.forEach(function(event) {
+		body.entry.forEach((entry) => {
+			entry.messaging.forEach((event) => {
 				console.log(event);
 				botMessengerMiddleware(event);
 			});
