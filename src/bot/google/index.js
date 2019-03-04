@@ -1,7 +1,8 @@
-import { gooAuth } from '../../conf/google';
 import { Translate } from '@google-cloud/translate';
-import { sendTextMessage, sendMultipleMessages } from '../lib/messages';
 
+import { gooAuth } from '../../conf/google';
+
+import { sendTextMessage, sendMultipleMessages } from '../lib/messages';
 import { loadingTranslator } from '../lib/answers';
 
 import { getUserById } from '../../services/user';

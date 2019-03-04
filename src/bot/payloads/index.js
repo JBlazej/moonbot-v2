@@ -1,19 +1,16 @@
-import { createNewUser, setLanguage, setCollege, setOffset, setURL, setFacultie } from '../../services/user';
-
 import { sendTextMessage, sendMultipleMessages, sendGenMessage } from '../lib/messages';
-import { getStartedPayload, introIDOS } from '../lib/answers';
+import { getStartedPayload } from '../lib/answers';
 import { templates } from '../lib/templates';
-
 import { getTimeAndDateNow } from '../lib/dateAndTime';
 
 import { sendNextIdos } from '../idos';
 import { sendHeadAndRep, sendOfficeHours } from '../vse';
-import { sendTitle, sendDescription, incrementOffset } from '../news';
+import { sendTitle, sendDescription } from '../news';
 
-export async function payloads(id, payload) {
+import { createNewUser, setLanguage, setCollege, setFacultie } from '../../services/user';
+
+export async function payloads(sender, payload) {
 	let utcObject = getTimeAndDateNow();
-
-	let sender = id;
 
 	let incomePayload = payload.toLowerCase().trim();
 	let formattedPayload = incomePayload.toString().split('-');
