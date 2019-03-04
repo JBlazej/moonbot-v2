@@ -24,7 +24,7 @@ export async function payloads(sender, payload) {
 
 		case 'set':
 			setLanguage(sender, formattedPayload[1]);
-			sendTextMessage(sender, 'Jazyk' + formattedPayload[1].toUpperCase() + 'byl nastaven.');
+			sendTextMessage(sender, 'Jazyk ' + formattedPayload[1].toUpperCase() + ' byl nastaven.');
 			break;
 
 		case 'colleges':
