@@ -9,3 +9,7 @@ https://moonbot-v2-front.herokuapp.com
 
 # Heroku logs
 heroku logs --tail -a moonbot-v2
+
+
+// Likes
+// 369239383222810 369239263222822 369239343222814

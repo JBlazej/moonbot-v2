@@ -19,6 +19,3 @@ export async function botMessengerMiddleware(event) {
 		payloads(webhookEvent.sender.id, webhookEvent.postback.payload);
 	}
 }
-
-// Likes
-// 369239383222810 369239263222822 369239343222814
