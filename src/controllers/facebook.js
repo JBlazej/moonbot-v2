@@ -27,6 +27,7 @@ export async function facebookEventHook(req, res) {
 		// Iterates over each entry - there may be multiple if batched
 		body.entry.forEach((entry) => {
 			entry.messaging.forEach((event) => {
+				// Income message console.log
 				console.log(event);
 				botMessengerMiddleware(event);
 			});

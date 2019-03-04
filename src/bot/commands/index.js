@@ -33,7 +33,7 @@ export async function commands(event) {
 
 		case 'spoj':
 			const utcObj = getTimeAndDateNow();
-			sendIdosAnswer(sender, incomeMessage, utcObj.utc);
+			sendIdosAnswer(sender, incomeMessage, utcObj);
 			break;
 
 		case 'translator':

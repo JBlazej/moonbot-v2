@@ -2,7 +2,7 @@ import async from 'async';
 import tabletojson from 'tabletojson';
 
 import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages';
-import { getTime, getDate, shiftTimeAndDateUTC } from '../lib/dateAndTime';
+import { getTimeAndDateNow } from '../lib/dateAndTime';
 import { templates } from '../lib/templates';
 import { loadingIDOS, errorIDOS } from '../lib/answers';
 
@@ -24,8 +24,11 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
 	let from = encodeUrlParameter(stops[0]);
 	let to = encodeUrlParameter(stops[1]);
 
-	let timeTravel = getTime(utcTimeAndDate);
-	let dateTravel = getDate(utcTimeAndDate);
+	let timeTravel = utcTimeAndDate.time;
+	let dateTravel = utcTimeAndDate.date;
+
+	console.log(utcTimeAndDate.time);
+	console.log(utcTimeAndDate.date);
 
 	const initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel);
 	initializePromise.then((result) => {
@@ -135,9 +138,10 @@ export async function sendNextIdos(id, shift) {
 
 		let utcTimeAndDate = pole[0].station.time;
 
-		let shiftedTimeAndDateUTC = shiftTimeAndDateUTC(utcTimeAndDate, shift);
+		let timeAndDateObject = getTimeAndDateNow(utcTimeAndDate, shift);
+		console.log(timeAndDateObject);
 
-		return sendIdosAnswer(id, text, shiftedTimeAndDateUTC);
+		return sendIdosAnswer(id, text, timeAndDateObject);
 	} else {
 		sendTextMessage(id, 'Něco se pokazilo zkus to znovu :-(');
 	}

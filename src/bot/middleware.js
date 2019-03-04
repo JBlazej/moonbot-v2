@@ -16,7 +16,6 @@ export async function botMessengerMiddleware(event) {
 		}
 	} else {
 		// Payload
-		console.log(webhookEvent.postback.payload);
 		payloads(webhookEvent.sender.id, webhookEvent.postback.payload);
 	}
 }

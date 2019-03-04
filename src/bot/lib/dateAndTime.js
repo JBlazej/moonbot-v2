@@ -1,11 +1,13 @@
 import moment from 'moment';
 
-export function getTimeAndDateNow(utc) {
+export function getTimeAndDateNow(utc, shift) {
 	const newDate = utc ? utc : new Date();
+	const newShift = shift ? shift : 0;
 
 	const time = getTime(newDate);
 	const date = getDate(newDate);
 	const year = getYear(newDate);
+	const shiftUTC = shiftTimeAndDateUTC(newDate, newShift);
 	const day = getDayOfTheWeek(newDate);
 	const set = getPartOfTheDay(newDate);
 
@@ -14,6 +16,7 @@ export function getTimeAndDateNow(utc) {
 		time: time,
 		date: date,
 		year: year,
+		shiftUTC: shiftUTC,
 		set: set,
 		day: day
 	};
