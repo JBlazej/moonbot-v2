@@ -1,6 +1,6 @@
 import { sendMultipleMessages, sendGenMessage } from '../lib/messages';
 import { getTimeAndDateNow } from '../lib/dateAndTime';
-import { introIDOS, help, googleTranslator, googleMore } from '../lib/answers';
+import { idosIntro, googleTranslatorIntro, googleTranslatorMore, help } from '../lib/answers';
 import { templates } from '../lib/templates';
 import { sendDefaultAnswer } from '../lib/default';
 
@@ -19,14 +19,13 @@ export async function commands(event) {
 	switch (formattedMessage[0]) {
 		case 'spojeni':
 		case 'spojení':
-			await sendMultipleMessages(sender, introIDOS);
+			await sendMultipleMessages(sender, idosIntro);
 			await sendGenMessage(sender, templates['send_idos_intro']);
 			break;
 
 		case 'vyzkoušet':
 		case 'vyzkouset':
-			const introTravel = 'spoj volha do hlavni nadrazi';
-			await sendIdosAnswer(sender, introTravel, utcObject);
+			await sendIdosAnswer(sender, 'spoj volha do hlavni nadrazi', utcObject);
 			break;
 
 		case 'spoj':
@@ -34,7 +33,7 @@ export async function commands(event) {
 			break;
 
 		case 'translator':
-			await sendMultipleMessages(sender, googleTranslator);
+			await sendMultipleMessages(sender, googleTranslatorIntro);
 			await sendGenMessage(sender, templates['send_next_translator']);
 			break;
 
@@ -50,7 +49,7 @@ export async function commands(event) {
 
 		case 'ukaz':
 		case 'ukaž':
-			await sendMultipleMessages(sender, googleMore);
+			await sendMultipleMessages(sender, googleTranslatorMore);
 			await sendTraslatedMessage(sender, 'Přelož Ahoj jak se máš?', 'Přelož');
 			break;
 

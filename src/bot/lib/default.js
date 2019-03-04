@@ -1,5 +1,7 @@
 import { templates } from '../lib/templates';
-import { sendTextMessage, sendGenMessage } from '../lib/messages';
+import { sendMultipleMessages, sendGenMessage } from '../lib/messages';
+import { defaultError } from '../lib/answers';
+
 import { getUserById, setCount } from '../../services/user';
 
 export async function sendDefaultAnswer(sender) {
@@ -7,12 +9,12 @@ export async function sendDefaultAnswer(sender) {
 	let offset = user[0].count + 1;
 
 	if (user[0].count < 2) {
-		await sendTextMessage(sender, 'Tenhle příkaz neznám.');
+		await sendMultipleMessages(sender, defaultError);
 		await sendGenMessage(sender, templates['send_intro']);
 
 		await setCount(sender, offset);
 	} else {
-		await sendTextMessage(sender, 'Tenhle příkaz neznám.');
+		await sendMultipleMessages(sender, defaultError);
 		await sendGenMessage(sender, templates['get_help']);
 
 		await setCount(sender, 0);

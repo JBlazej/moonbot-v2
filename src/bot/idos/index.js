@@ -4,7 +4,7 @@ import tabletojson from 'tabletojson';
 import { sendTextMessage, sendGenMessage, sendMultipleMessages } from '../lib/messages';
 import { getTimeAndDateNow, shiftTimeAndDateUTC } from '../lib/dateAndTime';
 import { templates } from '../lib/templates';
-import { loadingIDOS, errorIDOS } from '../lib/answers';
+import { idosLoading, idosError } from '../lib/answers';
 
 import { modifyUserById, getUserById } from '../../services/user';
 
@@ -29,9 +29,9 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
 		let data = result ? result : null;
 
 		if (data === null) {
-			sendMultipleMessages(sender, errorIDOS);
+			sendMultipleMessages(sender, idosError);
 		} else {
-			sendMultipleMessages(sender, loadingIDOS);
+			sendMultipleMessages(sender, idosLoading);
 		}
 		let i = 0;
 

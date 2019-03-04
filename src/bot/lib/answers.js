@@ -1,5 +1,6 @@
 import { getTimeAndDateNow } from './dateAndTime';
 
+// Starting intro
 export function getStartedPayload() {
 	let utc = getTimeAndDateNow();
 	const result = [
@@ -10,19 +11,25 @@ export function getStartedPayload() {
 	return result;
 }
 
-export const introIDOS = [ 'Pro vyhledávání zadej příkaz Spoj a zadej názvy zastávek odkud a kam.', 'Například' ];
+// IDOS
+export const idosIntro = [ 'Pro vyhledávání zadej příkaz Spoj a zadej názvy zastávek odkud a kam.', 'Například' ];
 
-export const help = [ 'Platné příkazy:', 'VŠE', 'Fakutly', 'Koleje', 'Novinky', 'Spojení', 'Translator', 'Nápověda' ];
+export const idosLoading = [ 'Váš spoj se vyhledává...' ];
 
-export const googleTranslator = [
+export const idosError = [ 'Špatný název zastávky.', 'Příkaz je ve tvaru: Spoj odkud do kam' ];
+
+// Google translator
+export const googleTranslatorIntro = [
 	'Dokážu překládat do Angličtiny, Němčiny a Španělštiny.',
 	'Zadej příkaz Přelož mezera a tvůj text.'
 ];
 
-export const googleMore = [ 'Přelož Ahoj jak se máš?' ];
+export const googleTranslatorMore = [ 'Přelož Ahoj jak se máš?' ];
 
-export const loadingTranslator = [ 'Váš text se překládá...' ];
+export const googleTranslatorLoading = [ 'Váš text se překládá...' ];
 
-export const loadingIDOS = [ 'Váš spoj se vyhledává...' ];
+// Help
+export const help = [ 'Platné příkazy:', 'VŠE', 'Fakutly', 'Koleje', 'Novinky', 'Spojení', 'Translator', 'Nápověda' ];
 
-export const errorIDOS = [ 'Špatný název zastávky.', 'Příkaz je ve tvaru: Spoj odkud do kam' ];
+// Default
+export const defaultError = [ 'Tenhle příkaz neznám.' ];
