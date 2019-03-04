@@ -20,15 +20,16 @@ function getDataFromIdos(from, to, timeTravel, dateTravel) {
 
 export function sendIdosAnswer(sender, text, utcTimeAndDate) {
 	const stops = transformTextForIdos(text);
+	console.log(utcTimeAndDate);
 
 	let from = encodeUrlParameter(stops[0]);
 	let to = encodeUrlParameter(stops[1]);
 
-	let timeTravel = utcTimeAndDate[0].time;
-	let dateTravel = utcTimeAndDate[0].date;
+	let timeTravel = utcTimeAndDate.time;
+	let dateTravel = utcTimeAndDate.date;
 
-	console.log(utcTimeAndDate[0].time);
-	console.log(utcTimeAndDate[0].date);
+	console.log(utcTimeAndDate.time);
+	console.log(utcTimeAndDate.date);
 
 	const initializePromise = getDataFromIdos(from, to, timeTravel, dateTravel);
 	initializePromise.then((result) => {
