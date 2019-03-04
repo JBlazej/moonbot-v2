@@ -58,7 +58,7 @@ export function sendIdosAnswer(sender, text, utcTimeAndDate) {
 					sendGenMessage(sender, templates['get_next_idos']);
 				}, 700);
 				setTimeout(() => {
-					modifyUserById(sender, stops[0], stops[1], utcTimeAndDate);
+					modifyUserById(sender, stops[0], stops[1], utcTimeAndDate.utc);
 				}, 900);
 
 				return callback(err);
