@@ -17,10 +17,9 @@ import { sigtermBE, sigtermFE } from './services/sigterm';
  * version 2
  * 
  * Jan Blažej
- * Vysoká škola ekonomická v Praze
- * V roce 2018
- * 
  * Bachelor thesis
+ * Vysoká škola ekonomická v Praze
+ * 2019
  * 
  */
 const app = express();
