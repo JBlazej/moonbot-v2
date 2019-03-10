@@ -15,6 +15,8 @@ export async function commands(event) {
 
 	let incomeMessage = event.message.text.toLowerCase().trim();
 	let formattedMessage = incomeMessage.toString().split(' ');
+	console.log(formattedMessage);
+	console.log(formattedMessage);
 
 	switch (formattedMessage[0]) {
 		case 'spojeni':
